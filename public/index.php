@@ -6,7 +6,10 @@ use Phalcon\Mvc\View\Engine\Volt;
 use Phalcon\Mvc\Application;
 use Phalcon\Config\Adapter\Ini as ConfigIni;
 use Phalcon\Di\FactoryDefault;
+
 use Phalcon\Mvc\Url as UrlProvider;
+use Phalcon\Mvc\Router;
+
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 
 $config = new ConfigIni('../app/config/config.ini');
@@ -22,8 +25,6 @@ $loader->registerDirs(
 $loader->register();
 
 $di = new FactoryDefault();
-
-echo $config->database->host;
 
 $di->set(
   "db",
@@ -74,15 +75,36 @@ $di->set(
 );
 
 $di->set(
-  "url",
+  'url',
   function () {
     $url = new UrlProvider();
 
     $url->setBaseUri("/");
 
-      return $url;
+    return $url;
   }
 );
+
+$di->set(
+  'router',
+  function () {
+    $router = new Router();
+
+    $router->add(
+      "/catalog/{id}",
+      [
+        "controller" => 'products',
+        "action" => "show",
+      ]
+    );
+
+
+    $router->handle();
+
+    return $router;
+  }
+);
+
 
 
 $application = new Application($di);

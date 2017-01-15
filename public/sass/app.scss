@@ -1,0 +1,258 @@
+@import 'components/reset';
+@import 'components/layout';
+@import 'components/breakpoint';
+
+$primary-color: #212121;
+$background-color: #f1f1f1;
+$light-color: #ffffff;
+
+$primary-grey-color: #8f8f8f;
+$dark-grey-color: #333;
+$light-grey-color: #e0e0e0;
+
+$gutter: 1.25rem;
+
+$s: 48rem;
+$m: 80rem;
+$l: 100rem;
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $primary-color;
+  background-color: $background-color;
+  font-family: 'proxima-nova', 'PT Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+$margin-s: 0.5rem;
+$margin-m: 1rem;
+$margin-l: 2rem;
+
+$header-size: 3rem;
+$header-size-medium: 5rem;
+
+.header {
+  background: $light-color;
+  display: flex;
+  height: $header-size;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+
+  &-burger {
+    // margin: 0 $gutter / 2;
+    
+    .burger {
+      padding: 19px $gutter 18px;
+      user-select: none;
+      cursor: pointer;
+
+      &-line {
+        background: $primary-grey-color;
+        height: 1px;
+        width: $gutter;
+        margin-bottom: 4px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &-logo {
+    a {
+      display: block;
+      padding: $margin-s 0;
+      height: $header-size;
+
+      img {
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+
+  &-bag {
+    margin-right: $gutter / 2;
+
+    .bag {
+      background: {
+        image: url('images/bag.svg');
+        size: 2rem;
+        repeat: no-repeat;
+        position: center;
+      }
+      display: block;
+      height: $header-size;
+      width: $header-size;
+    }
+  }
+
+  &-search-icon {
+    margin-left: auto;
+
+    .search {
+      background: {
+        image: url('images/search.svg');
+        size: 2rem;
+        repeat: no-repeat;
+        position: center;
+      }
+      display: block;
+      height: $header-size;
+      width: $header-size;
+    }
+  }
+
+  &-phone {
+    flex-shrink: 0;
+    display: none;
+  }
+
+  &-search {
+    flex-shrink: 0;
+    display: none;
+  }
+
+  &-menu {
+    display: none;
+  }
+
+  @include breakpoint($s) {
+    height: $header-size-medium;
+
+    &-logo {
+      a {
+        height: $header-size-medium;
+        padding: $margin-m 0;
+      }
+    }
+
+    &-phone {
+      align-self: center;
+      display: block;
+      margin: 0 $gutter 0 auto;
+
+      font-size: 1.25rem;
+      line-height: 3rem;
+    }
+
+    &-search-icon {
+      margin-left: 0;
+    }
+
+    &-burger, &-search-icon, &-bag, &-phone {
+      padding: $margin-m 0;
+    }
+  }
+
+
+  @include breakpoint($m) {
+    &-menu {
+      display: flex;
+      font-size: 0.875rem;
+      padding: $margin-l 0;
+      margin-left: $gutter;
+      // letter-spacing: 0.12em;
+      text-transform: uppercase;  
+
+
+      &-item {
+        align-self: center;
+        margin-right: $gutter;
+      }
+    }
+
+    &-burger {
+      display: none;
+    }
+
+    &-logo {
+      margin-left: $gutter;
+    }
+
+    &-phone {
+      font-size: 1rem;
+    }
+
+  }
+
+  @include breakpoint($m + 8rem) {
+    &-menu {
+      letter-spacing: 0.12em;
+    }
+
+    &-phone {
+      font-size: 1.25rem;
+    }
+  }
+
+  @include breakpoint($l) {
+    &-search-icon {
+      display: none;
+    }
+
+    &-search {
+      align-self: center;
+      display: block;
+      flex-grow: 1;
+      max-width: 18rem;
+      position: relative;
+      margin-right: $gutter / 2;
+
+      &-input {
+        border: 1px solid $light-grey-color;
+        border-radius: 2px;
+        font-size: 1rem;
+        font-family: inherit;
+        padding: $margin-s $gutter / 2;
+        width: 100%;
+        line-height: 1.5rem;
+      }
+
+      &-submit {
+        background: {
+          image: url('images/search.svg');
+          color: transparent;
+          size: 2rem;
+          repeat: no-repeat;
+          position: center;
+        }   
+        border: 0;
+        cursor: pointer;
+        position: absolute;
+        height: 40px;
+        width: 40px;
+
+        right: 1px;
+        top: 1px;
+      }
+    }
+
+    &-menu {
+      margin-right: $gutter * 1.5;
+    }
+
+
+    &-phone {
+      margin-left: auto;
+    }
+  }
+}
+
+.main {
+  padding-top: $header-size;
+
+  @include breakpoint($s) {
+    padding-top: $header-size-medium;
+  }
+}
