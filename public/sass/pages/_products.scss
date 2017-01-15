@@ -1,0 +1,29 @@
+.product {
+  &-images {
+    display: flex;
+
+    &-item {
+      max-width: 200px;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+.breadcrumb {
+  display: flex;
+
+  &-item {
+    margin-right: $gutter / 2;
+
+    &:not(:last-child) {
+      &:after {
+        content: '/'
+      }
+    }
+  }
+}

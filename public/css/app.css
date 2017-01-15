@@ -188,3 +188,20 @@ body {
   @media (min-width: 48rem) {
     .main {
       padding-top: 5rem; } }
+
+.product-images {
+  display: -ms-flexbox;
+  display: flex; }
+  .product-images-item {
+    max-width: 200px; }
+    .product-images-item img {
+      display: block;
+      width: 100%; }
+
+.breadcrumb {
+  display: -ms-flexbox;
+  display: flex; }
+  .breadcrumb-item {
+    margin-right: 0.625rem; }
+    .breadcrumb-item:not(:last-child):after {
+      content: '/'; }

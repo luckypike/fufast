@@ -7,6 +7,7 @@ class IndexController extends Controller {
     $products = Products::query()
       ->columns('Products.ID, IblockElements.NAME')
       ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
+      ->orderBy('Products.ID DESC')
       // ->limit(10)
       ->execute();
 

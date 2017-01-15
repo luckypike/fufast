@@ -15,12 +15,11 @@ use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 $config = new ConfigIni('../app/config/config.ini');
 $loader = new Loader();
 
-$loader->registerDirs(
-  [
-    "../app/controllers/",
-    "../app/models/",
-  ]
-);
+$loader->registerDirs([
+  "../app/controllers/",
+  "../app/models/",
+  "../app/library/",
+ ]);
 
 $loader->register();
 
@@ -105,7 +104,13 @@ $di->set(
   }
 );
 
-
+$di->set(
+  'tree',
+  function () {
+    return new Tree();
+  },
+  true
+);
 
 $application = new Application($di);
 

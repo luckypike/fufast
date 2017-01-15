@@ -3,7 +3,7 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function () {
-  gulp.src('public/sass/*.scss')
+  gulp.src('public/sass/app.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
@@ -13,5 +13,5 @@ gulp.task('sass', function () {
 });
 
 gulp.task('default', function () {
-  gulp.watch('public/sass/*.scss', ['sass']);
+  gulp.watch('public/sass/**/*.scss', ['sass']);
 });
