@@ -16,6 +16,7 @@
 
 .breadcrumb {
   display: flex;
+  flex-wrap: wrap;
 
   &-item {
     margin-right: $gutter / 2;
@@ -24,6 +25,23 @@
       &:after {
         content: '/'
       }
+    }
+  }
+}
+
+.siblings {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-item {
+    margin-right: $gutter / 2;
+    margin-bottom: $margin-s;
+
+    a {
+      display: block;
+
+      border-radius: 2px;
+      background-color: pink;
     }
   }
 }

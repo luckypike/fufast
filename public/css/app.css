@@ -200,8 +200,23 @@ body {
 
 .breadcrumb {
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
   .breadcrumb-item {
     margin-right: 0.625rem; }
     .breadcrumb-item:not(:last-child):after {
       content: '/'; }
+
+.siblings {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .siblings-item {
+    margin-right: 0.625rem;
+    margin-bottom: 0.5rem; }
+    .siblings-item a {
+      display: block;
+      border-radius: 2px;
+      background-color: pink; }

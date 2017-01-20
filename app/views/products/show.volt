@@ -3,14 +3,17 @@
 {% block content %}
   <div class="product">
     {% if sections|length %}
-      {{ dump(section['ID']) }}
       <div class="product-sections">
         <div class="product-sections-root">
           {{ tree.getParents(section['ID'])[1]['NAME'] }}
         </div>
 
-        <div class="product-sections-siblings">
-
+        <div class="product-sections-siblings siblings">
+          {% for b in tree.getSiblings(section['ID']) %}
+            <div class="siblings-item">
+              {{ link_to('', b['NAME']) }}
+            </div>
+          {% endfor %}
         </div>
 
         <div class="product-sections-breadcrumb breadcrumb">
