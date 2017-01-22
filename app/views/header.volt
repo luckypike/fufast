@@ -12,20 +12,15 @@
   </div>
 
   <div class="header-menu">
+
+    {% for b in tree.getMenu() %}
+      <div class="header-menu-item">
+        {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
+      </div>
+    {% endfor %}
+
     <div class="header-menu-item">
-      <a href="/catalog/overall/">Спецодежда</a>
-    </div>
-    <div class="header-menu-item">
-      <a href="/catalog/footwear/">Спецобувь</a>
-    </div>
-    <div class="header-menu-item">
-      <a href="/catalog/remedies/">Средства защиты</a>
-    </div>
-    <div class="header-menu-item">
-      <a href="/catalog/gloves/">Перчатки и рукавицы</a>
-    </div>
-    <div class="header-menu-item">
-      <a href="/catalog/customer_services/">Нанесение логотипов</a>
+      <a href="/logo">Нанесение логотипов</a>
     </div>
   </div>
 

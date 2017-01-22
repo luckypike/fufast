@@ -11,8 +11,6 @@
   <body>
     {% include "header.volt" %}
 
-    ZZZ
-
     <main class="main">{% block content %}{% endblock %}</main>
 
     {% include "footer.volt" %}

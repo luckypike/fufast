@@ -5,35 +5,30 @@
     {% if sections|length %}
       <div class="product-sections">
         <div class="product-sections-root">
-          {{ tree.getParents(section['ID'])[1]['NAME'] }}
+          {{ tree.getParents(section.ID)[1].NAME }}
         </div>
 
         <div class="product-sections-siblings siblings">
-          {% for b in tree.getSiblings(section['ID']) %}
+          {% for b in tree.getSiblings(section.ID) %}
             <div class="siblings-item">
-              {{ link_to('', b['NAME']) }}
+              {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
             </div>
           {% endfor %}
         </div>
 
         <div class="product-sections-breadcrumb breadcrumb">
           <div class="breadcrumb-item">
-            {{ link_to('', 'Главная') }}
+            {{ link_to('/', 'Главная') }}
           </div>
 
-          {% for b in tree.getParents(section['ID']) %}
+          {% for b in tree.getParents(section.ID) %}
             <div class="breadcrumb-item">
-              {{ link_to('', b['NAME']) }}
+              {{ link_to('catalog/' ~ b.CODE|lower , b.NAME) }}
             </div>
           {% endfor %}
-
-<!--           <div class="breadcrumb-item">
-            {{ link_to('', tree.getName(section['ID'])) }}
-          </div> -->
         </div>
       </div>
     {% endif %}
-
 
     {% if images|length %}
       <div class="product-images">
@@ -44,19 +39,19 @@
         {% endfor %}    
       </div>
     {% endif %}
-  </div>
 
-  <h1>
-    {{ product.NAME }} -- {{ product.ID }}
-  </h1>
+    <h1>
+      {{ product.NAME }} -- {{ product.ID }}
+    </h1>
 
-  <div class="desc">
-    <div class="desc-cat">
-    </div>
+    <div class="desc">
+      <div class="desc-cat">
+      </div>
 
-    <div class="desc-product">
-      {{ product.DETAIL_TEXT }}
-    </div>
+      <div class="desc-product">
+        {{ product.DETAIL_TEXT }}
+      </div>
+    </div>    
   </div>
 {% endblock %}
 

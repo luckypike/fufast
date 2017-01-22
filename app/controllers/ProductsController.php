@@ -26,8 +26,7 @@ class ProductsController extends Controller {
       ->bind([
         'id' => $product->ID
       ])
-      ->execute()     
-      ->toArray();
+      ->execute();     
 
     $images = ProductImages::query()
       ->columns('SUBDIR, MODULE_ID, FILE_NAME, ORIGINAL_NAME')
