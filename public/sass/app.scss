@@ -20,7 +20,7 @@ $gutter: 1.25rem;
 
 $s: 48rem;
 $m: 60rem;
-$mm: 80rem;
+$mm: 78rem;
 $l: 100rem;
 
 @import 'components/fonts';
@@ -44,6 +44,7 @@ $margin-m: $base-rhythm * 1;
 $margin-l: $base-rhythm-line * 9;
 
 @import 'pages/products';
+@import 'pages/sections';
 
 @import 'header';
 @import 'footer';
@@ -62,6 +63,16 @@ a {
   text-decoration: none;
   transition-duration: 0.25s;
   transition-property: background, color;
+}
+
+.button {
+  @include font-upper;
+
+  background-color: $primary-color;
+  color: $light-color;
+  display: inline-block;
+  border-bottom: 0;
+  padding: $margin-xs $gutter;
 }
 
 

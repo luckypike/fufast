@@ -41,3 +41,8 @@ h1 {
   @include font-size-h1;
   @include font-upper;
 }
+
+h2 {
+  @include font-size-h2;
+  @include font-upper;
+}

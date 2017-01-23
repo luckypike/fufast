@@ -93,7 +93,7 @@ $di->set(
     $router->removeExtraSlashes(true);
 
     $router->add(
-      "/catalog/{slug:[a-z\-_]+}",
+      "/catalog/{slug:[a-z\-_\s]+}",
       [
         "controller" => 'sections',
         "action" => "show",

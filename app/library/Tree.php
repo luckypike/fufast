@@ -28,6 +28,11 @@ class Tree extends Component {
     // }
   }
 
+  public function isRoot($section_id) {
+    $roots = array(114, 159, 168, 177);
+    return in_array($section_id, $roots);
+  }
+
   public function listSections() {
 
   }
@@ -51,6 +56,16 @@ class Tree extends Component {
       $items[] = $this->flat[$c];
     }
 
+    return $items;
+  }
+
+  public function getAllChilds($section_id) {
+    $items = array();
+
+    foreach($this->flat[$section_id]->CHILDS as $id) {
+      $items[] = $id;
+      $items = array_merge($items, $this->getAllChilds($id));
+    }
     return $items;
   }
 
@@ -78,12 +93,13 @@ class Tree extends Component {
   }
 
   public function getMenu() {
-    return array(
-      $this->flat[114],
-      $this->flat[159],
-      $this->flat[168],
-      $this->flat[177]
-    );
+    $items = array();
+
+    foreach($this->flat as $item) {
+      if($this->isRoot($item->ID)) $items[] = $item;
+    }
+
+    return $items;
   }
 
   public function getParents($section_id) {

@@ -6,13 +6,22 @@
       @include font-size-h2;
       @include font-upper;
 
-      margin-bottom: $margin-l;
+      margin-bottom: $margin-m;
+    }
+
+    &-siblings {
+      margin-bottom: $margin-m - 0.3rem;
+    }
+
+    &-breadcrumb {
+      border-top: 1px solid $light-grey-color;
+      padding: $margin-m / 2 0;  
     }
   }
 
   &-images {
     display: flex;
-    padding: $margin-s $gutter 0;
+    padding: 0 $gutter;
 
     &-item {
       max-width: 200px;
@@ -25,7 +34,7 @@
   }
 
   &-details {
-    padding: $margin-s $gutter 0;
+    padding: 0 $gutter;
   }
 
   @include breakpoint($m) {
@@ -47,9 +56,6 @@
   display: flex;
   flex-wrap: wrap;
 
-  border-top: 1px solid $light-grey-color;
-  padding-top: $margin-m;
-
   &-item {
     margin-right: 0.3em;
 
@@ -69,7 +75,6 @@
 .siblings {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: $margin-m - 0.3rem;
 
   &-item {
     margin-right: 0.3rem;
@@ -88,5 +93,59 @@
         color: $light-color;
       }
     }
+  }
+}
+
+.products {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$gutter / 2;
+    margin-right: -$gutter / 2;
+
+    &-item {
+      flex-shrink: 0;
+      padding: 0 $gutter / 2;
+      margin-bottom: $margin-m;
+      width: 50%;
+
+      a {
+        border-bottom: 0;
+        display: block;
+        width: 100%;
+
+        .image {
+          @include aspect-ratio(4, 5);
+
+          background-color: white;
+          margin-bottom: $margin-xs;
+        }
+
+        .tap {
+          .title {
+            max-height: 2 * $base-rhythm;
+            overflow: hidden;
+            font-weight: 600;
+          }
+
+          .price {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    @include breakpoint($s) {
+      &-item {
+        width: 25%;
+      }
+    }
+
+    @include breakpoint($mm) {
+      &-item {
+        width: 1 / 6 * 100%;
+      }
+    }
+
   }
 }

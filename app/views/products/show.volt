@@ -8,13 +8,15 @@
           {{ tree.getParents(section.ID)[1].NAME }}
         </div>
 
-        <div class="product-sections-siblings siblings">
-          {% for b in tree.getSiblings(section.ID) %}
-            <div class="siblings-item">
-              {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
-            </div>
-          {% endfor %}
-        </div>
+        {% if tree.getSiblings(section.ID)|length %}
+          <div class="product-sections-siblings siblings">
+            {% for b in tree.getSiblings(section.ID) %}
+              <div class="siblings-item">
+                {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
 
         <div class="product-sections-breadcrumb breadcrumb">
           <div class="breadcrumb-item">

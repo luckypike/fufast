@@ -1,0 +1,198 @@
+.section {
+  padding: 0 $gutter;
+  margin-bottom: $margin-l * 2;
+
+  &-intro {
+    display: flex;
+    flex-direction: column;
+    
+    padding: $margin-l $gutter ($margin-m - 0.3rem);
+
+    position: relative;
+    width: 100%;
+
+    .text {
+      margin-top: auto;
+      position: relative;
+      z-index: 1;
+
+      .title {
+        a {
+          @include font-size-h2;
+          @include font-upper;
+
+          border-bottom: 0;
+        }
+      }
+
+      .siblings {
+        display: none;
+        margin-top: $margin-m;
+
+        a {
+          background-color: rgba($light-color, 0.9);
+
+          &:hover {
+            background-color: $dark-grey-color;
+          }
+        }
+
+        @include breakpoint($s) {
+          display: flex;
+        }
+      }
+    }
+
+
+
+    &-root {
+      &1 {
+        background: {
+          color: $primary-grey-color;
+          size: cover;
+          repeat: no-repeat;
+          position: center top;
+        }
+
+        .text {
+          .title {
+            a {
+              @include font-size-h1;
+
+              color: $light-color;
+            }
+          }
+        }
+
+        height: 360px;
+        padding: ($margin-m - 0.3rem) $gutter;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0; right: 0; bottom: 0; left: 0;
+          background-color: #000;
+          opacity: 0.2;
+        }          
+      }      
+    }
+
+    &-114 { background-image: url('/img/secs/sec114_1920.jpg'); }
+    &-159 { background-image: url('/img/secs/sec159_1920.jpg'); background-position: center 75%; }
+    &-168 { background-image: url('/img/secs/sec168_1920.jpg'); background-position: center 50%; }
+    &-177 { background-image: url('/img/secs/sec177_1920.jpg'); background-position: center 40%; }
+    // &-114 { background-image: url('/img/secs/sec114_1920.jpg'); }
+  }
+
+  &-filters {
+    background-color: $light-grey-color;
+    padding: $base-rhythm / 2 $gutter;
+  }
+
+  &-sections {
+    &-item {
+      margin-top: $margin-m * 2;
+
+      &-title {
+        margin-bottom: $margin-m;
+      }
+
+      &-siblings {
+        margin-bottom: $margin-m - 0.3rem;
+      }
+
+      &-products {
+        display: flex;
+        flex-wrap: wrap;
+
+        &-main {
+          order: 1;
+          padding-right: $gutter / 2;
+          width: 50%;
+
+          a {
+            // background-color: red;
+            display: block;
+
+            border-bottom: 0;
+
+            .image {
+              @include aspect-ratio(4, 5);
+              
+              background-color: white;
+              margin-bottom: $margin-xs;
+            }
+
+            .tap {
+              .title {
+                max-height: 2 * $base-rhythm;
+                overflow: hidden;
+                font-weight: 600;
+              }
+
+              .price {
+                font-size: 1rem;
+              }
+            }   
+          }
+        }
+
+        &-list {
+          width: 100%;
+        }
+
+        @include breakpoint($s) {
+          &-main {
+            padding-right: $gutter * 2 / 3;
+            width: 25%;
+          }
+        }
+
+        @include breakpoint($m) {
+          &-main {
+            padding-right: $gutter;
+            width: 1 / 3 * 100%;
+            order: 0;
+          }
+
+          &-list {
+            // margin-right: 0;
+            width: 2 / 3 * 100%;
+          }
+        }
+
+        @include breakpoint($mm) {
+          .products-list {
+            &-item {
+              width: 1 / 4 * 100%;
+            }
+          }
+        }
+      }
+
+      &-more {
+        text-align: right;
+
+        .button {
+          padding-left: $gutter * 3;
+          padding-right: $gutter * 3;
+        }
+      }
+
+      &:nth-child(even) {
+        .section-sections-item-products-main {
+          @include breakpoint($m) {
+            padding-right: 0;
+            padding-left: $gutter;
+
+            order: 1;
+          }          
+        }
+      }
+    }    
+  }
+
+  &-products {
+    margin-top: $margin-l;
+  }
+}
