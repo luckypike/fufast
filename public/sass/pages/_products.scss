@@ -1,6 +1,18 @@
 .product {
+  &-sections {
+    padding: $margin-l $gutter 0;
+
+    &-root {
+      @include font-size-h2;
+      @include font-upper;
+
+      margin-bottom: $margin-l;
+    }
+  }
+
   &-images {
     display: flex;
+    padding: $margin-s $gutter 0;
 
     &-item {
       max-width: 200px;
@@ -11,6 +23,23 @@
       }
     }
   }
+
+  &-details {
+    padding: $margin-s $gutter 0;
+  }
+
+  @include breakpoint($m) {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-sections {
+      width: 100%;
+    }
+
+    &-images, &-details {
+      width: 50%;
+    }
+  }
 }
 
 
@@ -18,12 +47,20 @@
   display: flex;
   flex-wrap: wrap;
 
+  border-top: 1px solid $light-grey-color;
+  padding-top: $margin-m;
+
   &-item {
-    margin-right: $gutter / 2;
+    margin-right: 0.3em;
+
+    a {
+      color: $primary-grey-color;
+    }
 
     &:not(:last-child) {
       &:after {
-        content: '/'
+        content: '/';
+        color: rgba($primary-color, 0.3);
       }
     }
   }
@@ -32,16 +69,24 @@
 .siblings {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: $margin-m - 0.3rem;
 
   &-item {
-    margin-right: $gutter / 2;
-    margin-bottom: $margin-s;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
 
     a {
       display: block;
-
+      background-color: $light-color;
+      border-bottom: 0;
       border-radius: 2px;
-      background-color: pink;
+      color: $primary-color;
+      padding: 0 0.5em;
+
+      &:hover {
+        background-color: $dark-grey-color;
+        color: $light-color;
+      }
     }
   }
 }

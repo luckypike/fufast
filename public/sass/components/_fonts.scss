@@ -1,0 +1,43 @@
+@mixin font-size($font-size: $base-font-size, $line-height: false) {
+  font-size: $font-size * $base-rhythm-line;
+
+  @if $line-height {
+    line-height: $line-height * $base-rhythm-line;
+  } @else {
+    line-height: $base-rhythm;
+  }
+}
+
+@mixin font-size-h1 {
+  // @include font-size(7.5, 10);
+
+  @include breakpoint($s) {
+    @include font-size(8.5, 10);
+  }
+}
+
+@mixin font-size-h2 {
+  // @include font-size(6, 8);
+
+  @include breakpoint($s) {
+    @include font-size(6, 8);
+  }
+}
+
+@mixin font-size-h3 {
+  // @include font-size(5, 7);
+
+  @include breakpoint($s) {
+    
+  }
+}
+
+@mixin font-upper {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  @include font-size-h1;
+  @include font-upper;
+}

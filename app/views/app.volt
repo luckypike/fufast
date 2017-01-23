@@ -2,7 +2,12 @@
 <html>
   <head>
     {% block head %}
-     {{ stylesheet_link("css/app.css") }}
+      {{ javascript_include('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', false) }}
+      {{ javascript_include('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', false) }}
+      
+      {{ stylesheet_link('css/app.css') }}
+      {{ javascript_include('js/fonts.js') }}
+      {{ javascript_include('js/app.js') }}
     {% endblock %}
 
     <title>{% block title %}{% endblock %} - FUFAST</title>

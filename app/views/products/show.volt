@@ -40,18 +40,20 @@
       </div>
     {% endif %}
 
-    <h1>
-      {{ product.NAME }} -- {{ product.ID }}
-    </h1>
+    <div class="product-details">
+      <h1>
+        {{ product.NAME }} -- {{ product.ID }}
+      </h1>
 
-    <div class="desc">
-      <div class="desc-cat">
-      </div>
+      <div class="desc">
+        <div class="desc-cat">
+        </div>
 
-      <div class="desc-product">
-        {{ product.DETAIL_TEXT }}
-      </div>
-    </div>    
+        <div class="desc-product">
+          {{ product.DETAIL_TEXT }}
+        </div>
+      </div>     
+    </div>
   </div>
 {% endblock %}
 

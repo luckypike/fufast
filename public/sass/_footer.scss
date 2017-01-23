@@ -1,0 +1,44 @@
+.footer {
+  background: $dark-grey-color;
+  padding: $margin-m $gutter;
+
+  &-menu {
+    margin-bottom: $margin-l;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    &-item {
+      margin-bottom: $margin-m;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+  }
+
+  &-like {
+    // @include font-size-small;
+  }
+
+  a {
+    color: $light-color;
+  }
+
+  @include breakpoint($s) {
+    display: flex;
+
+    &-like {
+      margin-left: auto;
+    }
+
+    &-menu {
+      margin-bottom: 0;
+      display: flex;
+
+      &-item {
+        margin: 0 1em 0 0;
+      }
+    }
+  }
+}
