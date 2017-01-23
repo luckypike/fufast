@@ -50,7 +50,7 @@
           <div class="section-sections-item">
             <div class="section-sections-item-title">
               <h2>
-                {{ c.NAME }}
+                {{ link_to('catalog/' ~ c.CODE|lower, c.NAME) }}
               </h2>
             </div>
 

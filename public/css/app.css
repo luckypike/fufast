@@ -251,6 +251,8 @@ body {
     margin-top: 3.5rem; }
     .section-sections-item-title {
       margin-bottom: 1.75rem; }
+      .section-sections-item-title a {
+        border-bottom: 0; }
     .section-sections-item-siblings {
       margin-bottom: 1.45rem; }
     .section-sections-item-products {

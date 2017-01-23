@@ -95,6 +95,10 @@
 
       &-title {
         margin-bottom: $margin-m;
+
+        a {
+          border-bottom: 0;
+        }
       }
 
       &-siblings {
