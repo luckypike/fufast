@@ -39,7 +39,7 @@ class ImagesController extends Controller {
         $image = new Phalcon\Image\Adapter\Imagick('../upload/' . $images[0]['SUBDIR'] . '/' . $images[0]['FILE_NAME']);   
         $height = $image->getHeight();
         $width = $image->getWidth();
-        $image->resize(1200, null, \Phalcon\Image::WIDTH)->resize(null, 1500, \Phalcon\Image::HEIGHT)->background('#ffffff')->crop(1200, 1500);
+        $image->resize(1200, 1500)->background('#ffffff');
         $image->save($path, 80);
       } else {
 
