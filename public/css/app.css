@@ -509,8 +509,12 @@ a {
 .button {
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  background-color: #212121;
+  background-color: #333;
   color: #ffffff;
   display: inline-block;
   border-bottom: 0;
-  padding: 0.5rem 1.25rem; }
+  padding: 0.5rem 1.25rem;
+  transition-duration: 0.25s;
+  transition-property: background, color; }
+  .button:hover {
+    background-color: #000; }

@@ -68,11 +68,18 @@ a {
 .button {
   @include font-upper;
 
-  background-color: $primary-color;
+  background-color: $dark-grey-color;
   color: $light-color;
   display: inline-block;
   border-bottom: 0;
   padding: $margin-xs $gutter;
+  transition-duration: 0.25s;
+  transition-property: background, color;
+
+  &:hover {
+    background-color: #000;
+  }
+
 }
 
 

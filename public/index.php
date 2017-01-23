@@ -93,21 +93,28 @@ $di->set(
     $router->removeExtraSlashes(true);
 
     $router->add(
-      "/catalog/{slug:[a-z\-_\s]+}",
+      '/logo',
       [
-        "controller" => 'sections',
-        "action" => "show",
+        'controller' => 'static',
+        'action' => 'logo',
       ]
     );
 
     $router->add(
-      "/catalog/{id:[0-9]+}",
+      '/catalog/{slug:[a-z\-_\s]+}',
       [
-        "controller" => 'products',
-        "action" => "show",
+        'controller' => 'sections',
+        'action' => 'show',
       ]
     );
 
+    $router->add(
+      '/catalog/{id:[0-9]+}',
+      [
+        'controller' => 'products',
+        'action' => 'show',
+      ]
+    );
 
     $router->handle();
 
