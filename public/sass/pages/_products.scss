@@ -119,6 +119,17 @@
 
           background-color: white;
           margin-bottom: $margin-xs;
+
+          .img {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            left: 8%; 
+            right: 8%;
+            top: 8%;
+            bottom: 8%;
+            position: absolute;
+          }
         }
 
         .tap {

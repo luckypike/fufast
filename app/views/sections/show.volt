@@ -67,7 +67,7 @@
             <div class="section-sections-item-products">
               <div class="section-sections-item-products-main">
                 <a href="{{ url('catalog/' ~ c.PRODUCT.ID) }}">
-                  <div class="image"></div>
+                  <div class="image"><div class="img" style="background-image: url('{{ url('cover/' ~ c.PRODUCT.ID ~ '.jpg') }}')"></div></div>
                   <div class="tap">
                     <div class="title">
                       {{ c.PRODUCT.NAME }}
@@ -84,7 +84,7 @@
                   {% for product in c.PRODUCTS %}
                     <div class="products-list-item">
                       <a href="{{ url('catalog/' ~ product.ID) }}">
-                        <div class="image"></div>
+                        <div class="image"><div class="img" style="background-image: url('{{ url('cover/' ~ product.ID ~ '.jpg') }}')"></div></div>
                         <div class="tap">
                           <div class="title">
                             {{ product.NAME }}
@@ -114,7 +114,7 @@
           {% for product in products %}
             <div class="products-list-item">
               <a href="{{ url('catalog/' ~ product.ID) }}">
-                <div class="image"></div>
+                <div class="image"><div class="img" style="background-image: url('{{ url('cover/' ~ product.ID ~ '.jpg') }}')"></div></div>
                 <div class="tap">
                   <div class="title">
                     {{ product.NAME }}

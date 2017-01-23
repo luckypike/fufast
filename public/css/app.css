@@ -164,6 +164,15 @@ body {
           left: 0;
           right: 0;
           bottom: 0; }
+        .products-list-item a .image .img {
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          left: 8%;
+          right: 8%;
+          top: 8%;
+          bottom: 8%;
+          position: absolute; }
       .products-list-item a .tap .title {
         max-height: 3.5rem;
         overflow: hidden;
@@ -288,6 +297,15 @@ body {
               left: 0;
               right: 0;
               bottom: 0; }
+            .section-sections-item-products-main a .image .img {
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+              left: 8%;
+              right: 8%;
+              top: 8%;
+              bottom: 8%;
+              position: absolute; }
           .section-sections-item-products-main a .tap .title {
             max-height: 3.5rem;
             overflow: hidden;
