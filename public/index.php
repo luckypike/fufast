@@ -101,7 +101,16 @@ $di->set(
     );
 
     $router->add(
-      '/catalog/{slug:[a-z\-_\s]+}',
+      '/catalog',
+      [
+        'controller' => 'index',
+        'action' => 'catalog',
+      ]
+    );
+
+
+    $router->add(
+      '/catalog/{slug:[a-z\-_\s0-9]+}',
       [
         'controller' => 'sections',
         'action' => 'show',

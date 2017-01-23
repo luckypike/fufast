@@ -20,21 +20,146 @@
   }
 
   &-images {
-    display: flex;
+    // display: flex;
     padding: 0 $gutter;
+    margin-bottom: $margin-l;
 
-    &-item {
-      max-width: 200px;
+    // &-item {
+    //   max-width: 200px;
 
-      img {
-        display: block;
+    //   img {
+    //     display: block;
+    //     width: 100%;
+    //   }
+    // }
+
+    .slider {
+      width: 100%;
+
+
+      &-wrapper {
+        // @include aspect-ratio(4, 5);
+        padding: 8%;
+
+        background-color: #fff;
+      }
+
+      &-images {
+        height: 100%;
+        position: absolute;
         width: 100%;
+        left: 0;
+        top: 0;
+
+        &-item {
+          @include aspect-ratio(4, 5);
+
+          background: {
+            repeat: no-repeat;
+            size: contain;
+            position: center;
+          }
+        }
+      }
+      
+    }
+
+    .thumbs {
+      display: flex;
+      justify-content: center;
+      margin-top: $margin-m;
+
+      a {
+        border: 1px solid #fff;
+        display: block;
+        margin-right: $gutter;
+        background-color: #fff;
+        padding: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.active {
+          border: 1px solid $primary-color;
+        }
+      }
+
+      &-item {
+        @include aspect-ratio(4, 5);
+
+        background: {
+          repeat: no-repeat;
+          size: contain;
+          position: center;
+        }
+        
+        width: 80px;
       }
     }
   }
 
   &-details {
     padding: 0 $gutter;
+    margin-bottom: $margin-l;
+
+    .sizes {
+      display: flex;
+      flex-wrap: wrap;
+
+      &-label {
+        width: 100%;
+      }
+
+      &-left, &-right {
+        width: 100%;
+      }
+
+      &-row {
+        display: flex;
+
+        > * {
+          flex-shrink: 0;
+        }
+
+        &-size {
+          margin-right: auto;
+        }
+
+        &-minus, &-plus {
+          width: $base-rhythm;
+          border: 1px solid $light-grey-color;
+          margin-right: 1px;
+          background-color: #fff;
+        }
+
+        &-input {
+          width: $base-rhythm * 2;
+          line-height: 1.625rem;
+          margin-right: 1px;
+
+          input {
+            font-family: inherit;
+            font-size: 1rem;
+            height: $base-rhythm;
+            border: 1px solid $light-grey-color;
+            background-color: #fff;
+            line-height: inherit;
+            padding: 0;
+            width: 100%;
+            outline: none;
+          }
+        }
+      }
+    }
+
+    @include breakpoint($s) {
+      .sizes {
+        &-left, &-right {
+          width: 50%;
+        }
+      }
+    }
   }
 
   @include breakpoint($m) {
@@ -47,6 +172,15 @@
 
     &-images, &-details {
       width: 50%;
+      margin-bottom: $margin-l * 2;
+    }
+
+  }
+
+  @include breakpoint($mm) {
+    &-details {
+      width: 11 / 24 * 100%;
+      margin-left: 1 / 24 * 100%;
     }
   }
 }
