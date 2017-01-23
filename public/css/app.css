@@ -218,12 +218,14 @@ body {
       background-position: center top;
       height: 360px;
       padding: 1.45rem 1.25rem; }
-      .section-intro-root1 .text .title a {
+      .section-intro-root1 .text .title {
         color: #ffffff; }
-        @media (min-width: 48rem) {
-          .section-intro-root1 .text .title a {
-            font-size: 2.125rem;
-            line-height: 2.5rem; } }
+        .section-intro-root1 .text .title a {
+          color: #ffffff; }
+          @media (min-width: 48rem) {
+            .section-intro-root1 .text .title a {
+              font-size: 2.125rem;
+              line-height: 2.5rem; } }
       .section-intro-root1:after {
         content: '';
         position: absolute;
@@ -322,6 +324,9 @@ body {
         order: 1; } }
   .section-products {
     margin-top: 2.25rem; }
+
+.page-static {
+  padding: 2.25rem 1.25rem; }
 
 .header {
   background: #ffffff;

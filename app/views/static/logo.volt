@@ -1,12 +1,23 @@
 {% extends "app.volt" %}
 
 {% block content %}
-  <h1>
-    Нанесение логотипов
-  </h1>
+  <div class="section-intro section-intro-root1 section-intro-logo">
+    <div class="text">
+      <div class="title">
+        <h1>
+          Нанесение логотипов
+        </h1>        
+      </div>
+    </div>
+  </div>
 
-  <p>
-    Информация по логотипам
-  </p>
+  <div class="page-static">
+    <p>
+      Информация по логотипам
+    </p>  
+  </div>
+
+
+
   
 {% endblock %}
