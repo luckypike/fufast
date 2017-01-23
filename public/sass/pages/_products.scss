@@ -40,6 +40,7 @@
       &-wrapper {
         // @include aspect-ratio(4, 5);
         padding: 8%;
+        overflow: hidden;
 
         background-color: #fff;
       }
@@ -104,10 +105,15 @@
     margin-bottom: $margin-l;
 
     .sizes {
+      border-bottom: 1px solid $primary-color;
       display: flex;
       flex-wrap: wrap;
+      padding-bottom: $margin-m;
+      margin-bottom: $margin-m;
 
       &-label {
+        @include font-upper;
+
         width: 100%;
       }
 
@@ -123,18 +129,60 @@
         }
 
         &-size {
-          margin-right: auto;
+          // margin-right: auto;
+          width: 100px;
         }
 
         &-minus, &-plus {
+          cursor: pointer;
           width: $base-rhythm;
           border: 1px solid $light-grey-color;
           margin-right: 1px;
           background-color: #fff;
+          user-select: none;
+          transition-duration: 0.3s;
+          transition-property: background, border;
+          position: relative;
+
+          &:after {
+            font-size: 1rem;
+            position: absolute;
+            content: '-';
+            // width: 33%;
+            // height: 1px;
+            // background-color: $primary-color;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+
+          &:hover {
+            background-color: $primary-color;
+            border-color: $primary-color;
+
+            &:after {
+              color: $light-color;
+            }
+          }
         }
 
+        &-plus {
+          &:after {
+            content: '+';
+            // position: absolute;
+            // height: 33%;
+            // width: 1px;
+            // background-color: $primary-color;
+            // left: 50%;
+            // top: 50%;
+            // transform: translateY(-50%);
+          }
+        }
+
+
         &-input {
-          width: $base-rhythm * 2;
+          width: $base-rhythm * 1.5;
           line-height: 1.625rem;
           margin-right: 1px;
 
@@ -148,6 +196,7 @@
             padding: 0;
             width: 100%;
             outline: none;
+            text-align: center;
           }
         }
       }
@@ -158,6 +207,16 @@
         &-left, &-right {
           width: 50%;
         }
+
+        &-left {
+          padding-right: $gutter;
+        }
+
+
+        &-right {
+          padding-left: $gutter;
+        }
+
       }
     }
   }

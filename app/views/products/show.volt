@@ -81,12 +81,42 @@
               44-56 / 170-176
             </div>
             <div class="sizes-row-minus"></div>
-            <div class="sizes-row-input"><input type="text" name=""></div>
+            <div class="sizes-row-input"><input type="text" name="" value="0"></div>
             <div class="sizes-row-plus"></div>
           </div>
+
+          <div class="sizes-row">
+            <div class="sizes-row-size">
+              44-56 / 170-176
+            </div>
+            <div class="sizes-row-minus"></div>
+            <div class="sizes-row-input"><input type="text" name="" value="0"></div>
+            <div class="sizes-row-plus"></div>
+          </div>
+
         </div>
 
         <div class="sizes-right">
+
+          <div class="sizes-row">
+            <div class="sizes-row-size">
+              44-56 / 170-176
+            </div>
+            <div class="sizes-row-minus"></div>
+            <div class="sizes-row-input"><input type="text" name="" value="0"></div>
+            <div class="sizes-row-plus"></div>
+          </div>
+
+          <div class="sizes-row">
+            <div class="sizes-row-size">
+              44-56 / 170-176
+            </div>
+            <div class="sizes-row-minus"></div>
+            <div class="sizes-row-input"><input type="text" name="" value="0"></div>
+            <div class="sizes-row-plus"></div>
+          </div>
+
+
         </div>
       </div>   
     </div>
