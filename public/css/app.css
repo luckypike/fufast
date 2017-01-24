@@ -292,6 +292,23 @@ body {
 .product-details {
   padding: 0 1.25rem;
   margin-bottom: 2.25rem; }
+  .product-details .prop {
+    margin-bottom: 1.75rem;
+    border-top: 1px solid #e0e0e0; }
+    .product-details .prop-row {
+      display: -ms-flexbox;
+      display: flex;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e0e0e0; }
+      .product-details .prop-row > div {
+        width: 50%; }
+    .product-details .prop-label {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding-right: 0.625rem;
+      max-width: 280px; }
+    .product-details .prop-value {
+      padding-left: 0.625rem; }
   .product-details .sizes {
     border-bottom: 1px solid #212121;
     display: -ms-flexbox;
@@ -305,10 +322,12 @@ body {
       text-transform: uppercase;
       width: 100%; }
     .product-details .sizes-left, .product-details .sizes-right {
-      width: 100%; }
+      width: 100%;
+      max-width: 280px; }
     .product-details .sizes-row {
       display: -ms-flexbox;
-      display: flex; }
+      display: flex;
+      margin-bottom: 0.5rem; }
       .product-details .sizes-row > * {
         -ms-flex-negative: 0;
         flex-shrink: 0; }
@@ -356,13 +375,29 @@ body {
           width: 100%;
           outline: none;
           text-align: center; }
+  .product-details .order-price {
+    margin-bottom: 1rem;
+    max-width: 280px;
+    margin-right: 1.25rem; }
+    .product-details .order-price .price {
+      font-size: 1.5rem;
+      line-height: 1.75rem; }
+  .product-details .order-to-basket .button {
+    padding: 0.875rem 2.5rem; }
   @media (min-width: 48rem) {
     .product-details .sizes-left, .product-details .sizes-right {
       width: 50%; }
     .product-details .sizes-left {
-      padding-right: 1.25rem; }
+      padding-right: 0.625rem; }
     .product-details .sizes-right {
-      padding-left: 1.25rem; } }
+      padding-left: 0.625rem; }
+    .product-details .order {
+      display: -ms-flexbox;
+      display: flex; }
+      .product-details .order-price {
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        margin-bottom: 0; } }
 
 @media (min-width: 60rem) {
   .product {

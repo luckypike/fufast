@@ -104,6 +104,34 @@
     padding: 0 $gutter;
     margin-bottom: $margin-l;
 
+    .prop {
+      margin-bottom: $margin-m;
+      border-top: 1px solid $light-grey-color;
+
+      &-row {
+        display: flex;
+        padding: $margin-xs 0;
+        border-bottom: 1px solid $light-grey-color;
+
+        > div {
+          width: 50%;
+        }
+
+      }
+
+      &-label {
+        @include font-upper;
+
+        padding-right: $gutter / 2;
+        max-width: 280px;
+      }
+
+      &-value {
+        padding-left: $gutter / 2;
+      }
+
+    }
+
     .sizes {
       border-bottom: 1px solid $primary-color;
       display: flex;
@@ -119,10 +147,12 @@
 
       &-left, &-right {
         width: 100%;
+        max-width: 280px;
       }
 
       &-row {
         display: flex;
+        margin-bottom: $margin-xs;
 
         > * {
           flex-shrink: 0;
@@ -202,6 +232,24 @@
       }
     }
 
+    .order {
+      &-price {
+        margin-bottom: $margin-s;
+        max-width: 280px;
+        margin-right: $gutter;
+
+        .price {
+          @include font-size(6);
+        }
+      }
+
+      &-to-basket {
+        .button {
+          padding: $base-rhythm / 2 $gutter * 2;
+        }
+      }
+    }
+
     @include breakpoint($s) {
       .sizes {
         &-left, &-right {
@@ -209,13 +257,24 @@
         }
 
         &-left {
-          padding-right: $gutter;
+          padding-right: $gutter / 2;
         }
 
 
         &-right {
-          padding-left: $gutter;
+          padding-left: $gutter / 2;
         }
+
+      }
+
+      .order {
+        display: flex;
+
+        &-price {
+          flex-grow: 1;
+          margin-bottom: 0;
+        }
+
 
       }
     }
