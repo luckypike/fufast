@@ -56,7 +56,14 @@
             zoom: 17
         });
 
-        myPlacemark = new ymaps.Placemark([55.76, 37.64], { hintContent: 'Москва!', balloonContent: 'Столица России' });
+        var myPlacemark = new ymaps.Placemark([56.242654, 43.830420], {
+            iconContent: 'Интернет-магазин «Фуфайка»'
+        }, {
+            // Красная иконка, растягивающаяся под содержимое.
+            preset: "islands#redStretchyIcon"
+        });        
+
+        myMap.geoObjects.add(myPlacemark);
     }
 </script>
 
