@@ -6,6 +6,7 @@ class SectionsController extends Controller {
   public function showAction($slug) {
     $tree = $this->di->getTree();
     $section = $tree->getBySlug($slug);
+    $this->tag->prependTitle($section->NAME);
     $section_childs = $tree->getChilds($section->ID);
     $void = count($section_childs) == 0;
 

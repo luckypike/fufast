@@ -364,8 +364,7 @@ body {
           top: 50%;
           transform: translate(-50%, -50%); }
         .product-details .sizes-row-minus:hover, .product-details .sizes-row-plus:hover {
-          background-color: #212121;
-          border-color: #212121; }
+          background-color: #212121; }
           .product-details .sizes-row-minus:hover:after, .product-details .sizes-row-plus:hover:after {
             color: #ffffff; }
       .product-details .sizes-row-plus:after {

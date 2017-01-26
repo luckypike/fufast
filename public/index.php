@@ -11,6 +11,7 @@ use Phalcon\Mvc\Url as UrlProvider;
 use Phalcon\Mvc\Router;
 
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
+use Phalcon\Session\Adapter\Files as Session;
 
 $config = new ConfigIni('../app/config/config.ini');
 $loader = new Loader();
@@ -26,7 +27,7 @@ $loader->register();
 $di = new FactoryDefault();
 
 $di->set(
-  "db",
+  'db',
   function () use ($config) {
     return new DbAdapter(
       [
@@ -40,25 +41,40 @@ $di->set(
   }
 );
 
-$di->set(
-  "voltService",
-  function ($view, $di) {
-    $volt = new Volt($view, $di);
+$di->setShared(
+  'session',
+  function () {
+    $session = new Session();
 
+    $session->start();
+
+    return $session;
+  }
+);
+
+
+
+$di->set(
+  'voltService',
+  function ($view, $di) use ($config) {
+    $volt = new Volt($view, $di);
     $volt->setOptions(
       [
         'compiledPath' => '../cache/volt/',
-        'compileAlways' => true
+        'compileAlways' => $config->volt->compileAlways
         // "compiledExtension" => ".compiled",
       ]
     );
+
+    $compiler = $volt->getCompiler();
+    $compiler->addFunction("int", "intval");
 
     return $volt;
   }
 );
 
 $di->set(
-  "view",
+  'view',
   function () {
     $view = new View();
 
@@ -146,6 +162,9 @@ $di->set(
   },
   true
 );
+
+Phalcon\Tag::setTitle($config->site->site_name);
+Phalcon\Tag::setTitleSeparator(' — ');
 
 $application = new Application($di);
 

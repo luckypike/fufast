@@ -10,7 +10,7 @@
       {{ javascript_include('js/app.js') }}
     {% endblock %}
 
-    <title>{% block title %}{% endblock %} - FUFAST</title>
+    {{ get_title() }}
   </head>
 
   <body>

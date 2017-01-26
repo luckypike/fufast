@@ -48,7 +48,7 @@
         </div>
 
 
-        {% if images|length > 1 %}  
+        {% if images|length > 1 %}
           <div class="thumbs" id="bx-pager">
             {% for image in images %}
               <a data-slide-index="{{ loop.index0 }}" href="">
@@ -74,93 +74,64 @@
         </div>
       </div>
 
-      <div class="prop">
-        <div class="prop-row">
-          <div class="prop-label">Артикул</div>
-          <div class="prop-value">054044AC</div>
+      {% if images|length %}
+        <div class="prop">
+          {% for prop in props %}
+            <div class="prop-row">
+              <div class="prop-label">
+              {{ prop['NAME'] }}
+              </div>
+              <div class="prop-value">
+                {% if prop['PROPERTY_TYPE'] == 'S' %}
+                  {{ props_elem[prop['ID']][0] }}
+                {% else %}
+                  {% for v in props_elem[prop['ID']] %}
+                    {{ props_elem_enum[prop['ID']][int(v)] }}
+                    {% if !loop.last %}
+                      /
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>          
+          {% endfor %}
         </div>
-        <div class="prop-row">
-          <div class="prop-label">Ассортимент</div>
-          <div class="prop-value">Куртка</div>
-        </div>
-        <div class="prop-row">
-          <div class="prop-label">Состав</div>
-          <div class="prop-value">Полиэстер, 35% хлопок, плотность 245 г/м2</div>
-        </div>
-        <div class="prop-row">
-          <div class="prop-label">Защитные свойства</div>
-          <div class="prop-value">От истирания, от общих загрязнений</div>
-        </div>
-        <div class="prop-row">
-          <div class="prop-label">ГОСТ</div>
-          <div class="prop-value">27575-87</div>
-        </div>
-        <div class="prop-row">
-          <div class="prop-label">Вес за 1 ед.</div>
-          <div class="prop-value">1.63 кг</div>
-        </div>
-        <div class="prop-row">
-          <div class="prop-label">Объем за 1 ед.</div>
-          <div class="prop-value">0.048 м3</div>
-        </div>
-        <div class="prop-row">
-          <div class="prop-label">Кол-во товара в упаковке</div>
-          <div class="prop-value">5 шт.</div>
-        </div>
-        <div class="prop-row">
-          <div class="prop-label">Объем 1 упаковки</div>
-          <div class="prop-value">0.048 м3</div>
-        </div>
-      </div>
+      {% endif %}
 
-      <div class="sizes">
-        <div class="sizes-label">
-          Размер / рост:
-        </div>
-        <div class="sizes-left">
-          <div class="sizes-row">
-            <div class="sizes-row-size">
-              44-46 / 170-176
-            </div>
-            <div class="sizes-row-minus"></div>
-            <div class="sizes-row-input"><input type="text" name="" value="0"></div>
-            <div class="sizes-row-plus"></div>
+      {% if size %}
+        <div class="sizes">
+          <div class="sizes-label">
+            Размер
+            {% if height %}
+            / рост
+            {% endif %}
           </div>
 
-          <div class="sizes-row">
-            <div class="sizes-row-size">
-              44-46 / 182-188
-            </div>
-            <div class="sizes-row-minus"></div>
-            <div class="sizes-row-input"><input type="text" name="" value="0"></div>
-            <div class="sizes-row-plus"></div>
-          </div>
+          {% for c in order %}
+            {% if loop.first %}
+              <div class="sizes-left">
+            {% endif %}
 
+
+            {% if loop.last %}
+              <div class="sizes-right">
+            {% endif %}
+
+            {% for o in c %}
+              <div class="sizes-row">
+                <div class="sizes-row-size">
+                  {{ o[1] }}
+                </div>
+                <div class="sizes-row-minus"></div>
+                <div class="sizes-row-input"><input type="text" name="" value="0"></div>
+                <div class="sizes-row-plus"></div>
+              </div>            
+            {% endfor %}
+
+            </div>       
+          {% endfor %}
         </div>
-
-        <div class="sizes-right">
-
-          <div class="sizes-row">
-            <div class="sizes-row-size">
-              48-50 / 170-176
-            </div>
-            <div class="sizes-row-minus"></div>
-            <div class="sizes-row-input"><input type="text" name="" value="0"></div>
-            <div class="sizes-row-plus"></div>
-          </div>
-
-          <div class="sizes-row">
-            <div class="sizes-row-size">
-              48-50 / 182-188
-            </div>
-            <div class="sizes-row-minus"></div>
-            <div class="sizes-row-input"><input type="text" name="" value="0"></div>
-            <div class="sizes-row-plus"></div>
-          </div>
-
-
-        </div>
-      </div>
+      {% endif %}
 
       <div class="order">
         <div class="order-price">
