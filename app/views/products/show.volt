@@ -47,13 +47,16 @@
           </div>
         </div>
 
-        <div class="thumbs" id="bx-pager">
-          {% for image in images %}
-            <a data-slide-index="{{ loop.index0 }}" href="">
-              <div class="thumbs-item" style="background-image: url('{{ '/upload/' ~ image['SUBDIR'] ~ '/' ~ image['FILE_NAME'] }}')"></div>
-            </a>
-          {% endfor %}         
-        </div>
+
+        {% if images|length > 1 %}  
+          <div class="thumbs" id="bx-pager">
+            {% for image in images %}
+              <a data-slide-index="{{ loop.index0 }}" href="">
+                <div class="thumbs-item" style="background-image: url('{{ '/upload/' ~ image['SUBDIR'] ~ '/' ~ image['FILE_NAME'] }}')"></div>
+              </a>
+            {% endfor %}         
+          </div>
+        {% endif %}
       </div>
     {% endif %}
 

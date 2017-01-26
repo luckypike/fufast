@@ -1,7 +1,6 @@
 @import 'components/reset';
 @import 'components/layout';
 @import 'components/breakpoint';
-@import 'components/bx';
 
 $primary-color: #212121;
 $background-color: #f1f1f1;
@@ -25,6 +24,7 @@ $mm: 78rem;
 $l: 100rem;
 
 @import 'components/fonts';
+@import 'components/bx';
 
 * {
   box-sizing: border-box;

@@ -30,6 +30,22 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+h1 {
+  letter-spacing: 0.12em;
+  text-transform: uppercase; }
+  @media (min-width: 48rem) {
+    h1 {
+      font-size: 2.125rem;
+      line-height: 2.5rem; } }
+
+h2 {
+  letter-spacing: 0.12em;
+  text-transform: uppercase; }
+  @media (min-width: 48rem) {
+    h2 {
+      font-size: 1.5rem;
+      line-height: 2rem; } }
+
 /** RESET AND LAYOUT
 ===================================*/
 .bx-wrapper {
@@ -107,15 +123,25 @@ table {
 .bx-wrapper .bx-controls-direction a {
   border-bottom: 0;
   border-radius: 50%;
-  background: yellow;
   position: absolute;
   top: 50%;
-  margin-top: -30px;
+  margin-top: -31px;
   outline: 0;
-  width: 60px;
-  height: 60px;
-  text-indent: -9999px;
-  z-index: 9999; }
+  width: 62px;
+  height: 62px;
+  z-index: 5;
+  border: 1px solid #e0e0e0;
+  transition: 0.3s border-color; }
+  .bx-wrapper .bx-controls-direction a svg {
+    height: 60px;
+    width: 60px; }
+    .bx-wrapper .bx-controls-direction a svg polyline {
+      fill: none;
+      stroke: #333;
+      stroke-linecap: round;
+      stroke-miterlimit: 10; }
+  .bx-wrapper .bx-controls-direction a:hover {
+    border-color: #333; }
 
 .bx-wrapper .bx-controls-direction a.disabled {
   display: none; }
@@ -174,22 +200,6 @@ table {
   display: block;
   font-size: .85em;
   padding: 10px; }
-
-h1 {
-  letter-spacing: 0.12em;
-  text-transform: uppercase; }
-  @media (min-width: 48rem) {
-    h1 {
-      font-size: 2.125rem;
-      line-height: 2.5rem; } }
-
-h2 {
-  letter-spacing: 0.12em;
-  text-transform: uppercase; }
-  @media (min-width: 48rem) {
-    h2 {
-      font-size: 1.5rem;
-      line-height: 2rem; } }
 
 * {
   box-sizing: border-box; }
