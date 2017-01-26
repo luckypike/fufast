@@ -10,4 +10,19 @@ $(function() {
     });    
   }
 
+  _html = $('html');
+
+  $('.burger').on('click', function() {
+    _html.toggleClass('openburger');
+    return false;
+  });
+
+  _html.on('click touchstart', '.ff-wrapper', function(e) {
+    var _target = $(e.target);
+    if(_target.is('.ff-wrapper') &&_html.is('.openburger')) {
+      _html.removeClass('openburger');
+      return false;
+    }
+  });
+
 });

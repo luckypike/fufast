@@ -1,0 +1,25 @@
+.mobile-nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  padding: $margin-m * 3 $gutter $margin-m;
+  z-index: 4;
+  background-color: $light-color;
+  transition: 0.4s transform;
+  transform: translateX(-110%);
+}
+
+html.openburger {
+  overflow: hidden;
+
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .mobile-nav {
+    transform: translateX(0);
+  }
+}

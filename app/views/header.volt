@@ -47,3 +47,18 @@
     </a>
   </div>
 </header>
+
+<nav class="mobile-nav">
+    <div class="mobile-nav-menu">
+
+    {% for b in tree.getMenu() %}
+      <div class="mobile-nav-menu-item">
+        {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
+      </div>
+    {% endfor %}
+
+    <div class="mobile-nav-menu-item">
+      <a href="/logo">Нанесение логотипов</a>
+    </div>
+  </div>
+</nav>

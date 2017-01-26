@@ -202,6 +202,26 @@ h2 {
   font-size: .85em;
   padding: 10px; }
 
+.mobile-nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  padding: 5.25rem 1.25rem 1.75rem;
+  z-index: 4;
+  background-color: #ffffff;
+  transition: 0.4s transform;
+  transform: translateX(-110%); }
+
+html.openburger {
+  overflow: hidden; }
+  html.openburger body {
+    height: 100%;
+    overflow: hidden; }
+  html.openburger .mobile-nav {
+    transform: translateX(0); }
+
 * {
   box-sizing: border-box; }
 
