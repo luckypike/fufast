@@ -203,7 +203,7 @@ h2 {
   padding: 10px; }
 
 .mobile-nav {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
