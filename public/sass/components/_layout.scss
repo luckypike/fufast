@@ -8,7 +8,7 @@
     padding-top: ($height / $width) * 100%;
   }
 
-  > img, > svg, > video, > iframe {
+  > img, > svg, > video, > iframe, > div.ar {
     display: block;
     width: 100%;
     height: 100%;

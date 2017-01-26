@@ -109,6 +109,22 @@ $di->set(
     $router->removeExtraSlashes(true);
 
     $router->add(
+      '/about',
+      [
+        'controller' => 'static',
+        'action' => 'about',
+      ]
+    );
+
+    $router->add(
+      '/contacts',
+      [
+        'controller' => 'static',
+        'action' => 'contacts',
+      ]
+    );
+
+    $router->add(
       '/logo',
       [
         'controller' => 'static',

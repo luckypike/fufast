@@ -1,5 +1,35 @@
 .page {
   &-static{
     padding: $margin-l $gutter;
+    max-width: $m;
+    margin: auto;
+  }
+
+  &-content {
+    p {
+      margin-bottom: $base-rhythm;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul {
+      margin-bottom: $margin-s;
+      margin-top: -$base-rhythm / 2;
+
+      li {
+        padding-left: 1.4rem;
+        margin-bottom: $base-rhythm-line * 2;
+
+        &:before {
+          content: '—';
+          display: block;
+          float: left;
+          margin-left: -1.4rem;
+          width: 1.4rem;
+        }
+      }
+    }    
   }
 }

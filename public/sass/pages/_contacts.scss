@@ -1,0 +1,7 @@
+.map-ar {
+  @include aspect-ratio(4, 5);
+
+  @include breakpoint($s) {
+    @include aspect-ratio-change(16, 9);
+  }
+}

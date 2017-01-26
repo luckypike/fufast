@@ -23,8 +23,15 @@ $m: 60rem;
 $mm: 78rem;
 $l: 100rem;
 
+
+$margin-xs: $base-rhythm-line * 2;
+$margin-s: $base-rhythm-line * 4;
+$margin-m: $base-rhythm * 1;
+$margin-l: $base-rhythm-line * 9;
+
 @import 'components/fonts';
 @import 'components/bx';
+
 
 * {
   box-sizing: border-box;
@@ -39,14 +46,13 @@ body {
   @include font-size;
 }
 
-$margin-xs: $base-rhythm-line * 2;
-$margin-s: $base-rhythm-line * 4;
-$margin-m: $base-rhythm * 1;
-$margin-l: $base-rhythm-line * 9;
+
+
 
 @import 'pages/products';
 @import 'pages/sections';
 @import 'pages/pages';
+@import 'pages/contacts';
 
 @import 'header';
 @import 'footer';

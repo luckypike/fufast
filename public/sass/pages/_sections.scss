@@ -67,7 +67,7 @@
         }
 
         height: 360px;
-        padding: ($margin-m - 0.3rem) $gutter;
+        padding: ($margin-m) $gutter;
 
         &:after {
           content: '';
@@ -83,7 +83,8 @@
     &-159 { background-image: url('/img/secs/sec159_1920.jpg'); background-position: center 75%; }
     &-168 { background-image: url('/img/secs/sec168_1920.jpg'); background-position: center 50%; }
     &-177 { background-image: url('/img/secs/sec177_1920.jpg'); background-position: center 40%; }
-    // &-114 { background-image: url('/img/secs/sec114_1920.jpg'); }
+    &-about { background-image: url('/img/pages/about/top.jpg'); }
+    &-contacts { background-image: url('/img/pages/contacts/top.jpg'); }
   }
 
   &-filters {
