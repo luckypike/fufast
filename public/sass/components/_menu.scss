@@ -9,6 +9,20 @@
   background-color: $light-color;
   transition: 0.4s transform;
   transform: translateX(-110%);
+  z-index: 8;
+
+  &-menu {
+    @include font-size-h3;
+    @include font-upper;
+
+    &-item {
+      margin-bottom: $margin-s;
+    }
+
+    &-sep {
+      margin-bottom: $margin-l;
+    }
+  }
 }
 
 html.openburger {
@@ -19,7 +33,20 @@ html.openburger {
     overflow: hidden;
   }
 
+  .shadow {
+    display: block;
+  }
+
   .mobile-nav {
     transform: translateX(0);
   }
+}
+
+.shadow {
+  content: '';
+  position: fixed;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background-color: rgba(#000, 0.7);
+  z-index: 7;
+  display: none;
 }

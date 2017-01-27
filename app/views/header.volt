@@ -33,20 +33,22 @@
       <input class="header-search-input" type="text" name="q" placeholder="Поиск">
       <input class="header-search-submit" type="submit" value="">
     </form>
-  </div>          
+  </div>
 
   <div class="header-search-icon">
-    <a href="/search/" class="search">
-      
+    <a href="/search" class="search">
+
     </a>
   </div>
-  
+
   <div class="header-bag">
-    <a href="/personal/cart/" class="bag">
-      
+    <a href="/personal/cart" class="bag">
+
     </a>
   </div>
 </header>
+
+<div class="shadow"></div>
 
 <nav class="mobile-nav">
     <div class="mobile-nav-menu">
@@ -60,5 +62,19 @@
     <div class="mobile-nav-menu-item">
       <a href="/logo">Нанесение логотипов</a>
     </div>
+
+    <div class="mobile-nav-menu-sep"></div>
+
+    <div class="mobile-nav-menu-item">
+      {{ link_to('about', 'О компании') }}
+    </div>
+
+    <div class="mobile-nav-menu-item">
+      {{ link_to('contacts', 'Контакты') }}
+    </div>
+
+    <div class="mobile-nav-menu-sep"></div>
+
+
   </div>
 </nav>

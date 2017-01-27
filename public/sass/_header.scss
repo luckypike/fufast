@@ -9,7 +9,7 @@ $header-size-medium: 5rem;
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 9;
 
   a {
     border-bottom: 0;
@@ -17,7 +17,7 @@ $header-size-medium: 5rem;
 
   &-burger {
     // margin: 0 $gutter / 2;
-    
+
     .burger {
       padding: 19px $gutter 18px;
       user-select: none;
@@ -132,7 +132,7 @@ $header-size-medium: 5rem;
       padding: $margin-l 0;
       margin-left: $gutter;
       // letter-spacing: 0.12em;
-      text-transform: uppercase;  
+      text-transform: uppercase;
 
 
       &-item {
@@ -195,7 +195,7 @@ $header-size-medium: 5rem;
           size: 2rem;
           repeat: no-repeat;
           position: center;
-        }   
+        }
         border: 0;
         cursor: pointer;
         position: absolute;

@@ -17,12 +17,8 @@ $(function() {
     return false;
   });
 
-  _html.on('click touchstart', '.ff-wrapper', function(e) {
-    var _target = $(e.target);
-    if(_target.is('.ff-wrapper') &&_html.is('.openburger')) {
-      _html.removeClass('openburger');
-      return false;
-    }
+  _html.on('click touchstart', '.shadow', function() {
+    _html.removeClass('openburger');
   });
 
   // $("img.lazy").lazyload({
