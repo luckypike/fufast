@@ -50,8 +50,4 @@ $(function() {
       _this.find('.iandb').height(height - ch);
     }
   }).trigger('update');
-
-  $(window).on('resize', function() {
-    _mim.trigger('update')
-  });
 });
