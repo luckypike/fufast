@@ -9,7 +9,9 @@
     
     {{ stylesheet_link('css/app.css') }}
     {{ javascript_include('js/fonts.js') }}
+    {{ javascript_include('js/jquery.lazyload.min.js') }}
     {{ javascript_include('js/app.js') }}
+    
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
   </head>

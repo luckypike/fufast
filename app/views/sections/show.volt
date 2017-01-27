@@ -67,7 +67,11 @@
             <div class="section-sections-item-products">
               <div class="section-sections-item-products-main">
                 <a href="{{ url('catalog/' ~ c.PRODUCT.ID) }}">
-                  <div class="image"><div class="img" style="background-image: url('{{ url('cover/' ~ c.PRODUCT.ID ~ '.jpg') }}')"></div></div>
+                  <div class="image">
+                    {{ image('/cover/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                    <img class="lazy img" data-original="{{ '/cover/' ~ c.PRODUCT.ID ~ '/list.jpg' }}">                  
+                    <noscript>{{ image('/cover/' ~ c.PRODUCT.ID ~ '/list.jpg', 'class': 'img') }}</noscript>
+                  </div>                  
                   <div class="tap">
                     <div class="title">
                       {{ c.PRODUCT.NAME }}
@@ -84,7 +88,11 @@
                   {% for product in c.PRODUCTS %}
                     <div class="products-list-item">
                       <a href="{{ url('catalog/' ~ product.ID) }}">
-                        <div class="image"><div class="img" style="background-image: url('{{ url('cover/' ~ product.ID ~ '.jpg') }}')"></div></div>
+                        <div class="image">
+                          {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                          <img class="lazy img" data-original="{{ '/cover/' ~ product.ID ~ '/list.jpg' }}">                  
+                          <noscript>{{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img') }}</noscript>
+                        </div>                      
                         <div class="tap">
                           <div class="title">
                             {{ product.NAME }}
@@ -114,7 +122,11 @@
           {% for product in products %}
             <div class="products-list-item">
               <a href="{{ url('catalog/' ~ product.ID) }}">
-                <div class="image"><div class="img" style="background-image: url('{{ url('cover/' ~ product.ID ~ '.jpg') }}')"></div></div>
+                <div class="image">
+                  {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                  <img class="lazy img" data-original="{{ '/cover/' ~ product.ID ~ '/list.jpg' }}">                  
+                  <noscript>{{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img') }}</noscript>
+                </div>
                 <div class="tap">
                   <div class="title">
                     {{ product.NAME }}

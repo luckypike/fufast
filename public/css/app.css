@@ -514,14 +514,17 @@ body {
           right: 0;
           bottom: 0; }
         .products-list-item a .image .img {
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
-          left: 8%;
-          right: 8%;
-          top: 8%;
-          bottom: 8%;
-          position: absolute; }
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%; }
+          .products-list-item a .image .img.lazy {
+            z-index: 2;
+            display: none; }
       .products-list-item a .tap .title {
         max-height: 3.5rem;
         overflow: hidden;
@@ -651,14 +654,17 @@ body {
               right: 0;
               bottom: 0; }
             .section-sections-item-products-main a .image .img {
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: contain;
-              left: 8%;
-              right: 8%;
-              top: 8%;
-              bottom: 8%;
-              position: absolute; }
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              position: absolute;
+              display: block;
+              width: 100%;
+              height: 100%; }
+              .section-sections-item-products-main a .image .img.lazy {
+                z-index: 2;
+                display: none; }
           .section-sections-item-products-main a .tap .title {
             max-height: 3.5rem;
             overflow: hidden;
