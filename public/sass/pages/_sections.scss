@@ -231,7 +231,7 @@
                 bottom: $margin-s;
                 opacity: 0;
                 position: absolute;
-                z-index: 3;
+                z-index: 2;
 
                 transform: translate(0, 60%);
                 transition: 0.4s transform, 0.4s opacity;

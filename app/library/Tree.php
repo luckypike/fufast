@@ -19,6 +19,8 @@ class Tree extends Component {
       if(isset($this->flat[$section->PARENT_ID])) $this->flat[$section->PARENT_ID]->CHILDS[] = $section->ID;
     }
 
+
+
     // TODO: Create class for tree element, like TreeElement
     // foreach($rows as $row) {
     //   if(!isset($row['CHILDS'])) $row['CHILDS'] = array();
@@ -95,7 +97,24 @@ class Tree extends Component {
   public function getMenu() {
     $items = array();
 
+    $controllerName = $this->view->getControllerName();
+
+    $section = false;
+
+    if($controllerName == 'sections') {
+      $section = $this->view->section;
+    }
+
+    if($controllerName == 'products') {
+      $section = $this->view->section;
+    }
+
+    if($section) {
+      $section = $this->getParents($section->ID)[0];
+    }
+
     foreach($this->flat as $item) {
+      $item->active = $section && $section->ID == $item->ID;
       if($this->isRoot($item->ID)) $items[] = $item;
     }
 
@@ -104,7 +123,7 @@ class Tree extends Component {
 
   public function getParents($section_id) {
     $parents = array();
-    
+
     if($parent = $this->getParent($section_id)) {
       $parents = $this->getParents($parent->ID);
     } else {

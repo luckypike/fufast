@@ -14,7 +14,7 @@
   <div class="header-menu">
 
     {% for b in tree.getMenu() %}
-      <div class="header-menu-item">
+      <div class="header-menu-item{% if b.active %} active{% endif %}">
         {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
       </div>
     {% endfor %}

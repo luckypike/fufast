@@ -138,6 +138,12 @@ $header-size-medium: 5rem;
       &-item {
         align-self: center;
         margin-right: $gutter;
+
+        &.active {
+          a {
+            color: #bbb;
+          }
+        }
       }
     }
 

@@ -13,7 +13,7 @@
         {% if tree.getSiblings(section.ID)|length %}
           <div class="product-sections-siblings siblings">
             {% for b in tree.getSiblings(section.ID) %}
-              <div class="siblings-item">
+              <div class="siblings-item{% if section.ID == b.ID %} active{% endif %}">
                 {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
               </div>
             {% endfor %}
