@@ -558,7 +558,10 @@ body {
         overflow: hidden;
         background-color: white;
         margin-bottom: 0.5rem; }
-        .products-list-item a .iandb .button {
+        .products-list-item a .iandb .buy {
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          font-weight: 600;
           left: 1.25rem;
           bottom: 1rem;
           opacity: 0;
@@ -577,7 +580,7 @@ body {
             padding-right: 1.25rem; } }
       .products-list-item a .tap .price {
         font-size: 1rem; }
-      .products-list-item a:hover .iandb .button {
+      .products-list-item a:hover .iandb .buy {
         transform: translate(0, 0);
         opacity: 1; }
   @media (min-width: 48rem) {
@@ -754,7 +757,10 @@ body {
             overflow: hidden;
             background-color: white;
             margin-bottom: 0.5rem; }
-            .section-sections-item-products-main a .iandb .button {
+            .section-sections-item-products-main a .iandb .buy {
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              font-weight: 600;
               left: 1.25rem;
               bottom: 1rem;
               opacity: 0;
@@ -768,7 +774,7 @@ body {
             font-weight: 600; }
           .section-sections-item-products-main a .tap .price {
             font-size: 1rem; }
-          .section-sections-item-products-main a:hover .iandb .button {
+          .section-sections-item-products-main a:hover .iandb .buy {
             transform: translate(0, 0);
             opacity: 1; }
       .section-sections-item-products-list {
@@ -789,10 +795,21 @@ body {
         .section-sections-item-products .products-list-item {
           width: 25%; } }
     .section-sections-item-more {
-      text-align: right; }
+      text-align: center;
+      margin-top: 1.75rem; }
       .section-sections-item-more .button {
         padding-left: 3.75rem;
-        padding-right: 3.75rem; }
+        padding-right: 3.75rem;
+        width: 100%; }
+      @media (min-width: 25rem) {
+        .section-sections-item-more .button {
+          width: auto; } }
+      @media (min-width: 48rem) {
+        .section-sections-item-more {
+          text-align: right;
+          margin-top: 0; }
+          .section-sections-item-more .button {
+            width: auto; } }
     @media (min-width: 60rem) {
       .section-sections-item:nth-child(even) .section-sections-item-products-main {
         padding-right: 0;

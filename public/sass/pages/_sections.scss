@@ -223,7 +223,10 @@
               background-color: white;
               margin-bottom: $margin-xs;
 
-              .button {
+              .buy {
+                @include font-upper;
+
+                font-weight: 600;
                 left: $gutter;
                 bottom: $margin-s;
                 opacity: 0;
@@ -249,7 +252,7 @@
 
             &:hover {
               .iandb {
-                .button {
+                .buy {
                   transform: translate(0, 0);
                   opacity: 1;
                 }
@@ -292,11 +295,28 @@
       }
 
       &-more {
-        text-align: right;
+        text-align: center;
+        margin-top: $margin-m;
 
         .button {
           padding-left: $gutter * 3;
           padding-right: $gutter * 3;
+          width: 100%;
+        }
+
+        @include breakpoint(25rem) {
+          .button {
+            width: auto;
+          }
+        }
+
+        @include breakpoint($s) {
+          text-align: right;
+          margin-top: 0;
+
+          .button {
+            width: auto;
+          }
         }
       }
 

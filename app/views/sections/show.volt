@@ -95,7 +95,7 @@
                       {{ image('/cover/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
                       {{ image('/cover/' ~ c.PRODUCT.ID ~ '/large.jpg', 'class': 'img lazy') }}
                     </div>
-                    <div class="button">
+                    <div class="buy">
                       Купить
                     </div>
                   </div>
@@ -120,7 +120,7 @@
                             {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
                             {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                           </div>
-                          <div class="button">
+                          <div class="buy">
                             Купить
                           </div>
                         </div>
@@ -158,7 +158,7 @@
                     {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
                     {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                   </div>
-                  <div class="button">
+                  <div class="buy">
                     Купить
                   </div>
                 </div>

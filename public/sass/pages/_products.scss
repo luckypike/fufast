@@ -394,7 +394,10 @@
           background-color: white;
           margin-bottom: $margin-xs;
 
-          .button {
+          .buy {
+            @include font-upper;
+
+            font-weight: 600;
             left: $gutter;
             bottom: $margin-s;
             opacity: 0;
@@ -426,7 +429,7 @@
 
         &:hover {
           .iandb {
-            .button {
+            .buy {
               transform: translate(0, 0);
               opacity: 1;
             }
