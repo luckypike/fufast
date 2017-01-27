@@ -646,11 +646,12 @@ body {
         .section-intro-text .title a {
           border-bottom: 0; }
       .section-intro-text .sibfil {
-        position: absolute;
-        bottom: 0;
-        left: 0;
         width: 100%;
         transition: 0.3s background-color; }
+        .section-intro-text .sibfil.abs {
+          position: absolute;
+          bottom: 0;
+          left: 0; }
         .section-intro-text .sibfil .siblings {
           display: block;
           background-color: #333; }

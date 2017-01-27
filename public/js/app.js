@@ -57,6 +57,7 @@ $(function() {
     var _ph = _this.prev();
     var _ttl = _this.prev().prev();
     _ph.height(_this.height());
+    if(!_this.is('.abs')) _this.addClass('abs');
 
     var is_root = _this.closest('.section-intro-wrapper').is('.section-intro-wrapper-root1');
     var x = 0;
@@ -66,8 +67,6 @@ $(function() {
     if(_this.find('.siblings-title').is(':visible')) {
       _ttl.css('margin-top', x);
     } else {
-
-
       if(is_root) _ttl.css('margin-top', _this.find('.siblings').outerHeight(true) * -1 + x);
     }
 
