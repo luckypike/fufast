@@ -69,8 +69,7 @@
                 <a href="{{ url('catalog/' ~ c.PRODUCT.ID) }}">
                   <div class="image">
                     {{ image('/cover/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                    <img class="lazy img" data-original="{{ '/cover/' ~ c.PRODUCT.ID ~ '/list.jpg' }}">                  
-                    <noscript>{{ image('/cover/' ~ c.PRODUCT.ID ~ '/list.jpg', 'class': 'img') }}</noscript>
+                    {{ image('/cover/' ~ c.PRODUCT.ID ~ '/list.jpg', 'class': 'img lazy') }}                    
                   </div>                  
                   <div class="tap">
                     <div class="title">
@@ -90,8 +89,7 @@
                       <a href="{{ url('catalog/' ~ product.ID) }}">
                         <div class="image">
                           {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                          <img class="lazy img" data-original="{{ '/cover/' ~ product.ID ~ '/list.jpg' }}">                  
-                          <noscript>{{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img') }}</noscript>
+                          {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                         </div>                      
                         <div class="tap">
                           <div class="title">
@@ -124,8 +122,7 @@
               <a href="{{ url('catalog/' ~ product.ID) }}">
                 <div class="image">
                   {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                  <img class="lazy img" data-original="{{ '/cover/' ~ product.ID ~ '/list.jpg' }}">                  
-                  <noscript>{{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img') }}</noscript>
+                  {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                 </div>
                 <div class="tap">
                   <div class="title">
