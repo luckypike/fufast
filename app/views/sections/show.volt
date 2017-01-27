@@ -9,6 +9,7 @@
         </div>
 
         {% if section_childs|length %}
+          <div class="siblings-placeholder"></div>
           <div class="siblings">
             {% for c in section_childs %}
               <div class="siblings-item">

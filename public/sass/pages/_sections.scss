@@ -14,20 +14,24 @@
     .text {
       margin-top: auto;
       position: relative;
-      z-index: 1;
+      z-index: 3;
 
       .title {
+
         a {
           @include font-size-h2;
           @include font-upper;
 
           border-bottom: 0;
         }
+
+        @include breakpoint($s) {
+          margin-bottom: $margin-m;
+        }
       }
 
       .siblings {
         display: none;
-        margin-top: $margin-m;
 
         a {
           background-color: rgba($light-color, 0.9);
@@ -37,8 +41,23 @@
           }
         }
 
-        @include breakpoint($s) {
+        @include breakpoint($m) {
+          position: absolute;
           display: flex;
+          bottom: 0;
+          left: 0;
+
+          width: 100%;
+          transition: 0.3s background-color;
+
+          &.sticky {
+            position: fixed;
+            bottom: auto;
+            top: 5rem;
+            padding: $base-rhythm $gutter;
+            background-color: $background-color;
+            // z-index: 8;
+          }
         }
       }
     }

@@ -50,4 +50,31 @@ $(function() {
       _this.find('.iandb').height(height - ch);
     }
   }).trigger('update');
+
+
+  var _sis = $('.section-intro .siblings');
+  var _header = $('header.header');
+  var _window = $(window);
+
+  _sis.on('update', function() {
+    var _this = $(this);
+    var _ph = _this.prev();
+    _ph.height(_this.height());
+  }).trigger('update').on('move', function() {
+    var _this = $(this);
+    var _ph = _this.prev();
+    if(_window.scrollTop() >= (_ph.offset().top - _header.height() - 28)) {
+      _this.addClass('sticky');
+    } else {
+      _this.removeClass('sticky');
+    }
+
+  }).trigger('move');
+
+  _window.on('resize', function() {
+    _mim.trigger('update');
+    _sis.trigger('update');
+  }).on('scroll', function() {
+    _sis.trigger('move');
+  });
 });

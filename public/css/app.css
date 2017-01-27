@@ -570,7 +570,7 @@ body {
     .section-intro .text {
       margin-top: auto;
       position: relative;
-      z-index: 1; }
+      z-index: 3; }
       .section-intro .text .title a {
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -579,17 +579,30 @@ body {
           .section-intro .text .title a {
             font-size: 1.5rem;
             line-height: 2rem; } }
+      @media (min-width: 48rem) {
+        .section-intro .text .title {
+          margin-bottom: 1.75rem; } }
       .section-intro .text .siblings {
-        display: none;
-        margin-top: 1.75rem; }
+        display: none; }
         .section-intro .text .siblings a {
           background-color: rgba(255, 255, 255, 0.9); }
           .section-intro .text .siblings a:hover {
             background-color: #333; }
-        @media (min-width: 48rem) {
+        @media (min-width: 60rem) {
           .section-intro .text .siblings {
+            position: absolute;
             display: -ms-flexbox;
-            display: flex; } }
+            display: flex;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transition: 0.3s background-color; }
+            .section-intro .text .siblings.sticky {
+              position: fixed;
+              bottom: auto;
+              top: 5rem;
+              padding: 1.75rem 1.25rem;
+              background-color: #f1f1f1; } }
     .section-intro-root1 {
       background-color: #666666;
       background-size: cover;
