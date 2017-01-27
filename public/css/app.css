@@ -524,12 +524,31 @@ body {
           height: 100%; }
           .products-list-item a .image .img.lazy {
             z-index: 2; }
+      .products-list-item a .iandb {
+        position: relative;
+        overflow: hidden; }
+        .products-list-item a .iandb .button {
+          left: 1.25rem;
+          bottom: 1rem;
+          opacity: 0;
+          position: absolute;
+          z-index: 3;
+          transform: translate(0, 60%);
+          transition: 0.4s transform, 0.4s opacity; }
       .products-list-item a .tap .title {
         max-height: 3.5rem;
         overflow: hidden;
-        font-weight: 600; }
+        font-weight: 600;
+        line-height: 1.25rem;
+        margin-bottom: 0.5rem; }
+        @media (min-width: 100rem) {
+          .products-list-item a .tap .title {
+            padding-right: 1.25rem; } }
       .products-list-item a .tap .price {
         font-size: 1rem; }
+      .products-list-item a:hover .iandb .button {
+        transform: translate(0, 0);
+        opacity: 1; }
   @media (min-width: 48rem) {
     .products-list-item {
       width: 25%; } }
@@ -596,10 +615,15 @@ body {
         background-color: #000;
         opacity: 0.2; }
     .section-intro-114 {
-      background-image: url("/img/secs/sec114_1920.jpg"); }
+      background-image: url("/img/pages/catalog/sec114_s.jpg"); }
+      @media (min-width: 48rem) {
+        .section-intro-114 {
+          background-image: url("/img/pages/catalog/sec114_m.jpg"); } }
     .section-intro-159 {
-      background-image: url("/img/secs/sec159_1920.jpg");
-      background-position: center 75%; }
+      background-image: url("/img/pages/catalog/sec159_s.jpg"); }
+      @media (min-width: 48rem) {
+        .section-intro-159 {
+          background-image: url("/img/pages/catalog/sec159_m.jpg"); } }
     .section-intro-168 {
       background-image: url("/img/secs/sec168_1920.jpg");
       background-position: center 50%; }
@@ -663,12 +687,26 @@ body {
               height: 100%; }
               .section-sections-item-products-main a .image .img.lazy {
                 z-index: 2; }
+          .section-sections-item-products-main a .iandb {
+            position: relative;
+            overflow: hidden; }
+            .section-sections-item-products-main a .iandb .button {
+              left: 1.25rem;
+              bottom: 1rem;
+              opacity: 0;
+              position: absolute;
+              z-index: 3;
+              transform: translate(0, 60%);
+              transition: 0.4s transform, 0.4s opacity; }
           .section-sections-item-products-main a .tap .title {
             max-height: 3.5rem;
             overflow: hidden;
             font-weight: 600; }
           .section-sections-item-products-main a .tap .price {
             font-size: 1rem; }
+          .section-sections-item-products-main a:hover .iandb .button {
+            transform: translate(0, 0);
+            opacity: 1; }
       .section-sections-item-products-list {
         width: 100%; }
       @media (min-width: 48rem) {

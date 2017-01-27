@@ -15,7 +15,7 @@
 
     &-breadcrumb {
       border-top: 1px solid $light-grey-color;
-      padding: $margin-m / 2 0;  
+      padding: $margin-m / 2 0;
     }
   }
 
@@ -62,7 +62,7 @@
           }
         }
       }
-      
+
     }
 
     .thumbs {
@@ -94,7 +94,7 @@
           size: contain;
           position: center;
         }
-        
+
         width: 80px;
       }
     }
@@ -366,6 +366,7 @@
         display: block;
         width: 100%;
 
+
         .image {
           @include aspect-ratio(4, 5);
 
@@ -373,7 +374,7 @@
           margin-bottom: $margin-xs;
 
           .img {
-            left: 0; 
+            left: 0;
             right: 0;
             top: 0;
             bottom: 0;
@@ -386,6 +387,24 @@
               z-index: 2;
             }
           }
+
+
+        }
+
+        .iandb {
+          position: relative;
+          overflow: hidden;
+
+          .button {
+            left: $gutter;
+            bottom: $margin-s;
+            opacity: 0;
+            position: absolute;
+            z-index: 3;
+
+            transform: translate(0, 60%);
+            transition: 0.4s transform, 0.4s opacity;
+          }
         }
 
         .tap {
@@ -393,10 +412,25 @@
             max-height: 2 * $base-rhythm;
             overflow: hidden;
             font-weight: 600;
+            line-height: $base-rhythm-line * ($base-line-height - 2);
+            margin-bottom: $base-rhythm-line * 2;
+
+            @include breakpoint($l) {
+              padding-right: $gutter;
+            }
           }
 
           .price {
             font-size: 1rem;
+          }
+        }
+
+        &:hover {
+          .iandb {
+            .button {
+              transform: translate(0, 0);
+              opacity: 1;
+            }
           }
         }
       }

@@ -1,7 +1,7 @@
 {% extends "app.volt" %}
 
 {% block content %}
-  {% if section.DEPTH_LEVEL < 3 %} 
+  {% if section.DEPTH_LEVEL < 3 %}
     <div class="section-intro section-intro-root{{ tree.isRoot(section.ID) }} section-intro-{{ section.ID }}">
       <div class="text">
         <div class="title">
@@ -36,7 +36,7 @@
           </div>
         {% endif %}
       </div>
-    </div>  
+    </div>
   {% endif %}
 
   <div class="section-filters">
@@ -62,15 +62,20 @@
                   </div>
                 {% endfor %}
               </div>
-            {% endif %}            
+            {% endif %}
 
             <div class="section-sections-item-products">
               <div class="section-sections-item-products-main">
                 <a href="{{ url('catalog/' ~ c.PRODUCT.ID) }}">
-                  <div class="image">
-                    {{ image('/cover/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                    {{ image('/cover/' ~ c.PRODUCT.ID ~ '/list.jpg', 'class': 'img lazy') }}                    
-                  </div>                  
+                  <div class="iandb">
+                    <div class="image">
+                      {{ image('/cover/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                      {{ image('/cover/' ~ c.PRODUCT.ID ~ '/large.jpg', 'class': 'img lazy') }}
+                    </div>
+                    <div class="button">
+                      Купить
+                    </div>
+                  </div>
                   <div class="tap">
                     <div class="title">
                       {{ c.PRODUCT.NAME }}
@@ -79,7 +84,7 @@
                       999 руб.
                     </div>
                   </div>
-                </a>               
+                </a>
               </div>
 
               <div class="section-sections-item-products-list">
@@ -87,10 +92,15 @@
                   {% for product in c.PRODUCTS %}
                     <div class="products-list-item">
                       <a href="{{ url('catalog/' ~ product.ID) }}">
-                        <div class="image">
-                          {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                          {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
-                        </div>                      
+                        <div class="iandb">
+                          <div class="image">
+                            {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                            {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
+                          </div>
+                          <div class="button">
+                            Купить
+                          </div>
+                        </div>
                         <div class="tap">
                           <div class="title">
                             {{ product.NAME }}
@@ -99,7 +109,7 @@
                             999 руб.
                           </div>
                         </div>
-                      </a>  
+                      </a>
                     </div>
                   {% endfor %}
                   </div>
@@ -109,8 +119,8 @@
             <div class="section-sections-item-more">
               {{ link_to('catalog/' ~ c.CODE|lower, 'Посмотреть ещё', 'class': 'button') }}
             </div>
-          </div> 
-        {% endif %}       
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
 
@@ -120,9 +130,14 @@
           {% for product in products %}
             <div class="products-list-item">
               <a href="{{ url('catalog/' ~ product.ID) }}">
-                <div class="image">
-                  {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                  {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
+                <div class="iandb">
+                  <div class="image">
+                    {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                    {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
+                  </div>
+                  <div class="button">
+                    Купить
+                  </div>
                 </div>
                 <div class="tap">
                   <div class="title">
@@ -132,8 +147,9 @@
                     999 руб.
                   </div>
                 </div>
-              </a>  
-            </div>          
+
+              </a>
+            </div>
           {% endfor %}
         </div>
       </div>

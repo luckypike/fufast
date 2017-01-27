@@ -5,7 +5,7 @@
   &-intro {
     display: flex;
     flex-direction: column;
-    
+
     padding: $margin-l $gutter ($margin-m - 0.3rem);
 
     position: relative;
@@ -75,12 +75,28 @@
           top: 0; right: 0; bottom: 0; left: 0;
           background-color: #000;
           opacity: 0.2;
-        }          
-      }      
+        }
+      }
     }
 
-    &-114 { background-image: url('/img/secs/sec114_1920.jpg'); }
-    &-159 { background-image: url('/img/secs/sec159_1920.jpg'); background-position: center 75%; }
+    &-114 {
+      background-image: url('/img/pages/catalog/sec114_s.jpg');
+
+      @include breakpoint($s) {
+        background-image: url('/img/pages/catalog/sec114_m.jpg');
+      }
+    }
+
+    &-159 {
+      background-image: url('/img/pages/catalog/sec159_s.jpg');
+
+      @include breakpoint($s) {
+        background-image: url('/img/pages/catalog/sec159_m.jpg');
+      }
+    }
+
+
+    // &-159 { background-image: url('/img/secs/sec159_1920.jpg'); background-position: center 75%; }
     &-168 { background-image: url('/img/secs/sec168_1920.jpg'); background-position: center 50%; }
     &-177 { background-image: url('/img/secs/sec177_1920.jpg'); background-position: center 40%; }
     &-about { background-image: url('/img/pages/about/top.jpg'); }
@@ -125,12 +141,12 @@
 
             .image {
               @include aspect-ratio(4, 5);
-              
+
               background-color: white;
               margin-bottom: $margin-xs;
 
               .img {
-                left: 0; 
+                left: 0;
                 right: 0;
                 top: 0;
                 bottom: 0;
@@ -142,7 +158,23 @@
                 &.lazy {
                   z-index: 2;
                 }
-              }           
+              }
+            }
+
+            .iandb {
+              position: relative;
+              overflow: hidden;
+
+              .button {
+                left: $gutter;
+                bottom: $margin-s;
+                opacity: 0;
+                position: absolute;
+                z-index: 3;
+
+                transform: translate(0, 60%);
+                transition: 0.4s transform, 0.4s opacity;
+              }
             }
 
             .tap {
@@ -155,7 +187,16 @@
               .price {
                 font-size: 1rem;
               }
-            }   
+            }
+
+            &:hover {
+              .iandb {
+                .button {
+                  transform: translate(0, 0);
+                  opacity: 1;
+                }
+              }
+            }
           }
         }
 
@@ -208,10 +249,10 @@
             padding-left: $gutter;
 
             order: 1;
-          }          
+          }
         }
       }
-    }    
+    }
   }
 
   &-products {

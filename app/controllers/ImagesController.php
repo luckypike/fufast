@@ -27,10 +27,10 @@ class ImagesController extends Controller {
         ->bind([
           'id' => $id
         ])
-        ->execute()     
+        ->execute()
         ->toArray();
 
-      // 
+      //
 
       $images_more = ProductImages::query()
         ->columns('SUBDIR, MODULE_ID, FILE_NAME, ORIGINAL_NAME')
@@ -63,7 +63,7 @@ class ImagesController extends Controller {
           if($image->getImageWidth() < $d[$size][0]) {
             $d[$size][0] = $image->getImageWidth();
             $d[$size][1] = $d[$size][0] / 4 * 5;
-          }          
+          }
         }
 
         $k = 0.8;
@@ -73,7 +73,7 @@ class ImagesController extends Controller {
         $canvas = new \Imagick();
         $canvas->newImage($d[$size][0], $d[$size][1], new ImagickPixel('white'));
 
-        $image->blurImage(2, 1);
+        if($size == 'ph') $image->blurImage(2, 1);
 
         $canvas->compositeimage($image, \Imagick::COMPOSITE_OVER, $d[$size][0] * (1 - $k) / 2, $d[$size][1] * (1 - $k) / 2);
 
@@ -81,7 +81,7 @@ class ImagesController extends Controller {
         $canvas->setImageCompressionQuality(70);
         $canvas->writeImage($path);
         // header("Content-Type: image/jpeg");
-        // echo $canvas->getImageBlob();        
+        // echo $canvas->getImageBlob();
 
       } else {
 
@@ -90,6 +90,6 @@ class ImagesController extends Controller {
 
     $this->response->setContentType('image/jpeg');
     $this->response->setContent(file_get_contents($path));
-    return $this->response;    
+    return $this->response;
   }
 }
