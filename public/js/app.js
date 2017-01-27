@@ -78,8 +78,8 @@ $(function() {
   }).trigger('update').on('move', function() {
     var _this = $(this);
     var _ph = _this.prev();
-    console.log(_window.scrollTop());
-    console.log((_ph.offset().top - _header.height()));
+    // console.log(_window.scrollTop());
+    // console.log((_ph.offset().top - _header.height()));
     if(_window.scrollTop() >= (_ph.offset().top - _header.height())) {
       _this.addClass('sticky');
     } else {
