@@ -9,7 +9,7 @@
 }
 
 @mixin font-size-h1 {
-  // @include font-size(7.5, 10);
+  @include font-size(7, 8);
 
   @include breakpoint($s) {
     @include font-size(8.5, 10);
@@ -17,7 +17,7 @@
 }
 
 @mixin font-size-h2 {
-  // @include font-size(6, 8);
+  @include font-size(5, 7);
 
   @include breakpoint($s) {
     @include font-size(6, 8);
@@ -28,7 +28,7 @@
   // @include font-size(5, 7);
 
   @include breakpoint($s) {
-    
+
   }
 }
 

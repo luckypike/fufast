@@ -32,6 +32,8 @@ table {
   border-spacing: 0; }
 
 h1 {
+  font-size: 1.75rem;
+  line-height: 2rem;
   letter-spacing: 0.12em;
   text-transform: uppercase; }
   @media (min-width: 48rem) {
@@ -40,6 +42,8 @@ h1 {
       line-height: 2.5rem; } }
 
 h2 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase; }
   @media (min-width: 48rem) {
@@ -234,8 +238,10 @@ body {
   line-height: 1.75rem; }
 
 .product-sections {
-  padding: 2.25rem 1.25rem 0; }
+  padding: 1.75rem 1.25rem 0; }
   .product-sections-root {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 1.75rem; }
@@ -244,10 +250,10 @@ body {
         font-size: 1.5rem;
         line-height: 2rem; } }
   .product-sections-siblings {
-    margin-bottom: 1.45rem; }
+    margin-bottom: 1rem; }
   .product-sections-breadcrumb {
     border-top: 1px solid #e0e0e0;
-    padding: 0.875rem 0; }
+    padding: 1rem 0; }
 
 .product-images {
   padding: 0 1.25rem;
@@ -465,8 +471,10 @@ body {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
   .siblings-item {
-    margin-right: 0.3rem;
-    margin-bottom: 0.3rem; }
+    margin-right: 0.3125rem;
+    margin-bottom: 0.3125rem;
+    white-space: nowrap;
+    overflow: hidden; }
     .siblings-item a {
       display: block;
       background-color: #ffffff;
@@ -560,73 +568,96 @@ body {
   padding: 0 1.25rem;
   margin-bottom: 4.5rem; }
   .section-intro {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding: 2.25rem 1.25rem 1.45rem;
-    position: relative;
-    width: 100%; }
-    .section-intro .text {
-      margin-top: auto;
+    position: relative; }
+    .section-intro-wrapper {
       position: relative;
+      width: 100%;
       z-index: 3; }
-      .section-intro .text .title a {
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        border-bottom: 0; }
-        @media (min-width: 48rem) {
-          .section-intro .text .title a {
-            font-size: 1.5rem;
-            line-height: 2rem; } }
-      @media (min-width: 48rem) {
-        .section-intro .text .title {
-          margin-bottom: 1.75rem; } }
-      .section-intro .text .siblings {
-        display: none; }
-        .section-intro .text .siblings a {
-          background-color: rgba(255, 255, 255, 0.9); }
-          .section-intro .text .siblings a:hover {
-            background-color: #333; }
-        @media (min-width: 60rem) {
-          .section-intro .text .siblings {
-            position: absolute;
-            display: -ms-flexbox;
-            display: flex;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            transition: 0.3s background-color; }
-            .section-intro .text .siblings.sticky {
-              position: fixed;
-              bottom: auto;
-              top: 5rem;
-              padding: 1.75rem 1.25rem;
-              background-color: #f1f1f1; } }
-    .section-intro-root1 {
-      background-color: #666666;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center top;
-      height: 360px;
-      padding: 1.75rem 1.25rem; }
-      .section-intro-root1 .text .title {
-        color: #ffffff; }
-        .section-intro-root1 .text .title a {
+      .section-intro-wrapper-root1 .section-intro {
+        background-color: #666666;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center top;
+        height: 360px; }
+        .section-intro-wrapper-root1 .section-intro:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: #000;
+          opacity: 0.2; }
+        .section-intro-wrapper-root1 .section-intro-text .title {
+          font-size: 1.75rem;
+          line-height: 2rem;
+          margin-top: -4rem;
+          height: 4rem;
+          padding: 0 1.25rem;
           color: #ffffff; }
           @media (min-width: 48rem) {
-            .section-intro-root1 .text .title a {
+            .section-intro-wrapper-root1 .section-intro-text .title {
               font-size: 2.125rem;
               line-height: 2.5rem; } }
-      .section-intro-root1:after {
-        content: '';
+          .section-intro-wrapper-root1 .section-intro-text .title a {
+            color: #ffffff; }
+    .section-intro-text {
+      position: relative;
+      z-index: 1; }
+      .section-intro-text .title {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 1.75rem 1.25rem 0.75rem; }
+        @media (min-width: 48rem) {
+          .section-intro-text .title {
+            font-size: 1.5rem;
+            line-height: 2rem; } }
+        .section-intro-text .title a {
+          border-bottom: 0; }
+      .section-intro-text .sibfil {
         position: absolute;
-        top: 0;
-        right: 0;
         bottom: 0;
         left: 0;
-        background-color: #000;
-        opacity: 0.2; }
+        width: 100%;
+        transition: 0.3s background-color; }
+        .section-intro-text .sibfil .siblings {
+          display: block;
+          background-color: #333; }
+          .section-intro-text .sibfil .siblings-item {
+            margin: 0;
+            display: none; }
+          .section-intro-text .sibfil .siblings-title {
+            padding: 0.5rem 1.25rem;
+            color: #ffffff; }
+          @media (min-width: 48rem) {
+            .section-intro-text .sibfil .siblings {
+              display: -ms-flexbox;
+              display: flex;
+              background-color: transparent;
+              padding: 1rem 1.25rem 0.6875rem; }
+              .section-intro-text .sibfil .siblings-title {
+                display: none; }
+              .section-intro-text .sibfil .siblings-item {
+                display: block;
+                margin-right: 0.3125rem;
+                margin-bottom: 0.3125rem; } }
+        .section-intro-text .sibfil.sticky {
+          position: fixed;
+          bottom: auto;
+          top: 3rem;
+          background-color: #f1f1f1;
+          z-index: 3; }
+          @media (min-width: 48rem) {
+            .section-intro-text .sibfil.sticky {
+              top: 5rem; } }
+    .section-intro-filters {
+      background-color: #e0e0e0;
+      padding: 0.5rem 1.25rem; }
+      @media (min-width: 60rem) {
+        .section-intro-filters {
+          padding: 1rem 1.25rem; } }
     .section-intro-114 {
       background-image: url("/img/pages/catalog/sec114_s.jpg"); }
       @media (min-width: 48rem) {
@@ -647,9 +678,6 @@ body {
       background-image: url("/img/pages/about/top.jpg"); }
     .section-intro-contacts {
       background-image: url("/img/pages/contacts/top.jpg"); }
-  .section-filters {
-    background-color: #e0e0e0;
-    padding: 0.875rem 1.25rem; }
   .section-sections-item {
     margin-top: 3.5rem; }
     .section-sections-item-title {
@@ -657,7 +685,7 @@ body {
       .section-sections-item-title a {
         border-bottom: 0; }
     .section-sections-item-siblings {
-      margin-bottom: 1.45rem; }
+      margin-bottom: 1.4375rem; }
     .section-sections-item-products {
       display: -ms-flexbox;
       display: flex;

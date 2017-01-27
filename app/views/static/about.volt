@@ -1,12 +1,15 @@
 {% extends "app.volt" %}
 
 {% block content %}
-  <div class="section-intro section-intro-root1 section-intro-about">
-    <div class="text">
+  <div class="section-intro-wrapper section-intro-wrapper-root1">
+    <div class="section-intro section-intro-about">
+    </div>
+
+    <div class="section-intro-text">
       <div class="title">
         <h1>
           О компании
-        </h1>        
+        </h1>
       </div>
     </div>
   </div>
@@ -52,5 +55,5 @@
 
 
 
-  
+
 {% endblock %}

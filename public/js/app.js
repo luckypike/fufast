@@ -52,18 +52,35 @@ $(function() {
   }).trigger('update');
 
 
-  var _sis = $('.section-intro .siblings');
+  var _sis = $('.sibfil');
   var _header = $('header.header');
   var _window = $(window);
 
   _sis.on('update', function() {
     var _this = $(this);
     var _ph = _this.prev();
+    var _ttl = _this.prev().prev();
     _ph.height(_this.height());
+
+    var is_root = _this.closest('.section-intro-wrapper').is('.section-intro-wrapper-root1');
+    var x = 0;
+
+    if (is_root) x = -64;
+
+    if(_this.find('.siblings-title').is(':visible')) {
+      _ttl.css('margin-top', x);
+    } else {
+
+
+      if(is_root) _ttl.css('margin-top', _this.find('.siblings').outerHeight(true) * -1 + x);
+    }
+
   }).trigger('update').on('move', function() {
     var _this = $(this);
     var _ph = _this.prev();
-    if(_window.scrollTop() >= (_ph.offset().top - _header.height() - 28)) {
+    console.log(_window.scrollTop());
+    console.log((_ph.offset().top - _header.height()));
+    if(_window.scrollTop() >= (_ph.offset().top - _header.height())) {
       _this.addClass('sticky');
     } else {
       _this.removeClass('sticky');

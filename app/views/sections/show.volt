@@ -2,47 +2,69 @@
 
 {% block content %}
   {% if section.DEPTH_LEVEL < 3 %}
-    <div class="section-intro section-intro-root{{ tree.isRoot(section.ID) }} section-intro-{{ section.ID }}">
-      <div class="text">
+    <div class="section-intro-wrapper section-intro-wrapper-root{{ tree.isRoot(section.ID) }}">
+      <div class="section-intro section-intro-{{ section.ID }}">
+      </div>
+      <div class="section-intro-text">
         <div class="title">
           {{ link_to('catalog/' ~ section.CODE|lower, section.NAME) }}
         </div>
 
-        {% if section_childs|length %}
-          <div class="siblings-placeholder"></div>
-          <div class="siblings">
-            {% for c in section_childs %}
-              <div class="siblings-item">
-                {{ link_to('catalog/' ~ c.CODE|lower, c.NAME) }}
+        <div class="sibfil-placeholder"></div>
+
+        <div class="sibfil">
+          {% if section_childs|length %}
+            <div class="siblings">
+              <div class="siblings-title">
+                Все подразделы
               </div>
-            {% endfor %}
+              {% for c in section_childs %}
+                <div class="siblings-item">
+                  {{ link_to('catalog/' ~ c.CODE|lower, c.NAME) }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="section-intro-filters">
+            Фильтры
           </div>
-        {% endif %}
+        </div>
       </div>
     </div>
   {% else %}
-    <div class="section-intro section-intro-{{ section.ID }}">
-      <div class="text">
+
+    <div class="section-intro-wrapper section-intro-wrapper-root">
+      <div class="section-intro section-intro-{{ section.ID }}">
+      </div>
+      <div class="section-intro-text">
         <div class="title">
           {{ link_to('catalog/' ~ tree.getParents(section.ID)[1].CODE|lower, tree.getParents(section.ID)[1].NAME) }}
         </div>
 
-        {% if tree.getSiblings(section.ID)|length %}
-          <div class="siblings">
-            {% for b in tree.getSiblings(section.ID) %}
-              <div class="siblings-item">
-                {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
+        <div class="sibfil-placeholder"></div>
+
+        <div class="sibfil">
+          {% if tree.getSiblings(section.ID)|length %}
+            <div class="siblings">
+              <div class="siblings-title">
+                Все подразделы
               </div>
-            {% endfor %}
+              {% for b in tree.getSiblings(section.ID) %}
+                <div class="siblings-item">
+                  {{ link_to('catalog/' ~ b.CODE|lower, b.NAME) }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="section-intro-filters">
+            Фильтры
           </div>
-        {% endif %}
+        </div>
       </div>
     </div>
   {% endif %}
-
-  <div class="section-filters">
-    Фильтры
-  </div>
 
   <div class="section">
     <div class="section-sections">

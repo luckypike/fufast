@@ -7,5 +7,6 @@ WebFont.load({
 
   active: function() {
     $('.section-sections-item-products-main').trigger('update');
+    $('.sibfil').trigger('update');
   }
 });

@@ -42,7 +42,7 @@
               {% for image in images %}
                 <div class="slider-images-item" style="background-image: url('{{ '/upload/' ~ image['SUBDIR'] ~ '/' ~ image['FILE_NAME'] }}')">
                 </div>
-              {% endfor %}                
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
               <a data-slide-index="{{ loop.index0 }}" href="">
                 <div class="thumbs-item" style="background-image: url('{{ '/upload/' ~ image['SUBDIR'] ~ '/' ~ image['FILE_NAME'] }}')"></div>
               </a>
-            {% endfor %}         
+            {% endfor %}
           </div>
         {% endif %}
       </div>
@@ -93,7 +93,7 @@
                   {% endfor %}
                 {% endif %}
               </div>
-            </div>          
+            </div>
           {% endfor %}
         </div>
       {% endif %}
@@ -125,10 +125,10 @@
                 <div class="sizes-row-minus"></div>
                 <div class="sizes-row-input"><input type="text" name="" value="0"></div>
                 <div class="sizes-row-plus"></div>
-              </div>            
+              </div>
             {% endfor %}
 
-            </div>       
+            </div>
           {% endfor %}
         </div>
       {% endif %}
@@ -144,7 +144,7 @@
         <div class="order-to-basket">
           <a href="#" class="button">В корзину</a>
         </div>
-      </div>   
+      </div>
     </div>
   </div>
 {% endblock %}

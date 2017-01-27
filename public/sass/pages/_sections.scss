@@ -2,101 +2,146 @@
   padding: 0 $gutter;
   margin-bottom: $margin-l * 2;
 
+
+
   &-intro {
-    display: flex;
-    flex-direction: column;
-
-    padding: $margin-l $gutter ($margin-m - 0.3rem);
-
     position: relative;
-    width: 100%;
 
-    .text {
-      margin-top: auto;
+    &-wrapper {
+      // margin-bottom: $margin-l;
       position: relative;
+      width: 100%;
       z-index: 3;
 
+      &-root {
+        &1 {
+          .section-intro {
+            background: {
+              color: $primary-grey-color;
+              size: cover;
+              repeat: no-repeat;
+              position: center top;
+            }
+
+            height: 360px;
+
+            &:after {
+              content: '';
+              position: absolute;
+              top: 0; right: 0; bottom: 0; left: 0;
+              background-color: #000;
+              opacity: 0.2;
+            }
+
+            &-text {
+              .title {
+                @include font-size-h1;
+
+                margin-top: -4rem;
+                height: 4rem;
+                padding: 0 $gutter;
+
+                color: $light-color;
+
+                a {
+                  color: $light-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-text {
+      position: relative;
+      z-index: 1;
+
       .title {
+        @include font-size-h2;
+        @include font-upper;
+
+        padding: $margin-m $gutter ($margin-m - $margin-s);
 
         a {
-          @include font-size-h2;
-          @include font-upper;
-
           border-bottom: 0;
         }
 
         @include breakpoint($s) {
-          margin-bottom: $margin-m;
+          // padding-top: $margin-l;
+          // margin-bottom: $margin-m;
         }
       }
 
-      .siblings {
-        display: none;
+      .sibfil {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        // background-color: red;
+        transition: 0.3s background-color;
 
-        a {
-          background-color: rgba($light-color, 0.9);
 
-          &:hover {
-            background-color: $dark-grey-color;
+        .siblings {
+          display: block;
+          background-color: $dark-grey-color;
+
+          &-item {
+            // white-space: nowrap;
+            // overflow: hidden;
+            margin: 0;
+            display: none;
+            // text-overflow: ellipsis;
           }
-        }
 
-        @include breakpoint($m) {
-          position: absolute;
-          display: flex;
-          bottom: 0;
-          left: 0;
-
-          width: 100%;
-          transition: 0.3s background-color;
-
-          &.sticky {
-            position: fixed;
-            bottom: auto;
-            top: 5rem;
-            padding: $base-rhythm $gutter;
-            background-color: $background-color;
-            // z-index: 8;
-          }
-        }
-      }
-    }
-
-
-
-    &-root {
-      &1 {
-        background: {
-          color: $primary-grey-color;
-          size: cover;
-          repeat: no-repeat;
-          position: center top;
-        }
-
-        .text {
-          .title {
+          &-title {
+            padding: $margin-xs $gutter;
             color: $light-color;
+          }
 
-            a {
-              @include font-size-h1;
+          @include breakpoint($s) {
+            display: flex;
+            background-color: transparent;
+            padding: $margin-s $gutter ($margin-s - 0.3125rem);
 
-              color: $light-color;
+            &-title {
+              display: none;
+            }
+
+            &-item {
+              display: block;
+              margin-right: 0.3125rem;
+              margin-bottom: 0.3125rem;
             }
           }
         }
 
-        height: 360px;
-        padding: ($margin-m) $gutter;
+        &.sticky {
+          position: fixed;
+          bottom: auto;
+          top: 3rem;
+          // padding: $base-rhythm $gutter;
+          background-color: $background-color;
+          z-index: 3;
 
-        &:after {
-          content: '';
-          position: absolute;
-          top: 0; right: 0; bottom: 0; left: 0;
-          background-color: #000;
-          opacity: 0.2;
+          @include breakpoint($s) {
+            top: 5rem;
+          }
         }
       }
     }
+
+
+
+    &-filters {
+      background-color: $light-grey-color;
+      padding: $margin-xs $gutter;
+
+      @include breakpoint($m) {
+        padding: $margin-s $gutter;
+      }
+    }
+
 
     &-114 {
       background-image: url('/img/pages/catalog/sec114_s.jpg');
@@ -122,11 +167,6 @@
     &-contacts { background-image: url('/img/pages/contacts/top.jpg'); }
   }
 
-  &-filters {
-    background-color: $light-grey-color;
-    padding: $base-rhythm / 2 $gutter;
-  }
-
   &-sections {
     &-item {
       margin-top: $margin-m * 2;
@@ -140,7 +180,7 @@
       }
 
       &-siblings {
-        margin-bottom: $margin-m - 0.3rem;
+        margin-bottom: $margin-m - 0.3125rem;
       }
 
       &-products {

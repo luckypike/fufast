@@ -1,6 +1,6 @@
 .product {
   &-sections {
-    padding: $margin-l $gutter 0;
+    padding: $margin-m $gutter 0;
 
     &-root {
       @include font-size-h2;
@@ -10,12 +10,12 @@
     }
 
     &-siblings {
-      margin-bottom: $margin-m - 0.3rem;
+      margin-bottom: $margin-s;
     }
 
     &-breadcrumb {
       border-top: 1px solid $light-grey-color;
-      padding: $margin-m / 2 0;
+      padding: $margin-s 0;
     }
   }
 
@@ -329,8 +329,10 @@
   flex-wrap: wrap;
 
   &-item {
-    margin-right: 0.3rem;
-    margin-bottom: 0.3rem;
+    margin-right: 0.3125rem;
+    margin-bottom: 0.3125rem;
+    white-space: nowrap;
+    overflow: hidden;
 
     a {
       display: block;
