@@ -496,9 +496,7 @@ body {
       display: block;
       width: 100%; }
       .products-list-item a .image {
-        position: relative;
-        background-color: white;
-        margin-bottom: 0.5rem; }
+        position: relative; }
         .products-list-item a .image:before {
           display: block;
           content: "";
@@ -526,7 +524,9 @@ body {
             z-index: 2; }
       .products-list-item a .iandb {
         position: relative;
-        overflow: hidden; }
+        overflow: hidden;
+        background-color: white;
+        margin-bottom: 0.5rem; }
         .products-list-item a .iandb .button {
           left: 1.25rem;
           bottom: 1rem;
@@ -659,9 +659,7 @@ body {
           display: block;
           border-bottom: 0; }
           .section-sections-item-products-main a .image {
-            position: relative;
-            background-color: white;
-            margin-bottom: 0.5rem; }
+            position: relative; }
             .section-sections-item-products-main a .image:before {
               display: block;
               content: "";
@@ -689,7 +687,9 @@ body {
                 z-index: 2; }
           .section-sections-item-products-main a .iandb {
             position: relative;
-            overflow: hidden; }
+            overflow: hidden;
+            background-color: white;
+            margin-bottom: 0.5rem; }
             .section-sections-item-products-main a .iandb .button {
               left: 1.25rem;
               bottom: 1rem;

@@ -142,9 +142,6 @@
             .image {
               @include aspect-ratio(4, 5);
 
-              background-color: white;
-              margin-bottom: $margin-xs;
-
               .img {
                 left: 0;
                 right: 0;
@@ -164,6 +161,8 @@
             .iandb {
               position: relative;
               overflow: hidden;
+              background-color: white;
+              margin-bottom: $margin-xs;
 
               .button {
                 left: $gutter;

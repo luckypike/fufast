@@ -3,5 +3,9 @@ WebFont.load({
 
   google: {
     families: ['PT Sans']
+  },
+
+  active: function() {
+    $('.section-sections-item-products-main').trigger('update');
   }
 });
