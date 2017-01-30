@@ -8,9 +8,9 @@ class Tree extends Component {
 
   public function __construct() {
     $sections = Sections::query()
-      ->columns('IBLOCK_SECTION_ID AS PARENT_ID, ID, NAME, CODE, DEPTH_LEVEL')
+      ->columns('IBLOCK_SECTION_ID AS PARENT_ID, ID, NAME, CODE, DEPTH_LEVEL, SORT')
       ->where('IBLOCK_ID = 20')
-      ->orderBy('DEPTH_LEVEL ASC')
+      ->orderBy('DEPTH_LEVEL ASC, SORT ASC')
       ->execute();
 
     foreach($sections as $section) {
