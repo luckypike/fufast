@@ -16,9 +16,10 @@ class SectionsController extends Controller {
         $in[] = $cs->ID;
 
         $results = Products::query()
-          ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE')
+          ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY')
           ->innerJoin('IblockSectionElements', 'IblockSectionElements.IBLOCK_ELEMENT_ID = Products.ID')
           ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
+          ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
           ->inWhere('IblockSectionElements.IBLOCK_SECTION_ID', $in)
           ->orderBy('Products.ID DESC')
           ->limit(9)
@@ -35,9 +36,10 @@ class SectionsController extends Controller {
       }
     } else {
       $products = Products::query()
-        ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE')
+        ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY')
         ->innerJoin('IblockSectionElements', 'IblockSectionElements.IBLOCK_ELEMENT_ID = Products.ID')
         ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
+        ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
         ->where('IblockSectionElements.IBLOCK_SECTION_ID = :section:')
         ->bind(['section' => $section->ID])
         ->orderBy('Products.ID DESC')

@@ -89,4 +89,83 @@ $(function() {
   }).on('scroll', function() {
     _sis.trigger('move');
   });
+
+  var _o2b = $('.order-to-basket .button');
+  var _srii = $('.sizes-row-input input');
+
+  _o2b.on('click', function() {
+    if(_o2b.data('size')) {
+      values = new Array();
+      _srii.each(function() {
+        var _this = $(this);
+        if(v = _this.val()) {
+          values.push({
+            number: _this.data('number'),
+            quantity: _this.val(),
+            size: _this.data('size'),
+            height: _this.data('height')
+          });
+        }
+      });
+
+      console.log(values);
+
+      $.post(
+        '/personal/add2basket_ajax.php',
+        {
+          action: 'ADD2BASKET',
+          id: _o2b.data('id'),
+          value: values
+        },
+        function(data){
+        }
+      );
+    } else {
+    }
+  }).on('update', function() {
+    var act = 0;
+    _srii.each(function() {
+      if($(this).val()) {
+        act +=1;
+      }
+      if(act) {
+        _o2b.data('size', true);
+      } else {
+        _o2b.data('size', false);
+      }
+    });
+  }).trigger('update');
+
+
+  _srii.on('change keyup', function() {
+    var _this = $(this);
+    var val = parseInt(_this.val());
+    if(isNaN(val)) val = null;
+    _this.val(val);
+    _o2b.trigger('update');
+  }).on('plus', function() {
+    var _this = $(this);
+    var val = parseInt(_this.val());
+    if(isNaN(val)) val = 0;
+    val += 1;
+    _this.val(val);
+    _o2b.trigger('update');
+  }).on('minus', function() {
+    var _this = $(this);
+    var val = parseInt(_this.val());
+    if(isNaN(val)) val = 0;
+    val -= 1;
+    if(val < 1) val = null;
+    _this.val(val);
+    _o2b.trigger('update');
+  });
+
+  $('.sizes-row-plus').on('click', function() {
+    $(this).prev().children('input').trigger('plus');
+  });
+
+  $('.sizes-row-minus').on('click', function() {
+    $(this).next().children('input').trigger('minus');
+  });
+
 });

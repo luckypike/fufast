@@ -352,6 +352,10 @@ body {
 .product-details {
   padding: 0 1.25rem;
   margin-bottom: 2.25rem; }
+  .product-details h1 {
+    margin-bottom: 1.75rem; }
+  .product-details .desc {
+    margin-bottom: 1.75rem; }
   .product-details .prop {
     margin-bottom: 1.75rem;
     border-top: 1px solid #e0e0e0; }
@@ -422,7 +426,10 @@ body {
       .product-details .sizes-row-input {
         width: 2.625rem;
         line-height: 1.625rem;
-        margin-right: 1px; }
+        margin-right: 1px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; }
         .product-details .sizes-row-input input {
           font-family: inherit;
           font-size: 1rem;
@@ -1055,10 +1062,16 @@ a {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   background-color: #333;
+  border: 0;
   color: #ffffff;
+  cursor: pointer;
   display: inline-block;
   border-bottom: 0;
   padding: 0.5rem 1.25rem;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  outline: none;
   transition-duration: 0.25s;
   transition-property: background, color; }
   .button:hover {

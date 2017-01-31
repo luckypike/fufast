@@ -104,6 +104,14 @@
     padding: 0 $gutter;
     margin-bottom: $margin-l;
 
+    h1 {
+      margin-bottom: $margin-m;
+    }
+
+    .desc {
+      margin-bottom: $margin-m;
+    }
+
     .prop {
       margin-bottom: $margin-m;
       border-top: 1px solid $light-grey-color;
@@ -215,6 +223,7 @@
           width: $base-rhythm * 1.5;
           line-height: 1.625rem;
           margin-right: 1px;
+          appearance: none;
 
           input {
             font-family: inherit;
@@ -246,6 +255,10 @@
       &-to-basket {
         .button {
           padding: $base-rhythm / 2 $gutter * 2;
+
+          &:disabled {
+            // background-color: red;
+          }
         }
       }
     }

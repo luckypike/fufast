@@ -66,9 +66,6 @@
       </h1>
 
       <div class="desc">
-        <div class="desc-cat">
-        </div>
-
         <div class="desc-product">
           {{ product.DETAIL_TEXT }}
         </div>
@@ -112,7 +109,6 @@
               <div class="sizes-left">
             {% endif %}
 
-
             {% if loop.last %}
               <div class="sizes-right">
             {% endif %}
@@ -123,7 +119,7 @@
                   {{ o[1] }}
                 </div>
                 <div class="sizes-row-minus"></div>
-                <div class="sizes-row-input"><input type="text" name="" value="0"></div>
+                <div class="sizes-row-input"><input type="text" name="" placeholder="0" data-number="{{ o[1] }}" data-size="{{ o[0]['size'] }}" data-height="{{ o[0]['height'] }}"></div>
                 <div class="sizes-row-plus"></div>
               </div>
             {% endfor %}
@@ -135,14 +131,14 @@
 
       <div class="order">
         <div class="order-price">
-          Общая стоимость
+          Цена за штуку
           <div class="price">
-            384 000 руб.
+            {{ money(product.PRICE, 0, ',', ' ') }} руб.
           </div>
         </div>
 
         <div class="order-to-basket">
-          <a href="#" class="button">В корзину</a>
+          <button class="button" data-size="false" data-id="{{ product.ID }}">В корзину</button>
         </div>
       </div>
     </div>

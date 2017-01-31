@@ -78,17 +78,22 @@ a {
   @include font-upper;
 
   background-color: $dark-grey-color;
+  border: 0;
   color: $light-color;
+  cursor: pointer;
   display: inline-block;
   border-bottom: 0;
   padding: $margin-xs $gutter;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  outline: none;
   transition-duration: 0.25s;
   transition-property: background, color;
 
   &:hover {
     background-color: #000;
   }
-
 }
 
 

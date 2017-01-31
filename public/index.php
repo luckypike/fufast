@@ -67,7 +67,8 @@ $di->set(
     );
 
     $compiler = $volt->getCompiler();
-    $compiler->addFunction("int", "intval");
+    $compiler->addFunction('int', 'intval');
+    $compiler->addFunction('money', 'number_format');
 
     return $volt;
   }

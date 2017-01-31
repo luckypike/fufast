@@ -96,7 +96,7 @@
                       {{ image('/cover/' ~ c.PRODUCT.ID ~ '/large.jpg', 'class': 'img lazy') }}
                     </div>
                     <div class="buy">
-                      Купить
+                      Выбрать
                     </div>
                   </div>
                   <div class="tap">
@@ -104,7 +104,7 @@
                       {{ c.PRODUCT.NAME }}
                     </div>
                     <div class="price">
-                      999 руб.
+                      {{ money(c.PRODUCT.PRICE, 0, ',', ' ') }} руб.
                     </div>
                   </div>
                 </a>
@@ -121,7 +121,7 @@
                             {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                           </div>
                           <div class="buy">
-                            Купить
+                            Выбрать
                           </div>
                         </div>
                         <div class="tap">
@@ -129,7 +129,7 @@
                             {{ product.NAME }}
                           </div>
                           <div class="price">
-                            999 руб.
+                            {{ money(product.PRICE, 0, ',', ' ') }} руб.
                           </div>
                         </div>
                       </a>
@@ -159,7 +159,7 @@
                     {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                   </div>
                   <div class="buy">
-                    Купить
+                    Выбрать
                   </div>
                 </div>
                 <div class="tap">
@@ -167,7 +167,7 @@
                     {{ product.NAME }}
                   </div>
                   <div class="price">
-                    999 руб.
+                    {{ money(product.PRICE, 0, ',', ' ') }} руб.
                   </div>
                 </div>
 

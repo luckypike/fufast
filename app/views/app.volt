@@ -10,6 +10,7 @@
     {{ stylesheet_link('css/app.css') }}
     {{ javascript_include('js/fonts.js') }}
     {{ javascript_include('js/jquery.lazyload.min.js') }}
+    {{ javascript_include('js/js.cookie.js') }}
     {{ javascript_include('js/app.js') }}
 
 

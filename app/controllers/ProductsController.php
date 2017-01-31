@@ -11,10 +11,11 @@ class ProductsController extends Controller {
     //   ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
     //   ->where('Products.ID = :id:')
     //   ->getQuery()
-    //   ->getSingleResult(['id' => $id]);    
+    //   ->getSingleResult(['id' => $id]);
     $product = Products::query()
-      ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_TEXT, IblockElements.DETAIL_PICTURE')
+      ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_TEXT, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY')
       ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
+      ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
       ->where('Products.ID = :id:')
       ->bind(['id' => $id])
       ->execute()
@@ -28,7 +29,7 @@ class ProductsController extends Controller {
       ->bind([
         'id' => $product->ID
       ])
-      ->execute();     
+      ->execute();
 
     $images = ProductImages::query()
       ->columns('SUBDIR, MODULE_ID, FILE_NAME, ORIGINAL_NAME')
@@ -36,7 +37,7 @@ class ProductsController extends Controller {
       ->bind([
         'id' => $product->DETAIL_PICTURE
       ])
-      ->execute()     
+      ->execute()
       ->toArray();
 
     $images_more = ProductImages::query()
@@ -92,7 +93,7 @@ class ProductsController extends Controller {
     foreach($results as $i => $v) {
       if(!isset($props_elem_enum[$v['PROPERTY_ID']])) $props_elem_enum[$v['PROPERTY_ID']] = [];
       $props_elem_enum[$v['PROPERTY_ID']][$v['ID']] = $v['VALUE'];
-    }    
+    }
 
     $size = false;
 
@@ -118,15 +119,15 @@ class ProductsController extends Controller {
         foreach($props_elem_enum[$size] as $is => $vs) {
           foreach($props_elem_enum[$height] as $ih => $vh) {
             $order[] = array(
-              array($size => $is, $height => $ih),
+              array($size => $is, $height => $ih, 'size' => $vs, 'height' => $vh),
               "{$vs} / {$vh}"
-            );            
+            );
           }
         }
       } else {
         foreach($props_elem_enum[$size] as $i => $v) {
           $order[] = array(
-            array($size => $i),
+            array($size => $i, 'size' => $size),
             $v
           );
         }
@@ -147,7 +148,7 @@ class ProductsController extends Controller {
     // print_r($props_elem);
     // print_r($order);
     // die;
-    
+
 
     $this->view->product = $product;
     $this->view->images = $images;
