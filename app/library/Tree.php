@@ -15,10 +15,18 @@ class Tree extends Component {
 
     foreach($sections as $section) {
       if(!isset($section->CHILDS)) $section->CHILDS = array();
+      $section->NAME_SHORT = $section->NAME;
+      if($section->PARENT_ID && $section->PARENT_ID == 114) {
+        $section->NAME_SHORT = trim(preg_replace('/(одежда|спецодежда)/iu', '', $section->NAME_SHORT));
+      }
+
+      if($section->PARENT_ID && $section->PARENT_ID == 159) {
+        $section->NAME_SHORT = trim(preg_replace('/(обувь|спецобувь)/iu', '', $section->NAME_SHORT));
+      }
+
       $this->flat[$section->ID] = $section;
       if(isset($this->flat[$section->PARENT_ID])) $this->flat[$section->PARENT_ID]->CHILDS[] = $section->ID;
     }
-
 
 
     // TODO: Create class for tree element, like TreeElement

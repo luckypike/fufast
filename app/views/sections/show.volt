@@ -20,7 +20,7 @@
               </div>
               {% for c in section_childs %}
                 <div class="siblings-item">
-                  {{ link_to('catalog/' ~ c.CODE|lower, c.NAME) }}
+                  {{ link_to('catalog/' ~ c.CODE|lower, c.NAME_SHORT) }}
                 </div>
               {% endfor %}
             </div>
