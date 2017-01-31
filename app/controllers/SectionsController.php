@@ -29,8 +29,7 @@ class SectionsController extends Controller {
           ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
           ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
           ->inWhere('IblockSectionElements.IBLOCK_SECTION_ID', $in)
-          ->where('IblockElements.ACTIVE = :active:')
-          ->bind(['active' => 'Y'])
+          ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
           ->orderBy('Products.ID DESC')
           ->limit(9)
           ->execute();
