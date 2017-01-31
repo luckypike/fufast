@@ -6,6 +6,14 @@ class SectionsController extends Controller {
   public function showAction($slug) {
     $tree = $this->di->getTree();
     $section = $tree->getBySlug($slug);
+
+    if(!$section) {
+      $this->response->setStatusCode(404, "Not Found");
+      // $this->view->pick("static/route404");
+      $this->response->setContent("Sorry, the page doesn't exist");
+      return $this->response;
+    }
+
     $this->tag->prependTitle($section->NAME);
     $section_childs = $tree->getChilds($section->ID);
     $void = count($section_childs) == 0;
@@ -21,6 +29,8 @@ class SectionsController extends Controller {
           ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
           ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
           ->inWhere('IblockSectionElements.IBLOCK_SECTION_ID', $in)
+          ->where('IblockElements.ACTIVE = :active:')
+          ->bind(['active' => 'Y'])
           ->orderBy('Products.ID DESC')
           ->limit(9)
           ->execute();

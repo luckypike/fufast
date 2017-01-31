@@ -16,10 +16,17 @@ class ProductsController extends Controller {
       ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_TEXT, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY')
       ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
       ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
-      ->where('Products.ID = :id:')
-      ->bind(['id' => $id])
+      ->where('Products.ID = :id: AND IblockElements.ACTIVE = :active:')
+      ->bind(['id' => $id, 'active' => 'Y'])
       ->execute()
       ->getFirst();
+
+    if(!$product) {
+      $this->response->setStatusCode(404, "Not Found");
+      // $this->view->pick("static/route404");
+      $this->response->setContent("Sorry, the page doesn't exist");
+      return $this->response;
+    }
 
     $this->tag->prependTitle($product->NAME);
 

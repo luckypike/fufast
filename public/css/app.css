@@ -409,7 +409,8 @@ body {
         user-select: none;
         transition-duration: 0.3s;
         transition-property: background, border;
-        position: relative; }
+        position: relative;
+        user-select: none; }
         .product-details .sizes-row-minus:after, .product-details .sizes-row-plus:after {
           font-size: 1rem;
           position: absolute;

@@ -105,9 +105,22 @@ $di->set(
 $di->set(
   'router',
   function () {
-    $router = new Router();
+    $router = new Router(false);
 
     $router->removeExtraSlashes(true);
+
+    $router->notFound([
+      'controller' => 'static',
+      'action' => 'route404',
+    ]);
+
+    $router->add(
+      '/',
+      [
+        'controller' => 'static',
+        'action' => 'index',
+      ]
+    );
 
     $router->add(
       '/about',
@@ -136,7 +149,7 @@ $di->set(
     $router->add(
       '/catalog',
       [
-        'controller' => 'index',
+        'controller' => 'static',
         'action' => 'catalog',
       ]
     );

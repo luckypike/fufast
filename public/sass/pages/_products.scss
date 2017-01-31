@@ -181,6 +181,7 @@
           transition-duration: 0.3s;
           transition-property: background, border;
           position: relative;
+          user-select: none;
 
           &:after {
             font-size: 1rem;
