@@ -1004,7 +1004,7 @@ body {
         width: 100%;
         line-height: 1.5rem; }
       .header-search-submit {
-        background-image: url("images/search.svg");
+        background-image: url("/img/search.svg");
         background-color: transparent;
         background-size: 2rem;
         background-repeat: no-repeat;
