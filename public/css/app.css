@@ -729,6 +729,7 @@ body {
       -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
       .section-sections-item-products-main {
+        display: none;
         -ms-flex-order: 1;
         order: 1;
         padding-right: 0.625rem;
@@ -796,6 +797,7 @@ body {
           width: 25%; } }
       @media (min-width: 60rem) {
         .section-sections-item-products-main {
+          display: block;
           padding-right: 1.25rem;
           width: 33.33333%;
           -ms-flex-order: 0;
@@ -817,7 +819,6 @@ body {
           width: auto; } }
       @media (min-width: 48rem) {
         .section-sections-item-more {
-          text-align: right;
           margin-top: 0; }
           .section-sections-item-more .button {
             width: auto; } }

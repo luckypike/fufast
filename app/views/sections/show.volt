@@ -88,27 +88,29 @@
             {% endif %}
 
             <div class="section-sections-item-products">
-              <div class="section-sections-item-products-main">
-                <a href="{{ url('catalog/' ~ c.PRODUCT.ID) }}">
-                  <div class="iandb">
-                    <div class="image">
-                      {{ image('/cover/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                      {{ image('/cover/' ~ c.PRODUCT.ID ~ '/large.jpg', 'class': 'img lazy') }}
+              {% if c.PRODUCT %}
+                <div class="section-sections-item-products-main">
+                  <a href="{{ url('catalog/' ~ c.PRODUCT.ID) }}">
+                    <div class="iandb">
+                      <div class="image">
+                        {{ image('/cover/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                        {{ image('/cover/' ~ c.PRODUCT.ID ~ '/large.jpg', 'class': 'img lazy') }}
+                      </div>
+                      <div class="buy">
+                        Выбрать
+                      </div>
                     </div>
-                    <div class="buy">
-                      Выбрать
+                    <div class="tap">
+                      <div class="title">
+                        {{ c.PRODUCT.NAME }}
+                      </div>
+                      <div class="price">
+                        {{ money(c.PRODUCT.PRICE, 0, ',', ' ') }} руб.
+                      </div>
                     </div>
-                  </div>
-                  <div class="tap">
-                    <div class="title">
-                      {{ c.PRODUCT.NAME }}
-                    </div>
-                    <div class="price">
-                      {{ money(c.PRODUCT.PRICE, 0, ',', ' ') }} руб.
-                    </div>
-                  </div>
-                </a>
-              </div>
+                  </a>
+                </div>
+              {% endif %}
 
               <div class="section-sections-item-products-list">
                 <div class="products-list">

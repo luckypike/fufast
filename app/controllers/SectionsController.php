@@ -27,11 +27,10 @@ class SectionsController extends Controller {
 
         $cs->PRODUCTS = array();
         foreach($results as $result) {
-          // LastImage::prepareImage($result->ID);
           $cs->PRODUCTS[] = $result;
         }
 
-        $cs->PRODUCT = array_shift($cs->PRODUCTS);
+        $cs->PRODUCT = count($cs->PRODUCTS) > 5 ? array_shift($cs->PRODUCTS) : false;
 
       }
     } else {
