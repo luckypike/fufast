@@ -62,8 +62,8 @@ class ImagesController extends Controller {
 
         $canvas->compositeimage($image, \Imagick::COMPOSITE_OVER, $d[$size][0] * (1 - $k) / 2, $d[$size][1] * (1 - $k) / 2);
 
-        $canvas->setImageCompressionQuality(70);
         $canvas->setImageFormat('jpeg');
+        $canvas->setImageCompressionQuality(70);
         $canvas->writeImage($path);
 
         // header("Content-Type: image/jpeg");
