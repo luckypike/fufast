@@ -6,6 +6,10 @@
   }
 
   &-content {
+    h1, h2 , h3 {
+      margin-bottom: $base-rhythm;
+    }
+
     p {
       margin-bottom: $base-rhythm;
 
@@ -30,6 +34,12 @@
           width: 1.4rem;
         }
       }
-    }    
+    }
+  }
+
+  &-404 {
+    @include breakpoint($s) {
+      @include font-size(5, 8);
+    }
   }
 }

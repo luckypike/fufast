@@ -742,11 +742,17 @@ body {
           background-image: url("/img/pages/catalog/sec159_m.jpg");
           background-position: center 80% !important; } }
     .section-intro-168 {
-      background-image: url("/img/secs/sec168_1920.jpg");
-      background-position: center 50%; }
+      background-image: url("/img/pages/catalog/sec168_s.jpg"); }
+      @media (min-width: 48rem) {
+        .section-intro-168 {
+          background-image: url("/img/pages/catalog/sec168_m.jpg");
+          background-position: center 20% !important; } }
     .section-intro-177 {
-      background-image: url("/img/secs/sec177_1920.jpg");
-      background-position: center 40%; }
+      background-image: url("/img/pages/catalog/sec177_s.jpg"); }
+      @media (min-width: 48rem) {
+        .section-intro-177 {
+          background-image: url("/img/pages/catalog/sec177_m.jpg");
+          background-position: center 20% !important; } }
     .section-intro-about {
       background-image: url("/img/pages/about/top.jpg"); }
     .section-intro-contacts {
@@ -872,6 +878,9 @@ body {
   max-width: 60rem;
   margin: auto; }
 
+.page-content h1, .page-content h2, .page-content h3 {
+  margin-bottom: 1.75rem; }
+
 .page-content p {
   margin-bottom: 1.75rem; }
   .page-content p:last-child {
@@ -889,6 +898,11 @@ body {
       float: left;
       margin-left: -1.4rem;
       width: 1.4rem; }
+
+@media (min-width: 48rem) {
+  .page-404 {
+    font-size: 1.25rem;
+    line-height: 2rem; } }
 
 .map-ar {
   position: relative; }

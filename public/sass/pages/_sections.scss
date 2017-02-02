@@ -164,10 +164,25 @@
       }
     }
 
+    &-168 {
+      background-image: url('/img/pages/catalog/sec168_s.jpg');
 
-    // &-159 { background-image: url('/img/secs/sec159_1920.jpg'); background-position: center 75%; }
-    &-168 { background-image: url('/img/secs/sec168_1920.jpg'); background-position: center 50%; }
-    &-177 { background-image: url('/img/secs/sec177_1920.jpg'); background-position: center 40%; }
+      @include breakpoint($s) {
+        background-image: url('/img/pages/catalog/sec168_m.jpg');
+        background-position: center 20% !important;
+      }
+    }
+
+    &-177 {
+      background-image: url('/img/pages/catalog/sec177_s.jpg');
+
+      @include breakpoint($s) {
+        background-image: url('/img/pages/catalog/sec177_m.jpg');
+        background-position: center 20% !important;
+      }
+    }
+
+
     &-about { background-image: url('/img/pages/about/top.jpg'); }
     &-contacts { background-image: url('/img/pages/contacts/top.jpg'); }
   }
