@@ -35,13 +35,15 @@ class ImagesController extends Controller {
 
         $image = new \Imagick(realpath('../upload/' . $current['SUBDIR'] . '/' . $current['FILE_NAME']));
 
+        if($image->getImageColorspace() == \Imagick::COLORSPACE_CMYK) {
+          $image->transformimagecolorspace(\Imagick::COLORSPACE_SRGB);
+        }
+
         if($image->getImageWidth() / $image->getImageHeight() < 4 / 5) {
           if($image->getImageHeight() < $d[$size][1]) {
             $d[$size][1] = $image->getImageHeight();
             $d[$size][0] = $d[$size][1] / 5 * 4;
           }
-          // $height = $image->getImageHeight();
-          // $width = $height;
         } else {
           if($image->getImageWidth() < $d[$size][0]) {
             $d[$size][0] = $image->getImageWidth();
@@ -60,9 +62,10 @@ class ImagesController extends Controller {
 
         $canvas->compositeimage($image, \Imagick::COMPOSITE_OVER, $d[$size][0] * (1 - $k) / 2, $d[$size][1] * (1 - $k) / 2);
 
-        $canvas->setImageFormat('jpeg');
         $canvas->setImageCompressionQuality(70);
+        $canvas->setImageFormat('jpeg');
         $canvas->writeImage($path);
+
         // header("Content-Type: image/jpeg");
         // echo $canvas->getImageBlob();
 
@@ -124,6 +127,10 @@ class ImagesController extends Controller {
         $current = $images[0];
 
         $image = new \Imagick(realpath('../upload/' . $current['SUBDIR'] . '/' . $current['FILE_NAME']));
+
+        if($image->getImageColorspace() == \Imagick::COLORSPACE_CMYK) {
+          $image->transformimagecolorspace(\Imagick::COLORSPACE_SRGB);
+        }
 
         if($image->getImageWidth() / $image->getImageHeight() < 4 / 5) {
           if($image->getImageHeight() < $d[$size][1]) {
