@@ -114,10 +114,10 @@ h2 {
 
 /* DIRECTION CONTROLS (NEXT / PREV) */
 .bx-wrapper .bx-prev {
-  left: 0; }
+  left: 1.25rem; }
 
 .bx-wrapper .bx-next {
-  right: 0; }
+  right: 1.25rem; }
 
 .bx-wrapper .bx-prev:hover {
   background-position: 0 0; }
@@ -130,16 +130,16 @@ h2 {
   border-radius: 50%;
   position: absolute;
   top: 50%;
-  margin-top: -31px;
   outline: 0;
-  width: 62px;
-  height: 62px;
   z-index: 5;
   border: 1px solid #e0e0e0;
-  transition: 0.3s border-color; }
+  transition: 0.3s border-color;
+  margin-top: -24px;
+  width: 48px;
+  height: 48px; }
   .bx-wrapper .bx-controls-direction a svg {
-    height: 60px;
-    width: 60px; }
+    height: 46px;
+    width: 46px; }
     .bx-wrapper .bx-controls-direction a svg polyline {
       fill: none;
       stroke: #333;
@@ -147,6 +147,14 @@ h2 {
       stroke-miterlimit: 10; }
   .bx-wrapper .bx-controls-direction a:hover {
     border-color: #333; }
+  @media (min-width: 48rem) {
+    .bx-wrapper .bx-controls-direction a {
+      margin-top: -31px;
+      width: 62px;
+      height: 62px; }
+      .bx-wrapper .bx-controls-direction a svg {
+        height: 60px;
+        width: 60px; } }
 
 .bx-wrapper .bx-controls-direction a.disabled {
   display: none; }

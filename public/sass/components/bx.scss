@@ -10,7 +10,7 @@
   img {
     max-width: 100%;
     display: block;
-  }  
+  }
 }
 
 
@@ -80,11 +80,11 @@
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-  left: 0;
+  left: $gutter;
 }
 
 .bx-wrapper .bx-next {
-  right: 0;
+  right: $gutter;
 
 }
 
@@ -99,21 +99,20 @@
 .bx-wrapper .bx-controls-direction a {
   border-bottom: 0;
   border-radius: 50%;
-  // background: yellow;
   position: absolute;
   top: 50%;
-  margin-top: -31px;
   outline: 0;
-  width: 62px;
-  height: 62px;
-  // text-indent: -9999px;
   z-index: 5;
   border: 1px solid $light-grey-color;
   transition: 0.3s border-color;
+  margin-top: -24px;
+  width: 48px;
+  height: 48px;
+
 
   svg {
-    height: 60px;
-    width: 60px;
+    height: 46px;
+    width: 46px;
     polyline {
       fill:none;stroke: $dark-grey-color; stroke-linecap:round;stroke-miterlimit:10;
     }
@@ -121,6 +120,17 @@
 
   &:hover {
     border-color: $dark-grey-color;
+  }
+
+  @include breakpoint($s) {
+    margin-top: -31px;
+    width: 62px;
+    height: 62px;
+
+    svg {
+      height: 60px;
+      width: 60px;
+    }
   }
 }
 
