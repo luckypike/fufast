@@ -91,10 +91,13 @@ $(function() {
   });
 
   var _o2b = $('.order-to-basket .button');
+  var _msg = $('.product-details .msg');
+  var _op = $('.order-price');
+  var _opp = _op.find('.price');
   var _srii = $('.sizes-row-input input');
 
   _o2b.on('click', function() {
-    if(_o2b.data('size')) {
+    if(_o2b.data('size') && !_o2b.is('.prc')) {
       values = new Array();
       _srii.each(function() {
         var _this = $(this);
@@ -108,7 +111,8 @@ $(function() {
         }
       });
 
-      console.log(values);
+      _msg.removeClass('act');
+      _o2b.addClass('prc');
 
       $.post(
         '/personal/add2basket_ajax.php',
@@ -118,19 +122,35 @@ $(function() {
           value: values
         },
         function(data){
+          var user = data;
+          $.get('/catalog/basket', { user: user }, function(data) {
+            console.log(data);
+            $('.header-bag .cnt').addClass('cnt-act').find('text').text(data);
+          });
+          _msg.addClass('suc').text('Товар успешно добавлен в корзину.');
+          _o2b.removeClass('prc');
+          _srii.val(null);
         }
       );
+
+
+
     } else {
+      _msg.removeClass('suc').addClass('act').text('Необходимо выбрать размер чтобы сделать заказ.');
     }
   }).on('update', function() {
     var act = 0;
     _srii.each(function() {
       if($(this).val()) {
-        act +=1;
+        act += parseInt($(this).val());
       }
       if(act) {
+        _op.addClass('r2o');
+        _opp.text((parseInt(_opp.data('price')) * act) + ' руб.' );
         _o2b.data('size', true);
       } else {
+        _op.removeClass('r2o');
+        _opp.text(_opp.data('price-human') + ' руб.' );
         _o2b.data('size', false);
       }
     });

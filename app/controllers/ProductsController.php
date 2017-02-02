@@ -170,4 +170,8 @@ class ProductsController extends Controller {
     $this->view->sections = $sections;
     $this->view->section = $sections[0];
   }
+
+  public function basketAction () {
+    $this->session->set('fuser', $this->request->get('user'));
+  }
 }

@@ -43,7 +43,19 @@
 
   <div class="header-bag">
     <a href="/personal/cart" class="bag">
-
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <g>
+          <polyline class="a" points="5.5 5.5 8.5 5.5 12.7 22.1"/>
+          <circle class="b" cx="13.2" cy="24.2" r="2.2"/>
+          <circle class="b" cx="21.2" cy="24.2" r="2.2"/>
+          <polyline class="c" points="9.9 11.1 26.5 11.1 24 20.1 12 20.1"/>
+        </g>
+        {% set cnt = basket.getItems() %}
+        <g class="cnt {% if cnt %}cnt-act{% endif %}">
+          <circle class="d" cx="24" cy="8" r="8"/>
+          <text class="f" x="24" y="12">{{ cnt }}</text>
+        </g>
+      </svg>
     </a>
   </div>
 </header>

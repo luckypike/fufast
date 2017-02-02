@@ -53,16 +53,55 @@ $header-size-medium: 5rem;
     margin-right: $gutter / 2;
 
     .bag {
-      background: {
-        image: url('/img/bag.svg');
-        size: 2rem;
-        repeat: no-repeat;
-        position: center;
-      }
-
       display: block;
       height: $header-size;
       width: $header-size;
+      padding: 0.5rem;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+
+        .cnt {
+          opacity: 0;
+
+          &-act {
+            opacity: 1;
+          }
+        }
+
+        .a, .b, .c, .e {
+          fill: none;
+        }
+
+        .a, .b, .c {
+          stroke: #8f8f8f;
+        }
+
+        .a {
+          stroke-linecap: round;
+        }
+
+        .a, .c {
+          stroke-linejoin: round;
+        }
+
+        .b {
+          stroke-miterlimit: 10;
+        }
+
+        .d {
+          fill: #ef4438;
+        }
+
+        .f {
+          // isolation: isolate;
+          text-anchor: middle;
+          font-size: 10px;
+          fill: #fff;
+          font-family: 'proxima-nova', sans-serif;
+        }
+      }
     }
   }
 

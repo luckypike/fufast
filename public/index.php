@@ -172,6 +172,16 @@ $di->set(
     );
 
     $router->add(
+      '/catalog/basket',
+      [
+        'controller' => 'products',
+        'action' => 'basket',
+      ]
+    );
+
+
+
+    $router->add(
       '/cover/{id:[0-9]+}/{size:[a-z]+}.jpg',
       [
         'controller' => 'images',
@@ -189,6 +199,14 @@ $di->set(
   'tree',
   function () {
     return new Tree();
+  },
+  true
+);
+
+$di->set(
+  'basket',
+  function () {
+    return new Basket();
   },
   true
 );

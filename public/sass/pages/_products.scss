@@ -243,6 +243,8 @@
     }
 
     .order {
+      margin-bottom: $margin-s;
+
       &-price {
         margin-bottom: $margin-s;
         max-width: 280px;
@@ -250,6 +252,20 @@
 
         .price {
           @include font-size(6);
+        }
+
+        .po {
+          display: none;
+        }
+
+        &.r2o {
+          .po {
+            display: block;
+          }
+
+          .ppi {
+            display: none;
+          }
         }
       }
 
@@ -261,6 +277,27 @@
             // background-color: red;
           }
         }
+      }
+    }
+
+    .msg {
+      // margin-top: $margin-s;
+      opacity: 0;
+      visibility: hidden;
+      min-height: $margin-m * 2;
+      transition: 0.2s opacity;
+      font-weight: 600;
+
+      &.act {
+        color: red;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &.suc {
+        color: green;
+        opacity: 1;
+        visibility: visible;
       }
     }
 

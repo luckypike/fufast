@@ -71,29 +71,36 @@
         </div>
       </div>
 
-      {% if images|length %}
-        <div class="prop">
-          {% for prop in props %}
-            <div class="prop-row">
-              <div class="prop-label">
-              {{ prop['NAME'] }}
-              </div>
-              <div class="prop-value">
-                {% if prop['PROPERTY_TYPE'] == 'S' %}
-                  {{ props_elem[prop['ID']][0] }}
-                {% else %}
-                  {% for v in props_elem[prop['ID']] %}
-                    {{ props_elem_enum[prop['ID']][int(v)] }}
-                    {% if !loop.last %}
-                      /
-                    {% endif %}
-                  {% endfor %}
-                {% endif %}
-              </div>
+      <div class="prop">
+        {% for prop in props %}
+          <div class="prop-row">
+            <div class="prop-label">
+            {{ prop['NAME'] }}
             </div>
-          {% endfor %}
+            <div class="prop-value">
+              {% if prop['PROPERTY_TYPE'] == 'S' %}
+                {{ props_elem[prop['ID']][0] }}
+              {% else %}
+                {% for v in props_elem[prop['ID']] %}
+                  {{ props_elem_enum[prop['ID']][int(v)] }}
+                  {% if !loop.last %}
+                    /
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+        <div class="prop-row">
+          <div class="prop-label">
+            Цена за штуку
+          </div>
+          <div class="prop-value">
+            {{ money(product.PRICE, 0, ',', ' ') }} руб.
+          </div>
         </div>
-      {% endif %}
+      </div>
+
 
       {% if size %}
         <div class="sizes">
@@ -131,8 +138,9 @@
 
       <div class="order">
         <div class="order-price">
-          Цена за штуку
-          <div class="price">
+          <div class="ppi">Цена за штуку</div>
+          <div class="po">Общая стоимость</div>
+          <div class="price" data-price="{{ product.PRICE }}" data-price-human="{{ money(product.PRICE, 0, ',', ' ') }}">
             {{ money(product.PRICE, 0, ',', ' ') }} руб.
           </div>
         </div>
@@ -140,6 +148,9 @@
         <div class="order-to-basket">
           <button class="button" data-size="false" data-id="{{ product.ID }}">В корзину</button>
         </div>
+      </div>
+
+      <div class="msg">
       </div>
     </div>
   </div>

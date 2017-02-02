@@ -219,12 +219,14 @@ h2 {
   transform: translateX(-110%);
   z-index: 8; }
   .mobile-nav-menu {
-    font-size: 1rem;
-    line-height: 1.5rem;
     letter-spacing: 0.12em;
     text-transform: uppercase; }
     .mobile-nav-menu-item {
-      margin-bottom: 1rem; }
+      border-bottom: 1px solid #e0e0e0; }
+      .mobile-nav-menu-item a {
+        display: block;
+        border-bottom: 0;
+        padding: 0.5rem 0; }
     .mobile-nav-menu-sep {
       margin-bottom: 2.25rem; }
 
@@ -442,15 +444,37 @@ body {
           width: 100%;
           outline: none;
           text-align: center; }
-  .product-details .order-price {
-    margin-bottom: 1rem;
-    max-width: 280px;
-    margin-right: 1.25rem; }
-    .product-details .order-price .price {
-      font-size: 1.5rem;
-      line-height: 1.75rem; }
-  .product-details .order-to-basket .button {
-    padding: 0.875rem 2.5rem; }
+  .product-details .order {
+    margin-bottom: 1rem; }
+    .product-details .order-price {
+      margin-bottom: 1rem;
+      max-width: 280px;
+      margin-right: 1.25rem; }
+      .product-details .order-price .price {
+        font-size: 1.5rem;
+        line-height: 1.75rem; }
+      .product-details .order-price .po {
+        display: none; }
+      .product-details .order-price.r2o .po {
+        display: block; }
+      .product-details .order-price.r2o .ppi {
+        display: none; }
+    .product-details .order-to-basket .button {
+      padding: 0.875rem 2.5rem; }
+  .product-details .msg {
+    opacity: 0;
+    visibility: hidden;
+    min-height: 3.5rem;
+    transition: 0.2s opacity;
+    font-weight: 600; }
+    .product-details .msg.act {
+      color: red;
+      opacity: 1;
+      visibility: visible; }
+    .product-details .msg.suc {
+      color: green;
+      opacity: 1;
+      visibility: visible; }
   @media (min-width: 48rem) {
     .product-details .sizes-left, .product-details .sizes-right {
       width: 50%; }
@@ -911,13 +935,34 @@ body {
   .header-bag {
     margin-right: 0.625rem; }
     .header-bag .bag {
-      background-image: url("/img/bag.svg");
-      background-size: 2rem;
-      background-repeat: no-repeat;
-      background-position: center;
       display: block;
       height: 3rem;
-      width: 3rem; }
+      width: 3rem;
+      padding: 0.5rem; }
+      .header-bag .bag svg {
+        width: 2rem;
+        height: 2rem; }
+        .header-bag .bag svg .cnt {
+          opacity: 0; }
+          .header-bag .bag svg .cnt-act {
+            opacity: 1; }
+        .header-bag .bag svg .a, .header-bag .bag svg .b, .header-bag .bag svg .c, .header-bag .bag svg .e {
+          fill: none; }
+        .header-bag .bag svg .a, .header-bag .bag svg .b, .header-bag .bag svg .c {
+          stroke: #8f8f8f; }
+        .header-bag .bag svg .a {
+          stroke-linecap: round; }
+        .header-bag .bag svg .a, .header-bag .bag svg .c {
+          stroke-linejoin: round; }
+        .header-bag .bag svg .b {
+          stroke-miterlimit: 10; }
+        .header-bag .bag svg .d {
+          fill: #ef4438; }
+        .header-bag .bag svg .f {
+          text-anchor: middle;
+          font-size: 10px;
+          fill: #fff;
+          font-family: 'proxima-nova', sans-serif; }
   .header-search-icon {
     margin-left: auto; }
     .header-search-icon .search {

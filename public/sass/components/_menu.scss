@@ -12,11 +12,19 @@
   z-index: 8;
 
   &-menu {
-    @include font-size-h3;
+    // @include font-size-h3;
     @include font-upper;
 
     &-item {
-      margin-bottom: $margin-s;
+      border-bottom: 1px solid $light-grey-color;
+      // margin-bottom: $margin-s;
+
+      a {
+        display: block;
+
+        border-bottom: 0;
+        padding: $margin-s / 2 0;
+      }
     }
 
     &-sep {
