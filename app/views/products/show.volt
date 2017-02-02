@@ -40,7 +40,7 @@
           <div class="slider-wrapper">
             <div class="slider-images bxslider">
               {% for image in images %}
-                <div class="slider-images-item" style="background-image: url('{{ '/upload/' ~ image['SUBDIR'] ~ '/' ~ image['FILE_NAME'] }}')">
+                <div class="slider-images-item" style="background-image: url('/cover/images/{{ image['ID'] }}/small.jpg')">
                 </div>
               {% endfor %}
             </div>
@@ -52,7 +52,8 @@
           <div class="thumbs" id="bx-pager">
             {% for image in images %}
               <a data-slide-index="{{ loop.index0 }}" href="">
-                <div class="thumbs-item" style="background-image: url('{{ '/upload/' ~ image['SUBDIR'] ~ '/' ~ image['FILE_NAME'] }}')"></div>
+                {{ image('/cover/images/' ~ image['ID'] ~ '/small.jpg', 'class': 'img thumbs-item') }}
+                <!-- <div class="thumbs-item" style="background-image: url('{{ '/upload/' ~ image['SUBDIR'] ~ '/' ~ image['FILE_NAME'] }}')"></div> -->
               </a>
             {% endfor %}
           </div>

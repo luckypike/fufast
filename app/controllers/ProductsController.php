@@ -39,7 +39,7 @@ class ProductsController extends Controller {
       ->execute();
 
     $images = ProductImages::query()
-      ->columns('SUBDIR, MODULE_ID, FILE_NAME, ORIGINAL_NAME')
+      ->columns('ProductImages.ID, SUBDIR, MODULE_ID, FILE_NAME, ORIGINAL_NAME')
       ->where('ID = :id:')
       ->bind([
         'id' => $product->DETAIL_PICTURE
@@ -48,7 +48,7 @@ class ProductsController extends Controller {
       ->toArray();
 
     $images_more = ProductImages::query()
-      ->columns('SUBDIR, MODULE_ID, FILE_NAME, ORIGINAL_NAME')
+      ->columns('ProductImages.ID, SUBDIR, MODULE_ID, FILE_NAME, ORIGINAL_NAME')
       ->where('IBLOCK_PROPERTY_ID = :property_id: AND IBLOCK_ELEMENT_ID = :element_id:')
       ->innerJoin('IblockElementProperties', 'IblockElementProperties.VALUE = ProductImages.ID')
       ->orderBy('IblockElementProperties.ID ASC')

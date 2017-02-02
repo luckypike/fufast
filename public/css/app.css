@@ -286,7 +286,6 @@ body {
   .product-images .slider {
     width: 100%; }
     .product-images .slider-wrapper {
-      padding: 8%;
       overflow: hidden;
       background-color: #fff; }
     .product-images .slider-images {
@@ -315,27 +314,22 @@ body {
           right: 0;
           bottom: 0; }
   .product-images .thumbs {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    margin-top: 1.75rem; }
+    display: none;
+    margin: 0.625rem -0.625rem 0; }
     .product-images .thumbs a {
-      border: 1px solid #fff;
+      border-bottom: 0;
       display: block;
-      margin-right: 1.25rem;
-      background-color: #fff;
-      padding: 10px; }
+      padding: 0.625rem; }
       .product-images .thumbs a:last-child {
         margin-right: 0; }
-      .product-images .thumbs a.active {
-        border: 1px solid #212121; }
     .product-images .thumbs-item {
       position: relative;
+      border: 1px solid #fff;
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
-      width: 80px; }
+      display: block;
+      width: 100%; }
       .product-images .thumbs-item:before {
         display: block;
         content: "";
@@ -350,6 +344,14 @@ body {
         left: 0;
         right: 0;
         bottom: 0; }
+    @media (min-width: 48rem) {
+      .product-images .thumbs {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+        .product-images .thumbs > a {
+          width: 33.33333%; } }
 
 .product-details {
   padding: 0 1.25rem;
@@ -429,11 +431,11 @@ body {
       .product-details .sizes-row-input {
         width: 2.625rem;
         line-height: 1.625rem;
-        margin-right: 1px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none; }
+        margin-right: 1px; }
         .product-details .sizes-row-input input {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
           font-family: inherit;
           font-size: 1rem;
           height: 1.75rem;

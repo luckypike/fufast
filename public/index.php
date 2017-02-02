@@ -189,6 +189,14 @@ $di->set(
       ]
     );
 
+    $router->add(
+      '/cover/images/{id:[0-9]+}/{size:[a-z]+}.jpg',
+      [
+        'controller' => 'images',
+        'action' => 'file',
+      ]
+    );
+
     $router->handle();
 
     return $router;
