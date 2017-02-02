@@ -40,7 +40,7 @@
           <div class="slider-wrapper">
             <div class="slider-images bxslider">
               {% for image in images %}
-                <div class="slider-images-item" style="background-image: url('/cover/images/{{ image['ID'] }}/small.jpg')">
+                <div class="slider-images-item" style="background-image: url('/cover/images/{{ image['ID'] }}/large.jpg')">
                 </div>
               {% endfor %}
             </div>
