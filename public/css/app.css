@@ -729,7 +729,8 @@ body {
       background-image: url("/img/pages/catalog/sec159_s.jpg"); }
       @media (min-width: 48rem) {
         .section-intro-159 {
-          background-image: url("/img/pages/catalog/sec159_m.jpg"); } }
+          background-image: url("/img/pages/catalog/sec159_m.jpg");
+          background-position: center 80% !important; } }
     .section-intro-168 {
       background-image: url("/img/secs/sec168_1920.jpg");
       background-position: center 50%; }

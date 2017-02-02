@@ -17,11 +17,19 @@ class Tree extends Component {
       if(!isset($section->CHILDS)) $section->CHILDS = array();
       $section->NAME_SHORT = $section->NAME;
       if($section->PARENT_ID && $section->PARENT_ID == 114) {
-        $section->NAME_SHORT = trim(preg_replace('/(одежда|спецодежда)/iu', '', $section->NAME_SHORT));
+        $section->NAME_SHORT = $this->mb_ucfirst(trim(preg_replace('/(одежда|спецодежда)/iu', '', $section->NAME_SHORT)));
       }
 
       if($section->PARENT_ID && $section->PARENT_ID == 159) {
-        $section->NAME_SHORT = trim(preg_replace('/(обувь|спецобувь)/iu', '', $section->NAME_SHORT));
+        $section->NAME_SHORT = $this->mb_ucfirst(trim(preg_replace('/(обувь|спецобувь)/iu', '', $section->NAME_SHORT)));
+      }
+
+      if($section->PARENT_ID && $section->PARENT_ID == 168) {
+        $section->NAME_SHORT = $this->mb_ucfirst(trim(preg_replace('/(перчатки)/iu', '', $section->NAME_SHORT)));
+      }
+
+      if($section->PARENT_ID && $section->PARENT_ID == 177) {
+        $section->NAME_SHORT = $this->mb_ucfirst(trim(preg_replace('/(средства защиты)/iu', '', $section->NAME_SHORT)));
       }
 
       $this->flat[$section->ID] = $section;
@@ -150,4 +158,11 @@ class Tree extends Component {
       return false;
     }
   }
+
+  public function mb_ucfirst($string) {
+    $strlen = mb_strlen($string);
+    $firstChar = mb_substr($string, 0, 1);
+    $then = mb_substr($string, 1, $strlen - 1);
+    return mb_strtoupper($firstChar) . $then;
+}
 }

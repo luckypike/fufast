@@ -14,7 +14,7 @@ class Basket extends Component {
 
       $items = Baskets::query()
         ->columns('QUANTITY')
-        ->where('FUSER_ID = :user:', ['user' => 2624])
+        ->where('FUSER_ID = :user:', ['user' => $fuser])
         ->execute();
 
       foreach($items as $item) {

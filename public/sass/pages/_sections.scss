@@ -160,6 +160,7 @@
 
       @include breakpoint($s) {
         background-image: url('/img/pages/catalog/sec159_m.jpg');
+        background-position: center 80% !important;
       }
     }
 
