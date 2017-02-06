@@ -3,7 +3,7 @@
 {% block content %}
   {{ javascript_include('js/jquery.bxslider.min.js') }}
 
-  <div class="product">
+  <div class="product page-content">
     {% if sections|length %}
       <div class="product-sections">
         <div class="product-sections-root">
@@ -68,7 +68,7 @@
 
       <div class="desc">
         <div class="desc-product">
-          {{ product.DETAIL_TEXT }}
+          {{ product.DETAIL_TEXT_HTML }}
         </div>
       </div>
 

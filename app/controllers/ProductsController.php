@@ -21,6 +21,10 @@ class ProductsController extends Controller {
       ->execute()
       ->getFirst();
 
+    $Parsedown = new Parsedown();
+
+    $product->DETAIL_TEXT_HTML = $Parsedown->text($product->DETAIL_TEXT);
+
     if(!$product) {
       $this->response->setStatusCode(404, "Not Found");
       // $this->view->pick("static/route404");
