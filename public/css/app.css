@@ -366,8 +366,15 @@ body {
   margin-bottom: 2.25rem; }
   .product-details h1 {
     margin-bottom: 1.75rem; }
+    @media (min-width: 48rem) {
+      .product-details h1 {
+        margin-right: 9.09091%; } }
   .product-details .desc {
-    margin-bottom: 1.75rem; }
+    margin-bottom: 1.75rem;
+    max-width: 48rem; }
+    @media (min-width: 48rem) {
+      .product-details .desc {
+        margin-right: 9.09091%; } }
   .product-details .prop {
     margin-bottom: 1.75rem;
     border-top: 1px solid #e0e0e0; }

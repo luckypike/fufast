@@ -118,10 +118,19 @@
 
     h1 {
       margin-bottom: $margin-m;
+
+      @include breakpoint($s) {
+        margin-right: 1 / 11 * 100%;
+      }
     }
 
     .desc {
       margin-bottom: $margin-m;
+      max-width: $s;
+
+      @include breakpoint($s) {
+        margin-right: 1 / 11 * 100%;
+      }
     }
 
     .prop {
