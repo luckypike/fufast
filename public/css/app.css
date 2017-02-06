@@ -366,18 +366,15 @@ body {
   margin-bottom: 2.25rem; }
   .product-details h1 {
     margin-bottom: 1.75rem; }
-    @media (min-width: 48rem) {
-      .product-details h1 {
-        margin-right: 9.09091%; } }
   .product-details .desc {
-    margin-bottom: 1.75rem;
-    max-width: 48rem; }
-    @media (min-width: 48rem) {
-      .product-details .desc {
-        margin-right: 9.09091%; } }
+    margin-bottom: 1.75rem; }
   .product-details .prop {
     margin-bottom: 1.75rem;
-    border-top: 1px solid #e0e0e0; }
+    border-top: 1px solid #e0e0e0;
+    max-width: 48rem; }
+    @media (min-width: 48rem) {
+      .product-details .prop {
+        margin-right: 8.33333%; } }
     .product-details .prop-row {
       display: -ms-flexbox;
       display: flex;
@@ -415,7 +412,7 @@ body {
         -ms-flex-negative: 0;
         flex-shrink: 0; }
       .product-details .sizes-row-size {
-        width: 100px; }
+        width: 6.5rem; }
       .product-details .sizes-row-minus, .product-details .sizes-row-plus {
         cursor: pointer;
         width: 1.75rem;
@@ -505,7 +502,21 @@ body {
       .product-details .order-price {
         -ms-flex-positive: 1;
         flex-grow: 1;
-        margin-bottom: 0; } }
+        margin-bottom: 0; }
+    .product-details .desc, .product-details .sizes, .product-details .order, .product-details .prop {
+      max-width: 48rem; } }
+  @media (min-width: 48rem) and (min-width: 48rem) {
+    .product-details .desc, .product-details .sizes, .product-details .order, .product-details .prop {
+      margin-right: 8.33333%; } }
+  @media (min-width: 78rem) {
+    .product-details {
+      font-size: 1rem;
+      line-height: 1.75rem; }
+      .product-details .prop-value {
+        font-size: 0.875rem;
+        line-height: 1.75rem; }
+      .product-details .sizes-row-size {
+        width: 8rem; } }
 
 @media (min-width: 60rem) {
   .product {

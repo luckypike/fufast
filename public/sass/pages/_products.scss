@@ -118,24 +118,21 @@
 
     h1 {
       margin-bottom: $margin-m;
-
-      @include breakpoint($s) {
-        margin-right: 1 / 11 * 100%;
-      }
     }
 
     .desc {
       margin-bottom: $margin-m;
-      max-width: $s;
 
-      @include breakpoint($s) {
-        margin-right: 1 / 11 * 100%;
-      }
     }
 
     .prop {
       margin-bottom: $margin-m;
       border-top: 1px solid $light-grey-color;
+      max-width: $s;
+
+      @include breakpoint($s) {
+        margin-right: 1 / 12 * 100%;
+      }
 
       &-row {
         display: flex;
@@ -189,7 +186,7 @@
 
         &-size {
           // margin-right: auto;
-          width: 100px;
+          width: 6.5rem;
         }
 
         &-minus, &-plus {
@@ -350,7 +347,39 @@
 
 
       }
+
+      .desc, .sizes, .order, .prop {
+        max-width: $s;
+
+        @include breakpoint($s) {
+          margin-right: 1 / 12 * 100%;
+        }
+      }
     }
+
+    @include breakpoint($mm) {
+      @include font-size(4);
+
+      .prop {
+        &-value {
+          @include font-size(3.5);
+        }
+      }
+
+      .sizes {
+        &-row {
+          &-size {
+            width: 8rem;
+          }
+        }
+      }
+    }
+
+    // @include breakpoint($l) {
+    //   background: red;
+    // }
+
+
   }
 
   @include breakpoint($m) {
@@ -374,6 +403,15 @@
       margin-left: 1 / 24 * 100%;
     }
   }
+
+  // @include breakpoint($l) {
+  //   &-details {
+  //     width: 10 / 24 * 100%;
+  //     margin-left: 2 / 24 * 100%;
+  //   }
+  // }
+
+
 }
 
 
