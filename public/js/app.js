@@ -106,7 +106,8 @@ $(function() {
             number: _this.data('number'),
             quantity: _this.val(),
             size: _this.data('size'),
-            height: _this.data('height')
+            height: _this.data('height'),
+            assort: _this.data('assort')
           });
         }
       });

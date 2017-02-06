@@ -102,6 +102,10 @@ class ProductsController extends Controller {
       $props_elem_enum[$v['PROPERTY_ID']][$v['ID']] = $v['VALUE'];
     }
 
+    // print_r($props_elem);
+    // print_r($props_elem_enum);
+    // die;
+
     $size = false;
 
     foreach([98, 102, 103, 104, 105, 106] as $i) {
@@ -124,7 +128,9 @@ class ProductsController extends Controller {
     if($size) {
       if($height) {
         foreach($props_elem_enum[$size] as $is => $vs) {
+          if(!in_array($is, $props_elem[$size])) continue;
           foreach($props_elem_enum[$height] as $ih => $vh) {
+            if(!in_array($ih, $props_elem[$height])) continue;
             $order[] = array(
               array($size => $is, $height => $ih, 'size' => $vs, 'height' => $vh),
               "{$vs} / {$vh}"
@@ -133,6 +139,7 @@ class ProductsController extends Controller {
         }
       } else {
         foreach($props_elem_enum[$size] as $i => $v) {
+          if(!in_array($i, $props_elem[$size])) continue;
           $order[] = array(
             array($size => $i, 'size' => $size),
             $v

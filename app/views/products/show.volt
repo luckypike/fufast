@@ -127,13 +127,27 @@
                   {{ o[1] }}
                 </div>
                 <div class="sizes-row-minus"></div>
-                <div class="sizes-row-input"><input type="text" name="" placeholder="0" data-number="{{ o[1] }}" data-size="{{ o[0]['size'] }}" data-height="{{ o[0]['height'] }}"></div>
+                <div class="sizes-row-input"><input type="text" name="" placeholder="0" data-number="{{ o[1] }}" data-size="{{ o[0]['size'] }}" {% if height %}ata-height="{{ o[0]['height'] }}" {% endif %}></div>
                 <div class="sizes-row-plus"></div>
               </div>
             {% endfor %}
 
             </div>
           {% endfor %}
+        </div>
+
+      {% else %}
+        <div class="sizes">
+          <div class="sizes-left">
+            <div class="sizes-row">
+              <div class="sizes-row-size">
+                Количество
+              </div>
+              <div class="sizes-row-minus"></div>
+              <div class="sizes-row-input"><input type="text" name="" placeholder="0" data-assort="yes"></div>
+              <div class="sizes-row-plus"></div>
+            </div>
+          </div>
         </div>
       {% endif %}
 
