@@ -132,6 +132,12 @@
               </div>
             {% endfor %}
 
+            {% if loop.first %}
+              <div class="sizes-clear">
+                <span>Х Очистить выбор</span>
+              </div>
+            {% endif %}
+
             </div>
           {% endfor %}
         </div>
@@ -146,6 +152,10 @@
               <div class="sizes-row-minus"></div>
               <div class="sizes-row-input"><input type="text" name="" placeholder="0" data-assort="yes"></div>
               <div class="sizes-row-plus"></div>
+            </div>
+
+            <div class="sizes-clear">
+              <span>Х Очистить выбор</span>
             </div>
           </div>
         </div>

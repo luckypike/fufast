@@ -162,8 +162,24 @@
       border-bottom: 1px solid $primary-color;
       display: flex;
       flex-wrap: wrap;
-      padding-bottom: $margin-m;
+      padding-bottom: $margin-s;
       margin-bottom: $margin-m;
+
+      &-clear {
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.23s opacity;
+
+        &.act {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        span {
+          border-bottom: 1px dashed $primary-color;
+          cursor: pointer;
+        }
+      }
 
       &-label {
         @include font-upper;

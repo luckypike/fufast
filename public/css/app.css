@@ -395,8 +395,18 @@ body {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding-bottom: 1.75rem;
+    padding-bottom: 1rem;
     margin-bottom: 1.75rem; }
+    .product-details .sizes-clear {
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.23s opacity; }
+      .product-details .sizes-clear.act {
+        opacity: 1;
+        visibility: visible; }
+      .product-details .sizes-clear span {
+        border-bottom: 1px dashed #212121;
+        cursor: pointer; }
     .product-details .sizes-label {
       letter-spacing: 0.12em;
       text-transform: uppercase;

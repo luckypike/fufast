@@ -125,7 +125,6 @@ $(function() {
         function(data){
           var user = data;
           $.get('/catalog/basket', { user: user }, function(data) {
-            console.log(data);
             $('.header-bag .cnt').addClass('cnt-act').find('text').text(data);
           });
           _msg.addClass('suc').text('Товар успешно добавлен в корзину.');
@@ -146,16 +145,23 @@ $(function() {
         act += parseInt($(this).val());
       }
       if(act) {
+        $('.sizes-clear').addClass('act');
         _op.addClass('r2o');
         _opp.text((parseInt(_opp.data('price')) * act) + ' руб.' );
         _o2b.data('size', true);
       } else {
+        $('.sizes-clear').removeClass('act');
         _op.removeClass('r2o');
         _opp.text(_opp.data('price-human') + ' руб.' );
         _o2b.data('size', false);
       }
     });
   }).trigger('update');
+
+  $('.sizes-clear span').on('click', function() {
+    _srii.val(null);
+    $(this).parent().removeClass('act');
+  });
 
 
   _srii.on('change keyup', function() {
