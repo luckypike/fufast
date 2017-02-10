@@ -26,6 +26,8 @@ $loader->register();
 
 $di = new FactoryDefault();
 
+$di->set('config', $config);
+
 $di->set(
   'db',
   function () use ($config) {
@@ -51,8 +53,6 @@ $di->setShared(
     return $session;
   }
 );
-
-
 
 $di->set(
   'voltService',
@@ -207,6 +207,14 @@ $di->set(
   'tree',
   function () {
     return new Tree();
+  },
+  true
+);
+
+$di->set(
+  'same',
+  function () {
+    return new Same();
   },
   true
 );

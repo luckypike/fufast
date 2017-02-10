@@ -1,4 +1,6 @@
 .product {
+  padding-bottom: $margin-m;
+
   &-sections {
     padding: $margin-m $gutter 0;
 
@@ -394,8 +396,20 @@
     // @include breakpoint($l) {
     //   background: red;
     // }
+  }
 
+  &-assoc {
+    padding: 0 $gutter;
+    width: 100%;
+    margin-bottom: $margin-m;
 
+    &-title {
+      margin-bottom: $margin-m;
+      text-align: center;
+
+      @include font-size-h2;
+      @include font-upper;
+    }
   }
 
   @include breakpoint($m) {
@@ -408,7 +422,7 @@
 
     &-images, &-details {
       width: 50%;
-      margin-bottom: $margin-l * 2;
+      margin-bottom: $margin-m * 2;
     }
 
   }

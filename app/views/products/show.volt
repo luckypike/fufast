@@ -178,6 +178,44 @@
       <div class="msg">
       </div>
     </div>
+
+    {% for product in same.getAssoc(same.getSections(tree.getParents(section.ID)[0].ID)) %}
+      {% if loop.first %}
+        <div class="product-assoc">
+          <div class="product-assoc-title">
+            С этим товаром покупают
+          </div>
+          <div class="products-list">
+      {% endif %}
+
+      <div class="products-list-item">
+        <a href="{{ url('catalog/' ~ product.ID) }}">
+          <div class="iandb">
+            <div class="image">
+              {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
+              {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
+            </div>
+            <div class="buy">
+              Выбрать
+            </div>
+          </div>
+          <div class="tap">
+            <div class="title">
+              {{ product.NAME }}
+            </div>
+            <div class="price">
+              {{ money(product.PRICE, 0, ',', ' ') }} руб.
+            </div>
+          </div>
+
+        </a>
+      </div>
+
+      {% if loop.last %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
 {% endblock %}
 

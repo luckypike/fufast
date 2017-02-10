@@ -7,11 +7,11 @@
     {{ javascript_include('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', false) }}
     {{ javascript_include('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', false) }}
 
-    {{ stylesheet_link('css/app.css') }}
+    {{ stylesheet_link('css/app.css?v=' ~ config.site.version) }}
     {{ javascript_include('js/fonts.js') }}
     {{ javascript_include('js/jquery.lazyload.min.js') }}
     {{ javascript_include('js/js.cookie.js') }}
-    {{ javascript_include('js/app.js') }}
+    {{ javascript_include('js/app.js?v=' ~ config.site.version) }}
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
