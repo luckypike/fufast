@@ -794,6 +794,12 @@ body {
         .section-intro-177 {
           background-image: url("/img/pages/catalog/sec177_m.jpg");
           background-position: center 20% !important; } }
+    .section-intro-logo {
+      background-image: url("/img/pages/logo/top_s.jpg"); }
+      @media (min-width: 48rem) {
+        .section-intro-logo {
+          background-image: url("/img/pages/logo/top_m.jpg");
+          background-position: center 50% !important; } }
     .section-intro-about {
       background-image: url("/img/pages/about/top.jpg"); }
     .section-intro-contacts {
@@ -926,6 +932,9 @@ body {
   margin-bottom: 1.75rem; }
   .page-content p:last-child {
     margin-bottom: 0; }
+
+.page-content strong {
+  font-weight: bold; }
 
 .page-content ul {
   margin-bottom: 1rem;

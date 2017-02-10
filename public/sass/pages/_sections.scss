@@ -182,6 +182,16 @@
       }
     }
 
+    &-logo {
+      background-image: url('/img/pages/logo/top_s.jpg');
+
+      @include breakpoint($s) {
+        background-image: url('/img/pages/logo/top_m.jpg');
+        background-position: center 50% !important;
+      }
+    }
+
+
 
     &-about { background-image: url('/img/pages/about/top.jpg'); }
     &-contacts { background-image: url('/img/pages/contacts/top.jpg'); }
