@@ -1,0 +1,176 @@
+.page-index {
+  &-main-slider {
+    background: $primary-color;
+    margin-bottom: $base-rhythm-line * 2;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    .plh {
+      @include aspect-ratio(1, 1);
+    }
+
+    .bx-wrapper, .slider {
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    .slider {
+      .slide {
+        background-position: center;
+        background-size: cover;
+
+        @include aspect-ratio(1, 1);
+
+        &-1 { background-image: url("/img/pages/index/001_750.jpg"); }
+
+        .text {
+          @include font-size(5, 7);
+
+          color: #fff;
+          position: absolute;
+          left: 1.25rem;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          bottom: 3.5rem;
+          width: 70%;
+
+          @include breakpoint($s) {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            bottom: 50%;
+            width: 70%;
+            transform: translate3d(0, 50%, 0);
+
+            @include font-size(11.25, 12);
+          }
+
+          @include breakpoint($m) {
+            width: 58%;
+          }
+
+          @include breakpoint($l) {
+            width: 34%;
+          }
+        }
+      }
+    }
+
+    @include breakpoint($s) {
+      .plh, .slider .slide {
+        @include aspect-ratio-change(3, 2);
+      }
+
+      .slider {
+        .slide {
+          &-1 { background-image: url("/img/pages/index/001_1920.jpg"); }
+        }
+      }
+    }
+
+    @include breakpoint($m) {
+      .plh, .slider .slide {
+        @include aspect-ratio-change(2, 1);
+      }
+    }
+  }
+
+  &-section-image {
+    position: relative;
+    background-color: #212121;
+    background-position: center top;
+    background-size: cover;
+
+    .img {
+      @include aspect-ratio(1, 1);
+
+      @include breakpoint($s) {
+        @include aspect-ratio-change(3, 2);
+      }
+
+      @include breakpoint($m) {
+        @include aspect-ratio-change(2, 1);
+      }
+    }
+
+    .text {
+      color: #fff;
+      position: absolute;
+      left: 1.25rem;
+      bottom: 2rem;
+      right: 2.5rem;
+
+      h1 {
+        @include font-size(5, 7);
+
+        margin-bottom: $margin-s;
+      }
+
+      @include breakpoint($s) {
+        position: absolute;
+        bottom: 50%;
+        transform: translate3d(0, 50%, 0);
+
+        h1{
+          @include font-size(8.5, 10);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+      // @media screen and (min-width: 48rem) {
+      //   .index-section-image .text h1 {
+      //     font-size: 2.125rem;
+      //     line-height: 2.5rem; } }
+  .index-section-image.image-s1 {
+    background-image: url("images/secs/sec1_750.jpg"); }
+  .index-section-image.image-s2 {
+    background-image: url("images/secs/sec2_750.jpg"); }
+  .index-section-image.image-s3 {
+    background-image: url("images/secs/sec3_750.jpg"); }
+  .index-section-image.image-s4 {
+    background-image: url("images/secs/sec4_750.jpg"); }
+  @media screen and (min-width: 48rem) {
+    .index-section-image .img:before {
+      padding-top: 66.66667%; }
+    .index-section-image.image-s1 {
+      background-image: url("images/secs/sec1_1920.jpg"); }
+    .index-section-image.image-s2 {
+      background-image: url("images/secs/sec2_1920.jpg"); }
+    .index-section-image.image-s3 {
+      background-image: url("images/secs/sec3_1920.jpg"); }
+    .index-section-image.image-s4 {
+      background-image: url("images/secs/sec4_1920.jpg"); }
+     }
+
+
+
+      // .index-main-slider .slider .slide-1 {
+      //   background-image: url("images/index/001_750.jpg"); }
+      // .index-main-slider .slider .slide-2 {
+      //   background-image: url("images/index/002_750.jpg"); }
+      // .index-main-slider .slider .slide-3 {
+      //   background-image: url("images/index/003_750.jpg"); }
+      // .index-main-slider .slider .slide-4 {
+      //   background-image: url("images/index/004_750.jpg"); }
+      // .index-main-slider .slider .slide-5 {
+      //   background-image: url("images/index/005_750.jpg"); }
+      // @media screen and (min-width: 48rem) {
+      //   .index-main-slider .slider .slide-1 {
+      //     background-image: url("images/index/001_1920.jpg"); }
+      //   .index-main-slider .slider .slide-2 {
+      //     background-image: url("images/index/002_1920.jpg"); }
+      //   .index-main-slider .slider .slide-3 {
+      //     background-image: url("images/index/003_1920.jpg"); }
+      //   .index-main-slider .slider .slide-4 {
+      //     background-image: url("images/index/004_1920.jpg"); }
+      //   .index-main-slider .slider .slide-5 {
+      //     background-image: url("images/index/005_1920.jpg"); } }

@@ -178,6 +178,12 @@ $header-size-medium: 5rem;
         align-self: center;
         margin-right: $gutter;
 
+        a {
+          &:hover {
+            color: #bbb;
+          }
+        }
+
         &.active {
           a {
             color: #bbb;

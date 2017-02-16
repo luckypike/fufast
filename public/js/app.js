@@ -195,4 +195,22 @@ $(function() {
     $(this).next().children('input').trigger('minus');
   });
 
+  var _mn_slider = $('.page-index-main-slider .slider');
+  if(_mn_slider.length > 0) {
+    _mn_slider.bxSlider({
+      controls: false,
+      buildPager: function(i) {
+        return '';
+      }
+    });
+  }
+
+  $('.page-index-section-goods').bxSlider({
+    minSlides: 2,
+    maxSlides: 2,
+    controls: false,
+      buildPager: function(i) {
+        return '';
+      }
+  });
 });
