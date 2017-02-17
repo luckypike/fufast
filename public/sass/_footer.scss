@@ -61,6 +61,7 @@
   &-item {
     display: flex;
     margin-bottom: $margin-m;
+    border-bottom: 0;
 
     &.inact {
       opacity: 0.5;
@@ -73,7 +74,7 @@
       // border-radius: 50%;
       background-size: cover;
       height: 3rem;
-      margin-right: $gutter;
+      margin-right: $gutter / 2;
       width: 3rem;
 
       &-1 {
@@ -120,7 +121,7 @@
 
   @include breakpoint($m) {
     &-item {
-      width: 25%;
+      width: 20%;
 
       margin-bottom: 0;
     }

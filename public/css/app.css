@@ -1754,7 +1754,8 @@ body {
   .benefits-item {
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 1.75rem; }
+    margin-bottom: 1.75rem;
+    border-bottom: 0; }
     .benefits-item.inact {
       opacity: 0.5;
       color: #666666; }
@@ -1763,7 +1764,7 @@ body {
       flex-shrink: 0;
       background-size: cover;
       height: 3rem;
-      margin-right: 1.25rem;
+      margin-right: 0.625rem;
       width: 3rem; }
       .benefits-item .icn-1 {
         background-image: url("/img/icons/delivery.svg"); }
@@ -1791,7 +1792,7 @@ body {
         margin-bottom: 0; } }
   @media (min-width: 60rem) {
     .benefits-item {
-      width: 25%;
+      width: 20%;
       margin-bottom: 0; } }
 
 .main {

@@ -14,19 +14,19 @@
       </div>
     </div>
 
-<!--     <div class="benefits-item">
+    <div class="benefits-item">
       <div class="icn icn-3"></div>
       <div class="desc">
         Распродажа
       </div>
-    </div> -->
+    </div>
 
-    <div class="benefits-item">
+    <a href="mailto:info@fufayka.info" class="benefits-item">
       <div class="icn icn-4"></div>
       <div class="desc">
         info@fufayka.info
       </div>
-    </div>
+    </a>
 
     <div class="benefits-item inact">
       <div class="icn icn-5"></div>
