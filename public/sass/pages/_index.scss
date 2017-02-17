@@ -27,6 +27,10 @@
         @include aspect-ratio(1, 1);
 
         &-1 { background-image: url("/img/pages/index/001_750.jpg"); }
+        &-2 { background-image: url("/img/pages/index/002_750.jpg"); }
+        &-3 { background-image: url("/img/pages/index/003_750.jpg"); }
+        &-4 { background-image: url("/img/pages/index/004_750.jpg"); }
+        &-5 { background-image: url("/img/pages/index/005_750.jpg"); }
 
         .text {
           @include font-size(5, 7);
@@ -68,6 +72,10 @@
       .slider {
         .slide {
           &-1 { background-image: url("/img/pages/index/001_1920.jpg"); }
+          &-2 { background-image: url("/img/pages/index/002_1920.jpg"); }
+          &-3 { background-image: url("/img/pages/index/003_1920.jpg"); }
+          &-4 { background-image: url("/img/pages/index/004_1920.jpg"); }
+          &-5 { background-image: url("/img/pages/index/005_1920.jpg"); }
         }
       }
     }
@@ -84,6 +92,7 @@
     background-color: #212121;
     background-position: center top;
     background-size: cover;
+    margin-bottom: $base-rhythm-line * 2;
 
     .img {
       @include aspect-ratio(1, 1);
@@ -120,8 +129,416 @@
         }
       }
     }
+
+    &.image-s1 {
+      background-image: url('/img/secs/sec114_750.jpg');
+    }
+
+    &.image-s2 {
+      background-image: url('/img/secs/sec159_750.jpg');
+    }
+
+    &.image-s3 {
+      background-image: url('/img/secs/sec177_750.jpg');
+    }
+
+    &.image-s4 {
+      background-image: url('/img/secs/sec168_750.jpg');
+    }
+
+    @include breakpoint($s) {
+      &.image-s1 {
+        background-image: url('/img/secs/sec114_1920.jpg');
+      }
+
+      &.image-s2 {
+        background-image: url('/img/secs/sec159_1920.jpg');
+      }
+
+      &.image-s3 {
+        background-image: url('/img/secs/sec177_1920.jpg');
+      }
+
+      &.image-s4 {
+        background-image: url('/img/secs/sec168_1920.jpg');
+      }
+
+      // .text {
+      //   position: absolute;
+      //   bottom: 50%;
+      //   transform: translate3d(0, 50%, 0);
+      // }
+    }
   }
+
+  &-section-goods {
+    padding-bottom: $base-rhythm;
+
+    .goods {
+      &-slide {
+        padding: 0 $gutter;
+        outline: 0;
+        display: none;
+
+        &:first-child {
+          display: block;
+        }
+
+        &.slick-slide {
+          display: block;
+        }
+      }
+    }
+    // padding: 0 $gutter;
+
+    .products-list {
+      &-item {
+        a {
+          outline: 0;
+        }
+      }
+      // padding: 0;
+
+    }
+
+    .slick-dots {
+      display: none !important;
+    }
+
+    @include breakpoint($s) {
+      padding: 0 $gutter / 2 $base-rhythm;
+
+      .goods {
+
+        &-slide {
+          padding: 0;
+          width: 50%;
+
+          // &:nth-child(odd) {
+          //   padding-right: 0;
+          // }
+
+        }
+      }
+
+      .products-list {
+        margin: 0;
+
+        &-item {
+          width: 50%;
+        }
+      }
+    }
+
+    @include breakpoint($mm) {
+      .slick-dots {
+        display: block !important;
+
+        li {
+          &:before {
+            background-color: $primary-color !important;
+          }
+        }
+      }
+    }
+  }
+
+  &-section {
+    &-s5 {
+      position: relative;
+      background-color: $primary-color;
+      margin-bottom: $base-rhythm-line * 2;
+
+      .bg {
+        @include aspect-ratio(1, 1);
+        background: {
+          image: url('/img/secs/sec5_750.jpg');
+          position: center bottom;
+        }
+      }
+
+      .man {
+        background: {
+          image: url('/img/secs/man.png');
+          repeat: no-repeat;
+          size: cover;
+          position: center bottom;
+        }
+
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 0;
+        height: 100%;
+      }
+
+      .logos {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 0;
+        height: 100%;
+        z-index: 2;
+
+        &-item {
+          @include aspect-ratio(1, 1);
+
+          background: {
+            size: 68%;
+            position: 62% 30%;
+            repeat: no-repeat;
+          }
+          display: none;
+
+          &:first-child,
+          &.slick-slide {
+            display: block;
+          }
+
+          &-1 {
+            background-image: url('/img/pages/index/logos/logo_alrosa_1.png');
+          }
+
+          &-2 {
+            background-image: url('/img/pages/index/logos/logo_lukoil_1.png');
+          }
+
+          &-3 {
+            background-image: url('/img/pages/index/logos/logo_gazprom_1.png');
+          }
+
+          &-4 {
+            background-image: url('/img/pages/index/logos/logo_rosneft_1.png');
+          }
+
+          &-5 {
+            background-image: url('/img/pages/index/logos/logo_rzd_1.png');
+          }
+        }
+
+        &-mini {
+          display: none;
+          position: absolute;
+          left: 50%;
+          right: 0;
+          bottom: $margin-l;
+          margin: 0;
+          padding: 0 $gutter * 4;
+          max-width: 1440px;
+          width: 100%;
+          transform: translateX(-50%);
+          z-index: 4;
+
+          &-item {
+            background: {
+              position: center;
+              repeat: no-repeat;
+              size: cover;
+            }
+            cursor: pointer;
+            opacity: 0.4;
+            list-style: none;
+            margin-right: 8.5%;
+            transition-duration: 0.2s;
+            transition-property: opacity;
+
+            &.active {
+              opacity: 1;
+            }
+
+            &-1 {
+              background-image: url('/img/pages/index/logos/logo_alrosa_1.svg');
+              width: 14.15%;
+
+              @include aspect-ratio(181, 100);
+            }
+
+            &-2 {
+              background-image: url('/img/pages/index/logos/logo_lukoil_1.svg');
+              width: 12.5%;
+
+              @include aspect-ratio(160, 100);
+            }
+
+            &-3 {
+              background-image: url('/img/pages/index/logos/logo_gazprom_1.svg');
+              width: 12.5%;
+
+              @include aspect-ratio(160, 100);
+            }
+
+            &-4 {
+              background-image: url('/img/pages/index/logos/logo_rosneft_1.svg');
+
+              width: 17.65%;
+              @include aspect-ratio(226, 100);
+            }
+
+            &-5 {
+              background-image: url('/img/pages/index/logos/logo_rzd_1.svg');
+
+              width: 8.83%;
+              margin-right: 0;
+              @include aspect-ratio(116, 100);
+            }
+          }
+        }
+      }
+
+      .text {
+        color: $light-color;
+        position: absolute;
+        left: $gutter;
+        bottom: $margin-l;
+        right: $gutter * 2;
+        z-index: 4;
+
+        a.button {
+          .more {
+            display: none;
+          }
+        }
+
+        h1 {
+          @include font-size-h2;
+
+          display: none;
+          margin-bottom: $margin-m;
+        }
+      }
+
+      @include breakpoint($s) {
+        .bg {
+          background-image: url('/img/secs/sec5_1920.jpg');
+          height: 560px;
+          width: 100%;
+
+          &:before {
+            content: none;
+          }
+
+
+        }
+
+        .man {
+          background-size: contain;
+        }
+
+        .text {
+
+          max-width: 300px;
+
+          h1 {
+            display: block;
+
+          }
+
+          a.button {
+            .more {
+              display: none;
+            }
+
+            .title {
+              display: block;
+            }
+            // content: 'Подробнее';
+          }
+        }
+
+        .logos {
+          &-item {
+            height: 560px;
+            background-position: 51% 33%;
+            background-repeat: no-repeat;
+            outline: none;
+            background-size: auto;
+
+            &:before {
+              content: none;
+            }
+          }
+        }
+      }
+
+      @include breakpoint($m) {
+        .text {
+          bottom: 50%;
+          transform: translate3d(0, 50%, 0);
+        }
+
+        .logos {
+
+          &-mini {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    @include breakpoint($mm) {
+      display: flex;
+
+      &-invert {
+        .page-index-section-image {
+          order: 1;
+        }
+      }
+
+      &-image {
+        width: 8 / 12 * 100%;
+      }
+
+      &-goods {
+        width: 4 / 12 * 100%;
+
+        .products-list {
+          &-item {
+            width: 100%;
+          }
+        }
+      }
+
+    }
+  }
+
+
+  .slick-slider .slick-slide {
+    outline: none; }
+
+  .slick-slider .slick-dots {
+    position: absolute;
+    bottom: 0.5rem;
+    margin: 0 0 0 -4.6875rem;
+    padding: 0;
+    left: 50%;
+    width: 9.375rem; }
+    .slick-slider .slick-dots li {
+      float: left;
+      list-style: none;
+      padding: 19px 0.3125rem;
+      cursor: pointer;
+      opacity: 0.6;
+      transition-duration: 0.2s; }
+      .slick-slider .slick-dots li:before {
+        background-color: #fff;
+        content: '';
+        display: block;
+        width: 1.25rem;
+        height: 2px; }
+      .slick-slider .slick-dots li:hover, .slick-slider .slick-dots li.slick-active {
+        opacity: 1; }
+      .slick-slider .slick-dots li button {
+        background-color: #000;
+        border: none;
+        border-radius: 50%;
+        display: none;
+        width: 10px;
+        height: 10px; }
 }
+
+
+
+
 
 
 

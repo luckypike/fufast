@@ -558,6 +558,8 @@
         }
 
         .tap {
+          height: 5.75rem;
+
           .title {
             max-height: 2 * $base-rhythm;
             overflow: hidden;
@@ -578,8 +580,10 @@
         &:hover {
           .iandb {
             .buy {
-              transform: translate(0, 0);
-              opacity: 1;
+              @include breakpoint($mm) {
+                transform: translate(0, 0);
+                opacity: 1;
+              }
             }
           }
         }

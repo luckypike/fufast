@@ -195,22 +195,69 @@ $(function() {
     $(this).next().children('input').trigger('minus');
   });
 
-  var _mn_slider = $('.page-index-main-slider .slider');
-  if(_mn_slider.length > 0) {
-    _mn_slider.bxSlider({
-      controls: false,
-      buildPager: function(i) {
-        return '';
-      }
+  if ($.isFunction($.fn.slick)) {
+    $('.page-index-main-slider .slider').slick({
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 6000
+    });
+
+    var _logos = $('.page-index-section-s5 .logos');
+
+    _logos.slick({
+        arrows: false,
+        // dots: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000
+    }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        $('.logos-mini-item-' + (currentSlide + 1)).removeClass('active');
+        $('.logos-mini-item-' + (nextSlide + 1)).addClass('active');
+    });
+
+    $('.logos-mini').on('click', '.logos-mini-item', function() {
+      _logos.slick('slickGoTo', $(this).attr('rel'));
+    });
+
+    $('.page-index-section-goods').each(function() {
+      $(this).slick({
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: (Math.random() * 4000) + 2500,
+        responsive: [{
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }]
+      });
     });
   }
 
-  $('.page-index-section-goods').bxSlider({
-    minSlides: 2,
-    maxSlides: 2,
-    controls: false,
-      buildPager: function(i) {
-        return '';
-      }
-  });
+  // var _mn_slider = $('.page-index-main-slider .slider');
+  // if(_mn_slider.length > 0) {
+  //   _mn_slider.bxSlider({
+  //     controls: false,
+  //     buildPager: function(i) {
+  //       return '';
+  //     }
+  //   });
+  // }
+
+  // $('.page-index-section-goods').bxSlider({
+  //   minSlides: 2,
+  //   maxSlides: 2,
+  //   controls: false,
+  //     buildPager: function(i) {
+  //       return '';
+  //     }
+  // });
 });

@@ -1,7 +1,7 @@
 {% extends "app.volt" %}
 
 {% block content %}
-  {{ javascript_include('js/jquery.bxslider.min.js') }}
+  {{ javascript_include('js/slick.min.js') }}
 
   <div class="page-index">
     <div class="page-index-main-slider">
@@ -39,27 +39,29 @@
       </div>
     </div>
 
-    {% for section in sections %}
-      <section class="page-index-section page-index-section-invert section-s1">
-        <div class="page-index-section-image image-s1">
+    {% for pos, section in sections %}
+      <section class="page-index-section {% if pos is even %} page-index-section-invert{% endif %} section-s{{ pos + 1 }}">
+        <div class="page-index-section-image image-s{{ pos + 1 }}">
           <div class="img"></div>
           <div class="text">
-            <h1>{{ section['section'] }}</h1>
+            <h1>{{ section['section']['title'] }}</h1>
             <div class="action">
-              <a href="/catalog/overall/" class="button">Коллекция спецодежды</a>
+              {{ link_to('catalog/' ~ section['section']['url']|lower, section['section']['button'], 'class': 'button') }}
 
             </div>
           </div>
         </div>
 
-        <div class="page-index-section-goods goods-s1 goods">
+        <div class="page-index-section-goods goods-s{{ pos + 1 }} goods">
           {% for products in section['goods'] %}
             <div class="goods-slide"><div class="products-list">
               {% for product in products %}
                 <div class="products-list-item">
                   <a href="{{ url('catalog/' ~ product['ID']) }}">
                     <div class="iandb">
-                      <div class="image" style="background-image: url({{ '/cover/' ~ product['ID'] ~ '/list.jpg' }})">
+                      <div class="image">
+                        {{ image('/cover/' ~ product['ID'] ~ '/ph.jpg', 'class': 'img ph') }}
+                        {{ image('/cover/' ~ product['ID'] ~ '/list.jpg', 'class': 'img lazy') }}
                       </div>
                       <div class="buy">
                         Выбрать
@@ -82,51 +84,38 @@
       </section>
     {% endfor %}
 
+    <section class="index-section section-s5  page-index-section page-index-section-s5">
+      <div class="bg"></div>
+      <div class="man">
 
+      </div>
+      <div class="logos">
+        <div class="logos-item logos-item-1"></div>
+        <div class="logos-item logos-item-2"></div>
+        <div class="logos-item logos-item-3"></div>
+        <div class="logos-item logos-item-4"></div>
+        <div class="logos-item logos-item-5"></div>
+      </div>
 
-<!--
-        <?php
-        $goods = array(array(2577, 2030), array(2646, 2499), array(1677, 2639), array(1682, 1513));
+      <div class="logos-mini">
+        <div class="logos-mini-item logos-mini-item-1 active" rel="0"></div>
+        <div class="logos-mini-item logos-mini-item-2" rel="1"></div>
+        <div class="logos-mini-item logos-mini-item-3" rel="2"></div>
+        <div class="logos-mini-item logos-mini-item-4" rel="3"></div>
+        <div class="logos-mini-item logos-mini-item-5" rel="4"></div>
+      </div>
 
-          foreach($goods as $items) {
-            print '<div class="goods-slide"><div class="goods-group">';
-            foreach($items as $item) {
-              $res = CIBlockElement::GetByID($item);
-              $ar_res = $res->GetNextElement();
-              $fields = $ar_res->GetFields();
-              $properties = $ar_res->GetProperties();
-              $rsPrices = CPrice::GetList(array(), array('PRODUCT_ID' => $item, 'CATALOG_GROUP_ID' => 1));
-              $renderImage = CFile::ResizeImageGet($fields["DETAIL_PICTURE"], Array("width" => 800, "height" => 1000), BX_RESIZE_IMAGE_PROPORTIONAL, false, false, false, 50);
-              ?>
-                <div class="goods-item">
-                  <a href="<?php print $fields['DETAIL_PAGE_URL'] ?>">
-                    <div class="img-ar">
-                      <?php print CFile::ShowImage($renderImage['src']) ?>
-                    </div>
+      <div class="text">
+        <h1>
+          Нанесение логотипов
+        </h1>
+        <div class="action">
+          <a href="/logo" class="button"><span class="more">Подробнее</span><span class="title">Нанесение логотипов</span></a>
 
-                    <div class="tanp">
-                      <div class="title">
-                        <?php print $fields['NAME'] ?>
-                      </div>
-
-                      <?php if ($arPrice = $rsPrices->Fetch()): ?>
-                        <div class="price">
-                          <?php print number_format($arPrice['PRICE'], 0, ',', '') ?> руб.
-                        </div>
-                      <?php endif ?>
-                    </div>
-                  </a>
-                </div>
-              <?php
-            }
-            print '</div></div>';
-          }
-        ?>
-      </div> -->
-
-
+        </div>
+      </div>
+    </section>
   </div>
-
 {% endblock %}
 
 

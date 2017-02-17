@@ -13,8 +13,36 @@ class StaticController extends Controller {
 
     $sections = [
       [
-        'section' => 'qwe',
+        'section' => [
+          'title' => 'Спецодежда',
+          'button' => 'Коллекции спецодежды',
+          'url' => 'overall',
+        ],
         'goods' => [2577, 2030, 2646, 2499, 1677, 2639, 1682, 1513]
+      ],
+      [
+        'section' => [
+          'title' => 'Спецобувь',
+          'button' => 'Коллекции спецобуви',
+          'url' => 'footwear',
+        ],
+        'goods' => [2127, 792, 795, 762, 731, 737, 663, 805]
+      ],
+      [
+        'section' => [
+          'title' => 'Средства защиты',
+          'button' => 'Коллекции средств защиты',
+          'url' => 'remedies',
+        ],
+        'goods' => [1744, 1731, 949, 1007, 2101, 2097, 1781, 1687]
+      ],
+      [
+        'section' => [
+          'title' => 'Перчатки и рукавицы',
+          'button' => 'Коллекции перчаток',
+          'url' => 'gloves',
+        ],
+        'goods' => [1711, 1709, 1301, 1796, 1301, 1796, 1803, 1261]
       ]
     ];
 
@@ -25,6 +53,7 @@ class StaticController extends Controller {
         ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
         ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
         ->inWhere('Products.ID', $v['goods'])
+        ->distinct(true)
         ->execute()
         ->toArray();
 
