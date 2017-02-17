@@ -10,6 +10,8 @@ class StaticController extends Controller {
   }
 
   public function indexAction() {
+    $this->tag->setTitle('Фуфайка — интернет-магазин спецодежды, спецобуви, перчаток, рукавиц и средств защиты');
+
 
     $sections = [
       [
