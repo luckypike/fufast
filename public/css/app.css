@@ -1221,8 +1221,7 @@ body {
 
 .page-index-section-s5 {
   position: relative;
-  background-color: #212121;
-  margin-bottom: 0.5rem; }
+  background-color: #212121; }
   .page-index-section-s5 .bg {
     position: relative;
     background-image: url("/img/secs/sec5_750.jpg");
@@ -1748,6 +1747,52 @@ body {
         display: flex; }
         .footer-menu-item {
           margin: 0 1em 0 0; } }
+
+.benefits {
+  background: #ffffff;
+  padding: 2rem 1.25rem; }
+  .benefits-item {
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1.75rem; }
+    .benefits-item.inact {
+      opacity: 0.5;
+      color: #666666; }
+    .benefits-item .icn {
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      background-size: cover;
+      height: 3rem;
+      margin-right: 1.25rem;
+      width: 3rem; }
+      .benefits-item .icn-1 {
+        background-image: url("/img/icons/delivery.svg"); }
+      .benefits-item .icn-2 {
+        background-image: url("/img/icons/expert.svg"); }
+      .benefits-item .icn-3 {
+        background-image: url("/img/icons/sale.svg"); }
+      .benefits-item .icn-4 {
+        background-image: url("/img/icons/mail.svg"); }
+      .benefits-item .icn-5 {
+        background-image: url("/img/icons/phone.svg"); }
+    .benefits-item .desc {
+      -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center; }
+  @media (min-width: 48rem) {
+    .benefits-list {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+    .benefits-item {
+      width: 50%; }
+      .benefits-item:last-child {
+        margin-bottom: 0; } }
+  @media (min-width: 60rem) {
+    .benefits-item {
+      width: 25%;
+      margin-bottom: 0; } }
 
 .main {
   padding-top: 3rem; }

@@ -1,3 +1,42 @@
+<section class="benefits">
+  <div class="benefits-list">
+    <div class="benefits-item">
+      <div class="icn icn-1"></div>
+      <div class="desc">
+        Выгодная доставка
+      </div>
+    </div>
+
+    <div class="benefits-item">
+      <div class="icn icn-2"></div>
+      <div class="desc">
+        Бесплатная консультация
+      </div>
+    </div>
+
+<!--     <div class="benefits-item">
+      <div class="icn icn-3"></div>
+      <div class="desc">
+        Распродажа
+      </div>
+    </div> -->
+
+    <div class="benefits-item">
+      <div class="icn icn-4"></div>
+      <div class="desc">
+        info@fufayka.info
+      </div>
+    </div>
+
+    <div class="benefits-item inact">
+      <div class="icn icn-5"></div>
+      <div class="desc">
+        Заказать звонок
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer-menu">
     <div class="footer-menu-item">

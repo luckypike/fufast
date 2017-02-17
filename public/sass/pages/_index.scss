@@ -247,7 +247,7 @@
     &-s5 {
       position: relative;
       background-color: $primary-color;
-      margin-bottom: $base-rhythm-line * 2;
+      // margin-bottom: $base-rhythm-line * 2;
 
       .bg {
         @include aspect-ratio(1, 1);
