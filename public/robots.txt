@@ -1,2 +1,2 @@
-User-agent: *
-Disallow: /
+Host: http://fufayka.info
+Sitemap: http://fufayka.info/sitemap.xml
