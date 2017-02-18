@@ -76,8 +76,14 @@ class StaticController extends Controller {
       // ->where('IblockSectionElements.IBLOCK_SECTION_ID = :section:', ['section' => $section->ID])
       ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
       ->orderBy('Products.ID DESC')
-      ->limit(10)
-      ->execute();
+      ->execute()
+      ->toArray();
+
+    foreach($products as $k => $product) {
+      $products[$k]['DETAIL_TEXT_PLAIN'] = htmlspecialchars(strip_tags($product['DETAIL_TEXT']));
+    }
+
+    $this->response->setHeader('Content-Type', 'application/xml');
 
     $this->view->products = $products;
     $this->view->date = date("Y-m-d H:i:s");    

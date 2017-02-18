@@ -16,15 +16,15 @@
 
     <offers>
       {% for product in products %}
-        <offer id="{{ product.ID }}" available="true">
-          <url>http://fufayka.info{{ url('catalog/' ~ product.ID) }}</url>
-          <price>{{ int(product.PRICE) }}</price>
-          <categoryId>{{ product.IBLOCK_SECTION_ID }}</categoryId>
+        <offer id="{{ product['ID'] }}" available="true">
+          <url>http://fufayka.info{{ url('catalog/' ~ product['ID']) }}</url>
+          <price>{{ int(product['PRICE']) }}</price>
+          <categoryId>{{ product['IBLOCK_SECTION_ID'] }}</categoryId>
           <currencyId>RUR</currencyId>
-          <picture>http://fufayka.info{{ url('cover/' ~ product.ID ~ '/large.jpg') }}</picture>
-          <name>{{ product.NAME }}</name>
+          <picture>http://fufayka.info{{ url('cover/' ~ product['ID'] ~ '/large.jpg') }}</picture>
+          <name>{{ product['NAME'] }}</name>
           <description>
-            {{ product.DETAIL_TEXT }}
+            {{ product['DETAIL_TEXT_PLAIN'] }}
           </description>
         </offer>
       {% endfor %}
