@@ -6,6 +6,7 @@ use Phalcon\Mvc\View;
 class StaticController extends Controller {
   public function logoAction() {
     $this->tag->prependTitle('Нанесение логотипов на спецодежду');
+    $this->metatag->setByLink('canonical', ['href' => $this->url->get('logo')]);
 
   }
 
@@ -113,10 +114,12 @@ class StaticController extends Controller {
 
   public function aboutAction() {
     $this->tag->prependTitle('О компании «Поволжье-спецодежда»');
+    $this->metatag->setByLink('canonical', ['href' => $this->url->get('about')]);
   }
 
   public function contactsAction() {
     $this->tag->prependTitle('Контакты');
+    $this->metatag->setByLink('canonical', ['href' => $this->url->get('contacts')]);
   }
 
   public function route404Action() {
