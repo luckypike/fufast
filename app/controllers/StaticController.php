@@ -67,6 +67,24 @@ class StaticController extends Controller {
 
   }
 
+  public function sitemapAction () {
+    $products = Products::query()
+      ->columns('Products.ID')
+      // ->innerJoin('IblockSectionElements', 'IblockSectionElements.IBLOCK_ELEMENT_ID = Products.ID')
+      ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
+      // ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
+      // ->where('IblockSectionElements.IBLOCK_SECTION_ID = :section:', ['section' => $section->ID])
+      ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
+      ->orderBy('Products.ID DESC')
+      ->execute()
+      ->toArray();
+
+    $this->response->setHeader('Content-Type', 'application/xml');
+
+    $this->view->products = $products;
+    // $this->view->date = date("Y-m-d H:i:s");      
+  }
+
   public function ymlAction () {
     $products = Products::query()
       ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY, IblockElements.DETAIL_TEXT, IblockSectionElements.IBLOCK_SECTION_ID')

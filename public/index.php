@@ -163,6 +163,14 @@ $di->set(
     );
 
     $router->add(
+      '/sitemap.xml',
+      [
+        'controller' => 'static',
+        'action' => 'sitemap',
+      ]
+    );
+
+    $router->add(
       '/catalog/{slug:[a-z\-_\s0-9]+}',
       [
         'controller' => 'sections',
