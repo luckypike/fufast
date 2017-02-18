@@ -15,6 +15,7 @@ class SectionsController extends Controller {
     }
 
     $this->tag->prependTitle($section->NAME);
+    $this->metatag->setByLink('canonical', ['href' => $this->url->get('catalog/' . mb_strtolower($section->CODE))]);
     $section_childs = $tree->getChilds($section->ID);
     $void = count($section_childs) == 0;
 

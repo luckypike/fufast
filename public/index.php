@@ -227,6 +227,10 @@ $di->set(
   true
 );
 
+$di->set('metatag', function() {
+  return new MetaTags();
+});
+
 Phalcon\Tag::setTitle($config->site->site_name);
 Phalcon\Tag::setTitleSeparator(' — ');
 
@@ -234,7 +238,6 @@ $application = new Application($di);
 
 try {
   $response = $application->handle();
-
   $response->send();
 } catch (\Exception $e) {
   echo "Exception: ", $e->getMessage();

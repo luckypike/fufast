@@ -33,6 +33,7 @@ class ProductsController extends Controller {
     }
 
     $this->tag->prependTitle($product->NAME);
+    $this->metatag->setByLink('canonical', ['href' => $this->url->get('catalog/' . mb_strtolower($product->ID))]);
 
     $sections = ProductSections::query()
       ->columns('IBLOCK_SECTION_ID AS ID')
