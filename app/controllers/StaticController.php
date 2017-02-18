@@ -5,7 +5,7 @@ use Phalcon\Mvc\View;
 
 class StaticController extends Controller {
   public function logoAction() {
-
+    $this->tag->prependTitle('Нанесение логотипов на спецодежду');
 
   }
 
