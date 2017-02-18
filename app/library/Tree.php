@@ -110,6 +110,10 @@ class Tree extends Component {
     return $items;
   }
 
+  public function getAll() {
+    return $this->flat;
+  }
+
   public function getMenu() {
     $items = array();
 

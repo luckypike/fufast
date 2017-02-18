@@ -154,6 +154,13 @@ $di->set(
       ]
     );
 
+    $router->add(
+      '/catalog.yml',
+      [
+        'controller' => 'static',
+        'action' => 'yml',
+      ]
+    );
 
     $router->add(
       '/catalog/{slug:[a-z\-_\s0-9]+}',
