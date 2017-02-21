@@ -95,7 +95,6 @@ class StaticController extends Controller {
       ->where('ProductPrices.PRICE > 0')
       ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
       ->orderBy('Products.ID DESC')
-      ->limit(10)
       ->execute()
       ->toArray();
 
