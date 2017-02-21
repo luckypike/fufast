@@ -83,7 +83,7 @@ class StaticController extends Controller {
     $this->response->setHeader('Content-Type', 'application/xml');
 
     $this->view->products = $products;
-    // $this->view->date = date("Y-m-d H:i:s");      
+    // $this->view->date = date("Y-m-d H:i:s");
   }
 
   public function ymlAction () {
@@ -92,9 +92,10 @@ class StaticController extends Controller {
       ->innerJoin('IblockSectionElements', 'IblockSectionElements.IBLOCK_ELEMENT_ID = Products.ID')
       ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
       ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
-      // ->where('IblockSectionElements.IBLOCK_SECTION_ID = :section:', ['section' => $section->ID])
+      ->where('ProductPrices.PRICE > 0')
       ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
       ->orderBy('Products.ID DESC')
+      ->limit(10)
       ->execute()
       ->toArray();
 
@@ -105,7 +106,7 @@ class StaticController extends Controller {
     $this->response->setHeader('Content-Type', 'application/xml');
 
     $this->view->products = $products;
-    $this->view->date = date("Y-m-d H:i:s");    
+    $this->view->date = date("Y-m-d H:i:s");
   }
 
   public function catalogAction() {
