@@ -194,7 +194,13 @@ $di->set(
       ]
     );
 
-
+    $router->add(
+      '/search',
+      [
+        'controller' => 'products',
+        'action' => 'search',
+      ]
+    );
 
     $router->add(
       '/cover/{id:[0-9]+}/{size:[a-z]+}.jpg',
