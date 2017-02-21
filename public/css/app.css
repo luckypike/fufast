@@ -1531,7 +1531,8 @@ body {
     background-image: url("images/secs/sec4_1920.jpg"); } }
 
 .map-ar {
-  position: relative; }
+  position: relative;
+  margin-bottom: 1.75rem; }
   .map-ar:before {
     display: block;
     content: "";
