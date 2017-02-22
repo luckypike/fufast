@@ -201,7 +201,7 @@ class ProductsController extends Controller {
         ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
         ->where('IblockElements.SEARCHABLE_CONTENT LIKE :query:', ['query' => '%' . $query . '%'])
         ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
-        ->orderBy('Products.ID DESC')
+        ->orderBy('IblockElements.SORT ASC, ProductPrices.PRICE ASC')
         ->execute();
     }
 

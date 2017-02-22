@@ -25,13 +25,13 @@ class SectionsController extends Controller {
         $in[] = $cs->ID;
 
         $results = Products::query()
-          ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY')
+          ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY, IblockElements.SORT')
           ->innerJoin('IblockSectionElements', 'IblockSectionElements.IBLOCK_ELEMENT_ID = Products.ID')
           ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
           ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
           ->inWhere('IblockSectionElements.IBLOCK_SECTION_ID', $in)
           ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
-          ->orderBy('Products.ID DESC')
+          ->orderBy('IblockElements.SORT ASC, ProductPrices.PRICE ASC')
           ->limit(9)
           ->execute();
 
@@ -45,13 +45,13 @@ class SectionsController extends Controller {
       }
     } else {
       $products = Products::query()
-        ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY')
+        ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY, IblockElements.SORT')
         ->innerJoin('IblockSectionElements', 'IblockSectionElements.IBLOCK_ELEMENT_ID = Products.ID')
         ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
         ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
         ->where('IblockSectionElements.IBLOCK_SECTION_ID = :section:', ['section' => $section->ID])
         ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
-        ->orderBy('Products.ID DESC')
+        ->orderBy('IblockElements.SORT ASC, ProductPrices.PRICE ASC')
         ->execute();
     }
     // die;
