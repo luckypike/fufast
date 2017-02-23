@@ -237,6 +237,11 @@ $header-size-medium: 5rem;
         padding: $margin-xs $gutter / 2;
         width: 100%;
         line-height: 1.5rem;
+        outline: none;
+
+        &:focus {
+          border-color: #8f8f8f;
+        }
       }
 
       &-submit {

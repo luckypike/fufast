@@ -3,7 +3,7 @@
     <name>{{ config.site.site_name }}</name>
     <company>{{ config.site.site_name }}</company>
     <url>http://fufayka.info{{ url('/') }}</url>
-    
+
     <currencies>
       <currency id="RUR" rate="1" plus="0"></currency>
     </currencies>
@@ -21,6 +21,8 @@
           <price>{{ int(product['PRICE']) }}</price>
           <categoryId>{{ product['IBLOCK_SECTION_ID'] }}</categoryId>
           <currencyId>RUR</currencyId>
+          <delivery>true</delivery>
+          <local_delivery_cost>500</local_delivery_cost>
           <picture>http://fufayka.info{{ url('cover/' ~ product['ID'] ~ '/large.jpg') }}</picture>
           <name>{{ product['NAME'] }}</name>
           <description>

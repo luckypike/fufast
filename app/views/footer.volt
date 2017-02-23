@@ -55,6 +55,9 @@
   </div>
 </footer>
 
+<!-- 
+Ещё быстрее без 1С-Битрикс :-) Фронтэнд для Битрикса на Фэлконе.
+-->
 
 {% if config.site.production %}
   <!-- Yandex.Metrika counter -->

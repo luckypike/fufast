@@ -188,4 +188,26 @@ class ProductsController extends Controller {
   public function basketAction () {
     $this->session->set('fuser', $this->request->get('user'));
   }
+
+  public function searchAction () {
+    $query = $this->request->get('q', 'string', false);
+
+    $this->tag->prependTitle('Поиск');
+    $this->metatag->setByLink('canonical', ['href' => $this->url->get('search')]);
+
+    if($query) {
+      $products = Products::query()
+        ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY')
+        ->innerJoin('IblockSectionElements', 'IblockSectionElements.IBLOCK_ELEMENT_ID = Products.ID')
+        ->innerJoin('IblockElements', 'IblockElements.ID = Products.ID')
+        ->innerJoin('ProductPrices', 'ProductPrices.PRODUCT_ID = Products.ID')
+        ->where('IblockElements.SEARCHABLE_CONTENT LIKE :query:', ['query' => '%' . $query . '%'])
+        ->andWhere('IblockElements.ACTIVE = :active:', ['active' => 'Y'])
+        ->orderBy('IblockElements.SORT ASC, ProductPrices.PRICE ASC')
+        ->execute();
+    }
+
+    $this->view->products = $products;
+    $this->view->query = $query;
+  }
 }

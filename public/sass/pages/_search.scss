@@ -1,0 +1,33 @@
+.page-search {
+  padding: 0 $gutter;
+  margin-bottom: $margin-l * 2;
+
+  h1 {
+    padding: $margin-m 0;
+  }
+
+  .search-form {
+    max-width: $s;
+
+    form {
+      display: flex;
+      margin-bottom: $margin-m;
+    }
+
+    &-input {
+      border: 1px solid $light-grey-color;
+      // border-radius: 2px;
+      font-size: 1rem;
+      font-family: inherit;
+      padding: $margin-xs $gutter / 2;
+      width: 100%;
+      line-height: 1.5rem;
+      outline: none;
+      margin-right: $gutter;
+
+      &:focus {
+        border-color: #8f8f8f;
+      }
+    }
+  }
+}

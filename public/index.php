@@ -163,6 +163,14 @@ $di->set(
     );
 
     $router->add(
+      '/sitemap.xml',
+      [
+        'controller' => 'static',
+        'action' => 'sitemap',
+      ]
+    );
+
+    $router->add(
       '/catalog/{slug:[a-z\-_\s0-9]+}',
       [
         'controller' => 'sections',
@@ -186,7 +194,13 @@ $di->set(
       ]
     );
 
-
+    $router->add(
+      '/search',
+      [
+        'controller' => 'products',
+        'action' => 'search',
+      ]
+    );
 
     $router->add(
       '/cover/{id:[0-9]+}/{size:[a-z]+}.jpg',

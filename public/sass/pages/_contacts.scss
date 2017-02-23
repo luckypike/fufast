@@ -1,6 +1,8 @@
 .map-ar {
   @include aspect-ratio(4, 5);
 
+  margin-bottom: $margin-m;
+
   @include breakpoint($s) {
     @include aspect-ratio-change(16, 9);
   }

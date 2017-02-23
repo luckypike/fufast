@@ -1530,8 +1530,32 @@ body {
   .index-section-image.image-s4 {
     background-image: url("images/secs/sec4_1920.jpg"); } }
 
+.page-search {
+  padding: 0 1.25rem;
+  margin-bottom: 4.5rem; }
+  .page-search h1 {
+    padding: 1.75rem 0; }
+  .page-search .search-form {
+    max-width: 48rem; }
+    .page-search .search-form form {
+      display: -ms-flexbox;
+      display: flex;
+      margin-bottom: 1.75rem; }
+    .page-search .search-form-input {
+      border: 1px solid #e0e0e0;
+      font-size: 1rem;
+      font-family: inherit;
+      padding: 0.5rem 0.625rem;
+      width: 100%;
+      line-height: 1.5rem;
+      outline: none;
+      margin-right: 1.25rem; }
+      .page-search .search-form-input:focus {
+        border-color: #8f8f8f; }
+
 .map-ar {
-  position: relative; }
+  position: relative;
+  margin-bottom: 1.75rem; }
   .map-ar:before {
     display: block;
     content: "";
@@ -1700,7 +1724,10 @@ body {
         font-family: inherit;
         padding: 0.5rem 0.625rem;
         width: 100%;
-        line-height: 1.5rem; }
+        line-height: 1.5rem;
+        outline: none; }
+        .header-search-input:focus {
+          border-color: #8f8f8f; }
       .header-search-submit {
         background-image: url("/img/search.svg");
         background-color: transparent;

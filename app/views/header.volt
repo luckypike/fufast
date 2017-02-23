@@ -29,7 +29,7 @@
   </div>
 
   <div class="header-search">
-    <form action="/search/">
+    <form action="{{ url('search') }}">
       <input class="header-search-input" type="text" name="q" placeholder="Поиск">
       <input class="header-search-submit" type="submit" value="">
     </form>
