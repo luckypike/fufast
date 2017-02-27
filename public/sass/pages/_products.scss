@@ -80,12 +80,19 @@
         // background-color: #fff;
         // padding: 10px;
 
+        img {
+          border: 1px solid $light-color;
+          transition: 0.2s border;
+        }
+
         &:last-child {
           margin-right: 0;
         }
 
         &.active {
-          // border: 1px solid $primary-color;
+          img {
+            border-color: $primary-color;
+          }
         }
       }
 

@@ -398,8 +398,13 @@ body {
         border-bottom: 0;
         display: block;
         padding: 0.625rem; }
+        .product-images .thumbs a img {
+          border: 1px solid #ffffff;
+          transition: 0.2s border; }
         .product-images .thumbs a:last-child {
           margin-right: 0; }
+        .product-images .thumbs a.active img {
+          border-color: #212121; }
       .product-images .thumbs-item {
         position: relative;
         border: 1px solid #fff;
