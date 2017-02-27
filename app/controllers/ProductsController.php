@@ -34,6 +34,8 @@ class ProductsController extends Controller {
 
     $this->tag->prependTitle($product->NAME);
     $this->metatag->setByLink('canonical', ['href' => $this->url->get('catalog/' . mb_strtolower($product->ID))]);
+    $this->metatag->setByName('keywords', mb_substr(htmlspecialchars(strip_tags($product->NAME)), 0, 140));
+    $this->metatag->setByName('description', mb_substr(str_replace("\n", '', htmlspecialchars(strip_tags($product->DETAIL_TEXT))), 0, 200));
 
     $sections = ProductSections::query()
       ->columns('IBLOCK_SECTION_ID AS ID')
