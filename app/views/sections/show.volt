@@ -93,8 +93,8 @@
                   <a href="{{ url('catalog/' ~ c.PRODUCT.ID) }}">
                     <div class="iandb">
                       <div class="image">
-                        {{ image('/cover/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                        {{ image('/cover/' ~ c.PRODUCT.ID ~ '/large.jpg', 'class': 'img lazy') }}
+                        {{ image('/cover/title/' ~ c.PRODUCT.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                        {{ image('/cover/title/' ~ c.PRODUCT.ID ~ '/large.jpg', 'class': 'img lazy') }}
                       </div>
                       <div class="buy">
                         Выбрать
@@ -119,8 +119,8 @@
                       <a href="{{ url('catalog/' ~ product.ID) }}">
                         <div class="iandb">
                           <div class="image">
-                            {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                            {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
+                            {{ image('/cover/title/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                            {{ image('/cover/title/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                           </div>
                           <div class="buy">
                             Выбрать
@@ -157,8 +157,8 @@
               <a href="{{ url('catalog/' ~ product.ID) }}">
                 <div class="iandb">
                   <div class="image">
-                    {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                    {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
+                    {{ image('/cover/title/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                    {{ image('/cover/title/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                   </div>
                   <div class="buy">
                     Выбрать
