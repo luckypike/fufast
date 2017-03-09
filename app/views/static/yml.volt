@@ -23,7 +23,7 @@
           <currencyId>RUR</currencyId>
           <delivery>true</delivery>
           <local_delivery_cost>500</local_delivery_cost>
-          <picture>http://fufayka.info{{ url('cover/' ~ product['ID'] ~ '/large.jpg') }}</picture>
+          <picture>http://fufayka.info{{ url('cover/title/' ~ product['ID'] ~ '/large.jpg') }}</picture>
           <name>{{ product['NAME'] }}</name>
           <description>
             {{ product['DETAIL_TEXT_PLAIN'] }}
