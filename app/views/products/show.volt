@@ -81,6 +81,9 @@
             <div class="prop-value">
               {% if prop['PROPERTY_TYPE'] == 'S' %}
                 {{ props_elem[prop['ID']][0] }}
+                {% if prop['SUFFIX'] is not empty %}
+                  {{ prop['SUFFIX'] }}
+                {% endif %}
               {% else %}
                 {% for v in props_elem[prop['ID']] %}
                   {{ props_elem_enum[prop['ID']][int(v)] }}

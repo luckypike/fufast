@@ -46,3 +46,9 @@ h2 {
   @include font-size-h2;
   @include font-upper;
 }
+
+sup {
+  font-size: 0.75em;
+  display: inline-block;
+  transform: translateY(-20%);
+}

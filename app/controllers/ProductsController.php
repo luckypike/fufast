@@ -94,6 +94,26 @@ class ProductsController extends Controller {
 
     foreach($results as $i => $v) {
       if(array_key_exists($v['ID'], $props_elem)) {
+        switch($v['ID']) {
+          case 139:
+          case 140:
+            $v['SUFFIX'] = 'г/м<sup>2</sup>';
+            break;
+
+          case 142:
+            $v['SUFFIX'] = 'кг';
+            break;
+
+          case 145:
+          case 147:
+            $v['SUFFIX'] = 'м<sup>3</sup>';
+            break;
+
+          case 146:
+            $v['SUFFIX'] = 'шт.';
+            break;
+        }
+
         $props[$v['ID']] = $v;
       }
     }
