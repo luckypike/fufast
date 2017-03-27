@@ -18,7 +18,7 @@ class ImagesController extends Controller {
       'ph' => array(20, 25),
       'list' => array(800, 1000),
       'small' => array(400, 500),
-      'large' => array(1200, 1500),
+      'large' => array(1800, 2250),
     );
 
     $path = '../upload/cover/images/' . $id . '/' . $size . '.jpg';
@@ -63,7 +63,7 @@ class ImagesController extends Controller {
         $canvas->compositeimage($image, \Imagick::COMPOSITE_OVER, $d[$size][0] * (1 - $k) / 2, $d[$size][1] * (1 - $k) / 2);
 
         $canvas->setImageFormat('jpeg');
-        $canvas->setImageCompressionQuality(70);
+        $canvas->setImageCompressionQuality(80);
         $canvas->writeImage($path);
 
         // header("Content-Type: image/jpeg");
@@ -88,7 +88,7 @@ class ImagesController extends Controller {
       'ph' => array(20, 25),
       'list' => array(800, 1000),
       'small' => array(400, 500),
-      'large' => array(1200, 1500),
+      'large' => array(1800, 2250),
     );
 
     $path = '../upload/cover/title/' . $id . '/' . $size . '.jpg';
@@ -158,7 +158,7 @@ class ImagesController extends Controller {
         $canvas->compositeimage($image, \Imagick::COMPOSITE_OVER, $d[$size][0] * (1 - $k) / 2, $d[$size][1] * (1 - $k) / 2);
 
         $canvas->setImageFormat('jpeg');
-        $canvas->setImageCompressionQuality(70);
+        $canvas->setImageCompressionQuality(80);
         $canvas->writeImage($path);
         // header("Content-Type: image/jpeg");
         // echo $canvas->getImageBlob();
