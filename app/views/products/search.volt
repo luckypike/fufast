@@ -22,8 +22,8 @@
               <a href="{{ url('catalog/' ~ product.ID) }}">
                 <div class="iandb">
                   <div class="image">
-                    {{ image('/cover/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
-                    {{ image('/cover/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
+                    {{ image('/cover/title/' ~ product.ID ~ '/ph.jpg', 'class': 'img ph') }}
+                    {{ image('/cover/title/' ~ product.ID ~ '/list.jpg', 'class': 'img lazy') }}
                   </div>
                   <div class="buy">
                     Выбрать
