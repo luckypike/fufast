@@ -127,7 +127,7 @@ class StaticController extends Controller {
     // $this->tag->prependTitle('Ошибка 404');
 
     // $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
-    // $this->response->setStatusCode(404, "Not Found");
+    $this->response->setStatusCode(404, "Not Found");
     // return $this->response;
   }
 }
