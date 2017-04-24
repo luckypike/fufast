@@ -21,16 +21,15 @@ class ProductsController extends Controller {
       ->execute()
       ->getFirst();
 
-    $Parsedown = new Parsedown();
-
-    $product->DETAIL_TEXT_HTML = $Parsedown->text($product->DETAIL_TEXT);
-
     if(!$product) {
       $this->response->setStatusCode(404, "Not Found");
       // $this->view->pick("static/route404");
       $this->response->setContent("Sorry, the page doesn't exist");
       return $this->response;
     }
+
+    $Parsedown = new Parsedown();
+    $product->DETAIL_TEXT_HTML = $Parsedown->text($product->DETAIL_TEXT);
 
     $this->tag->prependTitle($product->NAME);
     $this->metatag->setByLink('canonical', ['href' => $this->url->get('catalog/' . mb_strtolower($product->ID))]);
