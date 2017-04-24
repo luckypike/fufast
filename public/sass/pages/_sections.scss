@@ -197,6 +197,11 @@
     &-contacts { background-image: url('/img/pages/contacts/top.jpg'); }
   }
 
+  &-desc {
+    margin-top: $margin-m;
+    max-width: $s;
+  }
+
   &-sections {
     &-item {
       margin-top: $margin-m * 2;

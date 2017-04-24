@@ -67,6 +67,12 @@
   {% endif %}
 
   <div class="section">
+    {% if section.DESCRIPTION_HTML is not empty %}
+      <div class="section-desc">
+        {{ section.DESCRIPTION_HTML }}
+      </div>
+    {% endif %}
+
     <div class="section-sections">
       {% for c in section_childs %}
         {% if c.PRODUCTS|length %}

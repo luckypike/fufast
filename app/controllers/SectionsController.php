@@ -19,6 +19,10 @@ class SectionsController extends Controller {
     $section_childs = $tree->getChilds($section->ID);
     $void = count($section_childs) == 0;
 
+    $Parsedown = new Parsedown();
+
+    $section->DESCRIPTION_HTML = $Parsedown->text($section->DESCRIPTION);
+
     if(!$void) {
       foreach($section_childs as $cs) {
         $in = $tree->getAllChilds($cs->ID);

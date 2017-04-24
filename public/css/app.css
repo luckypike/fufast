@@ -886,6 +886,9 @@ body {
       background-image: url("/img/pages/about/top.jpg"); }
     .section-intro-contacts {
       background-image: url("/img/pages/contacts/top.jpg"); }
+  .section-desc {
+    margin-top: 1.75rem;
+    max-width: 48rem; }
   .section-sections-item {
     margin-top: 3.5rem; }
     .section-sections-item-title {
