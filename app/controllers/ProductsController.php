@@ -214,6 +214,7 @@ class ProductsController extends Controller {
     $this->tag->prependTitle('Поиск');
     $this->metatag->setByLink('canonical', ['href' => $this->url->get('search')]);
 
+    $products = [];
     if($query) {
       $products = Products::query()
         ->columns('Products.ID, IblockElements.NAME, IblockElements.DETAIL_PICTURE, ProductPrices.PRICE, ProductPrices.CURRENCY')

@@ -6,6 +6,7 @@ class SectionsController extends Controller {
   public function showAction($slug) {
     $tree = $this->di->getTree();
     $section = $tree->getBySlug($slug);
+    $products = [];
 
     if(!$section) {
       $this->response->setStatusCode(404, "Not Found");
