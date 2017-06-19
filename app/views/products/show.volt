@@ -100,7 +100,7 @@
             Цена за штуку
           </div>
           <div class="prop-value">
-            {{ money(product.PRICE, 0, ',', ' ') }} руб.
+            {{ money(product.PRICE, 0, ',', ' ') }} ₽
           </div>
         </div>
       </div>
@@ -163,7 +163,7 @@
           <div class="ppi">Цена за штуку</div>
           <div class="po">Общая стоимость</div>
           <div class="price" data-price="{{ product.PRICE }}" data-price-human="{{ money(product.PRICE, 0, ',', ' ') }}">
-            {{ money(product.PRICE, 0, ',', ' ') }} руб.
+            {{ money(product.PRICE, 0, ',', ' ') }} ₽
           </div>
         </div>
 
@@ -201,7 +201,7 @@
               {{ product.NAME }}
             </div>
             <div class="price">
-              {{ money(product.PRICE, 0, ',', ' ') }} руб.
+              {{ money(product.PRICE, 0, ',', ' ') }} ₽
             </div>
           </div>
 

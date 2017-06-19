@@ -111,7 +111,7 @@
                         {{ c.PRODUCT.NAME }}
                       </div>
                       <div class="price">
-                        {{ money(c.PRODUCT.PRICE, 0, ',', ' ') }} руб.
+                        {{ money(c.PRODUCT.PRICE, 0, ',', ' ') }} ₽
                       </div>
                     </div>
                   </a>
@@ -137,7 +137,7 @@
                             {{ product.NAME }}
                           </div>
                           <div class="price">
-                            {{ money(product.PRICE, 0, ',', ' ') }} руб.
+                            {{ money(product.PRICE, 0, ',', ' ') }} ₽
                           </div>
                         </div>
                       </a>
@@ -175,7 +175,7 @@
                     {{ product.NAME }}
                   </div>
                   <div class="price">
-                    {{ money(product.PRICE, 0, ',', ' ') }} руб.
+                    {{ money(product.PRICE, 0, ',', ' ') }} ₽
                   </div>
                 </div>
 

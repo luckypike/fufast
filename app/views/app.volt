@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     {{ get_title() }}
     {{ metatag.getMeta() }}
-    
+
     {{ javascript_include('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', false) }}
-    {{ javascript_include('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', false) }}
 
     {{ stylesheet_link('css/app.css?v=' ~ config.site.version) }}
-    {{ javascript_include('js/fonts.js') }}
+    {{ javascript_include('https://use.typekit.net/eua0zbv.js', false) }}
     {{ javascript_include('js/jquery.lazyload.min.js') }}
     {{ javascript_include('js/js.cookie.js') }}
     {{ javascript_include('js/app.js?v=' ~ config.site.version) }}

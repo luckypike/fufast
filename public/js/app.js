@@ -147,12 +147,12 @@ $(function() {
       if(act) {
         $('.sizes-clear').addClass('act');
         _op.addClass('r2o');
-        _opp.text((parseInt(_opp.data('price')) * act) + ' руб.' );
+        _opp.text((parseInt(_opp.data('price')) * act) + ' ₽' );
         _o2b.data('size', true);
       } else {
         $('.sizes-clear').removeClass('act');
         _op.removeClass('r2o');
-        _opp.text(_opp.data('price-human') + ' руб.' );
+        _opp.text(_opp.data('price-human') + ' ₽' );
         _o2b.data('size', false);
       }
     });
@@ -261,3 +261,5 @@ $(function() {
   //     }
   // });
 });
+
+try{Typekit.load({ async: true });}catch(e){}
