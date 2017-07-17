@@ -145,26 +145,81 @@
 
       &-row {
         display: flex;
+        flex-wrap: wrap;
         padding: $margin-xs 0;
         border-bottom: 1px solid $light-grey-color;
 
-        > div {
-          width: 50%;
+        &-153 {
+          .prop-value .vl {
+            border-bottom: 1px dashed $dark-grey-color;
+            cursor: pointer;
+          }
         }
-
       }
 
       &-label {
         @include font-upper;
+        @include font-size(3, 5);
 
-        padding-right: $gutter / 2;
+        padding: 0.25rem $gutter / 2 0.25rem 0;
         max-width: 280px;
+        width: 50%;
       }
 
       &-value {
         padding-left: $gutter / 2;
+        width: 50%;
+
+        .vl {
+          display: inline;
+        }
       }
 
+      &-desc {
+        @include font-size(3, 5);
+
+        display: none;
+        width: 100%;
+
+        table.en {
+          margin-bottom: $base-rhythm-line * 4;
+          width: 100%;
+
+          .h {
+            td {
+              background: none;
+              // border-bottom: 1px solid $light-grey-color;
+            }
+          }
+
+          td {
+            border: 1px solid #f1f1f1;
+            background-color: $light-color;
+            padding: $base-rhythm-line 0.5rem;
+            text-align: center;
+
+            &.l {
+              background: none;
+              // border-right: 1px solid $light-grey-color;
+              text-align: left;
+            }
+
+            &.z {
+              border: 0;
+            }
+          }
+        }
+
+        @include mq($s) {
+          table.en {
+            width: auto;
+
+            td {
+              padding: $base-rhythm-line $gutter;
+            }
+          }
+        }
+      }
     }
 
     .sizes {

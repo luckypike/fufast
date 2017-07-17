@@ -68,11 +68,20 @@ $di->set(
 
     $compiler = $volt->getCompiler();
     $compiler->addFunction('int', 'intval');
-    $compiler->addFunction('money', 'number_format');
+    $compiler->addFunction('money', 'money_format_smart');
 
     return $volt;
   }
 );
+
+function money_format_smart($number) {
+  $decimals = 0;
+  if(fmod($number, 1) > 0) {
+    $decimals = 2;
+  }
+
+  return number_format($number, $decimals, ',', ' ');
+}
 
 $di->set(
   'view',

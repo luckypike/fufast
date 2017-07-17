@@ -74,30 +74,103 @@
 
       <div class="prop">
         {% for prop in props %}
-          <div class="prop-row">
+          <div class="prop-row prop-row-{{ prop['ID'] }}">
             <div class="prop-label">
             {{ prop['NAME'] }}
             </div>
             <div class="prop-value">
-              {% if prop['PROPERTY_TYPE'] == 'S' %}
-                {{ props_elem[prop['ID']][0] }}
-                {% if prop['SUFFIX'] is not empty %}
-                  {{ prop['SUFFIX'] }}
-                {% endif %}
-              {% else %}
-                {% for v in props_elem[prop['ID']] %}
-                  {{ props_elem_enum[prop['ID']][int(v)] }}
-                  {% if !loop.last %}
-                    /
+              <div class="vl">
+                {% if prop['PROPERTY_TYPE'] == 'S' %}
+                  {{ props_elem[prop['ID']][0] }}
+                  {% if prop['SUFFIX'] is not empty %}
+                    {{ prop['SUFFIX'] }}
                   {% endif %}
-                {% endfor %}
-              {% endif %}
+                {% else %}
+                  {% for v in props_elem[prop['ID']] %}
+                    {{ props_elem_enum[prop['ID']][int(v)] }}
+                    {% if !loop.last %}
+                      /
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
             </div>
+            {% if int(prop['ID']) == 153 %}
+              <div class="prop-desc">
+                <table class="en">
+                  <tr class="h">
+                    <td class="l z"></td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                  </tr>
+
+                  <tr>
+                    <td class="l">A</td>
+                    <td>&lt;&nbsp;100</td>
+                    <td>100</td>
+                    <td>500</td>
+                    <td>2000</td>
+                    <td>8000</td>
+                    <td>—</td>
+                  </tr>
+
+                  <tr>
+                    <td class="l">B</td>
+                    <td>&lt;&nbsp;1,2</td>
+                    <td>1,2</td>
+                    <td>2,5</td>
+                    <td>5,0</td>
+                    <td>10,0</td>
+                    <td>20,0</td>
+                  </tr>
+
+                  <tr>
+                    <td class="l">C</td>
+                    <td>&lt;&nbsp;10</td>
+                    <td>10</td>
+                    <td>25</td>
+                    <td>50</td>
+                    <td>75</td>
+                    <td>—</td>
+                  </tr>
+
+                  <tr>
+                    <td class="l">D</td>
+                    <td>&lt;&nbsp;20</td>
+                    <td>20</td>
+                    <td>60</td>
+                    <td>100</td>
+                    <td>150</td>
+                    <td>—</td>
+                  </tr>
+                </table>
+
+                <p>
+                  По нормам EN388 оценивается механическая прочность перчаток по четырем показателям:
+                  <br>
+                  <ul>
+                    <li>A: прочность на истирание в количестве циклов;</li>
+                    <li>B: индекс прочности на разрез;</li>
+                    <li>C: сила в ньютонах требуемая для разрыва;</li>
+                    <li>D: сила в ньютонах требуемая для прокола .</li>
+                  </ul>
+                </p>
+
+              </div>
+            {% endif %}
           </div>
         {% endfor %}
         <div class="prop-row">
           <div class="prop-label">
-            Цена за штуку
+            {% if tree.getParents(section.ID)[0].ID == 168 %}
+              Цена за пару
+            {% else %}
+              Цена за штуку
+            {% endif %}
           </div>
           <div class="prop-value">
             {{ money(product.PRICE, 0, ',', ' ') }} ₽
@@ -160,10 +233,16 @@
 
       <div class="order">
         <div class="order-price">
-          <div class="ppi">Цена за штуку</div>
+          <div class="ppi">
+            {% if tree.getParents(section.ID)[0].ID == 168 %}
+              Цена за пару
+            {% else %}
+              Цена за штуку
+            {% endif %}
+          </div>
           <div class="po">Общая стоимость</div>
-          <div class="price" data-price="{{ product.PRICE }}" data-price-human="{{ money(product.PRICE, 0, ',', ' ') }}">
-            {{ money(product.PRICE, 0, ',', ' ') }} ₽
+          <div class="price" data-price="{{ product.PRICE }}" data-price-human="{{ money(product.PRICE) }}">
+            {{ money(product.PRICE) }} ₽
           </div>
         </div>
 
@@ -201,7 +280,7 @@
               {{ product.NAME }}
             </div>
             <div class="price">
-              {{ money(product.PRICE, 0, ',', ' ') }} ₽
+              {{ money(product.PRICE) }} ₽
             </div>
           </div>
 

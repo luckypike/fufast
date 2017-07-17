@@ -25,6 +25,10 @@ $(function() {
   //   effect : "fadeIn"
   // });
 
+  $('.prop-row-153').on('click', function() {
+    $('.prop-desc', this).slideToggle();
+  });
+
   var _mim = $('.section-sections-item-products-main');
 
   _mim.on('update', function() {
@@ -144,23 +148,33 @@ $(function() {
       if($(this).val()) {
         act += parseInt($(this).val());
       }
-      if(act) {
-        $('.sizes-clear').addClass('act');
-        _op.addClass('r2o');
-        _opp.text((parseInt(_opp.data('price')) * act) + ' ₽' );
-        _o2b.data('size', true);
-      } else {
-        $('.sizes-clear').removeClass('act');
-        _op.removeClass('r2o');
-        _opp.text(_opp.data('price-human') + ' ₽' );
-        _o2b.data('size', false);
-      }
     });
+
+    if(act) {
+      $('.sizes-clear').addClass('act');
+      _op.addClass('r2o');
+      var vl = parseFloat(_opp.data('price')) * act;
+      var tt = vl % 1;
+      if(tt > 0) {
+        vl = vl.toFixed(2);
+      } else {
+        vl = vl.toFixed(0);
+      }
+
+      _opp.text(vl.toString().replace('.', ',') + ' ₽' );
+      _o2b.data('size', true);
+    } else {
+      $('.sizes-clear').removeClass('act');
+      _op.removeClass('r2o');
+      _opp.text(_opp.data('price-human') + ' ₽' );
+      _o2b.data('size', false);
+    }
   }).trigger('update');
 
   $('.sizes-clear span').on('click', function() {
     _srii.val(null);
     $(this).parent().removeClass('act');
+    _o2b.trigger('update');
   });
 
 
