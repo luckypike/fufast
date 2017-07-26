@@ -635,9 +635,6 @@ body {
       .product-details {
         font-size: 1rem;
         line-height: 1.75rem; }
-        .product-details .prop-value {
-          font-size: 0.875rem;
-          line-height: 1.75rem; }
         .product-details .sizes-row-size {
           width: 8rem; } }
   .product-assoc {
