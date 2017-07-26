@@ -88,6 +88,8 @@ class ProductsController extends Controller {
       ->columns('ID, NAME, SORT, PROPERTY_TYPE')
       ->orderBy('SORT ASC')
       ->inWhere('PROPERTY_TYPE', ['S', 'L'])
+      ->where('ACTIVE = :active:')
+      ->bind(['active' => 'Y'])
       ->execute()
       ->toArray();
 
