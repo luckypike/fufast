@@ -1,2 +1,2 @@
-Host: http://fufayka.info
-Sitemap: http://fufayka.info/sitemap.xml
+Host: https://fufayka.info
+Sitemap: https://fufayka.info/sitemap.xml
