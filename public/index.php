@@ -96,6 +96,8 @@ $di->set(
       ]
     );
 
+    $view->setVar('site_url', 'http' . (empty($_SERVER['HTTPS'])?'':'s') . '://' . $_SERVER['HTTP_HOST']);
+
     return $view;
   }
 );
