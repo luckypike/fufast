@@ -83,7 +83,7 @@
                 {% if prop['PROPERTY_TYPE'] == 'S' %}
                   {{ props_elem[prop['ID']][0] }}
                   {% if prop['SUFFIX'] is not empty %}
-                    {% if tree.getParents(section.ID)[0].ID == 168 %}
+                    {% if tree.getParents(section.ID)[0].ID == 168 AND prop['ID'] == 146 %}
                       пр.
                     {% else %}
                       {{ prop['SUFFIX'] }}
