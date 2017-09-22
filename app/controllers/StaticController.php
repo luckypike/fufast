@@ -45,7 +45,7 @@ class StaticController extends Controller {
           'button' => 'Коллекции перчаток',
           'url' => 'gloves',
         ],
-        'goods' => [1711, 1709, 1301, 1796, 1301, 1796, 1803, 1261]
+        'goods' => [2682, 2681, 2683, 1260, 2168, 2680, 2684, 2705]
       ]
     ];
 
