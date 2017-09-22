@@ -115,7 +115,9 @@ class ProductsController extends Controller {
             break;
         }
 
-        $props[$v['ID']] = $v;
+        if(!in_array($v['ID'], [111])) {
+          $props[$v['ID']] = $v;
+        }
       }
     }
 
