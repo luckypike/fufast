@@ -91,9 +91,13 @@
                   {% endif %}
                 {% else %}
                   {% for v in props_elem[prop['ID']] %}
-                    {{ props_elem_enum[prop['ID']][int(v)] }}
-                    {% if !loop.last %}
-                      /
+                    {% if props_elem_enum[prop['ID']][int(v)] is not empty %}
+                      {{ props_elem_enum[prop['ID']][int(v)] }}
+                      {% if !loop.last %}
+                        /
+                      {% endif %}
+                    {% else %}
+                      {{ v }}
                     {% endif %}
                   {% endfor %}
                 {% endif %}
@@ -298,8 +302,3 @@
     {% endfor %}
   </div>
 {% endblock %}
-
-
-
-
-
