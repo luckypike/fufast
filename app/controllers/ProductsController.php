@@ -98,6 +98,8 @@ class ProductsController extends Controller {
         switch($v['ID']) {
           case 139:
           case 140:
+          case 163:
+          case 164:
             $v['SUFFIX'] = 'г/м<sup>2</sup>';
             break;
 
