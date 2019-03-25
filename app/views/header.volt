@@ -25,7 +25,7 @@
   </div>
 
   <div class="header-phone">
-    + 7 (831) 293-35-50
+    {{ config.site.phone }}
   </div>
 
   <div class="header-search">
