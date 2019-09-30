@@ -5,7 +5,10 @@ class Product < ApplicationRecord
 
   default_scope { includes(:element) }
 
-  has_one :element, foreign_key: 'ID', dependent: :destroy, inverse_of: :product
+  has_one :element, foreign_key: 'ID', class_name: 'ProductElement',
+    dependent: :destroy, inverse_of: :product
+
+  delegate :element_properties, to: :element
 
   def title
     element.NAME
