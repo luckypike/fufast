@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get 'catalog/:id', to: 'products#show', constraints: lambda { |request| Product.find_by(id: request.params[:id]).present? }
 
   get :catalog, to: redirect('/')
+
+  get :login, to: 'sessions#new'
+  post :login, to: 'sessions#create'
 end

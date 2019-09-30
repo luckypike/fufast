@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 
+import Cart from './Show/Cart'
+
 Show.propTypes = {
   product: PropTypes.object.isRequired
 }
@@ -27,6 +29,10 @@ export default function Show (props) {
 
       <div>
         <ReactMarkdown source={product.desc} escapeHtml={false} />
+      </div>
+
+      <div>
+        <Cart />
       </div>
     </div>
   )
