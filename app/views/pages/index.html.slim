@@ -1,1 +1,1 @@
-= react_component 'Pages/Index'
+= react_component 'Pages/Index', { sections: Section.all.map{ |section| section.slice(:id, :title, :slug) } }
