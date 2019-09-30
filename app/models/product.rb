@@ -10,4 +10,8 @@ class Product < ApplicationRecord
   def title
     element.NAME
   end
+
+  def desc
+    element.DETAIL_TEXT
+  end
 end

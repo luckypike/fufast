@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import axios from 'axios'
 
 Show.propTypes = {
-  section: PropTypes.object.isRequired,
-  products: PropTypes.array.isRequired
+  section: PropTypes.object.isRequired
 }
 
-export default function Show ({ section, products }) {
+export default function Show ({ section }) {
+  const [products, setProducts] = useState()
+
+  useEffect(() => {
+    const _fetch = async () => {
+      const { data } = await axios.get(`/catalog/${section.slug}.json`)
+      setProducts(data.products)
+    }
+
+    _fetch()
+  }, [])
+
   return (
     <div>
       {section.title}

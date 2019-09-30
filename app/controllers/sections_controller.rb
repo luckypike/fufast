@@ -1,6 +1,12 @@
 class SectionsController < ApplicationController
   def show
     @section = Section.find_by!(slug: params[:slug])
-    @products = @section.products
+
+    respond_to do |format|
+      format.html
+      format.json do
+        @products = @section.products
+      end
+    end
   end
 end
