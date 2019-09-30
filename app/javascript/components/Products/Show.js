@@ -6,7 +6,8 @@ import ReactMarkdown from 'react-markdown'
 import Cart from './Show/Cart'
 
 Show.propTypes = {
-  product: PropTypes.object.isRequired
+  product: PropTypes.object.isRequired,
+  token: PropTypes.string.isRequired
 }
 
 export default function Show (props) {
@@ -31,9 +32,11 @@ export default function Show (props) {
         <ReactMarkdown source={product.desc} escapeHtml={false} />
       </div>
 
-      <div>
-        <Cart />
-      </div>
+      {product.properties &&
+        <div>
+          <Cart product={product} token={props.token} />
+        </div>
+      }
     </div>
   )
 }

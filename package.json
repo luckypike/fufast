@@ -8,6 +8,7 @@
     "@rails/webpacker": "^4.0.7",
     "axios": "^0.19.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "immutability-helper": "^3.0.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "rails-erb-loader": "^5.5.2",

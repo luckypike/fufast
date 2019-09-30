@@ -5,8 +5,8 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        @element_properties = @product.element_properties.includes(:property)
-        # TODO: тут загрузить остальные параметры товара для продажы
+        @element_properties = @product.element_properties
+          .includes(:property).select(&:property)
       end
     end
   end

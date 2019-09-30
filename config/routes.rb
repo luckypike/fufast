@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get :catalog, to: redirect('/')
 
+  get :cart, to: 'cart#index'
+  post :cart, to: 'cart#create'
+
   get :login, to: 'sessions#new'
   post :login, to: 'sessions#create'
 end
