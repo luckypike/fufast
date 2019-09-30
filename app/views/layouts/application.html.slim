@@ -1,0 +1,12 @@
+doctype html
+html lang=I18n.locale
+  head
+    title Fufast
+    = tag('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' })
+    = favicon_link_tag '/favicon.ico'
+
+  body
+    = yield
+
+    = javascript_pack_tag 'app', async: true
+    = stylesheet_pack_tag 'app', media: :all
