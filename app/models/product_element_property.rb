@@ -8,7 +8,5 @@ class ProductElementProperty < ApplicationRecord
   belongs_to :product_element, foreign_key: 'IBLOCK_ELEMENT_ID'
   belongs_to :property, foreign_key: 'IBLOCK_PROPERTY_ID', class_name: 'ProductProperty'
 
-  # def title
-  #   product_property.title
-  # end
+  belongs_to :attachment, foreign_key: 'VALUE'
 end

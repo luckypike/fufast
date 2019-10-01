@@ -8,7 +8,8 @@ class Product < ApplicationRecord
   has_one :element, foreign_key: 'ID', class_name: 'ProductElement',
     dependent: :destroy, inverse_of: :product
 
-  delegate :element_properties, to: :element
+  has_many :attachments, through: :element
+  has_many :element_properties, through: :element
 
   def title
     element.NAME
@@ -16,5 +17,9 @@ class Product < ApplicationRecord
 
   def desc
     element.DETAIL_TEXT
+  end
+
+  def as_json
+    super(only: [], methods: %i[id title attachments])
   end
 end

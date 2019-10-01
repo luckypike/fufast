@@ -4,10 +4,11 @@ import axios from 'axios'
 
 Cart.propTypes = {
   token: PropTypes.string.isRequired,
+  products: PropTypes.array.isRequired,
   user: PropTypes.object
 }
 
-export default function Cart ({ token, user }) {
+export default function Cart ({ token, user, products }) {
   const [values, setValues] = useState()
   const [errors, setErrors] = useState({})
 
@@ -32,9 +33,27 @@ export default function Cart ({ token, user }) {
     setValues({ ...values, user_attributes: userValues })
   }
 
+  console.log(products)
+
   return (
     <div>
       CART
+
+      {products.length > 0 &&
+        <div>
+          {products.map(product =>
+            <div key={product.id}>
+              {product.title}
+
+              {product.attachments.map(attachment =>
+                <div key={attachment.id}>
+                  <img src={attachment.path} />
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      }
 
       <div>
         <form onSubmit={handleSubmit}>

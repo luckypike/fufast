@@ -10,5 +10,7 @@ class ProductElement < ApplicationRecord
   # belongs_to :product_property, foreign_key: 'IBLOCK_PROPERTY_ID'
 
   has_many :element_properties, foreign_key: 'IBLOCK_ELEMENT_ID',
-    class_name: 'ProductElementProperty'
+    class_name: 'ProductElementProperty', inverse_of: :product_element
+
+  has_many :attachments, through: :element_properties
 end
