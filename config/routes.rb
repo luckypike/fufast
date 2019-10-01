@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get :login, to: 'sessions#new'
   post :login, to: 'sessions#create'
 
-  resources :orders, only: :index
+  resources :orders, only: %i[index create]
 end
