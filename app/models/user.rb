@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   self.table_name = 'b_user'
 
+  has_many :orders
+
   def salt
     self.PASSWORD.slice(0, self.PASSWORD.size - 32)
   end
