@@ -1,1 +1,1 @@
-= react_component 'Pages/Index', { sections: Section.all.map{ |section| section.slice(:id, :title, :slug) }, slides: @slides.as_json }
+= react_component 'Pages/Index', { sections: @sections.map{ |section| section.slice(:id, :title, :slug) }, slides: @slides.as_json }

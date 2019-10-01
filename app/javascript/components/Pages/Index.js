@@ -7,8 +7,6 @@ Index.propTypes = {
 }
 
 export default function Index ({ sections, slides }) {
-  console.log(slides)
-
   return (
     <div>
       Index
@@ -24,7 +22,7 @@ export default function Index ({ sections, slides }) {
       <div>
         {slides.map(slide =>
           <div key={slide.id}>
-            <img src={slide.path} />
+            <img width="200" src={slide.path} />
           </div>
         )}
       </div>
