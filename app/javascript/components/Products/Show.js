@@ -34,6 +34,16 @@ export default function Show (props) {
 
       {product.properties &&
         <div>
+          {product.properties.map(prop =>
+            <div key={prop.id}>
+              {prop.title} :
+            </div>
+          )}
+        </div>
+      }
+
+      {product.properties &&
+        <div>
           <Cart product={product} token={props.token} />
         </div>
       }
