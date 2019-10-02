@@ -19,11 +19,18 @@ class Section < ApplicationRecord
   belongs_to :parent_section, foreign_key: 'IBLOCK_SECTION_ID', class_name: 'Section'
   belongs_to :image, foreign_key: 'PICTURE', class_name: 'Attachment'
 
+  has_many :section_properties
+  has_many :properties, through: :section_properties
+
   def slug
     self.CODE.downcase
   end
 
   def siblings
     parent_section ? parent_section.sections : Section.where(parent_section: nil)
+  end
+
+  def root_section
+    parent_section ? parent_section.root_section : self
   end
 end
