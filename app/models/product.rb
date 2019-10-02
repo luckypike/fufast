@@ -19,7 +19,11 @@ class Product < ApplicationRecord
     element.DETAIL_TEXT
   end
 
+  def image
+    "https://fufayka.info/cover/title/#{id}/list.jpg"
+  end
+
   def as_json
-    super(only: [], methods: %i[id title attachments])
+    super(only: [], methods: %i[id title attachments image])
   end
 end

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'pages#index'
 
-  get 'catalog/:slug', to: 'sections#show', constraints: lambda { |request| Section.find_by(slug: request.params[:slug]).present? }
-  get 'catalog/:id', to: 'products#show', constraints: lambda { |request| Product.find_by(id: request.params[:id]).present? }
+  get 'catalog/:slug', to: 'sections#show', constraints: lambda { |request| Section.find_by(slug: request.params[:slug]).present? }, as: :section_catalog
+  get 'catalog/:id', to: 'products#show', constraints: lambda { |request| Product.find_by(id: request.params[:id]).present? }, as: :product_catalog
 
   get :catalog, to: redirect('/')
 
@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   # Pages
   get :about, to: 'pages#about'
+
+  # Search
+  get :search, to: 'search#index'
 end

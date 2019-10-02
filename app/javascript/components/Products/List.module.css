@@ -1,0 +1,47 @@
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: var(--xr);
+  grid-row-gap: calc(var(--yr) * var(--s3));
+
+  @media (--s) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (--m) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (--l) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.image {
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  margin-bottom: calc(var(--yr) * var(--s1));
+
+  &::before {
+    display: block;
+    content: '';
+    padding-top: calc(5 / 4 * 100%)
+  }
+
+  & img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.title {
+  composes: mt from '../Fonts.module.css';
+}

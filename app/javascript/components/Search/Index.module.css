@@ -1,0 +1,8 @@
+.results {
+  margin-top: calc(var(--yr) * var(--s3));
+}
+
+.input {
+  max-width: 60rem;
+  margin: 0 auto;
+}
