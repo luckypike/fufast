@@ -1,0 +1,44 @@
+.main {
+  display: inline-block;
+  border: 0;
+  border-radius: 0;
+  font-size: calc(var(--yr) * calc(var(--fs) - 1));
+  line-height: inherit;
+  color: #fff;
+
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  background-color: #333;
+
+  padding: calc(var(--yr) * var(--s1)) calc(var(--xr) * 2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
+  transition: background 0.3s;
+  user-select: none;
+
+  @media (--s) {
+
+  }
+
+  &:hover {
+    &:not(:disabled) {
+      background-color: #000;
+    }
+  }
+
+  &.active {
+    background-color: var(--red_color);
+    color: var(--wht_color);
+
+    &:hover {
+      background-color: var(--highlight_secondary_color);
+      color: var(--wht_color);
+    }
+  }
+}
+
+.destroy {
+  margin-left: calc(var(--xr) * 4);
+}

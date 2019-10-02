@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 
+import { Errors } from '../Form'
+import Products from './Index/Products'
+
+import page from '../Page.module.css'
+import form from '../Form.module.css'
+import buttons from '../Buttons.module.css'
+
 Cart.propTypes = {
   token: PropTypes.string.isRequired,
   products: PropTypes.array.isRequired,
@@ -33,57 +40,54 @@ export default function Cart ({ token, user, products }) {
     setValues({ ...values, user_attributes: userValues })
   }
 
-  console.log(products)
+  const hasProducts = () => (products && products.length > 0)
 
   return (
-    <div>
-      CART
+    <div className={page.root}>
+      <div className={page.text}>
+        <h1>
+          Корзина
+        </h1>
 
-      {products.length > 0 &&
-        <div>
-          {products.map(product =>
-            <div key={product.id}>
-              {product.title}
+        {hasProducts() &&
+          <div>
+            <Products products={products} />
 
-              {product.attachments.map(attachment =>
-                <div key={attachment.id}>
-                  <img src={attachment.path} />
+            <form onSubmit={handleSubmit} className={form.root}>
+              {user &&
+                <div>{user.name}</div>
+              }
+
+              {!user && <User errors={errors} onValuesChange={handleUserChange} /> }
+
+              {errors.email_exists && errors.email_exists === true &&
+                <div>
+                  <p>
+                    Такая почта уже ранее использовалась для заказов.
+                  </p>
+
+                  <a href="/login">Войти или восстановить доступ</a>
                 </div>
-              )}
-            </div>
-          )}
-        </div>
-      }
+              }
+              <button className={buttons.main} type="submit">Оформить заказ</button>
+            </form>
+          </div>
+        }
 
-      <div>
-        <form onSubmit={handleSubmit}>
-          {user &&
-            <div>{user.name}</div>
-          }
-
-          {!user && <User onValuesChange={handleUserChange} /> }
-
-          {errors.email_exists && errors.email_exists === true &&
-            <div>
-              <p>
-                Такая почта уже ранее использовалась для заказов.
-              </p>
-
-              <a href="/login">Войти или восстановить доступ</a>
-            </div>
-          }
-          <button type="submit">Оформить заказ</button>
-        </form>
+        {!hasProducts() &&
+          <p>Ваша корзина пока пуста</p>
+        }
       </div>
     </div>
   )
 }
 
 User.propTypes = {
-  onValuesChange: PropTypes.func
+  onValuesChange: PropTypes.func,
+  errors: PropTypes.object
 }
 
-function User ({ onValuesChange }) {
+function User ({ onValuesChange, errors }) {
   const [values, setValues] = useState({
     email: '',
     phone: '',
@@ -101,42 +105,81 @@ function User ({ onValuesChange }) {
 
   return (
     <>
-      <div>
-        <input
-          type="email"
-          name="email"
-          value={values.email}
-          onChange={handleChange}
-        />
+      <div className={form.el}>
+        <label>
+          <div className={form.label}>
+            Электронная почта
+          </div>
+
+          <div className={form.input}>
+            <input
+              type="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+
+        <Errors errors={errors['user.email']} />
       </div>
 
-      <div>
-        <input
-          type="text"
-          name="name"
-          value={values.name}
-          onChange={handleChange}
-        />
+      <div className={form.el}>
+        <label>
+          <div className={form.label}>
+            Имя
+          </div>
+
+          <div className={form.input}>
+            <input
+              type="text"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+
+        <Errors errors={errors['user.name']} />
       </div>
 
-      <div>
-        <input
-          type="text"
-          name="lastname"
-          value={values.lastname}
-          onChange={handleChange}
-        />
+      <div className={form.el}>
+        <label>
+          <div className={form.label}>
+            Фамилия
+          </div>
+
+          <div className={form.input}>
+            <input
+              type="text"
+              name="lastname"
+              value={values.lastname}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+
+        <Errors errors={errors['user.lastname']} />
       </div>
 
-      <div>
-        <input
-          type="tel"
-          name="phone"
-          value={values.phone}
-          onChange={handleChange}
-        />
-      </div>
+      <div className={form.el}>
+        <label>
+          <div className={form.label}>
+            Телефон
+          </div>
 
+          <div className={form.input}>
+            <input
+              type="tel"
+              name="phone"
+              value={values.phone}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+
+        <Errors errors={errors['user.phone']} />
+      </div>
     </>
   )
 }

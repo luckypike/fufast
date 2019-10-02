@@ -9,7 +9,7 @@ class CartController < ApplicationController
   end
 
   def index
-    @products = Product.where(id: session[:cart].keys)
+    @products = Product.where(id: session[:cart] ? session[:cart].keys : nil)
       .includes(element: { element_properties: :property })
   end
 

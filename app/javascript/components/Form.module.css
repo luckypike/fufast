@@ -1,0 +1,77 @@
+.root {
+  max-width: 32rem;
+}
+
+.el {
+  display: block;
+
+  &:not(:last-child) {
+    margin: 0 0 calc(var(--yr) * var(--s3));
+  }
+}
+
+.input {
+  & input[type=text],
+  & input[type=email],
+  & input[type=number],
+  & input[type=tel],
+  & input[type=date],
+  & input[type=datetime-local],
+  & input[type=url],
+  & textarea,
+  & select,
+  & input[type=password] {
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 0 1px var(--sp_color);
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: calc(var(--yr) * var(--s1)) var(--xr);
+    width: 100%;
+    outline: none;
+    background: #fff;
+
+    &:focus {
+      box-shadow: 0 0 0 1px var(--pr_color);
+    }
+  }
+
+  & textarea {
+    resize: vertical;
+    display: block;
+  }
+
+  & select {
+    background-color: #fff;
+  }
+}
+
+.label {
+  composes: at from './Fonts.module.css';
+  margin: 0 0 calc(var(--yr) * 1.5);
+}
+
+.hint {
+  composes: at from './Fonts.module.css';
+  margin: calc(var(--yr) * var(--s1)) 0 0;
+}
+
+.error {
+  composes: at from './Fonts.module.css';
+  color: var(--rd_color);
+}
+
+.submit {
+  display: flex;
+  flex-wrap: wrap;
+
+  & {
+    & button, & input {
+      &:not(:last-child) {
+        margin-right: calc(var(--xr) * 0.5);
+      }
+    }
+  }
+}

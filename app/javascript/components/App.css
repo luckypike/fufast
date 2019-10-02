@@ -3,6 +3,7 @@
 }
 
 body {
+  background: #f1f1f1;
   color: #212121;
   font-family: proxima-nova, sans-serif;
   font-size: calc(var(--yr) * var(--fs));
