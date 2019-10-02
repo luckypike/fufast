@@ -2,10 +2,22 @@ doctype html
 html lang=I18n.locale
   head
     title Fufast
+    = csrf_meta_tags
+    = csp_meta_tag
+
     = tag('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' })
     = favicon_link_tag '/favicon.ico'
 
   body
+    = react_component( \
+      'Header',
+      { \
+        sections: Section.where(parent_section: nil).map{|section| section.slice(:id, :title, :slug)} \
+      }, { \
+        prerender: Rails.env.production? \
+      } \
+    )
+
     = yield
 
     = javascript_pack_tag 'app', async: true

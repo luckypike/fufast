@@ -1,0 +1,16 @@
+:root {
+  --yr: 0.25rem;
+  --xr: 1rem;
+
+  --fw_light: 300;
+  --fw_normal: 400;
+  --fw_bold: 600;
+
+  --fs: 3.5;
+  --lh: 5;
+}
+
+@custom-media --s (min-width: 720px);
+@custom-media --m (min-width: 960px);
+@custom-media --l (min-width: 1280px);
+@custom-media --xl (min-width: 1600px);
