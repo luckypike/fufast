@@ -60,10 +60,10 @@ export default function Header ({ sections }) {
 
         <div className={styles.burger_menu}>
           <div className={styles.burger} onClick={() => setToggle(!toggle)}>
-            <svg viewBox="0 0 18 16">
-              <rect height="1" width="18" x="0" y="1" />
-              <rect height="1" width="18" x="0" y="8" />
-              <rect height="1" width="18" x="0" y="15" />
+            <svg viewBox="0 0 18 18">
+              <rect height="2" width="18" x="0" y="3" />
+              <rect height="2" width="18" x="0" y="8" />
+              <rect height="2" width="18" x="0" y="13" />
             </svg>
           </div>
         </div>

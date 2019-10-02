@@ -68,10 +68,10 @@
     & svg {
       display: block;
       width: calc(var(--yr) * 4.5);
-      height: 16px;
+      height: 18px;
 
       & rect {
-        fill: #666666;
+        fill: #8F8F8F;
         transition: 0.2s fill;
       }
     }
@@ -248,7 +248,7 @@
   &.search_icon {
     & a {
       background-image: url('../images/search.svg');
-      background-size: 2rem;
+      background-size: 26px;
       background-repeat: no-repeat;
       background-position: center;
       display: block;
@@ -270,7 +270,7 @@
   &.cart_icon {
     & a {
       background-image: url('../images/cart.svg');
-      background-size: 2rem;
+      background-size: 20px;
       background-repeat: no-repeat;
       background-position: center;
       display: block;
