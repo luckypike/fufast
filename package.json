@@ -19,6 +19,7 @@
     "react-dom": "^16.10.1",
     "react-markdown": "^4.2.2",
     "react_ujs": "^2.6.0",
+    "siema": "^1.5.1",
     "svg-react-loader": "^0.4.6"
   },
   "version": "0.1.0",

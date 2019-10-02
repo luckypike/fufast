@@ -33,18 +33,16 @@ export default function Header ({ sections }) {
             </div>
           )}
 
-          <div className={styles.mobile}>
-            <div className={styles.item}>
-              <a href="/about">
-                О компании
-              </a>
-            </div>
+          <div className={classNames(styles.item, styles.about)}>
+            <a href="/about">
+              О компании
+            </a>
+          </div>
 
-            <div className={styles.item}>
-              <a href="/">
-                Контакты
-              </a>
-            </div>
+          <div className={classNames(styles.item, styles.contacts)}>
+            <a href="/">
+              Контакты
+            </a>
           </div>
         </div>
       </nav>
