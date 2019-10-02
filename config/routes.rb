@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   post :login, to: 'sessions#create'
 
   resources :orders, only: %i[index create]
+
+  # Pages
+  get :about, to: 'pages#about'
 end

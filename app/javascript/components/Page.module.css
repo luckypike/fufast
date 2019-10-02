@@ -1,0 +1,17 @@
+.root {
+  padding-top: 3rem;
+
+  @media (--s) {
+    padding-top: 5rem;
+  }
+}
+
+.title {
+  padding: 0 var(--xr);
+}
+
+.text {
+  padding: calc(var(--yr) * var(--s3)) var(--xr);
+  max-width: 60rem;
+  margin: 0 auto;
+}

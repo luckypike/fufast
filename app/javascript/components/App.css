@@ -2,20 +2,11 @@
   box-sizing: border-box;
 }
 
-html {
-}
-
 body {
   color: #212121;
   font-family: proxima-nova, sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.75rem;
-  font-weight: var(--fw_light);
-
-  @media (--s) {
-    font-size: calc(var(--yr) * calc(var(--fs) + 0.5));
-    line-height: calc(var(--yr) * calc(var(--lh) + 2));
-  }
+  font-size: calc(var(--yr) * var(--fs));
+  line-height: calc(var(--yr) * var(--lh));
 }
 
 a {

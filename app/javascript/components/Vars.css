@@ -2,12 +2,27 @@
   --yr: 0.25rem;
   --xr: 1rem;
 
-  --fw_light: 300;
   --fw_normal: 400;
-  --fw_bold: 600;
+  --fw_medium: 500;
+  --fw_bold: 700;
 
-  --fs: 3.5;
-  --lh: 5;
+  --fs: 4;
+  --lh: 6;
+
+  --s1: 2;
+  --s2: 3;
+  --s3: 6;
+  --s4: 9;
+
+  @media (--s) {
+    --fs: 5;
+    --lh: 7.5;
+
+    --s1: 3;
+    --s2: 4;
+    --s3: 8;
+    --s4: 12;
+  }
 }
 
 @custom-media --s (min-width: 720px);

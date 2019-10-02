@@ -1,0 +1,49 @@
+h1, .h1 {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: calc(var(--yr) * calc(var(--fs) + 3));
+  line-height: calc(var(--yr) * calc(var(--lh) + 4.5));
+  font-weight: var(--fw_medium);
+}
+
+h2, .h2 {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: calc(var(--yr) * calc(var(--fs) + 1));
+  line-height: calc(var(--yr) * calc(var(--lh) + 1.5));
+  font-weight: var(--fw_medium);
+}
+
+h3, .h3 {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: var(--fw_medium);
+}
+
+strong, b {
+  font-weight: var(--fw_bold);
+}
+
+.at {
+  font-size: calc(var(--yr) * calc(var(--fs) - 0.5));
+  line-height: calc(var(--yr) * calc(var(--lh) - 1));
+
+  @media (--s) {
+    font-size: calc(var(--yr) * var(--fs));
+    line-height: calc(var(--yr) * var(--lh));
+  }
+}
+
+h1 {
+  margin: 0 0 calc(var(--yr) * var(--s2));
+}
+
+h2, h3, p {
+  margin: 0 0 calc(var(--yr) * var(--s2));
+
+  &:last-child {
+    margin: 0;
+  }
+}
