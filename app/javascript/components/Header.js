@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+import { path } from './Routes'
+
 import styles from './Header.module.css'
 
 import Logo from '!svg-react-loader?!../images/logo.svg'
@@ -27,7 +29,7 @@ export default function Header ({ sections }) {
         <div className={styles.menu}>
           {sections.map((section, i) =>
             <div className={styles.item} key={i}>
-              <a href={`/catalog/${section.slug}`}>
+              <a href={path('section_catalog_path', { slug: section.slug })}>
                 {section.title}
               </a>
             </div>
@@ -49,11 +51,11 @@ export default function Header ({ sections }) {
 
       <div className={styles.options}>
         <div className={classNames(styles.search, styles.search_icon)}>
-          <a href="/"></a>
+          <a href={path('search_path')} />
         </div>
 
         <div className={classNames(styles.cart, styles.cart_icon)}>
-          <a href="/"></a>
+          <a href={path('cart_path')} />
         </div>
 
         <div className={styles.burger_menu}>

@@ -30,10 +30,13 @@
   & svg {
     display: block;
     width: 112px;
+
+    @media (--s) {
+      width: 140px;
+    }
   }
 
   @media(--s) {
-    padding: 1rem 0;
     margin-left: calc(var(--xr) * 2);
     align-self: center;
   }
@@ -127,7 +130,7 @@
     transition: opacity .3s;
   }
 
-  @media (--l){
+  @media (--l) {
     display: none;
   }
 }
@@ -135,7 +138,7 @@
 .menu {
   & .contacts {
     & a {
-      color: #bbb;
+      color: #8F8F8F;
     }
   }
 
@@ -143,12 +146,12 @@
     margin-top: var(--xr);
 
     & a {
-      color: #bbb;
+      color: #8F8F8F;
     }
 
     @media(--l) {
       margin-top: 0;
-      margin-left: var(--xr);
+      margin-left: calc(var(--xr) * 2);
     }
   }
 }
@@ -160,8 +163,9 @@
     display: block;
     border-bottom: 0;
     padding: 0.5rem 0;
+    font-weight: var(--fw_medium);
 
-    color: #212121;
+    color: #000;
     text-decoration: none;
     transition-duration: 0.25s;
     transition-property: background, color;
@@ -169,7 +173,10 @@
 
   @media(--l) {
     border-bottom: none;
-    margin-right: var(--xr);
+
+    &:not(:last-child) {
+      margin-right: calc(var(--xr) * 2);
+    }
 
     & a {
       padding: 0;
@@ -229,7 +236,7 @@
     & .menu {
       display: flex;
       padding: 26px 0;
-      margin-left: calc(var(--xr) * 2);
+      margin-left: calc(var(--xr) * 4);
     }
   }
 }
