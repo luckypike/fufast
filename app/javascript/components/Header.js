@@ -5,8 +5,6 @@ import classNames from 'classnames'
 import styles from './Header.module.css'
 
 import Logo from '!svg-react-loader?!../images/logo.svg'
-import Search from '!svg-react-loader?!../images/search.svg'
-import Cart from '!svg-react-loader?!../images/cart.svg'
 
 Header.propTypes = {
   sections: PropTypes.array
@@ -18,16 +16,6 @@ export default function Header ({ sections }) {
   return (
     <header className={classNames(styles.root, { [styles.toggled]: toggle })}>
       <div className={classNames(styles.overlay, { [styles.active]: toggle })} onClick={() => setToggle(false)}></div>
-
-      <div className={styles.burger_menu}>
-        <div className={styles.burger} onClick={() => setToggle(!toggle)}>
-          <svg viewBox="0 0 20 11">
-            <rect height="1" width="20" x="0" y="0" />
-            <rect height="1" width="20" x="0" y="5" />
-            <rect height="1" width="20" x="0" y="10" />
-          </svg>
-        </div>
-      </div>
 
       <div className={styles.logo}>
         <a href="/">
@@ -47,7 +35,7 @@ export default function Header ({ sections }) {
 
           <div className={styles.mobile}>
             <div className={styles.item}>
-              <a href="/">
+              <a href="/about">
                 О компании
               </a>
             </div>
@@ -61,20 +49,24 @@ export default function Header ({ sections }) {
         </div>
       </nav>
 
-      <div className={styles.phone}>
-        + 7 910 793 7733
-      </div>
+      <div className={styles.options}>
+        <div className={classNames(styles.search, styles.search_icon)}>
+          <a href="/"></a>
+        </div>
 
-      <div className={styles.search}>
-        <a href="/">
-          <Search />
-        </a>
-      </div>
+        <div className={classNames(styles.cart, styles.cart_icon)}>
+          <a href="/"></a>
+        </div>
 
-      <div className={styles.cart}>
-        <a href="/">
-          <Cart />
-        </a>
+        <div className={styles.burger_menu}>
+          <div className={styles.burger} onClick={() => setToggle(!toggle)}>
+            <svg viewBox="0 0 18 16">
+              <rect height="1" width="18" x="0" y="1" />
+              <rect height="1" width="18" x="0" y="8" />
+              <rect height="1" width="18" x="0" y="15" />
+            </svg>
+          </div>
+        </div>
       </div>
     </header>
   )

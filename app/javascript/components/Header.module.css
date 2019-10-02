@@ -1,4 +1,6 @@
 .root {
+  font-size: 15px;
+  line-height: 28px;
   display: flex;
   position: fixed;
   top: 0;
@@ -18,7 +20,7 @@
 .logo {
   position: absolute;
   padding: 0.5rem 0;
-  margin-left: 3.75rem;
+  margin-left: var(--xr);
   z-index: 10;
 
   & a {
@@ -32,10 +34,15 @@
 
   @media(--s) {
     padding: 1rem 0;
+    margin-left: calc(var(--xr) * 2);
 
     & svg {
       width: 168px;
     }
+  }
+
+  @media(--l) {
+    position: static;
   }
 }
 
@@ -44,24 +51,33 @@
     padding: 1rem 0;
   }
 
+  @media(--l) {
+    display: none;
+  }
+
   & .burger {
     position: absolute;
-    padding: 19px 1.25rem 18px;
+    padding: var(--xr) var(--xr);
     user-select: none;
     z-index: 100;
     transition: top 0.2s;
     cursor: pointer;
     user-select: none;
+    right: 0;
 
     & svg {
       display: block;
-      width: calc(var(--yr) * 5);
-      height: 11px;
+      width: calc(var(--yr) * 4.5);
+      height: 16px;
 
       & rect {
         fill: #666666;
         transition: 0.2s fill;
       }
+    }
+
+    @media(--s) {
+      margin-right: var(--xr);
     }
   }
 }
@@ -83,10 +99,21 @@
     opacity: .4;
     transition: opacity .3s;
   }
+
+  @media(--s) {
+    top: 5rem;
+  }
 }
 
 .phone {
   display: none;
+
+  @media(--s) {
+    & span {
+      font-size: 14px;
+      line-height: 28px;
+    }
+  }
 }
 
 .toggled {
@@ -103,13 +130,12 @@
     transition: opacity .3s;
   }
 
-  @media (--m){
+  @media (--l){
     display: none;
   }
 }
 
 .menu {
-  text-transform: uppercase;
 }
 
 .item {
@@ -125,77 +151,122 @@
     transition-duration: 0.25s;
     transition-property: background, color;
   }
-}
 
-.nav {
-  letter-spacing: 0.12em;
-  visibility: hidden;
-  z-index: 2;
-  transition: 0.5s;
-  opacity: 0;
-  background: #fff;
-  padding: 5.25rem 1.25rem 1.75rem;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 280px;
-  position: fixed;
-  transform: translateX(-5rem);
+  @media(--l) {
+    border-bottom: none;
 
-  & .mobile {
-    margin-top: 2.25rem;
+    & a {
+      margin-left: 1.25rem;
+      padding: 0;
+    }
   }
 }
 
-.phone {
-  flex-shrink: 0;
-  display: none;
+.nav {
+  position: fixed;
+  width: 280px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  padding: 5.25rem 1.25rem 1.75rem;
+  transform: translateX(50%);
+  transition-duration: 0.4s;
+  transition-property: transform opacity;
+  z-index: 4;
+  overflow: hidden;
+  overflow-y: auto;
 
-  @media(--s) {
-    padding: 1rem 0;
-    align-self: center;
-    display: block;
-    margin: 0 1.25rem 0 auto;
-    font-size: 1.25rem;
-    line-height: 3rem;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  & .mobile {
+    margin-top: 2.25rem;
+
+    @media(--l) {
+      display: flex;
+      margin: 0;
+      margin-left: var(--xr);
+
+      & .item {
+        & a {
+          color: #bbb;
+        }
+      }
+    }
+  }
+
+  @media(--l) {
+    opacity: 1;
+    padding: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    visibility: visible;
+    transform: none;
+
+    & .menu {
+      display: flex;
+      padding: 26px 0;
+    }
   }
 }
 
 .search {
-  width: 3rem;
   margin-left: auto;
-  display: block;
-  padding: 0.5rem 0;
+  z-index: 10;
 
-  & a {
-    display: block;
-  }
-
-  & svg {
-    display: block;
-    width: 32px;
-    height: 32px;
-    margin: 0 auto;
+  &.search_icon {
+    & a {
+      background-image: url('../images/search.svg');
+      background-size: 2rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 3rem;
+      width: 3rem;
+    }
   }
 
   @media(--s) {
-    margin-left: 0;
     padding: 1rem 0;
+    margin-left: 0;
   }
 }
 
 .cart {
-  margin-right: 0.625rem;
-  padding: 0.5rem;
+  margin-right: calc(var(--xr) * 3);
+  z-index: 10;
 
-  & svg {
-    display: block;
-    width: 32px;
-    height: 32px;
-    margin: 0 auto;
+  &.cart_icon {
+    & a {
+      background-image: url('../images/cart.svg');
+      background-size: 2rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: 3rem;
+      width: 3rem;
+    }
   }
 
   @media(--s) {
     padding: 1rem 0;
+    margin-right: calc(var(--xr) * 4);
   }
+
+  @media(--l) {
+    margin-right: calc(var(--xr) * 2);
+  }
+}
+
+.options {
+  display: flex;
+  margin-left: auto;
 }
