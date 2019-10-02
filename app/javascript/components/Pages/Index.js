@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Slider from './Index/Slider'
 
 Index.propTypes = {
   sections: PropTypes.array,
@@ -9,23 +10,7 @@ Index.propTypes = {
 export default function Index ({ sections, slides }) {
   return (
     <div>
-      Index
-
-      {/* <div>
-        {sections.map(section =>
-          <div key={section.id}>
-            <a href={`/catalog/${section.slug}`}>{section.title}</a>
-          </div>
-        )}
-      </div> */}
-
-      <div>
-        {slides.map(slide =>
-          <div key={slide.id}>
-            <img width="200" src={slide.path} />
-          </div>
-        )}
-      </div>
+      <Slider slides={slides} />
     </div>
   )
 }

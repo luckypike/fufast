@@ -35,10 +35,7 @@
   @media(--s) {
     padding: 1rem 0;
     margin-left: calc(var(--xr) * 2);
-
-    & svg {
-      width: 168px;
-    }
+    align-self: center;
   }
 
   @media(--l) {
@@ -136,6 +133,24 @@
 }
 
 .menu {
+  & .contacts {
+    & a {
+      color: #bbb;
+    }
+  }
+
+  & .about {
+    margin-top: var(--xr);
+
+    & a {
+      color: #bbb;
+    }
+
+    @media(--l) {
+      margin-top: 0;
+      margin-left: var(--xr);
+    }
+  }
 }
 
 .item {
@@ -154,9 +169,9 @@
 
   @media(--l) {
     border-bottom: none;
+    margin-right: var(--xr);
 
     & a {
-      margin-left: 1.25rem;
       padding: 0;
     }
   }
@@ -214,6 +229,7 @@
     & .menu {
       display: flex;
       padding: 26px 0;
+      margin-left: calc(var(--xr) * 2);
     }
   }
 }
