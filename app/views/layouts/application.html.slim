@@ -10,3 +10,5 @@ html lang=I18n.locale
 
     = javascript_pack_tag 'app', async: true
     = stylesheet_pack_tag 'app', media: :all
+
+    = stylesheet_link_tag 'https://use.typekit.net/eua0zbv.css' unless Rails.env.test?
