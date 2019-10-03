@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def index
     @sections = Section.where(parent_section: nil)
-    @slides = Slide.all
+    @slides = Slide.includes(:attachment).all
   end
 
   private
