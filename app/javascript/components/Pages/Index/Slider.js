@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import Siema from 'siema'
 
@@ -20,17 +20,26 @@ export default function Slider ({ slides }) {
     })
   }, [])
 
-  const [current, setCurrent] = useState(1)
-
   return (
     <div className={styles.root}>
       <div className={styles.placeholder}></div>
 
       <div className={styles.slider}>
+        <div className={styles.nav}>
+          {slides.map((s, i) =>
+            <div key={s.id} className={styles.slide} onClick={() => slider.current.goTo(i)} />
+          )}
+        </div>
+
         <div className={styles.images} ref={mount}>
           {slides.map(slide =>
-            <div key={slide.id} className={styles.image}>
-              <img style={{ backgroundImage: `url(${slide.path})` }} />
+            <div key={slide.id} >
+              <div className={styles.image}>
+                <div className={styles.text}>
+                  {slide.title}
+                </div>
+                <img style={{ backgroundImage: `url(${slide.path})` }} />
+              </div>
             </div>
           )}
         </div>
