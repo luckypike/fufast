@@ -1,5 +1,5 @@
 h1, .h1 {
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   font-size: calc(var(--yr) * calc(var(--fs) + 3));
   line-height: calc(var(--yr) * calc(var(--lh) + 4.5));

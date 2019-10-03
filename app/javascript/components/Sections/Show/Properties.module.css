@@ -1,0 +1,30 @@
+.properties {
+  /* display: none; */
+
+  @media (--s) {
+    display: flex;
+  }
+}
+
+.property {
+
+  @media (--s) {
+    &:not(:last-child) {
+      margin-right: var(--xr);
+    }
+  }
+}
+
+.title {
+  @media (--s) {
+    composes: mt from '../../Fonts.module.css';
+  }
+}
+
+.enums {
+  composes: at from '../../Fonts.module.css';
+
+  @media (--s) {
+    display: none;
+  }
+}

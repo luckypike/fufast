@@ -3,7 +3,9 @@ class Section < ApplicationRecord
 
   alias_attribute :id, :ID
   alias_attribute :title, :NAME
+  alias_attribute :description, :DESCRIPTION
   alias_attribute :slug, :CODE
+  alias_attribute :depth, :DEPTH_LEVEL
   alias_attribute :active, :ACTIVE
   alias_attribute :iblock_id, :IBLOCK_ID
   alias_attribute :iblock_section_id, :IBLOCK_SECTION_ID
@@ -30,7 +32,17 @@ class Section < ApplicationRecord
     parent_section ? parent_section.sections : Section.where(parent_section: nil)
   end
 
-  def root_section
-    parent_section ? parent_section.root_section : self
+  def primary_section
+    depth == 1 ? self : parent_section.primary_section
+  end
+
+  def secondary_section
+    if depth < 2
+      nil
+    elsif depth == 2
+      self
+    else
+      parent_section.secondary_section
+    end
   end
 end

@@ -1,1 +1,1 @@
-json.extract! section, :id, :title, :slug
+json.extract! section, :id, :title, :slug, :depth, :description

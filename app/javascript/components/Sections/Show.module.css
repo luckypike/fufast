@@ -1,0 +1,95 @@
+.header {
+  position: relative;
+}
+
+.h2 {
+  composes: h2 from '../Fonts.module.css';
+
+  &.withProps {
+    margin-right: 36px;
+  }
+}
+
+.subs {
+  composes: at from '../Fonts.module.css';
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  margin: 0 calc(var(--xr) * -1);
+  padding: 0 var(--xr) calc(var(--yr) * var(--s2));
+
+  @media (--s) {
+    composes: mt from '../Fonts.module.css';
+    margin: 0 0 calc(var(--yr) * var(--s2) - var(--yr));
+    padding: 0;
+    overflow: visible;
+    flex-wrap: wrap;
+  }
+
+  & a {
+    white-space: nowrap;
+    display: block;
+    background-color: #ffffff;
+    border-radius: calc(var(--yr) / 2);
+    padding: var(--yr) calc(var(--xr) / 2);
+    transition: background 0.4s, color 0.5s;
+
+    &:not(:last-child) {
+      margin-right: var(--yr);
+    }
+
+    &:hover {
+      background-color: var(--pr_color);
+      color: #fff;
+    }
+
+    @media (--s) {
+      margin-bottom: var(--yr);
+    }
+  }
+}
+
+.properties {
+  background-color: #fff;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 20%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 5rem var(--xr);
+  z-index: 4;
+
+  &.active {
+    display: block;
+  }
+
+  @media (--s) {
+    display: block;
+    position: static;
+    z-index: auto;
+    background: none;
+    padding: 0;
+    margin-bottom: calc(var(--yr) * var(--s3));
+  }
+}
+
+.propertiesToggle {
+  position: absolute;
+  right: -4px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+
+  @media (--s) {
+    display: none;
+  }
+}
+
+.description {
+  composes: mt from '../Fonts.module.css';
+  margin-bottom: calc(var(--yr) * var(--s2));
+  max-width: 48rem;
+}

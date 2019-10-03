@@ -10,9 +10,17 @@ json.section do
     json.partial! @section.parent_section if @section.parent_section
   end
 
-  # json.root do
-  #   json.partial! @section.root_section
-  # end
+  json.primary do
+    json.partial! @primary_section
+  end
+
+  json.secondary do
+    json.partial! @secondary_section if @secondary_section
+  end
+
+  json.subs @subs do |section|
+    json.partial! section
+  end
 end
 
 json.sections @section.sections do |section|
@@ -23,6 +31,6 @@ json.siblings @section.siblings do |section|
   json.partial! section
 end
 
-json.properties @section.root_section.properties do |property|
+json.properties @primary_section.properties do |property|
   json.partial! property
 end
