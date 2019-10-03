@@ -19,7 +19,6 @@
   padding: 0 var(--xr) calc(var(--yr) * var(--s2));
 
   @media (--s) {
-    composes: mt from '../Fonts.module.css';
     margin: 0 0 calc(var(--yr) * var(--s2) - var(--yr));
     padding: 0;
     overflow: visible;

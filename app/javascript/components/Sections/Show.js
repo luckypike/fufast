@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import axios from 'axios'
 import classNames from 'classnames'
+import querystring from 'querystring'
 
 import { path } from '../Routes'
 import Products from '../Products/List'
@@ -10,31 +12,48 @@ import Properties from './Show/Properties'
 import styles from './Show.module.css'
 import page from '../Page.module.css'
 
-Show.propTypes = {
-  section: PropTypes.object.isRequired
+export default function Show (props) {
+  return (
+    <Router>
+      <Route render={({ location, history }) => <Section location={location} history={history} {...props} />} />
+    </Router>
+  )
 }
 
-export default function Show (props) {
-  const [showProps, setShowProps] = useState(false)
+Section.propTypes = {
+  section: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+}
 
+function Section (props) {
+  const [showProps, setShowProps] = useState(false)
   const [section, setSection] = useState()
   const [products, setProducts] = useState()
   const [sections, setSections] = useState()
-  const [siblings, setSiblings] = useState()
   const [properties, setProperties] = useState()
+  const [params, setParams] = useState()
 
   useEffect(() => {
     const _fetch = async () => {
-      const { data } = await axios.get(`/catalog/${props.section.slug}.json`)
+      const { data } = await axios.get(path('section_catalog_path', { slug: props.section.slug, format: 'json' }))
       setProducts(data.products)
       setSections(data.sections)
       setSection(data.section)
-      setSiblings(data.siblings)
       setProperties(data.properties)
     }
 
     _fetch()
   }, [])
+
+  useEffect(() => {
+    if (params) console.log('RELOAD PRODUCTS')
+  }, [params])
+
+  useEffect(() => {
+    console.log('SET PARAMS')
+    setParams(querystring.parse(props.location.search.slice(1)))
+  }, [props.location])
 
   return (
     <div className={page.root}>
@@ -58,7 +77,7 @@ export default function Show (props) {
             {properties &&
               <>
                 <div className={classNames(styles.properties, { [styles.active]: showProps })}>
-                  <Properties properties={properties} />
+                  <Properties properties={properties} params={params} history={props.history} />
                 </div>
 
                 <div className={styles.propertiesToggle} onClick={() => setShowProps(!showProps)}>

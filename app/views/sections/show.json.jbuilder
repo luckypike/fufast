@@ -27,10 +27,6 @@ json.sections @section.sections do |section|
   json.partial! section
 end
 
-json.siblings @section.siblings do |section|
-  json.partial! section
-end
-
 json.properties @primary_section.properties do |property|
   json.partial! property
 end

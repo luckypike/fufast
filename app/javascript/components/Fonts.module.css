@@ -3,7 +3,7 @@ h1, .h1 {
   text-transform: uppercase;
   font-size: calc(var(--yr) * calc(var(--fs) + 3));
   line-height: calc(var(--yr) * calc(var(--lh) + 4.5));
-  font-weight: var(--fw_medium);
+  font-weight: var(--fw_normal);
 }
 
 h2, .h2 {
@@ -11,7 +11,7 @@ h2, .h2 {
   text-transform: uppercase;
   font-size: calc(var(--yr) * calc(var(--fs) + 1));
   line-height: calc(var(--yr) * calc(var(--lh) + 1.5));
-  font-weight: var(--fw_medium);
+  font-weight: var(--fw_normal);
 }
 
 h3, .h3 {
@@ -19,7 +19,7 @@ h3, .h3 {
   text-transform: uppercase;
   font-size: inherit;
   line-height: inherit;
-  font-weight: var(--fw_medium);
+  font-weight: var(--fw_normal);
 }
 
 strong, b {
