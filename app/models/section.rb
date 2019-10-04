@@ -49,4 +49,8 @@ class Section < ApplicationRecord
       parent_section.secondary_section
     end
   end
+
+  def as_json
+    super(only: [], methods: %i[id title slug image])
+  end
 end
