@@ -1,5 +1,6 @@
 class ProductSection < ApplicationRecord
   self.table_name = 'b_iblock_section_element'
+  self.primary_key = [:section_id, :product_id]
 
   alias_attribute :section_id, :IBLOCK_SECTION_ID
   alias_attribute :product_id, :IBLOCK_ELEMENT_ID

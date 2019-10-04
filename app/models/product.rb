@@ -8,6 +8,9 @@ class Product < ApplicationRecord
   has_one :element, foreign_key: 'ID', class_name: 'ProductElement',
     dependent: :destroy, inverse_of: :product
 
+  has_many :product_sections, foreign_key: 'IBLOCK_ELEMENT_ID'
+  has_many :sections, through: :product_sections
+
   has_many :attachments, through: :element
   has_many :element_properties, through: :element
 

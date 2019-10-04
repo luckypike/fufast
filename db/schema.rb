@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_173555) do
+ActiveRecord::Schema.define(version: 2019_10_04_053836) do
 
   create_table "b_abtest", primary_key: "ID", id: :integer, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "SITE_ID", null: false
@@ -1710,6 +1710,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_173555) do
     t.datetime "SHOW_COUNTER_START"
     t.index ["IBLOCK_ID", "CODE"], name: "ix_iblock_element_code"
     t.index ["IBLOCK_ID", "IBLOCK_SECTION_ID"], name: "ix_iblock_element_1"
+    t.index ["IBLOCK_ID", "ID"], name: "index_b_iblock_element_on_IBLOCK_ID_and_ID"
     t.index ["IBLOCK_ID", "XML_ID", "WF_PARENT_ELEMENT_ID"], name: "ix_iblock_element_4"
     t.index ["WF_PARENT_ELEMENT_ID"], name: "ix_iblock_element_3"
   end

@@ -14,7 +14,11 @@ class Section < ApplicationRecord
 
   has_many :product_sections, foreign_key: 'IBLOCK_SECTION_ID',
     dependent: :destroy, inverse_of: :section
-  has_many :products, through: :product_sections
+  has_many :products, through: :product_sections do
+    def futured
+      limit(8)
+    end
+  end
 
   has_many :sections, foreign_key: 'IBLOCK_SECTION_ID'
 

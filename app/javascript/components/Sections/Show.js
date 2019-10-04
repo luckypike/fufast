@@ -121,21 +121,27 @@ function Section (props) {
           </div>
         }
 
-        {/* {sections &&
+        {sections &&
           <div>
             {sections.map(section =>
               <div key={section.id}>
-                <a href={`/catalog/${section.slug}`}>{section.title}</a>
+                <h2>
+                  <a href={path('section_catalog_path', { slug: section.slug })}>{section.title}</a>
+                </h2>
+
+                <div>
+                  <Products products={section.products} />
+                </div>
               </div>
             )}
           </div>
         }
 
-        <hr /> */}
-
-        <div>
-          <Products products={products} />
-        </div>
+        {products &&
+          <div>
+            <Products products={products} />
+          </div>
+        }
       </div>
     </div>
   )
