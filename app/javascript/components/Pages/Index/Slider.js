@@ -14,9 +14,13 @@ export default function Slider ({ slides }) {
 
   useEffect(() => {
     slider.current = new Siema({
-      selector: mount.current
+      selector: mount.current,
+      duration: 500,
+      loop: true
     })
   }, [])
+
+  setInterval(() => slider.current.next(), 5000)
 
   return (
     <div className={styles.root}>
@@ -32,11 +36,10 @@ export default function Slider ({ slides }) {
         <div className={styles.images} ref={mount}>
           {slides.map(slide =>
             <div key={slide.id} >
-              <div className={styles.image}>
+              <div className={styles.image} style={{ backgroundImage: `url(${slide.path})` }}>
                 <div className={styles.text}>
                   {slide.title}
                 </div>
-                <img style={{ backgroundImage: `url(${slide.path})` }} />
               </div>
             </div>
           )}

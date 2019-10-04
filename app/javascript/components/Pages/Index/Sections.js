@@ -20,6 +20,8 @@ export default function Sections ({ section, products }) {
   useEffect(() => {
     slider.current = new Siema({
       selector: mount.current,
+      duration: 500,
+      loop: true,
       perPage: {
         320: 2,
         768: 4,
@@ -27,6 +29,8 @@ export default function Sections ({ section, products }) {
       }
     })
   }, [])
+
+  setInterval(() => slider.current.next(), 7000)
 
   return (
     <div className={styles.sections}>
