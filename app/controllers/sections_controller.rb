@@ -12,7 +12,11 @@ class SectionsController < ApplicationController
         @subs = (@secondary_section || @primary_section).sections
 
         if @section.depth > 2
-          @products = @section.products
+          @products = @section.products.select(:id)
+            # .joins(:element_properties)
+            # .where(b_iblock_element_property: { IBLOCK_PROPERTY_ID: 108, VALUE: ['65'] })
+            # .where(b_iblock_element_property: { IBLOCK_PROPERTY_ID: 101, VALUE: [10] })
+            # .where(b_iblock_element_property: { IBLOCK_PROPERTY_ID: 101, VALUE: [11, 149] })
         else
           @sections = @section.sections.includes(:products)
         end

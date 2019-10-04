@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import axios from 'axios'
 import classNames from 'classnames'
 import querystring from 'querystring'
+import debounce from 'lodash.debounce'
 
 import { path } from '../Routes'
 import Products from '../Products/List'
@@ -34,20 +35,25 @@ function Section (props) {
   const [properties, setProperties] = useState()
   const [params, setParams] = useState()
 
-  useEffect(() => {
-    const _fetch = async () => {
-      const { data } = await axios.get(path('section_catalog_path', { slug: props.section.slug, format: 'json' }))
-      setProducts(data.products)
-      setSections(data.sections)
-      setSection(data.section)
-      setProperties(data.properties)
-    }
+  const _fetch = async (params) => {
+    const { data } = await axios.get(
+      path('section_catalog_path', { slug: props.section.slug, format: 'json' }),
+      { params }
+    )
+    setProducts(data.products)
+    setSections(data.sections)
+    setSection(data.section)
+    setProperties(data.properties)
+  }
 
-    _fetch()
+  const _fetchDebounced = useRef(debounce(params => _fetch(params), 400))
+
+  useEffect(() => {
+    // _fetchDebounced.current(params)
   }, [])
 
   useEffect(() => {
-    if (params) console.log('RELOAD PRODUCTS')
+    _fetchDebounced.current(params)
   }, [params])
 
   useEffect(() => {
