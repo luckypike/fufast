@@ -15,22 +15,19 @@ export default function Sections ({ section, products }) {
   const slider = useRef()
   const mount = useRef()
 
-  console.log(products)
-
   useEffect(() => {
     slider.current = new Siema({
       selector: mount.current,
       duration: 500,
       loop: true,
       perPage: {
-        320: 2,
-        768: 4,
-        1440: 2
+        768: 2
       }
     })
+    setInterval(() => slider.current.next(2), 5000)
   }, [])
 
-  setInterval(() => slider.current.next(), 7000)
+  const chunks = [...Array(Math.ceil(products.length / 2))].map((n, i) => products.slice(i * 2, (i + 1) * 2))
 
   return (
     <div className={styles.sections}>
@@ -49,21 +46,26 @@ export default function Sections ({ section, products }) {
       </div>
 
       <div className={styles.slider} ref={mount}>
-        {products.map(product =>
-          <div key={product.id} className={styles.list}>
-            <a className={styles.product} href={path('product_catalog_path', { id: product.id })}>
-              <div className={styles.photo}>
-                <img src={product.image} />
-              </div>
+        {chunks.map((chunk, i) =>
+          <div key={i} className={styles.products}>
+            {chunk.map(product =>
+              <div key={product.id} className={styles.product}>
+                <a href={path('product_catalog_path', { id: product.id })}>
+                  <div className={styles.photo}>
+                    <img src={product.image} />
+                    <div className={styles.buy}>Выбрать</div>
+                  </div>
 
-              <div className={styles.title}>
-                {product.title}
-              </div>
+                  <div className={styles.title}>
+                    {product.title}
+                  </div>
 
-              <div className={styles.price}>
-                {product.price}
+                  <div className={styles.price}>
+                    {product.price}
+                  </div>
+                </a>
               </div>
-            </a>
+            )}
           </div>
         )}
       </div>

@@ -82,8 +82,8 @@
     width: 1.25rem;
     height: 2px;
   }
+}
 
-  &.active {
-    opacity: 1;
-  }
+.active {
+  opacity: 1;
 }

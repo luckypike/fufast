@@ -1,0 +1,36 @@
+.footer {
+  font-size: 15px;
+  line-height: 28px;
+  background: #333;
+  padding: 1.75rem 1.25rem;
+
+  & .footer_menu {
+    margin-bottom: 2.25rem;
+
+    @media(--s) {
+      display: flex;
+      margin: 0;
+    }
+  }
+
+  & .item {
+    margin-bottom: 1.75rem;
+
+    @media(--s) {
+      margin: 0 1em 0 0;
+
+    }
+  }
+
+  & .like {
+    margin-left: auto;
+  }
+
+  & a {
+    color: #fff;
+  }
+
+  @media(--s) {
+    display: flex;
+  }
+}

@@ -1,0 +1,62 @@
+.benifits {
+  background: #ffffff;
+  padding: 2rem 1.25rem;
+}
+
+.benifit_list {
+  @media(--s) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.benifit_item {
+  display: flex;
+  margin-bottom: 1.75rem;
+
+  @media(--s) {
+    width: 50%;
+  }
+  
+  @media(--m) {
+    width: 20%;
+    margin-bottom: 0;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  background-size: cover;
+  height: 3rem;
+  margin-right: 0.625rem;
+  width: 3rem;
+}
+
+.desc {
+  align-self: center;
+  font-size: 15px;
+}
+
+.delivery {
+  background-image: url('../images/icons/delivery.svg');
+}
+
+.expert {
+  background-image: url('../images/icons/expert.svg');
+}
+
+.sale {
+  background-image: url('../images/icons/sale.svg');
+}
+
+.mail {
+  background-image: url('../images/icons/mail.svg');
+}
+
+.phone {
+  background-image: url('../images/icons/phone.svg');
+}
+
+.inactive {
+  opacity: 0.5;
+}

@@ -139,6 +139,9 @@
   & .contacts {
     & a {
       color: #8F8F8F;
+      &:hover {
+        color: #000;
+      }
     }
   }
 
@@ -147,6 +150,10 @@
 
     & a {
       color: #8F8F8F;
+
+      &:hover {
+        color: #000;
+      }
     }
 
     @media(--l) {
@@ -169,6 +176,10 @@
     text-decoration: none;
     transition-duration: 0.25s;
     transition-property: background, color;
+
+    &:hover {
+      color: #bbb;
+    }
   }
 
   @media(--l) {
@@ -292,4 +303,8 @@
 .options {
   display: flex;
   margin-left: auto;
+}
+
+.active {
+  opacity: 0.5;
 }

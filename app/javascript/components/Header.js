@@ -12,6 +12,17 @@ Header.propTypes = {
   sections: PropTypes.array
 }
 
+Link.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.string
+}
+
+function Link (props) {
+  const path = window.location.pathname
+
+  return <a href={props.href} className={classNames({ [styles.active]: path === props.href })}>{props.children}</a>
+}
+
 export default function Header ({ sections }) {
   const [toggle, setToggle] = useState(false)
 
@@ -29,9 +40,9 @@ export default function Header ({ sections }) {
         <div className={styles.menu}>
           {sections.map((section, i) =>
             <div className={styles.item} key={i}>
-              <a href={path('section_catalog_path', { slug: section.slug })}>
+              <Link href={path('section_catalog_path', { slug: section.slug })}>
                 {section.title}
-              </a>
+              </Link>
             </div>
           )}
 
