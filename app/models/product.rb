@@ -18,7 +18,7 @@ class Product < ApplicationRecord
     element.NAME
   end
 
-  def desc
+  def description
     element.DETAIL_TEXT
   end
 

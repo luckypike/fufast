@@ -14,6 +14,8 @@ gem 'rails-i18n'
 gem 'react-rails'
 gem 'webpacker', '~> 4.0'
 
+gem 'meta-tags'
+
 gem 'jbuilder'
 gem 'slim-rails'
 

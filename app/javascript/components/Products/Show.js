@@ -42,7 +42,7 @@ export default function Show (props) {
             </h1>
 
             <div>
-              <ReactMarkdown source={product.desc} escapeHtml={false} />
+              <ReactMarkdown source={product.description} escapeHtml={false} />
             </div>
 
             {product.properties &&

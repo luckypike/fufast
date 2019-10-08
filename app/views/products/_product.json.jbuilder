@@ -1,1 +1,1 @@
-json.extract! product, :id, :title, :desc, :image
+json.extract! product, :id, :title, :description, :image

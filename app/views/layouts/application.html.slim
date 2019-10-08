@@ -1,10 +1,7 @@
 doctype html
 html lang=I18n.locale
   head
-    title Fufast
-    = csrf_meta_tags
-    = csp_meta_tag
-
+    = display_meta_tags site: 'Фуфайка', reverse: true, separator: '—'
     = tag('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' })
     = favicon_link_tag '/favicon.ico'
 
