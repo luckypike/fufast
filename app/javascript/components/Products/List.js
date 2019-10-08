@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { path } from '../Routes'
+import Loading from './Loading'
 
 import styles from './List.module.css'
 
@@ -10,7 +11,8 @@ List.propTypes = {
 }
 
 export default function List ({ products }) {
-  if (!products || products.length === 0) return null
+  if (!products) return <Loading />
+  if (products.length === 0) return null
 
   return (
     <div className={styles.products}>

@@ -148,11 +148,9 @@ function Section ({ section, primary, secondary, subs, history, location }) {
           </div>
         }
 
-        {products &&
-          <div>
-            <Products products={products} />
-          </div>
-        }
+        <div>
+          <Products products={products} />
+        </div>
       </div>
     </div>
   )
