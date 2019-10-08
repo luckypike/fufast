@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Slider from './Index/Slider'
 import Sections from './Index/Sections'
-
-import styles from './Index.module.css'
+import Logos from './Index/Logos'
 
 Index.propTypes = {
   sections: PropTypes.array,
@@ -14,7 +13,7 @@ Index.propTypes = {
 export default function Index ({ sections, slides, products }) {
   return (
     <div>
-      <div className={styles.slider}>
+      <div>
         <Slider slides={slides} />
       </div>
 
@@ -26,6 +25,12 @@ export default function Index ({ sections, slides, products }) {
             )}
           </div>
         }
+      </div>
+
+      <div>
+        {sections.filter(i => i.id === 244).map(section =>
+          <Logos key={section.id} section={section} />
+        )}
       </div>
     </div>
   )
