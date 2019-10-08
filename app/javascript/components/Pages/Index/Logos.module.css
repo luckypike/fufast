@@ -1,0 +1,212 @@
+.logos_section {
+  display: block;
+  position: relative;
+  background-color: #212121;
+}
+
+.bg {
+  position: relative;
+  background-position: center bottom;
+  background-image: url('../../../images/logo/sec5_750.jpg');
+  background-repeat: no-repeat;
+
+  &:before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: 100%;
+  }
+
+  @media(--s) {
+    background-image: url('../../../images/logo/sec5_1920.jpg');
+    height: 560px;
+    width: 100%;
+
+    &:before {
+      padding-top: 0;
+    }
+  }
+
+  @media(--l) {
+    background-size: cover;
+  }
+}
+
+.man {
+  background-image: url('../../../images/logo/man.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+
+  @media(--s) {
+    background-size: contain;
+  }
+}
+
+.text {
+  color: #ffffff;
+  position: absolute;
+  left: 1.25rem;
+  bottom: 2.25rem;
+  right: 2.5rem;
+  z-index: 4;
+
+  & h1 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-bottom: 8px;
+  }
+
+  @media(--s) {
+    max-width: 300px;
+    & h1 {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+
+  @media(--m) {
+    bottom: 50%;
+    transform: translate3d(0, 50%, 0);
+  }
+}
+
+.logos_mini {
+  display: none;
+
+  @media(--m) {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    right: 0;
+    bottom: 2.25rem;
+    margin: 0;
+    padding: 0 5rem;
+    max-width: 1440px;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: 4;
+  }
+}
+
+.mini_item {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  opacity: 0.4;
+  list-style: none;
+  margin-right: 8.5%;
+  transition-duration: 0.2s;
+  transition-property: opacity;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+  }
+
+  &.alrosa_svg {
+    &:before {
+      padding-top: 55.24862%;
+    }
+  }
+  &.gazprom_svg {
+    &:before {
+      padding-top: 62.5%;
+    }
+  }
+  &.lukoil_svg {
+    &:before {
+      padding-top: 62.5%;
+    }
+  }
+  &.rosneft_svg {
+    &:before {
+      padding-top: 44.24779%;
+    }
+  }
+  &.rzd_svg {
+    &:before {
+      padding-top: 86.2069%;
+    }
+  }
+}
+
+.alrosa_svg {
+  background-image: url('../../../images/logos/logo_alrosa_1.svg');
+  width: 14.15%;
+  position: relative;
+}
+
+.gazprom_svg {
+  background-image: url('../../../images/logos/logo_gazprom_1.svg');
+  width: 12.5%;
+  position: relative;
+}
+
+.lukoil_svg {
+  background-image: url('../../../images/logos/logo_lukoil_1.svg');
+  width: 12.5%;
+  position: relative;
+}
+
+.rosneft_svg {
+  background-image: url('../../../images/logos/logo_rosneft_1.svg');
+  width: 17.65%;
+  position: relative;
+}
+
+.rzd_svg {
+  background-image: url('../../../images/logos/logo_rzd_1.svg');
+  width: 8.83%;
+  position: relative;
+  margin-right: 0;
+}
+
+.slider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+}
+
+.item {
+  position: relative;
+  background-size: 68%;
+  background-position: 62% 30%;
+  background-repeat: no-repeat;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 100%;
+  }
+
+  @media(--s) {
+    height: 560px;
+    background-position: 51% 33%;
+    background-repeat: no-repeat;
+    outline: none;
+    background-size: auto;
+  }
+}
+
+.alrosa { background-image: url('../../../images/logos/logo_alrosa_1.png'); }
+.gazprom { background-image: url('../../../images/logos/logo_gazprom_1.png'); }
+.lukoil { background-image: url('../../../images/logos/logo_lukoil_1.png'); }
+.rosneft { background-image: url('../../../images/logos/logo_rosneft_1.png'); }
+.rzd { background-image: url('../../../images/logos/logo_rzd_1.png'); }
+
+.active {
+  opacity: 1;
+}
