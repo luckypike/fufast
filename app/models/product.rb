@@ -27,7 +27,7 @@ class Product < ApplicationRecord
   end
 
   def as_json
-    super(only: [], methods: %i[id title attachments image])
+    super(only: [], methods: %i[id title image])
   end
 
   class << self

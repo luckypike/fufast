@@ -1,1 +1,6 @@
-= react_component 'Pages/Index', { sections: @sections.as_json, slides: @slides.as_json, products: Product.find(Product.ids.shuffle.sample(8)).as_json }
+= react_component 'Pages/Index', \
+  { \
+    sections: @sections.as_json(methods: %i[id title depth slug image]),
+    slides: @slides.as_json,
+    products: Product.find(Product.ids.shuffle.sample(8)).as_json \
+  }
