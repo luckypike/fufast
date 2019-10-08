@@ -3,7 +3,7 @@ json.product do
 
   # TODO: rewrite long string
   json.properties(@element_properties.group_by(&:property).sort_by { |property, _| property.sort }) do |property, properties|
-    json.extract! property, :id, :title, :enum
+    json.partial! property
 
     json.values properties, :id, :value, :property_id
   end

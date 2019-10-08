@@ -4,6 +4,10 @@ import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 
 import Cart from './Show/Cart'
+import Properties from './Show/Properties'
+
+import styles from './Show.module.css'
+import page from '../Page.module.css'
 
 Show.propTypes = {
   product: PropTypes.object.isRequired,
@@ -23,30 +27,36 @@ export default function Show (props) {
   }, [props.product.id])
 
   return (
-    <div>
-      <h1>
-        {product.title}
-      </h1>
-
-      <div>
-        <ReactMarkdown source={product.desc} escapeHtml={false} />
-      </div>
-
-      {product.properties &&
-        <div>
-          {product.properties.map(prop =>
-            <div key={prop.id}>
-              {prop.title} :
+    <div className={page.root}>
+      <div className={page.com}>
+        <div className={styles.root}>
+          <div className={styles.images}>
+            <div className={styles.image}>
+              <img src={product.image} />
             </div>
-          )}
-        </div>
-      }
+          </div>
 
-      {product.properties &&
-        <div>
-          <Cart product={product} token={props.token} />
+          <div className={styles.main}>
+            <h1>
+              {product.title}
+            </h1>
+
+            <div>
+              <ReactMarkdown source={product.desc} escapeHtml={false} />
+            </div>
+
+            {product.properties &&
+              <Properties properties={product.properties} />
+            }
+
+            {product.properties &&
+              <div>
+                <Cart product={product} token={props.token} />
+              </div>
+            }
+          </div>
         </div>
-      }
+      </div>
     </div>
   )
 }

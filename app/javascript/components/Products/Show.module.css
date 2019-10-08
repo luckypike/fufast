@@ -1,0 +1,38 @@
+.root {
+  @media (--m) {
+    display: grid;
+    grid-column-gap: calc(var(--xr) * 2);
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.main {
+  @media (--l) {
+    padding-left: calc(1 / 8 * 100%);
+  }
+}
+
+.image {
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  margin-bottom: calc(var(--yr) * var(--s1));
+
+  &::before {
+    display: block;
+    content: '';
+    padding-top: calc(5 / 4 * 100%)
+  }
+
+  & img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+  }
+}
