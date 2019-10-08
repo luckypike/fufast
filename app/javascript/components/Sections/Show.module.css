@@ -2,6 +2,12 @@
   position: relative;
 }
 
+.image {
+  height: 360px;
+  width: 100%;
+  background-size: cover;
+}
+
 .h2 {
   composes: h2 from '../Fonts.module.css';
 

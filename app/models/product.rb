@@ -29,4 +29,12 @@ class Product < ApplicationRecord
   def as_json
     super(only: [], methods: %i[id title attachments image])
   end
+
+  class << self
+    def by_property(property, value)
+      joins(:element).
+        joins("INNER JOIN b_iblock_element_property prop_#{property} ON b_iblock_element.ID = prop_#{property}.IBLOCK_ELEMENT_ID").
+        where("prop_#{property}": { IBLOCK_PROPERTY_ID: property, VALUE_ENUM: value })
+    end
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_053836) do
+ActiveRecord::Schema.define(version: 2019_10_08_110045) do
 
   create_table "b_abtest", primary_key: "ID", id: :integer, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "SITE_ID", null: false
@@ -1739,6 +1739,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_053836) do
     t.decimal "VALUE_NUM", precision: 18, scale: 4
     t.string "DESCRIPTION"
     t.index ["IBLOCK_ELEMENT_ID", "IBLOCK_PROPERTY_ID"], name: "ix_iblock_element_property_1"
+    t.index ["IBLOCK_ELEMENT_ID"], name: "index_b_iblock_element_property_on_IBLOCK_ELEMENT_ID"
     t.index ["IBLOCK_PROPERTY_ID"], name: "ix_iblock_element_property_2"
     t.index ["VALUE_ENUM", "IBLOCK_PROPERTY_ID"], name: "ix_iblock_element_prop_enum"
     t.index ["VALUE_NUM", "IBLOCK_PROPERTY_ID"], name: "ix_iblock_element_prop_num"

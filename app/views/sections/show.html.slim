@@ -1,1 +1,6 @@
-= react_component 'Sections/Show', { section: @section.slice(:id, :title, :slug) }
+= react_component 'Sections/Show', { \
+  section: @section.as_json(methods: %i[id title depth slug image]),
+  primary: @primary_section,
+  secondary: @secondary_section,
+  subs: (@secondary_section || @primary_section).sections \
+}

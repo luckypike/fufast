@@ -50,7 +50,11 @@ class Section < ApplicationRecord
     end
   end
 
-  def as_json
-    super(only: [], methods: %i[id title slug image])
+  def gloves?
+    id == 168
+  end
+
+  def as_json(options = nil)
+    super({ only: [], methods: %i[id title depth slug] }.deep_merge(options || {}))
   end
 end
