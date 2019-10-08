@@ -37,6 +37,7 @@ function Section ({ section, primary, secondary, subs, history, location }) {
   const [sections, setSections] = useState()
   const [properties, setProperties] = useState()
   const [params, setParams] = useState()
+  const [toggle, setToggle] = useState(false)
 
   const _fetch = async (params) => {
     const { data } = await axios.get(
@@ -66,6 +67,8 @@ function Section ({ section, primary, secondary, subs, history, location }) {
 
   return (
     <div className={page.root}>
+      <div className={classNames(styles.overlay, { [styles.active]: toggle })} onClick={() => [setShowProps(!showProps), setToggle(false)]}></div>
+
       {section.depth === 1 && section.image &&
         <div className={styles.image} style={{ backgroundImage: `url(${section.image.path})` }} />
       }
@@ -92,7 +95,7 @@ function Section ({ section, primary, secondary, subs, history, location }) {
                 <Properties properties={properties} params={params} history={history} />
               </div>
 
-              <div className={styles.propertiesToggle} onClick={() => setShowProps(!showProps)}>
+              <div className={styles.propertiesToggle} onClick={() => [setShowProps(!showProps), setToggle(!toggle)]}>
                 <svg viewBox="0 0 24 24">
                   <rect height="2" width="16" x="4" y="8" fill="#8F8F8F" />
                   <rect height="6" width="2" x="7" y="6" fill="#8F8F8F" />

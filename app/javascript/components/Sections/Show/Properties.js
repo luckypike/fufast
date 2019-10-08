@@ -107,7 +107,7 @@ function Item ({ item, property, onValueChange, init }) {
           checked={value}
           onChange={({ target: { name, checked } }) => setValue(checked)}
         />
-        {item.value}
+        <div className={styles.item}>{item.value}</div>
       </label>
     </li>
   )
