@@ -10,7 +10,7 @@ Properties.propTypes = {
 export default function Properties ({ properties }) {
   return (
     <div className={styles.root}>
-      {properties.map(property =>
+      {properties.filter(p => ![104, 103, 105, 107, 111].includes(p.id)).map(property =>
         <Property key={property.id} property={property} />
       )}
     </div>

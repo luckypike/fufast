@@ -6,6 +6,10 @@
   }
 }
 
+.data {
+  max-width: 48rem;
+}
+
 .main {
   @media (--l) {
     padding-left: calc(1 / 8 * 100%);

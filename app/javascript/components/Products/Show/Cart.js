@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import update from 'immutability-helper'
+import classNames from 'classnames'
+
+import styles from './Cart.module.css'
+import buttons from '../../Buttons.module.css'
 
 Cart.propTypes = {
   product: PropTypes.object.isRequired,
@@ -19,18 +23,29 @@ export default function Cart ({ product, token }) {
     const newVariants = []
 
     const height = product.properties.find(prop => prop.id === 107)
-    const size = product.properties.find(prop => prop.id === 104)
+    let size = product.properties.find(prop => prop.id === 104)
+    if (!size) size = product.properties.find(prop => prop.id === 103)
+    if (!size) size = product.properties.find(prop => prop.id === 105)
+
+    console.log(size)
 
     if (height && size) {
-      height.values.forEach(hv => {
-        size.values.forEach(sv => {
+      size.items.filter(i => size.values.map(v => parseInt(v.value)).includes(i.id)).forEach(sv => {
+        height.items.filter(i => height.values.map(v => parseInt(v.value)).includes(i.id)).forEach(hv => {
           newVariants.push({
-            title: `${hv.value} / ${sv.value}`,
-            [sv.property_id]: sv.value,
-            [hv.property_id]: hv.value,
+            title: `${sv.value} / ${hv.value}`,
+            [size.id]: sv.id,
+            [height.id]: hv.id,
             q: 0
           })
-          // console.log(hv, sv)
+        })
+      })
+    } else if (size) {
+      size.items.filter(i => size.values.map(v => parseInt(v.value)).includes(i.id)).forEach(i => {
+        newVariants.push({
+          title: i.value,
+          [size.id]: i.id,
+          q: 0
         })
       })
     }
@@ -40,12 +55,18 @@ export default function Cart ({ product, token }) {
   }, [product.properties])
 
   const handleChange = (i, q) => {
-    if (q < 0) q = 0
+    let v = parseInt(q)
+
+    if (Number.isNaN(v)) {
+      v = 0
+    }
+
+    if (v < 0) v = 0
 
     const newVariants = update(variants, {
       [i]: {
         q: {
-          $set: q
+          $set: v
         }
       }
     })
@@ -62,17 +83,35 @@ export default function Cart ({ product, token }) {
   }
 
   return (
-    <div>
-      {variants && variants.map((variant, i) =>
-        <div key={i}>
-          {variant.title}: {variant.q} |||
-          <span onClick={() => handleChange(i, variant.q + 1)}>+</span>
-          <span onClick={() => handleChange(i, variant.q - 1)}>-</span>
-        </div>
-      )}
+    <div className={styles.root}>
+      <div className={styles.variants}>
+        {variants && variants.map((variant, i) =>
+          <div className={styles.variant} key={i}>
+            <div className={styles.label}>
+              {variant.title} ({variant.q})
+            </div>
 
-      <button onClick={handleAddToCart}>
-        ADD TO CART
+            <div className={styles.buttons}>
+              <div className={styles.input}>
+                <input
+                  onChange={({ target: { value } }) => handleChange(i, value)}
+                  type="text"
+                  value={variant.q === 0 ? '' : variant.q}
+                />
+              </div>
+              <div className={classNames(styles.button, styles.minus)}>
+                <button onClick={() => handleChange(i, variant.q - 1)} />
+              </div>
+              <div className={classNames(styles.button, styles.plus)}>
+                <button onClick={() => handleChange(i, variant.q + 1)} />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
+        В корзину
       </button>
     </div>
   )

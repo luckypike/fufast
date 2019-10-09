@@ -41,19 +41,19 @@ export default function Show (props) {
               {product.title}
             </h1>
 
-            <div>
+            <div className={styles.data}>
               <ReactMarkdown source={product.description} escapeHtml={false} />
+
+              {product.properties &&
+                <Properties properties={product.properties} />
+              }
+
+              {product.properties &&
+                <div>
+                  <Cart product={product} token={props.token} />
+                </div>
+              }
             </div>
-
-            {product.properties &&
-              <Properties properties={product.properties} />
-            }
-
-            {product.properties &&
-              <div>
-                <Cart product={product} token={props.token} />
-              </div>
-            }
           </div>
         </div>
       </div>

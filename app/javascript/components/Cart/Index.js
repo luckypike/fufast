@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Errors } from '../Form'
 import Products from './Index/Products'
 
+import styles from './Index.module.css'
 import page from '../Page.module.css'
 import form from '../Form.module.css'
 import buttons from '../Buttons.module.css'
@@ -45,38 +46,40 @@ export default function Cart ({ token, user, products }) {
   return (
     <div className={page.root}>
       <div className={page.text}>
-        <h1>
-          Корзина
-        </h1>
+        <div className={styles.root}>
+          <h1>
+            Корзина
+          </h1>
 
-        {hasProducts() &&
-          <div>
-            <Products products={products} />
+          {hasProducts() &&
+            <div>
+              <Products products={products} />
 
-            <form onSubmit={handleSubmit} className={form.root}>
-              {user &&
-                <div>{user.name}</div>
-              }
+              <form onSubmit={handleSubmit} className={form.root}>
+                {user &&
+                  <div>{user.name}</div>
+                }
 
-              {!user && <User errors={errors} onValuesChange={handleUserChange} /> }
+                {!user && <User errors={errors} onValuesChange={handleUserChange} /> }
 
-              {errors.email_exists && errors.email_exists === true &&
-                <div>
-                  <p>
-                    Такая почта уже ранее использовалась для заказов.
-                  </p>
+                {errors.email_exists && errors.email_exists === true &&
+                  <div>
+                    <p>
+                      Такая почта уже ранее использовалась для заказов.
+                    </p>
 
-                  <a href="/login">Войти или восстановить доступ</a>
-                </div>
-              }
-              <button className={buttons.main} type="submit">Оформить заказ</button>
-            </form>
-          </div>
-        }
+                    <a href="/login">Войти или восстановить доступ</a>
+                  </div>
+                }
+                <button className={buttons.main} type="submit">Оформить заказ</button>
+              </form>
+            </div>
+          }
 
-        {!hasProducts() &&
-          <p>Ваша корзина пока пуста</p>
-        }
+          {!hasProducts() &&
+            <p>Ваша корзина пока пуста</p>
+          }
+        </div>
       </div>
     </div>
   )
@@ -113,6 +116,7 @@ function User ({ onValuesChange, errors }) {
 
           <div className={form.input}>
             <input
+              placeholder="Обязательно заполните..."
               type="email"
               name="email"
               value={values.email}
@@ -170,6 +174,7 @@ function User ({ onValuesChange, errors }) {
 
           <div className={form.input}>
             <input
+              placeholder="Обязательно заполните..."
               type="tel"
               name="phone"
               value={values.phone}

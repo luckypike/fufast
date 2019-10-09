@@ -13,9 +13,7 @@ export default function Products ({ products }) {
       {products.map(product =>
         <div key={product.id} className={styles.product}>
           <div className={styles.image}>
-            {product.attachments.length > 0 &&
-              <img src={product.attachments[0].path} />
-            }
+            {product.image && <img src={product.image} /> }
           </div>
 
           <div className={styles.data}>
