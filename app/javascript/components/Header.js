@@ -47,13 +47,13 @@ export default function Header ({ sections }) {
           )}
 
           <div className={classNames(styles.item, styles.about)}>
-            <a href="/about">
+            <a href={path('about_path')}>
               О компании
             </a>
           </div>
 
           <div className={classNames(styles.item, styles.contacts)}>
-            <a href="/">
+            <a href={path('contacts_path')}>
               Контакты
             </a>
           </div>
