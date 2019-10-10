@@ -137,7 +137,7 @@ function Section ({ section, primary, secondary, subs, history, location }) {
 
         {sections &&
           <div>
-            {sections.map(section =>
+            {sections.filter(section => section.products.length > 0).map(section =>
               <div key={section.id}>
                 <h2>
                   <a href={path('section_catalog_path', { slug: section.slug })}>{section.title}</a>

@@ -32,5 +32,17 @@ class Product < ApplicationRecord
         .joins("INNER JOIN b_iblock_element_property prop_#{property} ON b_iblock_element.ID = prop_#{property}.IBLOCK_ELEMENT_ID")
         .where("prop_#{property}": { IBLOCK_PROPERTY_ID: property, VALUE_ENUM: value })
     end
+
+    def futured(section)
+      Product.includes(:attachments).joins(:sections)
+        .where(b_iblock_section: { id: [section.id] + section.sections.map(&:id) })
+        .limit(12)
+    end
+
+    def deep(section)
+      pp section.sections_deep
+      Product.includes(:attachments).joins(:sections)
+        .where(b_iblock_section: { id: section.sections_deep })
+    end
   end
 end

@@ -54,6 +54,10 @@ class Section < ApplicationRecord
     id == 168
   end
 
+  def sections_deep
+    [id] + sections.map(&:sections_deep).flatten
+  end
+
   def as_json(options = nil)
     super({ only: [], methods: %i[id title depth slug] }.deep_merge(options || {}))
   end

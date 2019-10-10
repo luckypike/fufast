@@ -34,18 +34,20 @@ class SectionsController < ApplicationController
   end
 
   def set_products_or_sections
-    if @section.depth > 2
-      @products = @section.products.includes(:attachments).select(:id).distinct
+    if properties_params.to_h.size.positive? || @section.sections.empty?
+      @products = Product.deep(@section)
 
       properties_params.each do |property, value|
         @products = @products.by_property(property, value)
       end
     else
-      @sections = @section.sections.includes(products: :attachments)
+      @sections = @section.sections.includes(:sections)
     end
   end
 
   def properties_params
-    params.select { |p, v| @properties.detect { |prop| prop.id == p.to_i } }
+    permitted = @properties.map(&:id).map(&:to_s)
+    permitted += @properties.map(&:id).map { |p| { p.to_s => [] } }
+    params.select { |p, _v| @properties.detect { |prop| prop.id == p.to_i } }.permit(*permitted)
   end
 end

@@ -1,10 +1,14 @@
 json.sections @sections do |section|
   json.partial! section
-  json.products section.products.futured do |product|
+  json.products Product.futured(section) do |product|
     json.partial! product
 
     json.image product.attachments.first
   end
+  #   json.partial! product
+  #
+  #   json.image product.attachments.first
+  # end
 end
 
 json.products @products do |product|
