@@ -72,6 +72,7 @@
   }
 
   @media (--s) {
+    overflow: inherit;
     display: block;
     position: static;
     z-index: auto;
@@ -97,23 +98,4 @@
   composes: mt from '../Fonts.module.css';
   margin-bottom: calc(var(--yr) * var(--s2));
   max-width: 48rem;
-}
-
-.overlay {
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 4;
-  opacity: 0;
-  transition: visibility 0s ease .3s, opacity .3s;
-  background: color-mod(black a(70%));
-
-  &.active {
-    visibility: visible;
-    opacity: .4;
-    transition: opacity .3s;
-  }
 }

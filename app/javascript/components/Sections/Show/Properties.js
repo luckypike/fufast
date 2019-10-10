@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import querystring from 'querystring'
+import classNames from 'classnames'
 
 import styles from './Properties.module.css'
 
@@ -44,7 +45,7 @@ export default function Properties ({ properties, history, params }) {
   return (
     <div className={styles.properties}>
       {properties.filter(p => p.id === 101 || true).map(property =>
-        <div key={property.id} className={styles.property}>
+        <div key={property.id} className={classNames(styles.property, styles.overlay)}>
           <div className={styles.title}>
             {property.title}
           </div>
@@ -77,7 +78,7 @@ function Items ({ items, property, onValuesChange, init }) {
   }, [values])
 
   return (
-    <ul className={styles.enums}>
+    <ul className={classNames(styles.enums, styles.overlay, { [styles.col1]: property.id === 104, [styles.col2]: property.id === 107, [styles.col3]: property.id === 108, [styles.col4]: property.id === 137, [styles.col5]: property.id === 144 })}>
       {items.map(item =>
         <Item onValueChange={handleValueChange} property={property} init={values[item.id]} item={item} key={item.id} />
       )}
