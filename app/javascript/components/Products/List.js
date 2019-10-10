@@ -19,7 +19,9 @@ export default function List ({ products }) {
       {products.map(product =>
         <a className={styles.product} key={product.id} href={path('product_catalog_path', { id: product.id })}>
           <div className={styles.image}>
-            <img src={product.image} />
+            {product.image &&
+              <img src={product.image.proxy} />
+            }
           </div>
 
           <div className={styles.title}>

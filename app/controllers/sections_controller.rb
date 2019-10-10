@@ -35,13 +35,13 @@ class SectionsController < ApplicationController
 
   def set_products_or_sections
     if @section.depth > 2
-      @products = @section.products.select(:id).distinct
+      @products = @section.products.includes(:attachments).select(:id).distinct
 
       properties_params.each do |property, value|
         @products = @products.by_property(property, value)
       end
     else
-      @sections = @section.sections.includes(:products)
+      @sections = @section.sections.includes(products: :attachments)
     end
   end
 

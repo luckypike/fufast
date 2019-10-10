@@ -22,12 +22,8 @@ class Product < ApplicationRecord
     element.DETAIL_TEXT
   end
 
-  def image
-    "https://fufayka.info/cover/title/#{id}/list.jpg"
-  end
-
   def as_json(options = nil)
-    super({ only: [], methods: %i[id title image] }.deep_merge(options || {}))
+    super({ only: [], methods: %i[id title] }.deep_merge(options || {}))
   end
 
   class << self

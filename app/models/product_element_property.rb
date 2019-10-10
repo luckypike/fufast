@@ -5,7 +5,7 @@ class ProductElementProperty < ApplicationRecord
   alias_attribute :value, :VALUE
   alias_attribute :property_id, :IBLOCK_PROPERTY_ID
 
-  belongs_to :product_element, foreign_key: 'IBLOCK_ELEMENT_ID'
+  belongs_to :product_element, foreign_key: 'IBLOCK_ELEMENT_ID', inverse_of: :element_properties
   belongs_to :property, foreign_key: 'IBLOCK_PROPERTY_ID', class_name: 'ProductProperty'
 
   belongs_to :attachment, foreign_key: 'VALUE'
