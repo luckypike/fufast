@@ -21,7 +21,6 @@
   position: relative;
   background-color: white;
   overflow: hidden;
-  margin-bottom: calc(var(--yr) * var(--s1));
 
   &::before {
     display: block;
@@ -43,5 +42,12 @@
 }
 
 .title {
+  margin-top: calc(var(--yr) * var(--s1));
   composes: mt from '../Fonts.module.css';
+}
+
+.price {
+  composes: mt from '../Fonts.module.css';
+  color: var(--gr_color);
+  margin-top: var(--yr);
 }

@@ -28,11 +28,26 @@ export default function List ({ products }) {
             {product.title}
           </div>
 
-          <div className={styles.price}>
-            {product.price}
-          </div>
+          {product.price &&
+            <div className={styles.price}>
+              {currency(product.price)}
+            </div>
+          }
         </a>
       )}
     </div>
   )
+}
+
+const currency = (source) => {
+  const float = parseFloat(source)
+
+  const formatter = new Intl.NumberFormat('ru-RU', {
+    minimumFractionDigits: Math.round(float) === float ? 0 : 2,
+    maximumFractionDigits: Math.round(float) === float ? 0 : 2
+  })
+
+  let value = formatter.format(source)
+  if (source < 10000) value = value.replace(/\s/, '')
+  return `${value} ₽`
 }

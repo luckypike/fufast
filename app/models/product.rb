@@ -2,8 +2,9 @@ class Product < ApplicationRecord
   self.table_name = 'b_catalog_product'
 
   alias_attribute :id, :ID
+  alias_attribute :created_at, :TIMESTAMP_X
 
-  default_scope { includes(:element) }
+  default_scope { includes(:element, :prices) }
 
   has_one :element, foreign_key: 'ID', class_name: 'ProductElement',
     dependent: :destroy, inverse_of: :product
@@ -14,12 +15,18 @@ class Product < ApplicationRecord
   has_many :attachments, through: :element
   has_many :element_properties, through: :element
 
+  has_many :prices, -> { where(currency: :RUB).where.not(value: 0) }, foreign_key: 'PRODUCT_ID', class_name: 'ProductPrice'
+
   def title
     element.NAME
   end
 
   def description
     element.DETAIL_TEXT
+  end
+
+  def price
+    prices.map(&:value).first
   end
 
   def as_json(options = nil)
@@ -36,13 +43,14 @@ class Product < ApplicationRecord
     def futured(section)
       Product.includes(:attachments).joins(:sections)
         .where(b_iblock_section: { id: [section.id] + section.sections.map(&:id) })
+        .order(created_at: :desc)
         .limit(12)
     end
 
     def deep(section)
-      pp section.sections_deep
       Product.includes(:attachments).joins(:sections)
         .where(b_iblock_section: { id: section.sections_deep })
+        .order(created_at: :desc)
     end
   end
 end
