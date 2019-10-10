@@ -19,7 +19,7 @@ class Attachment < ApplicationRecord
   def proxy
     url = Base64.urlsafe_encode64(path).tr('=', '').scan(/.{1,16}/).join('/')
 
-    path = "/fill/300/300/no/1/#{url}.jpg"
+    path = "/fill/1600/2000/sm/0/#{url}.jpg"
 
     digest = OpenSSL::Digest.new('sha256')
     hmac = Base64.urlsafe_encode64(OpenSSL::HMAC.digest(digest, IMG_KEY, IMG_SALT + path)).tr('=', '')

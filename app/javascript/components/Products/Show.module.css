@@ -40,3 +40,7 @@
     transform: translate(-50%, -50%);
   }
 }
+
+.slider {
+  margin-bottom: 8px;
+}

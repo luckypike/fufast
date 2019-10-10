@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 
 import Cart from './Show/Cart'
 import Properties from './Show/Properties'
+import Slider from './Show/Slider'
 
 import styles from './Show.module.css'
 import page from '../Page.module.css'
@@ -26,14 +27,14 @@ export default function Show (props) {
     _fetch()
   }, [props.product.id])
 
+  if (!product.images) return null
+
   return (
     <div className={page.root}>
       <div className={page.com}>
         <div className={styles.root}>
-          <div className={styles.images}>
-            <div className={styles.image}>
-              <img src={product.image} />
-            </div>
+          <div className={styles.slider}>
+            <Slider product={product} />
           </div>
 
           <div className={styles.main}>
