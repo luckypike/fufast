@@ -67,3 +67,22 @@
 .cart {
 
 }
+
+.order_price {
+  margin-bottom: 1rem;
+  max-width: 280px;
+  margin-right: 1.25rem;
+}
+
+.ppi {
+ display: block;
+}
+
+.po {
+  display: none;
+}
+
+.price {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}

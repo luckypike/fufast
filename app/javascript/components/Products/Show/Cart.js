@@ -54,6 +54,19 @@ export default function Cart ({ product, token }) {
     setVariants(newVariants)
   }, [product.properties])
 
+  const currency = (source) => {
+    const float = parseFloat(source)
+
+    const formatter = new Intl.NumberFormat('ru-RU', {
+      minimumFractionDigits: Math.round(float) === float ? 0 : 2,
+      maximumFractionDigits: Math.round(float) === float ? 0 : 2
+    })
+
+    let value = formatter.format(source)
+    if (source < 10000) value = value.replace(/\s/, '')
+    return `${value} ₽`
+  }
+
   const handleChange = (i, q) => {
     let v = parseInt(q)
 
@@ -82,6 +95,8 @@ export default function Cart ({ product, token }) {
     })
   }
 
+  if (!variants) return null
+
   return (
     <div className={styles.root}>
       <div className={styles.variants}>
@@ -97,17 +112,34 @@ export default function Cart ({ product, token }) {
                   onChange={({ target: { value } }) => handleChange(i, value)}
                   type="text"
                   value={variant.q === 0 ? '' : variant.q}
+                  placeholder="0"
                 />
               </div>
               <div className={classNames(styles.button, styles.minus)}>
-                <button onClick={() => handleChange(i, variant.q - 1)} />
+                <button onClick={() => handleChange(i, variant.q - 1)}>-</button>
               </div>
               <div className={classNames(styles.button, styles.plus)}>
-                <button onClick={() => handleChange(i, variant.q + 1)} />
+                <button onClick={() => handleChange(i, variant.q + 1)}>+</button>
               </div>
             </div>
           </div>
         )}
+      </div>
+
+      <div className={styles.order_price}>
+        <div className={styles.ppi}>
+          Цена за штуку
+        </div>
+
+        <div className={styles.po}>
+          Общая стоимость
+        </div>
+
+        {product.price &&
+          <div className={styles.price}>
+            {currency(product.price)}
+          </div>
+        }
       </div>
 
       <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>

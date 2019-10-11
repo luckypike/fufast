@@ -17,6 +17,7 @@ export default function Slider ({ product }) {
   useEffect(() => {
     slider.current = new Siema({
       selector: mount.current,
+      perPage: 1,
       onChange: () => {
         setCurrent(slider.current.currentSlide)
       }
@@ -42,10 +43,8 @@ export default function Slider ({ product }) {
 
         <div className={styles.images} ref={mount}>
           {product.images.map(image =>
-            <div key={image.id}>
-              <div className={styles.image}>
-                <img src={image.proxy} />
-              </div>
+            <div key={image.id} className={styles.image}>
+              <img src={image.proxy} />
             </div>
           )}
         </div>

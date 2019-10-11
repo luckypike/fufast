@@ -1,5 +1,11 @@
 .slider {
   position: relative;
+  display: block;
+
+  @media(--l) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 .image {
@@ -11,7 +17,7 @@
   &::before {
     display: block;
     content: '';
-    padding-top: calc(5 / 4 * 100%)
+    padding-top: calc(5 / 4 * 100%);
   }
 
   & img {
