@@ -1,0 +1,46 @@
+.image {
+  position:relative;
+  background-image: url('../../images/contacts/top.jpg');
+  height: 360px;
+  width: 100%;
+  background-size: cover;
+  background-color: #666666;
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.2;
+  }
+}
+
+.maps {
+  position: relative;
+  margin-bottom: calc(var(--yr) * var(--s2));
+
+    & .ymap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &::before {
+    width: 100%;
+    display: block;
+    content: "";
+    z-index: -1;
+    padding-top: calc(4 / 5 * 100%);
+
+    @media(--s) {
+      padding-top: calc(9 / 16 * 100%);
+    }
+  }
+}
