@@ -1,3 +1,31 @@
-.root {
+.image {
+  position:relative;
+  background-image: url('../../images/about/top.jpg');
+  height: 360px;
+  width: 100%;
+  background-size: cover;
+  background-color: #666666;
+  background-repeat: no-repeat;
+  background-position: center top;
 
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.2;
+  }
+}
+
+p {
+  & a {
+    border-bottom: 1px solid rgba(33, 33, 33, 0.3);
+    color: #212121;
+    text-decoration: none;
+    transition-duration: 0.25s;
+    transition-property: background, color;
+  }
 }
