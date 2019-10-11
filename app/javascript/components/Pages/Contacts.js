@@ -1,5 +1,5 @@
 import React from 'react'
-import { YMaps, Map, Placemark } from 'react-yandex-maps'
+import { YMaps, Map, Placemark, ZoomControl, GeolocationControl, FullscreenControl, RulerControl, TypeSelector, TrafficControl } from 'react-yandex-maps'
 
 import page from '../Page.module.css'
 import styles from './Contacts.module.css'
@@ -38,6 +38,12 @@ export default function Contacts () {
           <YMaps>
             <Map className={styles.ymap} width={'100%'} defaultState={{ center: [56.24271361610231, 43.83043802718367], zoom: 17, width: 100 }}>
               <Placemark defaultGeometry={[56.24271361610231, 43.83043802718367]} />
+              <ZoomControl options={{ float: 'right' }} />
+              <GeolocationControl options={{ float: 'left' }} />
+              <FullscreenControl />
+              <RulerControl options={{ float: 'right' }} />
+              <TypeSelector options={{ float: 'right' }} />
+              <TrafficControl options={{ float: 'right' }} />
             </Map>
           </YMaps>
         </div>
