@@ -34,7 +34,6 @@
   & a {
     white-space: nowrap;
     display: block;
-    background-color: #ffffff;
     border-radius: calc(var(--yr) / 2);
     padding: var(--yr) calc(var(--xr) / 2);
     transition: background 0.4s, color 0.5s;
@@ -98,4 +97,14 @@
   composes: mt from '../Fonts.module.css';
   margin-bottom: calc(var(--yr) * var(--s2));
   max-width: 48rem;
+}
+
+.active {
+  background-color: var(--pr_color);
+  color: #fff;
+}
+
+.inactive {
+  background-color: #ffffff;
+  color: #000;
 }

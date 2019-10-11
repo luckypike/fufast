@@ -1,7 +1,7 @@
 - set_meta_tags title: @section.title, description: @section.description
 
 = react_component 'Sections/Show', { \
-  section: @section.as_json(methods: %i[id title depth slug image]),
+  section: @section.as_json(methods: %i[id title description depth slug image]),
   primary: @primary_section,
   secondary: @secondary_section,
   subs: (@secondary_section || @primary_section).sections \

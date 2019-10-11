@@ -30,6 +30,17 @@ Section.propTypes = {
   history: PropTypes.object.isRequired
 }
 
+Link.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.string
+}
+
+function Link (props) {
+  const path = window.location.pathname
+
+  return <a href={props.href} className={classNames({ [styles.active]: path === props.href, [styles.inactive]: path !== props.href })}>{props.children}</a>
+}
+
 function Section ({ section, primary, secondary, subs, history, location }) {
   const [showProps, setShowProps] = useState(false)
   // const [section, setSection] = useState()
@@ -82,9 +93,9 @@ function Section ({ section, primary, secondary, subs, history, location }) {
           {subs.length > 0 &&
             <div className={styles.subs}>
               {subs.map(({ id, title, slug }) =>
-                <a key={id} href={path('section_catalog_path', { slug })}>
+                <Link key={id} href={path('section_catalog_path', { slug })}>
                   {title}
-                </a>
+                </Link>
               )}
             </div>
           }
