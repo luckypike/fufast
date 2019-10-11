@@ -46,6 +46,12 @@ export default function Header ({ sections }) {
             </div>
           )}
 
+          <div className={classNames(styles.item)}>
+            <a href={path('logo_path')}>
+              Нанесение логотипов
+            </a>
+          </div>
+
           <div className={classNames(styles.item, styles.about)}>
             <a href={path('about_path')}>
               О компании

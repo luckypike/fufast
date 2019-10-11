@@ -32,7 +32,7 @@ export default function Sections ({ section, products }) {
   return (
     <div className={styles.sections}>
       <div className={styles.section_image}>
-        <div className={classNames(styles.image, { [styles.protect]: section.id === 177 })} style={{ backgroundImage: `url(${section.image.path})` }}>
+        <div className={classNames(styles.image, { [styles.protect]: section.id === 177 })} style={{ backgroundImage: `url(${section.image.proxy})` }}>
         </div>
 
         <div className={styles.text}>

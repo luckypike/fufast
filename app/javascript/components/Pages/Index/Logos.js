@@ -11,7 +11,7 @@ Logos.propTypes = {
   section: PropTypes.array
 }
 
-export default function Logos ({ section }) {
+export default function Logos () {
   const slider = useRef()
   const mount = useRef()
 
@@ -51,9 +51,9 @@ export default function Logos ({ section }) {
       </div>
 
       <div className={styles.text}>
-        <h1>{section.title}</h1>
+        <h1>Нанесение логотипов</h1>
         <div className={styles.action}>
-          <a href={path('section_catalog_path', { slug: section.slug })} className={buttons.main}>
+          <a href={path('logo_path')} className={buttons.main}>
             Подробнее
           </a>
         </div>

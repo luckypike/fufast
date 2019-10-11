@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # Pages
   get :about, to: 'pages#about'
   get :contacts, to: 'pages#contacts'
+  get :logo, to: 'pages#logo'
 
   # Search
   get :search, to: 'search#index'

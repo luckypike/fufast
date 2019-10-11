@@ -28,9 +28,7 @@ export default function Index ({ sections, slides, products }) {
       </div>
 
       <div>
-        {sections.filter(i => i.id === 244).map(section =>
-          <Logos key={section.id} section={section} />
-        )}
+        <Logos />
       </div>
     </div>
   )

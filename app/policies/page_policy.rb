@@ -10,4 +10,8 @@ class PagePolicy < Struct.new(:user, :page)
   def contacts?
     true
   end
+
+  def logo?
+    true
+  end
 end
