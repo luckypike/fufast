@@ -8,15 +8,19 @@ export default function Footer () {
     <footer className={styles.footer}>
       <div className={styles.footer_menu}>
         <div className={styles.item}>
-          <a href={path('about_path')}>Компания</a>
+          <a href={path('about_path')}>
+            Компания
+          </a>
         </div>
         <div className={styles.item}>
-          <a href="#">Контакты</a>
+          <a href={path('contacts_path')}>
+            Контакты
+          </a>
         </div>
       </div>
 
       <div className={styles.like}>
-        <a href="https://luckypike.com">L..IKE</a>
+        <a href="https://luckypike.com" target="blank">L..IKE</a>
       </div>
     </footer>
   )
