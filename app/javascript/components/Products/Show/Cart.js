@@ -127,24 +127,30 @@ export default function Cart ({ product, token }) {
       </div>
 
       <div className={styles.order_price}>
-        <div className={styles.ppi}>
-          Цена за штуку
-        </div>
+        {product.price && product.price.length > 0 &&
+          <>
+            <div className={styles.ppi}>
+              Цена за штуку
+            </div>
 
-        <div className={styles.po}>
-          Общая стоимость
-        </div>
+            <div className={styles.po}>
+              Общая стоимость
+            </div>
 
-        {product.price &&
-          <div className={styles.price}>
-            {currency(product.price)}
-          </div>
+            <div className={styles.price}>
+              {currency(product.price)}
+            </div>
+
+            <button disabled={!product.price} onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
+              В корзину
+            </button>
+          </>
+        }
+
+        {!product.price &&
+          <div>Товара временно нет в наличии</div>
         }
       </div>
-
-      <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
-        В корзину
-      </button>
     </div>
   )
 }

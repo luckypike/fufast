@@ -85,4 +85,5 @@
 .price {
   font-size: 1.5rem;
   line-height: 1.75rem;
+  margin-bottom: calc(var(--yr) * var(--s2));
 }

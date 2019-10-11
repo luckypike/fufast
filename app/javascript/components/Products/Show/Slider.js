@@ -12,7 +12,6 @@ Slider.propTypes = {
 export default function Slider ({ product }) {
   const slider = useRef()
   const mount = useRef()
-  console.log(product)
 
   useEffect(() => {
     slider.current = new Siema({
