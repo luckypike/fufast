@@ -140,16 +140,18 @@ export default function Cart ({ product, token }) {
             <div className={styles.price}>
               {currency(product.price)}
             </div>
-
-            <button disabled={!product.price} onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
-              В корзину
-            </button>
           </>
         }
 
         {!product.price &&
-          <div>Товара временно нет в наличии</div>
+          <div className={styles.not_available}>
+            Цена будет уточнена при обработке заказа
+          </div>
         }
+
+        <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
+          В корзину
+        </button>
       </div>
     </div>
   )
