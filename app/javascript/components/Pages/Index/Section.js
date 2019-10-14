@@ -7,12 +7,12 @@ import classNames from 'classnames'
 import styles from './Sections.module.css'
 import buttons from '../../Buttons.module.css'
 
-Sections.propTypes = {
+Section.propTypes = {
   section: PropTypes.object,
   products: PropTypes.array
 }
 
-export default function Sections ({ section, products }) {
+export default function Section ({ section, products }) {
   const slider = useRef()
   const mount = useRef()
 
@@ -53,7 +53,9 @@ export default function Sections ({ section, products }) {
                 <div key={product.id} className={styles.product}>
                   <a href={path('product_catalog_path', { id: product.id })}>
                     <div className={styles.photo}>
-                      <img src={product.image} />
+                      {product.image &&
+                        <img src={product.image} />
+                      }
                     </div>
 
                     <div className={styles.tap}>

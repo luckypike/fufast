@@ -30,7 +30,7 @@ class Product < ApplicationRecord
   end
 
   def as_json(options = nil)
-    super({ only: [], methods: %i[id title] }.deep_merge(options || {}))
+    super({ only: [], methods: %i[id title price] }.deep_merge(options || {}))
   end
 
   class << self

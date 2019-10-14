@@ -12,6 +12,8 @@ class Section < ApplicationRecord
 
   default_scope { where(iblock_id: 20, active: 'Y') }
 
+  attr_accessor :descendants
+
   has_many :product_sections, foreign_key: 'IBLOCK_SECTION_ID',
     dependent: :destroy, inverse_of: :section
   has_many :products, through: :product_sections do
@@ -56,6 +58,17 @@ class Section < ApplicationRecord
 
   def sections_deep
     [id] + sections.map(&:sections_deep).flatten
+  end
+
+  def sections_deep_cache(sections_all)
+    [id] + sections_all.select { |s| s.iblock_section_id == id }.map { |s| s.sections_deep_cache(sections_all) }.flatten
+  end
+
+  def bestsellers
+    Product.includes(:attachments)
+      .joins(:sections).where(b_iblock_section: { id: descendants })
+      .limit(11)
+      # .joins(:prices).where.not(b_catalog_price: { id: nil })
   end
 
   def as_json(options = nil)

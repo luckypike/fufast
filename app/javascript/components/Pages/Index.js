@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Slider from './Index/Slider'
-import Sections from './Index/Sections'
+import Section from './Index/Section'
 import Logos from './Index/Logos'
 
 Index.propTypes = {
@@ -10,7 +10,7 @@ Index.propTypes = {
   slides: PropTypes.array.isRequired
 }
 
-export default function Index ({ sections, slides, products }) {
+export default function Index ({ sections, slides }) {
   return (
     <div>
       <div>
@@ -21,7 +21,7 @@ export default function Index ({ sections, slides, products }) {
         {sections &&
           <div>
             {sections.filter(i => i.id !== 244).map(section =>
-              <Sections key={section.id} section={section} products={products} />
+              <Section key={section.id} section={section} products={section.bestsellers} />
             )}
           </div>
         }
