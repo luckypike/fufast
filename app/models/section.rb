@@ -67,6 +67,7 @@ class Section < ApplicationRecord
   def bestsellers
     Product.includes(:attachments)
       .joins(:sections).where(b_iblock_section: { id: descendants })
+      .order(orders_count: :desc)
       .limit(11)
       # .joins(:prices).where.not(b_catalog_price: { id: nil })
   end

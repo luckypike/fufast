@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_110045) do
+ActiveRecord::Schema.define(version: 2019_10_14_150237) do
 
   create_table "b_abtest", primary_key: "ID", id: :integer, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "SITE_ID", null: false
@@ -665,6 +665,7 @@ ActiveRecord::Schema.define(version: 2019_10_08_110045) do
     t.float "HEIGHT", limit: 53
     t.integer "MEASURE"
     t.integer "TYPE"
+    t.integer "orders_count", default: 0
   end
 
   create_table "b_catalog_product2group", primary_key: "ID", id: :integer, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
