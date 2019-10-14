@@ -5,7 +5,6 @@ import axios from 'axios'
 import { Errors } from '../Form'
 import { path } from '../Routes'
 
-import styles from './New.module.css'
 import page from '../Page.module.css'
 import form from '../Form.module.css'
 import buttons from '../Buttons.module.css'
@@ -16,8 +15,7 @@ New.propTypes = {
 
 export default function New ({ token }) {
   const [values, setValues] = useState({
-    email: '',
-    password: ''
+    email: ''
   })
 
   const handleChange = ({ target: { name, value } }) => {
@@ -29,11 +27,11 @@ export default function New ({ token }) {
   const handleSubmit = async e => {
     e.preventDefault()
 
-    await axios.post(path('login_path'), {
+    await axios.post(path('recovery_path'), {
       user: values,
       authenticity_token: token
     }).then(res => {
-      window.location = res.headers.location
+
     }).catch((error) => {
       setErrors(error.response.data)
     })
@@ -43,10 +41,14 @@ export default function New ({ token }) {
     <div className={page.root}>
       <div className={page.text}>
         <h1>
-          Вход
+          Восстановить доступ
         </h1>
 
         <form onSubmit={handleSubmit} className={form.root}>
+          <p>
+            Для восстановления доступа напишите вашу почту, мы вышлем на нее письмо со ссылкой по которой нужно будет перейти для продолжения.
+          </p>
+
           <div className={form.el}>
             <label>
               <div className={form.label}>
@@ -66,33 +68,8 @@ export default function New ({ token }) {
             <Errors errors={errors.email} />
           </div>
 
-          <div className={form.el}>
-            <label>
-              <div className={form.label}>
-                Пароль
-              </div>
-
-              <div className={form.input}>
-                <input
-                  type="password"
-                  name="password"
-                  value={values.password}
-                  onChange={handleChange}
-                />
-              </div>
-            </label>
-
-            <Errors errors={errors.password} />
-          </div>
-
-          <button className={buttons.main} type="submit">Войти</button>
+          <button className={buttons.main} type="submit">Продолжить</button>
         </form>
-
-        <div className={styles.recovery}>
-          <a href={path('recovery_path')}>
-            Не помните пароль? Восстановить
-          </a>
-        </div>
       </div>
     </div>
   )

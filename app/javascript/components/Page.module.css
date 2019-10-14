@@ -11,11 +11,11 @@
 }
 
 .com {
-  padding: calc(var(--yr) * var(--s3)) var(--xr);
+  padding: calc(var(--yr) * var(--s4)) var(--xr) calc(var(--yr) * var(--s4) * 2);
   margin: 0 auto;
 
   @media (--s) {
-    padding: calc(var(--yr) * var(--s3)) calc(var(--xr) * 2);
+    padding: calc(var(--yr) * var(--s4)) calc(var(--xr) * 2) calc(var(--yr) * var(--s4) * 2);
   }
 }
 

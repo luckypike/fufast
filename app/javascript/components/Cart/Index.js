@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 
+import { path } from '../Routes'
 import { Errors } from '../Form'
 import Products from './Index/Products'
 
@@ -77,7 +78,19 @@ export default function Cart ({ token, user, products }) {
           }
 
           {!hasProducts() &&
-            <p>Ваша корзина пока пуста</p>
+            <>
+              <p>
+                Ваша корзина пока пуста. {!user && 'Войдите чтобы посмотреть вашу историю заказов или сохраненные товары.'}
+              </p>
+
+              {!user &&
+                <div className={styles.login}>
+                  <a href={path('login_path')} className={buttons.main}>
+                    Войти
+                  </a>
+                </div>
+              }
+            </>
           }
         </div>
       </div>

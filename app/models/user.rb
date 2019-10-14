@@ -7,6 +7,8 @@ class User < ApplicationRecord
   alias_attribute :name, :NAME
   alias_attribute :lastname, :LAST_NAME
   alias_attribute :phone, :PERSONAL_PHONE
+  alias_attribute :checkword, :CHECKWORD
+  alias_attribute :password, :PASSWORD
 
   has_many :orders, dependent: :destroy, inverse_of: :user
 
@@ -29,8 +31,16 @@ class User < ApplicationRecord
     Digest::MD5.hexdigest(salt + password) == encrypted_password
   end
 
-  def as_json
-    super(only: [], methods: %i[id email name lastname phone])
+  def encrypted_checkword
+    self.CHECKWORD.slice(-32, 32)
+  end
+
+  def valid_token?(token)
+    Digest::MD5.hexdigest(self.CHECKWORD.slice(0, self.CHECKWORD.size - 32) + token) == encrypted_checkword
+  end
+
+  def as_json(options = nil)
+    super({ only: [], methods: %i[id email name lastname phone] }.deep_merge(options || {}))
   end
 
   private

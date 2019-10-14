@@ -1,0 +1,12 @@
+css:
+  #reset_gateway {
+    display: none;
+  }
+
+= form_tag [:reset], method: :post, id: :reset_gateway do |f|
+  = text_field_tag(:email, params[:email])
+  = text_field_tag(:token, params[:token])
+
+
+javascript:
+  document.getElementById('reset_gateway').submit()

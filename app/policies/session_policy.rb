@@ -6,4 +6,20 @@ class SessionPolicy < Struct.new(:user, :session)
   def create?
     true
   end
+
+  def password?
+    recovery?
+  end
+
+  def recovery?
+    reset?
+  end
+
+  def rereset?
+    reset?
+  end
+
+  def reset?
+    !user
+  end
 end

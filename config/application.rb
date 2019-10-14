@@ -34,5 +34,9 @@ module Fufast
     config.generators.javascripts = nil
     config.generators.helper = nil
     config.generators.test_framework = nil
+
+    config.action_mailer.default_options = {
+      from: 'Фуфайка <info@fufayka.info>'
+    }
   end
 end

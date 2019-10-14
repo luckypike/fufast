@@ -12,7 +12,14 @@ Rails.application.routes.draw do
   get :login, to: 'sessions#new'
   post :login, to: 'sessions#create'
 
+  get :recovery, to: 'sessions#password'
+  post :recovery, to: 'sessions#recovery'
+
+  get :reset, to: 'sessions#rereset'
+  post :reset, to: 'sessions#reset'
+
   resources :orders, only: %i[index create]
+  resources :users, only: %i[show]
 
   # Pages
   get :about, to: 'pages#about'

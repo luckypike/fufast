@@ -1,0 +1,10 @@
+.root {
+  /* max-width: 48rem; */
+  /* margin: calc(var(--yr) * var(--s4)) auto; */
+}
+
+
+.recovery {
+  margin-top: calc(var(--yr) * var(--s3));
+  composes: at from '../Fonts.module.css';
+}
