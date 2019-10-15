@@ -9,6 +9,7 @@ class User < ApplicationRecord
   alias_attribute :phone, :PERSONAL_PHONE
   alias_attribute :checkword, :CHECKWORD
   alias_attribute :password, :PASSWORD
+  alias_attribute :active, :ACTIVE
 
   has_many :orders, dependent: :destroy, inverse_of: :user
 
