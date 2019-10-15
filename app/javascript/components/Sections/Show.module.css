@@ -81,6 +81,24 @@
   }
 }
 
+.placeholder {
+  display: none;
+  position: relative;
+
+  &:before {
+    position: relative;
+    width: 100%;
+    display: block;
+    content: '';
+    padding-top: 41px;
+    z-index: -1;
+  }
+
+  @media(--s) {
+    display: block;
+  }
+}
+
 .propertiesToggle {
   position: absolute;
   right: -4px;
