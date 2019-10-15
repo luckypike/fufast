@@ -8,11 +8,15 @@
   }
 }
 
+.images {
+  background-color: white;
+  margin-bottom: calc(var(--yr) * var(--s1));
+}
+
 .image {
   position: relative;
   background-color: white;
   overflow: hidden;
-  margin-bottom: calc(var(--yr) * var(--s1));
 
   &::before {
     display: block;
