@@ -103,7 +103,6 @@ function Section ({ section, primary, secondary, subs, history, location }) {
           {properties &&
             <>
               <div className={classNames(styles.properties, { [styles.active]: showProps })}>
-                <div className={styles.placeholder}></div>
                 <Properties properties={properties} params={params} history={history} />
               </div>
 
@@ -117,6 +116,10 @@ function Section ({ section, primary, secondary, subs, history, location }) {
 
               </div>
             </>
+          }
+
+          {!properties &&
+            <div className={styles.placeholder}></div>
           }
 
           {section.description &&

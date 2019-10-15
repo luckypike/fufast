@@ -90,8 +90,8 @@
     width: 100%;
     display: block;
     content: '';
-    padding-top: 41px;
-    z-index: -1;
+    padding-top: 73px;
+    z-index: 11;
   }
 
   @media(--s) {
