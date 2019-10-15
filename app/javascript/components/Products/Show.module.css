@@ -45,3 +45,53 @@
   display: block;
   margin-bottom: 8px;
 }
+
+.sections {
+  @media(--l) {
+    grid-column: span 2;
+  }
+}
+
+.product_sections {
+  composes: h2 from '../Fonts.module.css';
+  margin-bottom: calc(var(--yr) * var(--s2));
+}
+
+.subs {
+  composes: at from '../Fonts.module.css';
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  margin: 0 calc(var(--xr) * -1);
+  padding: 0 var(--xr) calc(var(--yr) * var(--s2));
+
+  @media (--s) {
+    margin: 0 0 calc(var(--yr) * var(--s2) - var(--yr));
+    padding: 0;
+    overflow: visible;
+    flex-wrap: wrap;
+  }
+
+  & a {
+    white-space: nowrap;
+    display: block;
+    border-radius: calc(var(--yr) / 2);
+    padding: var(--yr) calc(var(--xr) / 2);
+    transition: background 0.4s, color 0.5s;
+    background-color: #ffffff;
+    color: #000;
+
+    &:not(:last-child) {
+      margin-right: var(--yr);
+    }
+
+    &:hover {
+      background-color: var(--pr_color);
+      color: #fff;
+    }
+
+    @media (--s) {
+      margin-bottom: var(--yr);
+    }
+  }
+}

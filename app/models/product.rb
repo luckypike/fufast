@@ -44,7 +44,7 @@ class Product < ApplicationRecord
       Product.includes(:attachments).joins(:sections)
         .where(b_iblock_section: { id: [section.id] + section.sections.map(&:id) })
         .order(created_at: :desc)
-        .limit(12)
+        .limit(8)
     end
 
     def deep(section)

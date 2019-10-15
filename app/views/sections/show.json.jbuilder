@@ -3,7 +3,7 @@ json.sections @sections do |section|
   json.products Product.futured(section) do |product|
     json.partial! product
 
-    json.image product.attachments.first
+    json.image product.attachments.sort_by{ |i| i.id }.first
   end
   #   json.partial! product
   #
@@ -14,7 +14,7 @@ end
 json.products @products do |product|
   json.partial! product
 
-  json.image product.attachments.first
+  json.image product.attachments.sort_by{ |i| i.id }.first
 end
 
 json.properties @primary_section.properties do |property|

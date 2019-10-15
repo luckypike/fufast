@@ -77,22 +77,20 @@
   position: relative;
 
   @media(--s) {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8px;
   }
 }
 
 .mini_icons {
-  margin-right: calc(var(--yr) * var(--s2));
-  width: 230px;
-  height: 290px;
   position: relative;
   background-color: white;
-  overflow: hidden;
 
   &::before {
     display: block;
     content: '';
-    padding-top: calc(3 / 4 * 100%);
+    padding-top: calc(5 / 4 * 100%);
   }
 
   & img {

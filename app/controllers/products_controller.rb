@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   def show
     @product = Product.includes(:attachments).find(params[:id])
+    @section = @product.sections.first.secondary_section
+    @siblings = @section.sections
 
     authorize @product
 

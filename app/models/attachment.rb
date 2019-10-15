@@ -27,7 +27,18 @@ class Attachment < ApplicationRecord
     Rails.application.credentials.docker[:host] + hmac + path
   end
 
+  def proxy_section
+    url = Base64.urlsafe_encode64(path).tr('=', '').scan(/.{1,16}/).join('/')
+
+    path = "/fit/800/1000/sm/0/#{url}.jpg"
+
+    digest = OpenSSL::Digest.new('sha256')
+    hmac = Base64.urlsafe_encode64(OpenSSL::HMAC.digest(digest, IMG_KEY, IMG_SALT + path)).tr('=', '')
+
+    Rails.application.credentials.docker[:host] + hmac + path
+  end
+
   def as_json(options = nil)
-    super({ only: [], methods: %i[id path proxy] }.deep_merge(options || {}))
+    super({ only: [], methods: %i[id path proxy proxy_section] }.deep_merge(options || {}))
   end
 end

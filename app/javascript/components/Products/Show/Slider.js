@@ -16,7 +16,6 @@ export default function Slider ({ product }) {
   useEffect(() => {
     slider.current = new Siema({
       selector: mount.current,
-      perPage: 1,
       onChange: () => {
         setCurrent(slider.current.currentSlide)
       }
@@ -28,20 +27,24 @@ export default function Slider ({ product }) {
   return (
     <div className={styles.root}>
       <div className={styles.slider}>
-        <div className={styles.prev} onClick={() => slider.current.prev()}>
-          <svg viewBox="0 0 60 60">
-            <polyline points="35,16 25,30 35,44"></polyline>
-          </svg>
-        </div>
+        {product.images.length > 1 &&
+          <>
+            <div className={styles.prev} onClick={() => slider.current.prev()}>
+              <svg viewBox="0 0 60 60">
+                <polyline points="35,16 25,30 35,44"></polyline>
+              </svg>
+            </div>
 
-        <div className={styles.next} onClick={() => slider.current.next()}>
-          <svg viewBox="0 0 60 60">
-            <polyline points="25,16 35,30 25,44"></polyline>
-          </svg>
-        </div>
+            <div className={styles.next} onClick={() => slider.current.next()}>
+              <svg viewBox="0 0 60 60">
+                <polyline points="25,16 35,30 25,44"></polyline>
+              </svg>
+            </div>
+          </>
+        }
 
         <div className={styles.images} ref={mount}>
-          {product.images.map(image =>
+          {product.images.length > 1 && product.images.map(image =>
             <div key={image.id} className={styles.image}>
               <img src={image.proxy} />
             </div>
@@ -49,15 +52,21 @@ export default function Slider ({ product }) {
         </div>
       </div>
 
-      <div className={styles.icons}>
-        {product.images.map((i, index) =>
-          <div key={i.id}>
-            <div className={classNames(styles.mini_icons, { [styles.active]: current === index })} onClick={() => slider.current.goTo(index)}>
+      {product.images.length === 1 &&
+        <div className={styles.image}>
+          <img src={product.images[0].proxy} />
+        </div>
+      }
+
+      {product.images.length > 1 &&
+        <div className={styles.icons}>
+          {product.images.map((i, index) =>
+            <div key={i.id} className={classNames(styles.mini_icons, { [styles.active]: current === index })} onClick={() => slider.current.goTo(index)}>
               <img src={i.proxy} />
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      }
     </div>
   )
 }

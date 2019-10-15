@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
+import { path } from '../Routes'
 
 import Cart from './Show/Cart'
 import Properties from './Show/Properties'
@@ -12,7 +13,9 @@ import page from '../Page.module.css'
 
 Show.propTypes = {
   product: PropTypes.object.isRequired,
-  token: PropTypes.string.isRequired
+  token: PropTypes.string.isRequired,
+  section: PropTypes.object,
+  siblings: PropTypes.array
 }
 
 export default function Show (props) {
@@ -33,6 +36,22 @@ export default function Show (props) {
     <div className={page.root}>
       <div className={page.com}>
         <div className={styles.root}>
+          <div className={styles.sections}>
+            <div className={styles.product_sections}>
+              {props.section.title}
+            </div>
+
+            {props.siblings.length > 0 &&
+              <div className={styles.subs}>
+                {props.siblings.map(({ id, title, slug }) =>
+                  <a key={id} href={path('section_catalog_path', { slug })}>
+                    {title}
+                  </a>
+                )}
+              </div>
+            }
+          </div>
+
           <div className={styles.slider}>
             <Slider product={product} />
           </div>
