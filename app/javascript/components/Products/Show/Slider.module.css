@@ -2,7 +2,7 @@
   position: relative;
   display: block;
 
-  @media(--l) {
+  @media(--m) {
     display: grid;
     grid-template-columns: 1fr;
   }

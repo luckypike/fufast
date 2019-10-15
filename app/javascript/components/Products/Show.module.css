@@ -47,7 +47,7 @@
 }
 
 .sections {
-  @media(--l) {
+  @media(--m) {
     grid-column: span 2;
   }
 }
