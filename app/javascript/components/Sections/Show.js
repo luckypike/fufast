@@ -72,7 +72,6 @@ function Section ({ section, primary, secondary, subs, history, location }) {
   }, [params])
 
   useEffect(() => {
-    console.log('SET PARAMS')
     setParams(querystring.parse(location.search.slice(1)))
   }, [location])
 
@@ -153,13 +152,13 @@ function Section ({ section, primary, secondary, subs, history, location }) {
         {sections &&
           <div>
             {sections.filter(section => section.products.length > 0).map(section =>
-              <div key={section.id}>
+              <div key={section.id} className={styles.product_sections}>
                 <h2>
                   <a href={path('section_catalog_path', { slug: section.slug })}>{section.title}</a>
                 </h2>
 
                 <div>
-                  <Products products={section.products} />
+                  <Products products={section.products} section={section} />
                 </div>
               </div>
             )}

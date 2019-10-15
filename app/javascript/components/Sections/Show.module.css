@@ -126,3 +126,7 @@
   background-color: #ffffff;
   color: #000;
 }
+
+.product_sections {
+  margin-top: calc(var(--yr) * var(--s3));
+}
