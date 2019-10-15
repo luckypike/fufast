@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize_user
 
   def show
-    @orders = @user.orders
+    @orders = @user.orders.order(created_at: :desc)
   end
 
   private

@@ -1,15 +1,4 @@
 class OrdersController < ApplicationController
-  def index
-    authorize Order
-
-    respond_to do |format|
-      format.html
-      format.json do
-        @orders = Current.user.orders
-      end
-    end
-  end
-
   def create
     @order = Order.new(order_params)
 
@@ -17,9 +6,10 @@ class OrdersController < ApplicationController
 
     if @order.save
       sign_in(@order.user)
-      head :ok, location: orders_path
+      head :ok, location: user_path(@order.user)
     else
-      render json: @order.errors.to_hash.merge({ email_exists: User.exists?(['LOWER(EMAIL) = ?', @order.user.email.downcase]) }), status: :unprocessable_entity
+      # TODO: refactoring
+      render json: @order.errors.to_hash.merge({ email_exists: User.exists?(['LOWER(EMAIL) = ?', @order.user.email.downcase]) && (Current.user && Current.user.email.downcase != @order.user.email.downcase) }), status: :unprocessable_entity
     end
   end
 

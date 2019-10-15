@@ -20,6 +20,10 @@ class User < ApplicationRecord
   before_validation :set_login
   before_create :set_default
 
+  def title
+    [name, lastname].join(' ') || email
+  end
+
   def salt
     self.PASSWORD.slice(0, self.PASSWORD.size - 32)
   end
@@ -41,7 +45,7 @@ class User < ApplicationRecord
   end
 
   def as_json(options = nil)
-    super({ only: [], methods: %i[id email name lastname phone] }.deep_merge(options || {}))
+    super({ only: [], methods: %i[id email title name lastname phone] }.deep_merge(options || {}))
   end
 
   private

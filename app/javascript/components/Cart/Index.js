@@ -22,7 +22,17 @@ export default function Cart ({ token, user, products }) {
   const [errors, setErrors] = useState({})
 
   useEffect(() => {
-    if (user) setValues({ ...values, user_id: user.id })
+    if (user) {
+      setValues({
+        ...values,
+        user_id: user.id,
+        user_attributes: {
+          name: user.name,
+          lastname: user.lastname,
+          phone: user.phone
+        }
+      })
+    }
   }, [user])
 
   const handleSubmit = async e => {
@@ -40,6 +50,7 @@ export default function Cart ({ token, user, products }) {
 
   const handleUserChange = (userValues) => {
     setValues({ ...values, user_attributes: userValues })
+    console.log(userValues)
   }
 
   const hasProducts = () => (products && products.length > 0)
@@ -57,11 +68,7 @@ export default function Cart ({ token, user, products }) {
               <Products products={products} />
 
               <form onSubmit={handleSubmit} className={form.root}>
-                {user &&
-                  <div>{user.name}</div>
-                }
-
-                {!user && <User errors={errors} onValuesChange={handleUserChange} /> }
+                <User init={user} errors={errors} onValuesChange={handleUserChange} />
 
                 {errors.email_exists && errors.email_exists === true &&
                   <div>
@@ -100,15 +107,16 @@ export default function Cart ({ token, user, products }) {
 
 User.propTypes = {
   onValuesChange: PropTypes.func,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  init: PropTypes.object
 }
 
-function User ({ onValuesChange, errors }) {
+function User ({ onValuesChange, errors, init }) {
   const [values, setValues] = useState({
-    email: '',
-    phone: '',
-    name: '',
-    lastname: ''
+    ...(init.email ? {} : { email: '' }),
+    phone: init.phone || '',
+    name: init.name || '',
+    lastname: init.lastname || ''
   })
 
   useEffect(() => {
@@ -121,25 +129,27 @@ function User ({ onValuesChange, errors }) {
 
   return (
     <>
-      <div className={form.el}>
-        <label>
-          <div className={form.label}>
-            Электронная почта
-          </div>
+      {values.email &&
+        <div className={form.el}>
+          <label>
+            <div className={form.label}>
+              Электронная почта
+            </div>
 
-          <div className={form.input}>
-            <input
-              placeholder="Обязательно заполните..."
-              type="email"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-            />
-          </div>
-        </label>
+            <div className={form.input}>
+              <input
+                placeholder="Обязательно заполните..."
+                type="email"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+              />
+            </div>
+          </label>
 
-        <Errors errors={errors['user.email']} />
-      </div>
+          <Errors errors={errors['user.email']} />
+        </div>
+      }
 
       <div className={form.el}>
         <label>

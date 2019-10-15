@@ -1,8 +1,4 @@
 class OrderPolicy < ApplicationPolicy
-  def index?
-    user
-  end
-
   def create?
     true
   end
