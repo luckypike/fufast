@@ -8,6 +8,7 @@ import debounce from 'lodash.debounce'
 
 import { path } from '../Routes'
 import Products from '../Products/List'
+import List from './List'
 import Properties from './Show/Properties'
 
 import styles from './Show.module.css'
@@ -158,7 +159,7 @@ function Section ({ section, primary, secondary, subs, history, location }) {
                 </h2>
 
                 <div>
-                  <Products products={section.products} section={section} />
+                  <List products={section.products} section={section} />
                 </div>
               </div>
             )}

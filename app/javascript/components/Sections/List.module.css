@@ -55,7 +55,7 @@
   margin-top: calc(var(--yr) * var(--s3));
   text-align: center;
 }
-/* 
+
 .product {
   display: block;
 
@@ -68,9 +68,10 @@
       display: block;
     }
   }
-  @media(--l) {
+
+  @media(--m) {
     &:nth-child(n) {
       display: block;
     }
   }
-} */
+}

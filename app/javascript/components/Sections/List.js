@@ -2,15 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { path } from '../Routes'
-import Loading from './Loading'
+import Loading from '../Products/Loading'
 
 import styles from './List.module.css'
+import buttons from '../Buttons.module.css'
 
 List.propTypes = {
-  products: PropTypes.array
+  products: PropTypes.array,
+  section: PropTypes.object
 }
 
-export default function List ({ products }) {
+export default function List ({ products, section }) {
   if (!products) return <Loading />
   if (products.length === 0) return null
 
@@ -37,6 +39,12 @@ export default function List ({ products }) {
           </a>
         )}
       </div>
+
+      {section &&
+        <div className={styles.more}>
+          <a href={path('section_catalog_path', { slug: section.slug })} className={buttons.main}>Посмотреть ещё</a>
+        </div>
+      }
     </div>
   )
 }

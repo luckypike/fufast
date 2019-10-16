@@ -1,5 +1,4 @@
 .properties {
-  /* display: none; */
   @media (--s) {
     display: flex;
     border-bottom: 1px solid rgb(229, 229, 229);
@@ -23,8 +22,6 @@
     }
 
     &:hover {
-      box-shadow: 0 0 0 9999px rgba(0,0,0, 0.3);
-      z-index: 2;
       background-color: white;
 
       & .enums {
