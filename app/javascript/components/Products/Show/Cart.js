@@ -154,9 +154,11 @@ export default function Cart ({ product, token }) {
           </div>
         }
 
-        <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
-          В корзину
-        </button>
+        {variants.length !== 0 &&
+          <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
+            В корзину
+          </button>
+        }
       </div>
     </div>
   )
