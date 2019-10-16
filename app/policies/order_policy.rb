@@ -3,6 +3,10 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    user == record.user
+  end
+
   class Scope < Scope
     def resolve
       scope.all

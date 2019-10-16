@@ -16,7 +16,7 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :user, update_only: true
 
-  before_validation :set_price
+  before_validation :set_price, on: :create
   before_create :set_default
 
   def as_json(options = nil)

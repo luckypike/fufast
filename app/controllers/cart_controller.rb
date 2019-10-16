@@ -3,19 +3,34 @@ class CartController < ApplicationController
 
   def create
     session[:cart] ||= {}
-    session[:cart][params[:product_id]] = params[:variants]
+
+    session[:cart][cart_params[:product_id]] = cart_params[:variants].reject { |i| i['q'] < 1 }
 
     head :ok
   end
 
   def index
-    @products = Product.where(id: session[:cart] ? session[:cart].keys : nil)
-      .includes(element: { element_properties: :property })
+    @items = []
+
+    session[:cart].each do |product_id, cart|
+      product = Product.find_by(id: product_id)
+      cart.each do |variant|
+        next if variant['q'] < 1
+
+        item = OrderItem.new(product: product, price: product.price, quantity: variant['q'])
+        item.size = variant['title']
+        @items << item
+      end
+    end
   end
 
   private
 
   def authorize_cart
     authorize :cart
+  end
+
+  def cart_params
+    params.require(:cart).permit(:product_id, variants: %i[q title size_id size height height_id])
   end
 end

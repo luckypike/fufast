@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import { path } from '../Routes'
 import { Errors } from '../Form'
-import Products from './Index/Products'
+import { currency } from '../Price'
 
 import styles from './Index.module.css'
 import page from '../Page.module.css'
@@ -13,11 +13,21 @@ import buttons from '../Buttons.module.css'
 
 Cart.propTypes = {
   token: PropTypes.string.isRequired,
-  products: PropTypes.array.isRequired,
   user: PropTypes.object
 }
 
-export default function Cart ({ token, user, products }) {
+export default function Cart ({ token, user }) {
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const _fetch = async () => {
+      const { data } = await axios.get(path('cart_path', { format: 'json' }))
+      setItems(data.items)
+    }
+
+    _fetch()
+  }, [])
+
   const [values, setValues] = useState()
   const [errors, setErrors] = useState({})
 
@@ -50,10 +60,9 @@ export default function Cart ({ token, user, products }) {
 
   const handleUserChange = (userValues) => {
     setValues({ ...values, user_attributes: userValues })
-    console.log(userValues)
   }
 
-  const hasProducts = () => (products && products.length > 0)
+  const hasProducts = () => (items && items.length > 0)
 
   return (
     <div className={page.root}>
@@ -65,7 +74,32 @@ export default function Cart ({ token, user, products }) {
 
           {hasProducts() &&
             <div>
-              <Products products={products} />
+              <div>
+                {items.map(item =>
+                  <div key={item.uuid} className={styles.item}>
+                    <div className={styles.image}>
+                      {item.product.image &&
+                        <img src={item.product.image.proxy} />
+                      }
+                    </div>
+
+                    <div className={styles.data}>
+                      <div className={styles.title}>
+                        {item.product.title}
+                      </div>
+
+                      <div className={styles.size}>
+                        {item.size}
+                      </div>
+
+                      <div className={styles.price}>
+                        {currency(item.price * item.quantity)}
+                        {item.quantity > 1 && ` (${currency(item.price)} * ${item.quantity})`}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               <form onSubmit={handleSubmit} className={form.root}>
                 <User init={user} errors={errors} onValuesChange={handleUserChange} />

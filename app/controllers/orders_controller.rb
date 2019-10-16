@@ -1,4 +1,10 @@
 class OrdersController < ApplicationController
+  def show
+    @order = Order.find(params[:id])
+
+    authorize @order
+  end
+
   def create
     @order = Order.new(order_params)
 

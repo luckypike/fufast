@@ -1,12 +1,3 @@
-.root {
-  /* padding-bottom: calc(var(--yr) * var(--s4)); */
-}
-
-.login {
-  margin-top: calc(var(--yr) * var(--s3));
-}
-
-
 .item {
   background: #fff;
   padding: calc(var(--yr) * var(--s3)) var(--xr);
@@ -46,11 +37,6 @@
 
 .data {
   composes: at from '../Fonts.module.css';
-}
-
-.size {
-  composes: mt from '../Fonts.module.css';
-  margin-top: var(--yr);
 }
 
 .price {

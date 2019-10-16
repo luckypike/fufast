@@ -3,6 +3,7 @@
 }
 
 .order {
+  display: block;
   background: #fff;
   padding: calc(var(--yr) * var(--s3)) var(--xr);
   margin-bottom: calc(var(--yr) * var(--s3));

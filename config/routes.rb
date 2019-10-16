@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get :reset, to: 'sessions#rereset'
   post :reset, to: 'sessions#reset'
 
-  resources :orders, only: %i[create]
+  resources :orders, only: %i[create show]
   resources :users, only: %i[show]
 
   # Pages

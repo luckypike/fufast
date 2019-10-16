@@ -34,8 +34,10 @@ export default function Cart ({ product, token }) {
         height.items.filter(i => height.values.map(v => parseInt(v.value)).includes(i.id)).forEach(hv => {
           newVariants.push({
             title: `${sv.value} / ${hv.value}`,
-            [size.id]: sv.id,
-            [height.id]: hv.id,
+            size_id: size.id,
+            size: sv.id,
+            height_id: height.id,
+            height: hv.id,
             q: 0
           })
         })
@@ -44,7 +46,8 @@ export default function Cart ({ product, token }) {
       size.items.filter(i => size.values.map(v => parseInt(v.value)).includes(i.id)).forEach(i => {
         newVariants.push({
           title: i.value,
-          [size.id]: i.id,
+          size_id: size.id,
+          size: i.id,
           q: 0
         })
       })
@@ -89,8 +92,10 @@ export default function Cart ({ product, token }) {
 
   const handleAddToCart = async () => {
     await axios.post('/cart', {
-      product_id: product.id,
-      variants,
+      cart: {
+        product_id: product.id,
+        variants
+      },
       authenticity_token: token
     })
   }

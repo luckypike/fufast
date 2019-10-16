@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { path } from '../Routes'
 import { currency } from '../Price'
 
 import styles from './List.module.css'
@@ -13,7 +14,7 @@ export default function List ({ orders }) {
   return (
     <div>
       {orders.map(order =>
-        <div key={order.id} className={styles.order}>
+        <a href={path('order_path', { id: order.id })} key={order.id} className={styles.order}>
           <div className={styles.header}>
             <div className={styles.number}>
               Заказ № {order.id}
@@ -29,7 +30,7 @@ export default function List ({ orders }) {
               Товаров: {order.items.length}, сумма заказа: {currency(order.price)}
             </p>
           </div>
-        </div>
+        </a>
       )}
     </div>
   )
