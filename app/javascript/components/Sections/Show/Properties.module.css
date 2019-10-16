@@ -16,10 +16,6 @@
     border-top: 0;
     padding: 0 calc(var(--yr) * var(--s2));
 
-    &:first-child {
-      padding-left: 0;
-    }
-
     &:before {
       position: absolute;
       display: block;
@@ -27,16 +23,18 @@
     }
 
     &:hover {
-      opacity: 1;
+      box-shadow: 0 0 0 9999px rgba(0,0,0, 0.3);
+      z-index: 2;
+      background-color: white;
 
       & .enums {
-        opacity: 1;
         cursor: pointer;
         overflow: hidden;
         position: absolute;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         z-index: 100;
+        left: 0;
         top: 100%;
         background: white;
         padding: calc(var(--yr) * var(--s3));
@@ -45,7 +43,7 @@
       }
 
       & .col1 {
-        left: -35%;
+        left: -45%;
         transform: translateX(1%);
       }
       & .col2 {
@@ -53,15 +51,15 @@
       }
       & .col3 {
         transform: translateX(-42%);
-        left: 25%;
+        left: 2%;
       }
       & .col4 {
-        left: 18%;
+        left: -1%;
         transform: translateX(-52%);
       }
       & .col5 {
-        left: -40%;
-        transform: translateX(-58%);
+        left: -52%;
+        transform: translateX(-59%);
       }
 
       & .title {

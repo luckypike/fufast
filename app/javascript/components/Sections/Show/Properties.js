@@ -78,7 +78,7 @@ function Items ({ items, property, onValuesChange, init }) {
   }, [values])
 
   return (
-    <ul className={classNames(styles.enums, styles.overlay, { [styles.col1]: property.id === 104, [styles.col2]: property.id === 107, [styles.col3]: property.id === 108, [styles.col4]: property.id === 137, [styles.col5]: property.id === 144 })}>
+    <ul className={classNames(styles.enums, { [styles.col1]: property.id === 104, [styles.col2]: property.id === 107, [styles.col3]: property.id === 108, [styles.col4]: property.id === 137, [styles.col5]: property.id === 144 })}>
       {items.map(item =>
         <Item onValueChange={handleValueChange} property={property} init={values[item.id]} item={item} key={item.id} />
       )}

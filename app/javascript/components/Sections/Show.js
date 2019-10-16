@@ -38,7 +38,7 @@ Link.propTypes = {
 function Link (props) {
   const path = window.location.pathname
 
-  return <a href={props.href} className={classNames({ [styles.active]: path === props.href, [styles.inactive]: path !== props.href })}>{props.children}</a>
+  return <a href={props.href} className={classNames({ [styles.active_sub]: path === props.href, [styles.inactive_sub]: path !== props.href })}>{props.children}</a>
 }
 
 function Section ({ section, primary, secondary, subs, history, location }) {

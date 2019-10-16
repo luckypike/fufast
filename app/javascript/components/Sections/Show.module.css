@@ -117,12 +117,12 @@
   max-width: 48rem;
 }
 
-.active {
+.active_sub {
   background-color: var(--pr_color);
   color: #fff;
 }
 
-.inactive {
+.inactive_sub {
   background-color: #ffffff;
   color: #000;
 }
