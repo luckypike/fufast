@@ -5,6 +5,7 @@ import axios from 'axios'
 import classNames from 'classnames'
 import querystring from 'querystring'
 import debounce from 'lodash.debounce'
+import ReactMarkdown from 'react-markdown'
 
 import { path } from '../Routes'
 import Products from '../Products/List'
@@ -124,7 +125,7 @@ function Section ({ section, primary, secondary, subs, history, location }) {
 
           {section.description &&
             <div className={styles.description}>
-              {section.description}
+              <ReactMarkdown source={section.description} escapeHtml={false} />
             </div>
           }
 
