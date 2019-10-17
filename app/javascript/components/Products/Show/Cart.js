@@ -159,7 +159,7 @@ export default function Cart ({ product, token }) {
 
         {!product.price &&
           <div className={styles.not_available}>
-            Цена будет уточнена при обработке заказа
+            Товар временно недоступен для покупки, позвоните по телефону для уточнения.
           </div>
         }
 
