@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import Siema from 'siema'
 import { path } from '../../Routes'
-import classNames from 'classnames'
 
 import styles from './Sections.module.css'
 import buttons from '../../Buttons.module.css'
@@ -19,20 +18,24 @@ export default function Section ({ section, products }) {
   useEffect(() => {
     slider.current = new Siema({
       selector: mount.current,
-      duration: 500,
-      loop: true,
       perPage: {
         768: 2
       }
     })
   }, [])
 
+  const more = {
+    id: 114,
+    title: 'Все товары'
+  }
+
+  products.push(more)
   const chunks = [...Array(Math.ceil(products.length / 2))].map((n, i) => products.slice(i * 2, (i + 1) * 2))
 
   return (
     <div className={styles.sections}>
       <div className={styles.section_image}>
-        <div className={classNames(styles.image, { [styles.protect]: section.id === 177 })} style={{ backgroundImage: `url(${section.image.proxy})` }}>
+        <div className={styles.image} style={{ backgroundImage: `url(${section.image.proxy})` }}>
         </div>
 
         <div className={styles.text}>
@@ -51,32 +54,36 @@ export default function Section ({ section, products }) {
             <div key={i} className={styles.products}>
               {chunk.map(product =>
                 <div key={product.id} className={styles.product}>
-                  <a href={path('product_catalog_path', { id: product.id })}>
-                    <div className={styles.photo}>
-                      {product.image &&
-                        <img src={product.image} />
-                      }
-                    </div>
+                  {product.id !== 114 &&
+                    <a href={path('product_catalog_path', { id: product.id })}>
+                      <div className={styles.photo}>
+                        {product.image &&
+                          <img src={product.image} />
+                        }
+                      </div>
 
-                    <div className={styles.tap}>
-                      <div className={styles.title}>
+                      <div className={styles.tap}>
+                        <div className={styles.title}>
+                          {product.title}
+                        </div>
+
+                        <div className={styles.price}>
+                          {product.price}
+                        </div>
+                      </div>
+                    </a>
+                  }
+                  {product.id === 114 &&
+                    <div className={styles.more}>
+                      <a href={path('section_catalog_path', { slug: section.slug })} className={buttons.main}>
                         {product.title}
-                      </div>
-
-                      <div className={styles.price}>
-                        {product.price}
-                      </div>
+                      </a>
                     </div>
-                  </a>
+                  }
                 </div>
               )}
             </div>
           )}
-        </div>
-
-        <div className={styles.nav}>
-          <div className={styles.prev} onClick={() => slider.current.prev(2)} />
-          <div className={styles.next} onClick={() => slider.current.next(2)} />
         </div>
       </div>
     </div>
