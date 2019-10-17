@@ -15,7 +15,9 @@ Show.propTypes = {
   product: PropTypes.object.isRequired,
   token: PropTypes.string.isRequired,
   section: PropTypes.object,
-  siblings: PropTypes.array
+  siblings: PropTypes.array,
+  gloves: PropTypes.object,
+  gloves_subs: PropTypes.array
 }
 
 export default function Show (props) {
@@ -44,6 +46,16 @@ export default function Show (props) {
             {props.siblings.length > 0 &&
               <div className={styles.subs}>
                 {props.siblings.map(({ id, title, slug }) =>
+                  <a key={id} href={path('section_catalog_path', { slug })}>
+                    {title}
+                  </a>
+                )}
+              </div>
+            }
+
+            {props.gloves.id === 168 &&
+              <div className={styles.subs}>
+                {props.gloves_subs.map(({ id, title, slug }) =>
                   <a key={id} href={path('section_catalog_path', { slug })}>
                     {title}
                   </a>

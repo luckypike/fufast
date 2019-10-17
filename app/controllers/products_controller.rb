@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
     @product = Product.includes(:attachments).find(params[:id])
     @section = @product.sections.first.secondary_section
     @siblings = @section.sections
+    @gloves = @product.sections.first.primary_section
+    @gloves_subs = @gloves.sections
 
     authorize @product
 
