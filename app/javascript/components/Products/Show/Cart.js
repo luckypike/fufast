@@ -27,8 +27,6 @@ export default function Cart ({ product, token }) {
     if (!size) size = product.properties.find(prop => prop.id === 103)
     if (!size) size = product.properties.find(prop => prop.id === 105)
 
-    console.log(size)
-
     if (height && size) {
       size.items.filter(i => size.values.map(v => parseInt(v.value)).includes(i.id)).forEach(sv => {
         height.items.filter(i => height.values.map(v => parseInt(v.value)).includes(i.id)).forEach(hv => {
@@ -102,6 +100,11 @@ export default function Cart ({ product, token }) {
 
   if (!variants) return null
 
+  const s = variants.map(variant => variant.q)
+  var result = s.reduce(function (sum, current) {
+    return sum + current
+  }, 0)
+
   return (
     <div className={styles.root}>
       <div className={styles.variants}>
@@ -134,17 +137,23 @@ export default function Cart ({ product, token }) {
       <div className={styles.order_price}>
         {product.price && product.price.length > 0 &&
           <>
-            <div className={styles.ppi}>
-              Цена за штуку
-            </div>
+            {result <= 1 &&
+              <div className={styles.ppi}>
+                <span>Цена за штуку</span>
+                <div className={styles.price}>
+                  {currency(product.price)}
+                </div>
+              </div>
+            }
 
-            <div className={styles.po}>
-              Общая стоимость
-            </div>
-
-            <div className={styles.price}>
-              {currency(product.price)}
-            </div>
+            {result > 1 &&
+              <div className={styles.po}>
+                <span>Общая стоимость</span>
+                <div className={styles.price}>
+                  {currency(product.price * result)}
+                </div>
+              </div>
+            }
           </>
         }
 
