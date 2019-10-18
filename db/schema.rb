@@ -4854,6 +4854,8 @@ ActiveRecord::Schema.define(version: 2019_10_14_150237) do
   create_table "b_uts_iblock_20_section", primary_key: "VALUE_ID", id: :integer, default: nil, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "UF_MENU_TOP"
     t.integer "UF_MAIN"
+    t.text "UF_SECTION_SHORT"
+    t.text "UF_SECTION_LINK"
   end
 
   create_table "b_vote", primary_key: "ID", id: :integer, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
