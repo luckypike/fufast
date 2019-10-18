@@ -10,7 +10,7 @@ class Section < ApplicationRecord
   alias_attribute :iblock_id, :IBLOCK_ID
   alias_attribute :iblock_section_id, :IBLOCK_SECTION_ID
 
-  default_scope { where(iblock_id: 20, active: 'Y') }
+  default_scope { where(iblock_id: 20, active: 'Y').with_props }
 
   attr_accessor :descendants
 
@@ -74,5 +74,11 @@ class Section < ApplicationRecord
 
   def as_json(options = nil)
     super({ only: [], methods: %i[id title depth slug] }.deep_merge(options || {}))
+  end
+
+  class << self
+    def with_props
+      joins('INNER JOIN b_uts_iblock_20_section uts ON b_iblock_section.ID = uts.VALUE_ID')
+    end
   end
 end
