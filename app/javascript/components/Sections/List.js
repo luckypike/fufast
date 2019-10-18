@@ -42,7 +42,7 @@ export default function List ({ products, section }) {
 
       {section &&
         <div className={styles.more}>
-          <a href={path('section_catalog_path', { slug: section.slug })} className={buttons.main}>Посмотреть ещё</a>
+          <a href={path('section_catalog_path', { slug: section.slug })} className={buttons.main}>{section.link ? section.link : 'Посмотреть ещё'}</a>
         </div>
       }
     </div>

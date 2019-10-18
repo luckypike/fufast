@@ -34,7 +34,7 @@ Section.propTypes = {
 
 Link.propTypes = {
   href: PropTypes.string,
-  children: PropTypes.string
+  children: PropTypes.array
 }
 
 function Link (props) {
@@ -93,9 +93,14 @@ function Section ({ section, primary, secondary, subs, history, location }) {
 
           {subs.length > 0 &&
             <div className={styles.subs}>
-              {subs.map(({ id, title, slug }) =>
+              {subs.map(({ id, title, slug, short }) =>
                 <Link key={id} href={path('section_catalog_path', { slug })}>
-                  {title}
+                  {short &&
+                    <div>{ short }</div>
+                  }
+                  {!short &&
+                    <div>{ title }</div>
+                  }
                 </Link>
               )}
             </div>
