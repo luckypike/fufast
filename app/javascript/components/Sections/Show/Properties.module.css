@@ -164,16 +164,16 @@ input:checked + .item:before {
   visibility: hidden;
   position: absolute;
   top: 100%;
-  left: -3%;
-  right: -3%;
+  left: 0;
+  right: 0;
   height: 200vh;
   opacity: 0;
-  transition: visibility 0s ease .1 s, opacity .1s;
   background: color-mod(black a(70%));
 
   &.active {
     visibility: visible;
     opacity: .4;
-    transition: opacity .1s;
+    left: calc(var(--yr) * var(--s3) * -1);
+    right: calc(var(--yr) * var(--s3) * -1);
   }
 }
