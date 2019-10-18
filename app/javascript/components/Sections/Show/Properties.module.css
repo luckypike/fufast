@@ -14,7 +14,7 @@
 
   @media (--s) {
     border-top: 0;
-    padding: 0 calc(var(--yr) * var(--s2));
+    padding: calc(var(--yr) * var(--s2));
 
     &:before {
       position: absolute;
@@ -68,7 +68,6 @@
 }
 
 .title {
-  margin-bottom: calc(var(--yr) * var(--s2));
   font-weight: 600;
 
   @media (--s) {
