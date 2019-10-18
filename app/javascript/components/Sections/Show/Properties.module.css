@@ -1,4 +1,5 @@
 .properties {
+  position: relative;
   @media (--s) {
     display: flex;
     border-bottom: 1px solid rgb(229, 229, 229);
@@ -158,4 +159,22 @@ input:checked + .item:before {
   display: block;
   position: absolute;
   z-index: 200;
+}
+
+.overlay {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: -3%;
+  right: -3%;
+  height: 200vh;
+  opacity: 0;
+  transition: visibility 0s ease .1 s, opacity .1s;
+  background: color-mod(black a(70%));
+
+  &.active {
+    visibility: visible;
+    opacity: .4;
+    transition: opacity .1s;
+  }
 }

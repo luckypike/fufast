@@ -17,6 +17,7 @@
   position: relative;
   background-color: white;
   overflow: hidden;
+  z-index: -2;
 
   &::before {
     display: block;
@@ -55,7 +56,7 @@
   margin-top: calc(var(--yr) * var(--s3));
   text-align: center;
 }
-/* 
+/*
 .product {
   display: block;
 

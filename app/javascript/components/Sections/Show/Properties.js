@@ -12,6 +12,7 @@ Properties.propTypes = {
 }
 
 export default function Properties ({ properties, history, params }) {
+  const [overlay, setOverlay] = useState(false)
   const [values, setValues] = useState(() => {
     const init = {}
 
@@ -44,8 +45,9 @@ export default function Properties ({ properties, history, params }) {
 
   return (
     <div className={styles.properties}>
+      <div className={classNames(styles.overlay, { [styles.active]: overlay })}></div>
       {properties.filter(p => p.id === 101 || true).map(property =>
-        <div key={property.id} className={classNames(styles.property, styles.overlay)}>
+        <div key={property.id} className={styles.property} onMouseOver={() => setOverlay(!overlay)} onMouseOut={() => setOverlay(!overlay)}>
           <div className={styles.title}>
             {property.title}
           </div>
