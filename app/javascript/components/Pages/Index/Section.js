@@ -73,6 +73,7 @@ export default function Section ({ section, products }) {
                       </div>
                     </a>
                   }
+
                   {product.id === 114 &&
                     <div className={styles.more}>
                       <a href={path('section_catalog_path', { slug: section.slug })} className={buttons.main}>
@@ -83,6 +84,12 @@ export default function Section ({ section, products }) {
                 </div>
               )}
             </div>
+          )}
+        </div>
+
+        <div className={styles.nav}>
+          {chunks.map((i, index) =>
+            <div key={index} className={styles.slide} onClick={() => slider.current.goTo(index)} />
           )}
         </div>
       </div>

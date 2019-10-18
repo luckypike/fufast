@@ -56,14 +56,6 @@
     @media(--s) {
       padding-top: calc(4 / 5 * 100%);
     }
-/*
-    @media(--m) {
-      padding-top: 50%;
-    }
-
-    @media(--l) {
-      padding-top: 80%;
-    } */
   }
 }
 
@@ -94,7 +86,7 @@
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
     grid-gap: 8px;
-    padding: 4px
+    padding: 0 var(--yr) var(--yr);
   }
 }
 
@@ -147,6 +139,12 @@
   line-height: 20px;
   max-height: 3.5rem;
   padding: 0 8px;
+  margin-bottom: calc(var(--yr) * 2);
+}
+
+.price {
+  padding: 0 8px;
+  composes: mt from '../../Fonts.module.css';
 }
 
 .nav {
@@ -154,13 +152,11 @@
   @media(--l) {
     color: black;
     display: block;
-    position: absolute;
     z-index: 10;
-    bottom: 0;
     padding: 0;
-    left: 15%;
-    width: 60px;
-    transform: translateX(-10%);
+    height: 40px;
+    width: max-content;
+    margin: calc(var(--yr)* var(--s3)) auto;
   }
 }
 
@@ -179,6 +175,10 @@
     width: 1.25rem;
     height: 2px;
   }
+
+  &:last-child {
+    display: none;
+  }
 }
 
 .tap {
@@ -187,5 +187,9 @@
 
 .more {
   text-align: center;
-  margin: 71% 0;
+  margin: 68% 0;
+}
+
+.active {
+  opacity: 1;
 }
