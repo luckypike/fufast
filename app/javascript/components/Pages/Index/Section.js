@@ -42,7 +42,12 @@ export default function Section ({ section, products }) {
           <h1>{section.title}</h1>
           <div className={styles.action}>
             <a href={path('section_catalog_path', { slug: section.slug })} className={buttons.main}>
-              {section.title}
+              {section.link &&
+                <div>{section.link}</div>
+              }
+              {!section.link &&
+                <div>{section.title}</div>
+              }
             </a>
           </div>
         </div>
