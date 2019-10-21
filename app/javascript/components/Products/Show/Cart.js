@@ -157,9 +157,15 @@ export default function Cart ({ product, token }) {
           </>
         }
 
-        {!product.price &&
+        {!product.price && variants.length === 0 &&
           <div className={styles.not_available}>
             Товар временно недоступен для покупки, позвоните по телефону для уточнения.
+          </div>
+        }
+
+        {product.price === null && variants.length > 0 &&
+          <div className={styles.not_available}>
+            Цена будет уточнена после обработки заказа
           </div>
         }
 
