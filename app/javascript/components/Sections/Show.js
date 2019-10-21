@@ -109,7 +109,7 @@ function Section ({ section, primary, secondary, subs, history, location }) {
           {properties &&
             <>
               <div className={classNames(styles.properties, { [styles.active]: showProps })}>
-                <Properties properties={properties} params={params} history={history} />
+                <Properties properties={properties} params={params} history={history} gloves={primary.id === 168} />
               </div>
 
               <div className={styles.propertiesToggle} onClick={() => [setShowProps(!showProps), setToggle(!toggle)]}>

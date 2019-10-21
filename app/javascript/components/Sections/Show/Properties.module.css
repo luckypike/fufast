@@ -1,6 +1,9 @@
 .properties {
   position: relative;
+  overflow: hidden;
+
   @media (--s) {
+    overflow: visible;
     display: flex;
     border-bottom: 1px solid rgb(229, 229, 229);
   }
@@ -58,6 +61,21 @@
       & .col5 {
         left: -52%;
         transform: translateX(-59%);
+      }
+
+      & .col6 {
+        left: 1%;
+        transform: translateX(-37%);
+      }
+
+      & .col7 {
+        left: 0;
+        transform: translateX(-54%);
+      }
+
+      & .col8 {
+        left: 1%;
+        transform: translateX(-24%);
       }
 
       & .title {

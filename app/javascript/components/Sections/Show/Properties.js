@@ -8,10 +8,11 @@ import styles from './Properties.module.css'
 Properties.propTypes = {
   properties: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
-  params: PropTypes.object.isRequired
+  params: PropTypes.object.isRequired,
+  gloves: PropTypes.bool.isRequired
 }
 
-export default function Properties ({ properties, history, params }) {
+export default function Properties ({ properties, history, params, gloves }) {
   const [overlay, setOverlay] = useState(false)
   const [values, setValues] = useState(() => {
     const init = {}
@@ -52,7 +53,7 @@ export default function Properties ({ properties, history, params }) {
             {property.title}
           </div>
 
-          <Items onValuesChange={handleValuesChange} items={property.enum} init={values[property.id]} property={property} />
+          <Items onValuesChange={handleValuesChange} items={property.enum} init={values[property.id]} property={property} gloves={gloves}/>
         </div>
       )}
     </div>
@@ -63,10 +64,11 @@ Items.propTypes = {
   property: PropTypes.object.isRequired,
   onValuesChange: PropTypes.func.isRequired,
   init: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  gloves: PropTypes.bool.isRequired
 }
 
-function Items ({ items, property, onValuesChange, init }) {
+function Items ({ items, property, onValuesChange, init, gloves }) {
   const [values, setValues] = useState(init)
 
   const handleValueChange = (id, value) => {
@@ -80,7 +82,7 @@ function Items ({ items, property, onValuesChange, init }) {
   }, [values])
 
   return (
-    <ul className={classNames(styles.enums, { [styles.col1]: property.id === 104, [styles.col2]: property.id === 107, [styles.col3]: property.id === 108, [styles.col4]: property.id === 137, [styles.col5]: property.id === 144 })}>
+    <ul className={classNames(styles.enums, { [styles.col1]: property.id === 104, [styles.col2]: property.id === 107, [styles.col3]: property.id === 108, [styles.col4]: property.id === 137 && !gloves, [styles.col5]: property.id === 144, [styles.col6]: property.id === 159, [styles.col7]: property.id === 160, [styles.col8]: property.id === 137 && gloves })}>
       {items.map(item =>
         <Item onValueChange={handleValueChange} property={property} init={values[item.id]} item={item} key={item.id} />
       )}
