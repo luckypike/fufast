@@ -5,6 +5,7 @@ import axios from 'axios'
 import { path } from '../Routes'
 import { Errors } from '../Form'
 import { currency } from '../Price'
+import Account from './Account'
 
 import styles from './Index.module.css'
 import page from '../Page.module.css'
@@ -68,6 +69,8 @@ export default function Cart ({ token, user }) {
     <div className={page.root}>
       <div className={page.text}>
         <div className={styles.root}>
+          <Account user={user} />
+
           <h1>
             Корзина
           </h1>

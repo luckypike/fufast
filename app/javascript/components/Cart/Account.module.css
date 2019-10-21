@@ -1,0 +1,22 @@
+.root {
+  background-color: #fff;
+  margin-bottom: calc(var(--yr) * var(--s3));
+  padding: calc(var(--yr) * var(--s3)) var(--xr);
+}
+
+.name {
+  display: flex;
+  margin: 0 0 calc(var(--yr) * 1.5);
+
+  & .firstname {
+    margin-right: var(--yr);
+  }
+}
+
+.phone {
+  margin: 0 0 calc(var(--yr) * 1.5);
+}
+
+.email {
+  margin: 0 0 calc(var(--yr) * var(--s3));
+}

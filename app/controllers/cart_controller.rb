@@ -12,14 +12,16 @@ class CartController < ApplicationController
   def index
     @items = []
 
-    session[:cart].each do |product_id, cart|
-      product = Product.find_by(id: product_id)
-      cart.each do |variant|
-        next if variant['q'] < 1
+    if session[:cart]
+      session[:cart].each do |product_id, cart|
+        product = Product.find_by(id: product_id)
+        cart.each do |variant|
+          next if variant['q'] < 1
 
-        item = OrderItem.new(product: product, price: product.price, quantity: variant['q'])
-        item.size = variant['title']
-        @items << item
+          item = OrderItem.new(product: product, price: product.price, quantity: variant['q'])
+          item.size = variant['title']
+          @items << item
+        end
       end
     end
   end
