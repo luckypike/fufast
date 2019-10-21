@@ -71,9 +71,9 @@ export default function Show (props) {
             {props.gloves.id === 168 &&
               <div className={styles.subs}>
                 {props.gloves_subs.map(({ id, title, slug }) =>
-                  <a key={id} href={path('section_catalog_path', { slug })}>
+                  <Link key={id} current={props.current} href={path('section_catalog_path', { slug })}>
                     {title}
-                  </a>
+                  </Link>
                 )}
               </div>
             }
