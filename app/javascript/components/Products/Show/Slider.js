@@ -46,7 +46,7 @@ export default function Slider ({ product }) {
         <div className={styles.images} ref={mount}>
           {product.images.length > 1 && product.images.map(image =>
             <div key={image.id} className={styles.image}>
-              <img src={image.proxy} />
+              <img src={image.product.large} />
             </div>
           )}
         </div>
@@ -54,7 +54,7 @@ export default function Slider ({ product }) {
 
       {product.images.length === 1 &&
         <div className={styles.image}>
-          <img src={product.images[0].proxy} />
+          <img src={product.images[0].product.small} />
         </div>
       }
 
@@ -62,7 +62,7 @@ export default function Slider ({ product }) {
         <div className={styles.icons}>
           {product.images.map((i, index) =>
             <div key={i.id} className={classNames(styles.mini_icons, { [styles.active]: current === index })} onClick={() => slider.current.goTo(index)}>
-              <img src={i.proxy} />
+              <img src={i.product.small} />
             </div>
           )}
         </div>

@@ -23,7 +23,7 @@ export default function List ({ products, section }) {
           <a className={styles.product} key={product.id} href={path('product_catalog_path', { id: product.id })}>
             <div className={styles.image}>
               {product.image &&
-                <img src={product.image.proxy_section} />
+                <img src={product.image.proxy.section} />
               }
             </div>
 

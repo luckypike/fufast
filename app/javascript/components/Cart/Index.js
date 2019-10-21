@@ -82,7 +82,7 @@ export default function Cart ({ token, user }) {
                   <div key={item.uuid} className={styles.item}>
                     <div className={styles.image}>
                       {item.product.image &&
-                        <img src={item.product.image.proxy} />
+                        <img src={item.product.image.product.small} />
                       }
                     </div>
 

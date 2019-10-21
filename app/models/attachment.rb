@@ -16,10 +16,10 @@ class Attachment < ApplicationRecord
     asset_path("/upload/#{subdir}/#{filename}", host: 'https://fufayka.info')
   end
 
-  def proxy
+  def proxy_url(mode, width, height)
     url = Base64.urlsafe_encode64(path).tr('=', '').scan(/.{1,16}/).join('/')
 
-    path = "/fill/1600/2000/sm/0/#{url}.jpg"
+    path = "/#{mode}/#{width}/#{height}/sm/0/#{url}.jpg"
 
     digest = OpenSSL::Digest.new('sha256')
     hmac = Base64.urlsafe_encode64(OpenSSL::HMAC.digest(digest, IMG_KEY, IMG_SALT + path)).tr('=', '')
@@ -27,18 +27,21 @@ class Attachment < ApplicationRecord
     Rails.application.credentials.docker[:host] + hmac + path
   end
 
-  def proxy_section
-    url = Base64.urlsafe_encode64(path).tr('=', '').scan(/.{1,16}/).join('/')
+  def proxy
+    {
+      section: proxy_url(:fit, 800, 1000),
+      slider: proxy_url(:fill, 1600, 800)
+    }
+  end
 
-    path = "/fit/800/1000/sm/0/#{url}.jpg"
-
-    digest = OpenSSL::Digest.new('sha256')
-    hmac = Base64.urlsafe_encode64(OpenSSL::HMAC.digest(digest, IMG_KEY, IMG_SALT + path)).tr('=', '')
-
-    Rails.application.credentials.docker[:host] + hmac + path
+  def product
+    {
+      small: proxy_url(:fit, 500, 500),
+      large: proxy_url(:fit, 1000, 1500)
+    }
   end
 
   def as_json(options = nil)
-    super({ only: [], methods: %i[id path proxy proxy_section] }.deep_merge(options || {}))
+    super({ only: [], methods: %i[id path proxy product] }.deep_merge(options || {}))
   end
 end

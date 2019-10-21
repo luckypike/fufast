@@ -36,7 +36,7 @@ export default function Show ({ order }) {
             <div key={item.id} className={styles.item}>
               <div className={styles.image}>
                 {item.product.image &&
-                  <img src={item.product.image.proxy} />
+                  <img src={item.product.image.proxy.product} />
                 }
               </div>
 

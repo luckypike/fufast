@@ -35,7 +35,7 @@ export default function Section ({ section, products }) {
   return (
     <div className={styles.sections}>
       <div className={styles.section_image}>
-        <div className={styles.image} style={{ backgroundImage: `url(${section.image.proxy})` }}>
+        <div className={styles.image} style={{ backgroundImage: `url(${section.image.proxy.section})` }}>
         </div>
 
         <div className={styles.text}>
@@ -63,7 +63,7 @@ export default function Section ({ section, products }) {
                     <a href={path('product_catalog_path', { id: product.id })}>
                       <div className={styles.photo}>
                         {product.image &&
-                          <img src={product.image.proxy} />
+                          <img src={product.image.proxy.section} />
                         }
                       </div>
 
