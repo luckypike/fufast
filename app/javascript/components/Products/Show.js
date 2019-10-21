@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 import { path } from '../Routes'
+import classNames from 'classnames'
 
 import Cart from './Show/Cart'
 import Properties from './Show/Properties'
@@ -17,7 +18,21 @@ Show.propTypes = {
   section: PropTypes.object,
   siblings: PropTypes.array,
   gloves: PropTypes.object,
-  gloves_subs: PropTypes.array
+  gloves_subs: PropTypes.array,
+  current: PropTypes.object
+}
+
+Link.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.string,
+  current: PropTypes.string
+}
+
+function Link (props) {
+  const path = props.href.split('/')
+  const last = path.pop()
+
+  return <a href={props.href} className={classNames({ [styles.active]: last === props.current.slug, [styles.inactive]: last !== props.current.slug })}>{props.children}</a>
 }
 
 export default function Show (props) {
@@ -46,9 +61,9 @@ export default function Show (props) {
             {props.siblings.length > 0 &&
               <div className={styles.subs}>
                 {props.siblings.map(({ id, title, slug }) =>
-                  <a key={id} href={path('section_catalog_path', { slug })}>
+                  <Link key={id} current={props.current} href={path('section_catalog_path', { slug })}>
                     {title}
-                  </a>
+                  </Link>
                 )}
               </div>
             }
