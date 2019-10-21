@@ -63,7 +63,7 @@ export default function Section ({ section, products }) {
                     <a href={path('product_catalog_path', { id: product.id })}>
                       <div className={styles.photo}>
                         {product.image &&
-                          <img src={product.image} />
+                          <img src={product.image.proxy} />
                         }
                       </div>
 
@@ -81,6 +81,7 @@ export default function Section ({ section, products }) {
 
                   {product.id === 114 &&
                     <div className={styles.more}>
+                      <p>Более {section.products_count} товаров для всех типов работ</p>
                       <a href={path('section_catalog_path', { slug: section.slug })} className={buttons.main}>
                         {product.title}
                       </a>

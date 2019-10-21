@@ -26,8 +26,8 @@ class Section < ApplicationRecord
 
   has_many :sections, foreign_key: 'IBLOCK_SECTION_ID'
 
-  belongs_to :parent_section, foreign_key: 'IBLOCK_SECTION_ID', class_name: 'Section'
-  belongs_to :image, foreign_key: 'PICTURE', class_name: 'Attachment'
+  belongs_to :parent_section, foreign_key: 'IBLOCK_SECTION_ID', class_name: 'Section', optional: true
+  belongs_to :image, foreign_key: 'PICTURE', class_name: 'Attachment', optional: true
 
   has_many :section_properties
   has_many :properties, through: :section_properties
@@ -58,17 +58,17 @@ class Section < ApplicationRecord
     id == 168
   end
 
-  def sections_deep
-    [id] + sections.map(&:sections_deep).flatten
+  def sections_deep_rebuild
+    [id] + sections.map(&:sections_deep_rebuild).flatten
   end
 
-  def sections_deep_cache(sections_all)
-    [id] + sections_all.select { |s| s.iblock_section_id == id }.map { |s| s.sections_deep_cache(sections_all) }.flatten
-  end
+  # def sections_deep_cache(sections_all)
+  #   [id] + sections_all.select { |s| s.iblock_section_id == id }.map { |s| s.sections_deep_cache(sections_all) }.flatten
+  # end
 
   def bestsellers
-    Product.includes(:attachments)
-      .joins(:sections).where(b_iblock_section: { id: descendants })
+    Product.distinct.includes(:attachments)
+      .joins(:sections).where(b_iblock_section: { id: sections_deep })
       .order(orders_count: :desc)
       .limit(11)
       # .joins(:prices).where.not(b_catalog_price: { id: nil })

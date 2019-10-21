@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_150237) do
+ActiveRecord::Schema.define(version: 2019_10_21_100651) do
 
   create_table "b_abtest", primary_key: "ID", id: :integer, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "SITE_ID", null: false
@@ -1886,6 +1886,8 @@ ActiveRecord::Schema.define(version: 2019_10_14_150237) do
     t.string "TMP_ID", limit: 40
     t.integer "DETAIL_PICTURE"
     t.integer "SOCNET_GROUP_ID"
+    t.json "sections_deep"
+    t.integer "products_count"
     t.index ["IBLOCK_ID", "CODE"], name: "ix_iblock_section_code"
     t.index ["IBLOCK_ID", "DEPTH_LEVEL"], name: "ix_iblock_section_depth_level"
     t.index ["IBLOCK_ID", "IBLOCK_SECTION_ID"], name: "ix_iblock_section_1"
