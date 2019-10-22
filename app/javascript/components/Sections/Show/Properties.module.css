@@ -44,38 +44,38 @@
       }
 
       & .col1 {
-        left: -45%;
-        transform: translateX(1%);
+        left: -48%;
       }
       & .col2 {
-        transform: translateX(-32%);
+        transform: translateX(-38%);
+        left: -1%;
       }
       & .col3 {
-        transform: translateX(-42%);
-        left: 2%;
+        transform: translateX(-51%);
+        left: 1%;
       }
       & .col4 {
-        left: -1%;
-        transform: translateX(-52%);
+        left: -2%;
+        transform: translateX(-64%);
       }
       & .col5 {
-        left: -52%;
-        transform: translateX(-59%);
+        left: -49%;
+        transform: translateX(-73%);
       }
 
       & .col6 {
-        left: 1%;
-        transform: translateX(-37%);
+        left: -5%;
+        transform: translateX(-42%);
       }
 
       & .col7 {
-        left: 0;
-        transform: translateX(-54%);
+        left: -1%;
+        transform: translateX(-63%);
       }
 
       & .col8 {
         left: -1%;
-        transform: translateX(-24%);
+        transform: translateX(-27%);
       }
 
       & .title {
@@ -198,17 +198,21 @@ input:checked + .item:before {
 }
 
 .arr {
-  display: block;
-  width: 12px;
-  height: 24px;
-  margin-left: calc(var(--xr) / 2);
-  flex-shrink: 0;
+  display: none;
+  
+  @media(--s) {
+    display: block;
+    width: 12px;
+    height: 24px;
+    margin-left: calc(var(--xr) / 2);
+    flex-shrink: 0;
 
-  & polyline {
-    fill: none;
-    stroke-width: 1px;
-    stroke: var(--pr_color);
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
+    & polyline {
+      fill: none;
+      stroke-width: 1px;
+      stroke: var(--pr_color);
+      stroke-linecap: butt;
+      stroke-linejoin: miter;
+    }
   }
 }
