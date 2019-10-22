@@ -8,9 +8,9 @@ class Slide < ApplicationRecord
 
   belongs_to :attachment, foreign_key: 'PREVIEW_PICTURE'
 
-  delegate :proxy, to: :attachment
+  delegate :index, to: :attachment
 
   def as_json
-    super(only: [], methods: %i[id title proxy])
+    super(only: [], methods: %i[id title index])
   end
 end

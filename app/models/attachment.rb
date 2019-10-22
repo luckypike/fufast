@@ -27,21 +27,25 @@ class Attachment < ApplicationRecord
     Rails.application.credentials.docker[:host] + hmac + path
   end
 
-  def proxy
+  def index
     {
-      section: proxy_url(:fit, 800, 1000),
+      section: proxy_url(:fit, 1000, 1500),
       slider: proxy_url(:fill, 1600, 800)
     }
   end
 
+  def category
+    proxy_url(:fill, 1900, 1000)
+  end
+
   def product
     {
-      small: proxy_url(:fit, 500, 500),
+      small: proxy_url(:fit, 750, 750),
       large: proxy_url(:fit, 1000, 1500)
     }
   end
 
   def as_json(options = nil)
-    super({ only: [], methods: %i[id path proxy product] }.deep_merge(options || {}))
+    super({ only: [], methods: %i[id path index product category] }.deep_merge(options || {}))
   end
 end

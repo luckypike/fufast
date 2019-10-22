@@ -54,7 +54,7 @@ export default function Slider ({ product }) {
 
       {product.images.length === 1 &&
         <div className={styles.image}>
-          <img src={product.images[0].product.small} />
+          <img src={product.images[0].product.large} />
         </div>
       }
 

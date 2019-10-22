@@ -82,7 +82,7 @@ function Section ({ section, primary, secondary, subs, history, location }) {
       <div className={classNames(styles.overlay, { [styles.active]: toggle })} onClick={() => [setShowProps(!showProps), setToggle(false)]}></div>
 
       {section.depth === 1 && section.image &&
-        <div className={styles.image} style={{ backgroundImage: `url(${section.image.proxy.section})` }} />
+        <div className={classNames(styles.image, { [styles.boots]: section.id === 159, [styles.gloves]: section.id === 168 })} style={{ backgroundImage: `url(${section.image.category})` }} />
       }
 
       <div className={page.com}>

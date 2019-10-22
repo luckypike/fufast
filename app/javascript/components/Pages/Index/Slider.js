@@ -39,7 +39,7 @@ export default function Slider ({ slides }) {
         <div className={styles.images} ref={mount}>
           {slides.map(slide =>
             <div key={slide.id}>
-              <div className={styles.image} style={{ backgroundImage: `url(${slide.proxy.slider})` }}>
+              <div className={styles.image} style={{ backgroundImage: `url(${slide.index.slider})` }}>
                 <div className={styles.text}>
                   {slide.title}
                 </div>

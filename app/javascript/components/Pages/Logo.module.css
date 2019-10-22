@@ -21,5 +21,6 @@
 
   @media(--s) {
     background-image: url('../../images/logo/top_m.jpg');
+    background-position: center 50%;
   }
 }
