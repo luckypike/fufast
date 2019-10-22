@@ -51,6 +51,7 @@ export default function Properties ({ properties, history, params, gloves }) {
         <div key={property.id} className={styles.property} onMouseOver={() => setOverlay(!overlay)} onMouseOut={() => setOverlay(!overlay)}>
           <div className={styles.title}>
             {property.title}
+            <Arr />
           </div>
 
           <Items onValuesChange={handleValuesChange} items={property.enum} init={values[property.id]} property={property} gloves={gloves}/>
@@ -126,4 +127,12 @@ function usePrevious (value) {
   })
 
   return ref.current
+}
+
+function Arr () {
+  return (
+    <svg viewBox="0 0 12 24" className={styles.arr}>
+      <polyline points="1 10 5 14 9 10" />
+    </svg>
+  )
 }

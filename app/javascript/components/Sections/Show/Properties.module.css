@@ -87,6 +87,7 @@
 
 .title {
   font-weight: 600;
+  display: inline-flex;
 
   @media (--s) {
     font-size: calc(var(--yr) * calc(var(--fs) - 1));
@@ -193,5 +194,21 @@ input:checked + .item:before {
     opacity: .4;
     left: calc(var(--yr) * var(--s3) * -1);
     right: calc(var(--yr) * var(--s3) * -1);
+  }
+}
+
+.arr {
+  display: block;
+  width: 12px;
+  height: 24px;
+  margin-left: calc(var(--xr) / 2);
+  flex-shrink: 0;
+
+  & polyline {
+    fill: none;
+    stroke-width: 1px;
+    stroke: var(--pr_color);
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
   }
 }
