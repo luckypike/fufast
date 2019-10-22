@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import update from 'immutability-helper'
 import classNames from 'classnames'
+import { currency } from '../../Price'
 
 import styles from './Cart.module.css'
 import buttons from '../../Buttons.module.css'
@@ -54,19 +55,6 @@ export default function Cart ({ product, token }) {
     // newVariants = [{ 104: 40, q: 3 }, { 104: 41, q: 0 }]
     setVariants(newVariants)
   }, [product.properties])
-
-  const currency = (source) => {
-    const float = parseFloat(source)
-
-    const formatter = new Intl.NumberFormat('ru-RU', {
-      minimumFractionDigits: Math.round(float) === float ? 0 : 2,
-      maximumFractionDigits: Math.round(float) === float ? 0 : 2
-    })
-
-    let value = formatter.format(source)
-    if (source < 10000) value = value.replace(/\s/, '')
-    return `${value} ₽`
-  }
 
   const handleChange = (i, q) => {
     let v = parseInt(q)

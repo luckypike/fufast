@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { path } from '../Routes'
+import { currency } from '../Price'
 import Loading from './Loading'
 
 import styles from './List.module.css'
@@ -39,17 +40,4 @@ export default function List ({ products }) {
       </div>
     </div>
   )
-}
-
-const currency = (source) => {
-  const float = parseFloat(source)
-
-  const formatter = new Intl.NumberFormat('ru-RU', {
-    minimumFractionDigits: Math.round(float) === float ? 0 : 2,
-    maximumFractionDigits: Math.round(float) === float ? 0 : 2
-  })
-
-  let value = formatter.format(source)
-  if (source < 10000) value = value.replace(/\s/, '')
-  return `${value} ₽`
 }
