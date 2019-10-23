@@ -33,7 +33,7 @@ export default function New ({ token }) {
       user: values,
       authenticity_token: token
     }).then(res => {
-      window.location = res.headers.location
+      if (window) window.location = res.headers.location
     }).catch((error) => {
       setErrors(error.response.data)
     })

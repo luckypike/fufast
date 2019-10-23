@@ -53,7 +53,7 @@ export default function Cart ({ token, user }) {
       order: values,
       authenticity_token: token
     }).then(res => {
-      window.location = res.headers.location
+      if (window) window.location = res.headers.location
     }).catch((error) => {
       setErrors(error.response.data)
     })
