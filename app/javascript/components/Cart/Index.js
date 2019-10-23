@@ -104,20 +104,36 @@ export default function Cart ({ token, user }) {
                 )}
               </div>
 
-              <form onSubmit={handleSubmit} className={form.root}>
-                <User init={user} errors={errors} onValuesChange={handleUserChange} />
+              {user &&
+                <form onSubmit={handleSubmit} className={form.root}>
+                  <User init={user} errors={errors} onValuesChange={handleUserChange} />
 
-                {errors.email_exists && errors.email_exists === true &&
-                  <div>
-                    <p>
-                      Такая почта уже ранее использовалась для заказов.
-                    </p>
+                  {errors.email_exists && errors.email_exists === true &&
+                    <div>
+                      <p>
+                        Такая почта уже ранее использовалась для заказов.
+                      </p>
 
-                    <a href="/login">Войти или восстановить доступ</a>
+                      <a href="/login">Войти или восстановить доступ</a>
+                    </div>
+                  }
+                  <button className={buttons.main} type="submit">Оформить заказ</button>
+                </form>
+              }
+
+              {!user &&
+                <>
+                  <p>
+                    Для совершения покупки войдите в личный кабинет.
+                  </p>
+
+                  <div className={styles.login}>
+                    <a href={path('login_path')} className={buttons.main}>
+                      Войти
+                    </a>
                   </div>
-                }
-                <button className={buttons.main} type="submit">Оформить заказ</button>
-              </form>
+                </>
+              }
             </div>
           }
 
