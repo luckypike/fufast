@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import Siema from 'siema'
 import { path } from '../../Routes'
+import { currency } from '../../Price'
 
 import styles from './Sections.module.css'
 import buttons from '../../Buttons.module.css'
@@ -72,9 +73,11 @@ export default function Section ({ section, products }) {
                           {product.title}
                         </div>
 
-                        <div className={styles.price}>
-                          {product.price}
-                        </div>
+                        {product.price &&
+                          <div className={styles.price}>
+                            {currency(product.price)}
+                          </div>
+                        }
                       </div>
                     </a>
                   }
