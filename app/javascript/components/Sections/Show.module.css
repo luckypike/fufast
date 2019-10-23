@@ -55,6 +55,8 @@
     border-radius: calc(var(--yr) / 2);
     padding: var(--yr) calc(var(--xr) / 2);
     transition: background 0.4s, color 0.5s;
+    background-color: #ffffff;
+    color: #000;
 
     &:not(:last-child) {
       margin-right: var(--yr);
@@ -133,16 +135,6 @@
   composes: mt from '../Fonts.module.css';
   margin-bottom: calc(var(--yr) * var(--s2));
   max-width: 48rem;
-}
-
-.active_sub {
-  background-color: var(--pr_color);
-  color: #fff;
-}
-
-.inactive_sub {
-  background-color: #ffffff;
-  color: #000;
 }
 
 .product_sections {
