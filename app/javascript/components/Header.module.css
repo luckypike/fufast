@@ -182,11 +182,23 @@
     }
   }
 
-  @media(--l) {
-    border-bottom: none;
+  @media (min-width: 1280px) and (max-width: 1320px) {
+    border-bottom: 0;
 
     &:not(:last-child) {
       margin-right: var(--xr);
+    }
+
+    & a {
+      padding: 0;
+    }
+  }
+
+  @media (min-width: 1320px) {
+    border-bottom: none;
+
+    &:not(:last-child) {
+      margin-right: calc(var(--xr) * 2);
     }
 
     & a {
