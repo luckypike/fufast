@@ -186,7 +186,7 @@
     border-bottom: none;
 
     &:not(:last-child) {
-      margin-right: calc(var(--xr) * 2);
+      margin-right: var(--xr);
     }
 
     & a {
