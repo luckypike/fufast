@@ -29,7 +29,7 @@ class Attachment < ApplicationRecord
 
   def index
     {
-      section: proxy_url(:fit, 1000, 1500),
+      section: proxy_url(:fit, 1800, 1000),
       slider: proxy_url(:fill, 1600, 800)
     }
   end

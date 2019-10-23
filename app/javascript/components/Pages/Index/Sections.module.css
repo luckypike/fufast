@@ -40,8 +40,6 @@
   @media(--l) {
     width: 33.3%;
     padding: calc(var(--xr) * 2) calc(var(--xr) * 2) 0;
-    /* padding: 0 var(--yr); */
-    /* margin-bottom: 32px; */
   }
 }
 
@@ -61,7 +59,7 @@
     opacity: 0.2;
 
     @media(--s) {
-      padding-top: calc(4 / 5 * 100%);
+      padding-top: calc(2 / 3 * 100%);
     }
   }
 }
@@ -74,8 +72,6 @@
   right: 40px;
 
   & h1 {
-    /* font-size: 20px; */
-    /* line-height: 28px; */
     margin-bottom: calc(var(--yr) * var(--s2));
   }
 
@@ -100,7 +96,6 @@
 .product {
   position: relative;
   width: 100%;
-  /* background: white; */
   margin: 0 8px 8px;
 
   @media(--s) {
@@ -144,19 +139,13 @@
 .title {
   composes: mt from '../../Fonts.module.css';
   overflow: hidden;
-  /* font-weight: 600; */
-  /* font-size: 14px; */
-  /* line-height: 20px; */
   max-height: calc(var(--yr) * calc(var(--lh) - 1.5) * 2);
-  /* padding: 0 8px; */
-  /* margin-bottom: calc(var(--yr) * 2); */
 }
 
 .price {
   composes: mt from '../../Fonts.module.css';
   color: var(--gr_color);
   margin-top: var(--yr);
-  /* padding: 0 var(--yr); */
 }
 
 .nav {
@@ -209,7 +198,6 @@
   text-align: center;
   transform: translateY(-50%);
   padding-bottom: 5.75rem
-  /* margin: 68% 0; */
 }
 
 .active {
