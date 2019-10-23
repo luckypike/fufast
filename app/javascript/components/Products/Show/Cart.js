@@ -52,7 +52,6 @@ export default function Cart ({ product, token }) {
       })
     }
 
-    // newVariants = [{ 104: 40, q: 3 }, { 104: 41, q: 0 }]
     setVariants(newVariants)
   }, [product.properties])
 
@@ -89,7 +88,7 @@ export default function Cart ({ product, token }) {
   if (!variants) return null
 
   const s = variants.map(variant => variant.q)
-  var result = s.reduce(function (sum, current) {
+  const result = s.reduce(function (sum, current) {
     return sum + current
   }, 0)
 
@@ -157,11 +156,9 @@ export default function Cart ({ product, token }) {
           </div>
         }
 
-        {variants.length !== 0 &&
-          <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
-            В корзину
-          </button>
-        }
+        <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
+          В корзину
+        </button>
       </div>
     </div>
   )

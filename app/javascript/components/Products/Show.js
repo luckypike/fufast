@@ -25,7 +25,7 @@ Show.propTypes = {
 Link.propTypes = {
   href: PropTypes.string,
   children: PropTypes.string,
-  current: PropTypes.string
+  current: PropTypes.object
 }
 
 function Link (props) {
