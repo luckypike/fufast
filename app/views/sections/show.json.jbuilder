@@ -1,20 +1,18 @@
 json.sections @sections do |section|
-  json.partial! section
-  json.products Product.futured(section) do |product|
-    json.partial! product
+  json.cache! section, expires_in: 10.minutes do
+    json.partial! section
+    json.products Product.futured(section) do |product|
+      json.partial! product
 
-    json.image product.attachments.min_by(&:id)
+      json.image product.attachments.min_by(&:id)
+    end
   end
-  #   json.partial! product
-  #
-  #   json.image product.attachments.first
-  # end
 end
 
 json.products @products do |product|
   json.partial! product
 
-  json.image product.attachments.sort_by{ |i| i.id }.first
+  json.image product.attachments.min_by(&:id)
 end
 
 json.properties @primary_section.properties do |property|

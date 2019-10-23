@@ -46,8 +46,8 @@ class Product < ApplicationRecord
 
     def futured(section)
       Product.includes(:attachments).joins(:sections)
-        .where(b_iblock_section: { id: [section.id] + section.sections.map(&:id) })
-        .order(created_at: :desc)
+        .where(b_iblock_section: { id: section.sections_deep })
+        .order(orders_count: :desc)
         .limit(12)
     end
 
