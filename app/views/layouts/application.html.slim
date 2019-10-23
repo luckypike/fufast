@@ -4,6 +4,10 @@ html lang=I18n.locale
     = display_meta_tags site: 'Фуфайка', reverse: true, separator: '—'
     = tag('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' })
     = favicon_link_tag '/favicon.ico'
+    = javascript_pack_tag 'app', async: true
+    = stylesheet_pack_tag 'app', media: :all
+
+    = stylesheet_link_tag 'https://use.typekit.net/eua0zbv.css' unless Rails.env.test?
 
   body
     = react_component( \
@@ -16,11 +20,6 @@ html lang=I18n.locale
     )
 
     = yield
-
-    = javascript_pack_tag 'app', async: true
-    = stylesheet_pack_tag 'app', media: :all
-
-    = stylesheet_link_tag 'https://use.typekit.net/eua0zbv.css' unless Rails.env.test?
 
     = react_component 'Benifits'
 
