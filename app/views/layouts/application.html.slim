@@ -13,7 +13,9 @@ html lang=I18n.locale
     = react_component( \
       'Header',
       { \
-        sections: Section.where(parent_section: nil).map{|section| section.slice(:id, :title, :slug)} \
+        sections: Section.where(parent_section: nil).map{ |section| section.slice(:id, :title, :slug) },
+        sec: @section ? @primary_section : @secondary_section,
+        prd: @product ? @product.sections.first.primary_section : nil \
       }, { \
         prerender: Rails.env.production? \
       } \

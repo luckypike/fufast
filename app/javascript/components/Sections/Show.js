@@ -94,7 +94,7 @@ function Section ({ section, primary, secondary, subs, history, location }) {
           {subs.length > 0 &&
             <div className={styles.subs}>
               {subs.map(({ id, title, slug, short }) =>
-                <a key={id} href={path('section_catalog_path', { slug })}>
+                <a key={id} href={path('section_catalog_path', { slug })} className={classNames({ [styles.active]: slug === section.slug })}>
                   {short || title}
                 </a>
               )}

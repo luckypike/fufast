@@ -9,22 +9,16 @@ import styles from './Header.module.css'
 import Logo from '!svg-react-loader?!../images/logo.svg'
 
 Header.propTypes = {
-  sections: PropTypes.array
+  sections: PropTypes.array.isRequired,
+  sec: PropTypes.object,
+  prd: PropTypes.object
 }
 
-// Link.propTypes = {
-//   href: PropTypes.string,
-//   children: PropTypes.string
-// }
-//
-// function Link (props) {
-//   const path = window.location.pathname
-//
-//   return <a href={props.href} className={classNames({ [styles.active]: path === props.href })}>{props.children}</a>
-// }
-
-export default function Header ({ sections }) {
+export default function Header ({ sections, sec, prd }) {
   const [toggle, setToggle] = useState(false)
+
+  if (!sec) { sec = 1 }
+  if (!prd) { prd = 1 }
 
   return (
     <header className={classNames(styles.root, { [styles.toggled]: toggle })}>
@@ -39,26 +33,26 @@ export default function Header ({ sections }) {
       <nav className={styles.nav}>
         <div className={styles.menu}>
           {sections.map((section, i) =>
-            <div className={styles.item} key={i}>
+            <div className={classNames(styles.item, { [styles.active]: section.id === sec.id || section.id === prd.id })} key={i}>
               <a href={path('section_catalog_path', { slug: section.slug })}>
                 {section.title}
               </a>
             </div>
           )}
 
-          <div className={classNames(styles.item)}>
+          <div className={styles.logos}>
             <a href={path('logo_path')}>
               Нанесение логотипов
             </a>
           </div>
 
-          <div className={classNames(styles.item, styles.about)}>
+          <div className={styles.about}>
             <a href={path('about_path')}>
               О компании
             </a>
           </div>
 
-          <div className={classNames(styles.item, styles.contacts)}>
+          <div className={styles.contacts}>
             <a href={path('contacts_path')}>
               Контакты
             </a>
