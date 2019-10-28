@@ -8,6 +8,7 @@ import classNames from 'classnames'
 import Cart from './Show/Cart'
 import Properties from './Show/Properties'
 import Slider from './Show/Slider'
+import List from './List'
 
 import styles from './Show.module.css'
 import page from '../Page.module.css'
@@ -102,6 +103,14 @@ export default function Show (props) {
               }
             </div>
           </div>
+
+          {product.products.length > 0 &&
+            <div className={styles.products}>
+              <div className={styles.title}>С этим товаром покупают</div>
+
+              <List products={product.products} />
+            </div>
+          }
         </div>
       </div>
     </div>

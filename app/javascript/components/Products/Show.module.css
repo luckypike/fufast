@@ -8,6 +8,7 @@
 
 .data {
   max-width: 48rem;
+  margin-bottom: calc(var(--yr) * var(--s4));
 }
 
 .main {
@@ -44,6 +45,10 @@
 .slider {
   display: block;
   margin-bottom: 8px;
+
+  @media(--m) {
+    margin-bottom: calc(var(--yr) * var(--s4));
+  }
 }
 
 .sections {
@@ -102,4 +107,17 @@
 .inactive {
   background-color: #fff;
   color: #000;
+}
+
+
+.products {
+  @media(--m) {
+    grid-column: -1 / 1;
+  }
+}
+
+.title {
+  composes: h2 from '../Fonts.module.css';
+  text-align: center;
+  margin-bottom: calc(var(--yr) * var(--s2));
 }
