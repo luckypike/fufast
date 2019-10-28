@@ -44,7 +44,7 @@
   position: absolute;
   top: 50%;
   outline: 0;
-  z-index: 5;
+  z-index: 2;
   border: 1px solid #e0e0e0;
   transition: 0.3s border-color;
   margin-top: -24px;
