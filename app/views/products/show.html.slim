@@ -1,3 +1,12 @@
 - set_meta_tags title: @product.title, description: @product.description
 
-= react_component 'Products/Show', { product: @product.slice(:id, :title, :description), token: form_authenticity_token, section: @section, siblings: @siblings, gloves: @gloves, gloves_subs: @gloves_subs, current: @current }
+= react_component( \
+      'Products/Show',
+      { \
+        product: @product.slice(:id, :title, :description),
+        token: form_authenticity_token,
+        active: @section, 
+        section: @section.primary_section,
+        siblings: @section.primary_section.gloves? ? @section.primary_section.sections : @section.secondary_section.sections \
+      } \
+    )

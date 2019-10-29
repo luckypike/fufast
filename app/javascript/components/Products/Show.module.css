@@ -83,6 +83,8 @@
     border-radius: calc(var(--yr) / 2);
     padding: var(--yr) calc(var(--xr) / 2);
     transition: background 0.4s, color 0.5s;
+    background-color: #ffffff;
+    color: #000;
 
     &:not(:last-child) {
       margin-right: var(--yr);
@@ -96,19 +98,13 @@
     @media (--s) {
       margin-bottom: var(--yr);
     }
+
+    &.active {
+      background-color: var(--pr_color);
+      color: #fff;
+    }
   }
 }
-
-.active {
-  background-color: var(--pr_color);
-  color: #fff;
-}
-
-.inactive {
-  background-color: #fff;
-  color: #000;
-}
-
 
 .products {
   @media(--m) {

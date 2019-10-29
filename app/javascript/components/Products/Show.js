@@ -18,22 +18,7 @@ Show.propTypes = {
   token: PropTypes.string.isRequired,
   section: PropTypes.object,
   siblings: PropTypes.array,
-  gloves: PropTypes.object,
-  gloves_subs: PropTypes.array,
-  current: PropTypes.object
-}
-
-Link.propTypes = {
-  href: PropTypes.string,
-  children: PropTypes.string,
-  current: PropTypes.object
-}
-
-function Link (props) {
-  const path = props.href.split('/')
-  const last = path.pop()
-
-  return <a href={props.href} className={classNames({ [styles.active]: last === props.current.slug, [styles.inactive]: last !== props.current.slug })}>{props.children}</a>
+  active: PropTypes.object
 }
 
 export default function Show (props) {
@@ -62,19 +47,9 @@ export default function Show (props) {
             {props.siblings.length > 0 &&
               <div className={styles.subs}>
                 {props.siblings.map(({ id, title, slug }) =>
-                  <Link key={id} current={props.current} href={path('section_catalog_path', { slug })}>
+                  <a key={id} href={path('section_catalog_path', { slug })} className={classNames({ [styles.active]: slug === props.active.slug })}>
                     {title}
-                  </Link>
-                )}
-              </div>
-            }
-
-            {props.gloves.id === 168 &&
-              <div className={styles.subs}>
-                {props.gloves_subs.map(({ id, title, slug }) =>
-                  <Link key={id} current={props.current} href={path('section_catalog_path', { slug })}>
-                    {title}
-                  </Link>
+                  </a>
                 )}
               </div>
             }
