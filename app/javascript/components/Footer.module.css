@@ -18,7 +18,12 @@
 
     @media(--s) {
       margin: 0 1em 0 0;
-
+    }
+    
+    & a {
+      &:hover {
+        color: #bbb;
+      }
     }
   }
 

@@ -25,17 +25,17 @@ export default function Header ({ sections, sec, prd }) {
       <div className={classNames(styles.overlay, { [styles.active]: toggle })} onClick={() => setToggle(false)}></div>
 
       <div className={styles.logo}>
-        <a href="/">
+        <a href={path('root_path')}>
           <Logo />
         </a>
       </div>
 
       <nav className={styles.nav}>
         <div className={styles.menu}>
-          {sections.map((section, i) =>
-            <div className={classNames(styles.item, { [styles.active]: section.id === sec.id || section.id === prd.id })} key={i}>
-              <a href={path('section_catalog_path', { slug: section.slug })}>
-                {section.title}
+          {sections.map(({ id, title, slug }) =>
+            <div key={id} className={classNames(styles.item, { [styles.active]: id === sec.id || id === prd.id })}>
+              <a href={path('section_catalog_path', { slug: slug })}>
+                {title}
               </a>
             </div>
           )}
