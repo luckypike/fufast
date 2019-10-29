@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import classNames from 'classnames'
+import update from 'immutability-helper'
 
 import { path } from '../Routes'
 import { Errors } from '../Form'
@@ -65,6 +67,26 @@ export default function Cart ({ token, user }) {
 
   const hasProducts = () => (items && items.length > 0)
 
+  const handleChange = (i, quantity) => {
+    let v = parseInt(quantity)
+
+    if (Number.isNaN(v)) {
+      v = 0
+    }
+
+    if (v < 0) v = 0
+
+    const newItems = update(items, {
+      [i]: {
+        quantity: {
+          $set: v
+        }
+      }
+    })
+
+    setItems(newItems)
+  }
+
   return (
     <div className={page.root}>
       <div className={page.text}>
@@ -78,7 +100,7 @@ export default function Cart ({ token, user }) {
           {hasProducts() &&
             <div>
               <div>
-                {items.map(item =>
+                {items.map((item, i) =>
                   <div key={item.uuid} className={styles.item}>
                     <div className={styles.image}>
                       {item.product.image &&
@@ -98,6 +120,23 @@ export default function Cart ({ token, user }) {
                       <div className={styles.price}>
                         {currency(item.price * item.quantity)}
                         {item.quantity > 1 && ` (${currency(item.price)} * ${item.quantity})`}
+                      </div>
+
+                      <div className={styles.buttons}>
+                        <div className={styles.input}>
+                          <input
+                            onChange={({ target: { value } }) => handleChange(i, value)}
+                            type="text"
+                            value={item.quantity === 0 ? '' : item.quantity}
+                            placeholder="0"
+                          />
+                        </div>
+                        <div className={classNames(styles.button, styles.minus)}>
+                          <button onClick={() => handleChange(i, item.quantity - 1)}>-</button>
+                        </div>
+                        <div className={classNames(styles.button, styles.plus)}>
+                          <button onClick={() => handleChange(i, item.quantity + 1)}>+</button>
+                        </div>
                       </div>
                     </div>
                   </div>
