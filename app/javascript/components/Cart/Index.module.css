@@ -23,6 +23,7 @@
 .image {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 
   &::before {
     display: block;
@@ -73,6 +74,7 @@
 
 .title {
   grid-column: 1 / span 3;
+  cursor: pointer;
 }
 
 .input {

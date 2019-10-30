@@ -115,16 +115,16 @@ export default function Cart ({ token, user }) {
               <div>
                 {items.map((item, i) =>
                   <div key={item.uuid} className={styles.item}>
-                    <div className={styles.image}>
+                    <a href={path('product_catalog_path', { id: item.product.id })} className={styles.image}>
                       {item.product.image &&
                         <img src={item.product.image.product.small} />
                       }
-                    </div>
+                    </a>
 
                     <div className={styles.data}>
-                      <div className={styles.title}>
+                      <a href={path('product_catalog_path', { id: item.product.id })} className={styles.title}>
                         {item.product.title}
-                      </div>
+                      </a>
 
                       <div className={styles.size}>
                         {item.size}
