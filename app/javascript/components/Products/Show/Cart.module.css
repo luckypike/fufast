@@ -64,24 +64,42 @@
   order: -1;
 }
 
-.cart {
-
-}
-
-.ppi {
- display: block;
-}
-
-.po {
-  /* display: none; */
+.po, .ppi {
+  composes: at from '../../Fonts.module.css';
 }
 
 .price {
+  margin-bottom: calc(var(--yr) * var(--s2));
   font-size: 1.5rem;
   line-height: 1.75rem;
-  margin-bottom: calc(var(--yr) * var(--s2));
+
+  @media(--s) {
+    margin: 0;
+  }
 }
 
 .not_available {
   margin-bottom: calc(var(--yr) * var(--s2));
+}
+
+.check {
+  margin-top: calc(var(--yr) * 2);
+  color: red;
+}
+
+
+.order {
+  display: block;
+
+  @media(--s) {
+    display: flex;
+    max-width: 48rem;
+
+    & .order_price {
+      flex-grow: 1;
+      margin-bottom: 0;
+      max-width: 280px;
+      margin-right: var(--xr);
+    }
+  }
 }

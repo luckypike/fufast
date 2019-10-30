@@ -15,10 +15,7 @@ Cart.propTypes = {
 
 export default function Cart ({ product, token }) {
   const [variants, setVariants] = useState()
-
-  // const [variants, dispatch] = useReducer(variantsReducer, [], () => {
-  //   return [{ 104: 40, q: 3 }, { 104: 41, q: 0 }]
-  // })
+  const [check, setCheck] = useState(false)
 
   useEffect(() => {
     const newVariants = []
@@ -60,6 +57,8 @@ export default function Cart ({ product, token }) {
   }, [product.properties])
 
   const handleChange = (i, q) => {
+    if (q > 0) { setCheck(false) }
+
     let v = parseInt(q)
 
     if (Number.isNaN(v)) {
@@ -80,6 +79,8 @@ export default function Cart ({ product, token }) {
   }
 
   const handleAddToCart = async () => {
+    if (result < 1) { setCheck(true) }
+
     await axios.post('/cart', {
       cart: {
         product_id: product.id,
@@ -125,45 +126,51 @@ export default function Cart ({ product, token }) {
         )}
       </div>
 
-      <div className={styles.order_price}>
-        {product.price && product.price.length > 0 &&
-          <>
-            {result <= 1 &&
-              <div className={styles.ppi}>
-                <span>Цена за штуку</span>
-                <div className={styles.price}>
-                  {currency(product.price)}
+      <div className={styles.order}>
+        <div className={styles.order_price}>
+          {product.price && product.price.length > 0 &&
+            <>
+              {result <= 1 &&
+                <div className={styles.ppi}>
+                  <span>Цена за штуку</span>
+                  <div className={styles.price}>
+                    {currency(product.price)}
+                  </div>
                 </div>
-              </div>
-            }
+              }
 
-            {result > 1 &&
-              <div className={styles.po}>
-                <span>Общая стоимость</span>
-                <div className={styles.price}>
-                  {currency(product.price * result)}
+              {result > 1 &&
+                <div className={styles.po}>
+                  <span>Общая стоимость</span>
+                  <div className={styles.price}>
+                    {currency(product.price * result)}
+                  </div>
                 </div>
-              </div>
-            }
-          </>
-        }
+              }
+            </>
+          }
 
-        {!product.price && variants.length === 0 &&
-          <div className={styles.not_available}>
-            Товар временно недоступен для покупки, позвоните по телефону для уточнения.
-          </div>
-        }
+          {!product.price && variants.length === 0 &&
+            <div className={styles.not_available}>
+              Товар временно недоступен для покупки, позвоните по телефону для уточнения.
+            </div>
+          }
 
-        {product.price === null && variants.length > 0 &&
-          <div className={styles.not_available}>
-            Цена будет уточнена после обработки заказа
-          </div>
-        }
+          {product.price === null && variants.length > 0 &&
+            <div className={styles.not_available}>
+              Цена будет уточнена после обработки заказа
+            </div>
+          }
+        </div>
 
         <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
           В корзину
         </button>
       </div>
+
+      {check &&
+        <div className={styles.check}>Необходимо выбрать размер, чтобы сделать заказ.</div>
+      }
     </div>
   )
 }
