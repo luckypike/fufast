@@ -38,6 +38,19 @@ class Product < ApplicationRecord
   end
 
   class << self
+    def orders(product)
+      Order.joins(:items)
+      .where(b_sale_basket: { product_id: product })
+      .map(&:items).flatten
+      .map(&:product)
+    end
+
+    def buy_with(product, orders)
+      Product.where.not(id: product)
+        .where(id: orders)
+        .limit(6)
+    end
+
     def by_property(property, value)
       joins(:element)
         .joins("INNER JOIN b_iblock_element_property prop_#{property} ON b_iblock_element.ID = prop_#{property}.IBLOCK_ELEMENT_ID")
