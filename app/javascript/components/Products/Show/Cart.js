@@ -50,6 +50,10 @@ export default function Cart ({ product, token }) {
           q: 0
         })
       })
+    } else if (!size && !height) {
+      newVariants.push({
+        q: 0
+      })
     }
 
     setVariants(newVariants)
@@ -98,7 +102,7 @@ export default function Cart ({ product, token }) {
         {variants && variants.map((variant, i) =>
           <div className={styles.variant} key={i}>
             <div className={styles.label}>
-              {variant.title} ({variant.q})
+              {variant.title || 'Без размера' } ({variant.q})
             </div>
 
             <div className={styles.buttons}>
