@@ -26,6 +26,10 @@ class CartController < ApplicationController
     end
   end
 
+  def destroy
+    session[:cart].delete(params[:id])
+  end
+
   private
 
   def authorize_cart

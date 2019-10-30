@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get :cart, to: 'cart#index'
   post :cart, to: 'cart#create'
 
+  namespace :cart do
+    delete ':id', action: :destroy, as: :destroy
+  end
+
   get :login, to: 'sessions#new'
   post :login, to: 'sessions#create'
 

@@ -6,4 +6,8 @@ class CartPolicy < Struct.new(:user, :cart)
   def create?
     true
   end
+
+  def destroy?
+    true
+  end
 end

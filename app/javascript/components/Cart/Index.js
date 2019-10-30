@@ -23,13 +23,13 @@ export default function Cart ({ token, user }) {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    const _fetch = async () => {
-      const { data } = await axios.get(path('cart_path', { format: 'json' }))
-      setItems(data.items)
-    }
-
     _fetch()
   }, [])
+
+  const _fetch = async () => {
+    const { data } = await axios.get(path('cart_path', { format: 'json' }))
+    setItems(data.items)
+  }
 
   const [values, setValues] = useState()
   const [errors, setErrors] = useState({})
@@ -87,6 +87,19 @@ export default function Cart ({ token, user }) {
     setItems(newItems)
   }
 
+  const handleDestroy = async item => {
+    await axios.delete(
+      path('cart_destroy_path', { id: item.product.id }),
+      {
+        params: {
+          authenticity_token: token
+        }
+      }
+    )
+
+    _fetch()
+  }
+
   return (
     <div className={page.root}>
       <div className={page.text}>
@@ -119,7 +132,7 @@ export default function Cart ({ token, user }) {
 
                       <div className={styles.price}>
                         {currency(item.price * item.quantity)}
-                        {item.quantity > 1 && ` (${currency(item.price)} * ${item.quantity})`}
+                        {/* {item.quantity > 1 && ` (${currency(item.price)} * ${item.quantity})`} */}
                       </div>
 
                       <div className={styles.buttons}>
@@ -137,7 +150,21 @@ export default function Cart ({ token, user }) {
                         <div className={classNames(styles.button, styles.plus)}>
                           <button onClick={() => handleChange(i, item.quantity + 1)}>+</button>
                         </div>
+
+                        {item.quantity > 1 &&
+                          <div className={styles.piece}>
+                            {currency(item.price)} / шт.
+                          </div>
+                        }
                       </div>
+                    </div>
+
+                    <div className={styles.destroy} onClick={() => handleDestroy(item)}>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M18 5h-4V3a1.9 1.9 0 0 0-1.7-2H7.8A1.9 1.9 0 0 0 6 3v2H2a1 1 0 1 0 0 2h1l1 10c.125 1.1.895 2 2
+                          2h8c1.067.001 1.891-.9 2-1.9L17 7h1a1 1 0 0 0 0-2zM8 3h4v2H8V3zm6 14H6L5 7h10l-1 10z">
+                        </path>
+                      </svg>
                     </div>
                   </div>
                 )}

@@ -1,5 +1,5 @@
 .root {
-  /* padding-bottom: calc(var(--yr) * var(--s4)); */
+
 }
 
 .login {
@@ -8,21 +8,20 @@
 
 
 .item {
+  display: grid;
   background: #fff;
   padding: calc(var(--yr) * var(--s3)) var(--xr);
   margin-bottom: calc(var(--yr) * var(--s3));
-  display: grid;
-  grid-template-columns: 5rem  1fr 5rem;
+  grid-template-columns: 5rem  1fr;
   grid-column-gap: var(--xr);
 
-  @media (--s) {
-    grid-column-gap: calc(var(--xr) * 2);
+  @media(--s) {
+    grid-template-columns: 5rem  1fr 5rem;
   }
 }
 
 .image {
   position: relative;
-  /* background-color: red; */
   overflow: hidden;
 
   &::before {
@@ -45,18 +44,35 @@
 }
 
 .data {
+  display: block;
   composes: at from '../Fonts.module.css';
+
+  @media(--s) {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: var(--xr);
+  }
 }
 
 .size {
   composes: mt from '../Fonts.module.css';
   margin-top: var(--yr);
+  grid-column: 1 / span 3;
 }
 
 .price {
-  composes: mt from '../Fonts.module.css';
-  color: var(--gr_color);
+  composes: at from '../Fonts.module.css';
   margin-top: var(--yr);
+
+  @media(--s) {
+    text-align: center;
+    grid-column: 5 / span 1;
+    grid-row: 1;
+  }
+}
+
+.title {
+  grid-column: 1 / span 3;
 }
 
 .input {
@@ -80,6 +96,9 @@
 }
 
 .buttons {
+  position: relative;
+  grid-column: 4 / span 1;
+  grid-row: 1;
   display: grid;
   grid-template-columns: 1.875rem 3rem 1.875rem;
   grid-column-gap: var(--yr);
@@ -103,4 +122,40 @@
 
 .minus {
   order: -1;
+}
+
+.destroy {
+  color: #999;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  grid-column: 2 / span 1;
+  margin: -10% 0 0 50%;
+  z-index: 2;
+
+  @media(--s) {
+    grid-column: 3 / span 1;
+    margin-top: var(--yr);
+  }
+
+  & svg {
+    fill: currentColor;
+    display: block;
+  }
+}
+
+.piece {
+  display: none;
+  composes: mt from '../Fonts.module.css';
+
+  @media(--s) {
+    display: block;
+    position: absolute;
+    color: var(--gr_color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+  }
 }
