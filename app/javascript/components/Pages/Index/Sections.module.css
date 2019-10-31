@@ -112,6 +112,7 @@
 }
 
 .photo {
+  pointer-events: none;
   position: relative;
   margin-bottom: 8px;
   background: white;
@@ -185,7 +186,7 @@
 
 .tap {
   height: 5.75rem;
-
+  pointer-events: none;
   padding-right: 10%;
 }
 
