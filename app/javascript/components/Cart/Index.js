@@ -131,8 +131,14 @@ export default function Cart ({ token, user }) {
                       </div>
 
                       <div className={styles.price}>
-                        {currency(item.price * item.quantity)}
-                        {/* {item.quantity > 1 && ` (${currency(item.price)} * ${item.quantity})`} */}
+                        {item.price &&
+                          <div>
+                            {currency(item.price * item.quantity)}
+                          </div>
+                        }
+                        {!item.price &&
+                          <span>&#8212;</span>
+                        }
                       </div>
 
                       <div className={styles.buttons}>
@@ -151,7 +157,7 @@ export default function Cart ({ token, user }) {
                           <button onClick={() => handleChange(i, item.quantity + 1)}>+</button>
                         </div>
 
-                        {item.quantity > 1 &&
+                        {item.price && item.quantity > 1 &&
                           <div className={styles.piece}>
                             {currency(item.price)} / шт.
                           </div>

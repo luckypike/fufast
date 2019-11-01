@@ -16,6 +16,8 @@ Cart.propTypes = {
 export default function Cart ({ product, token }) {
   const [variants, setVariants] = useState()
   const [check, setCheck] = useState(false)
+  const [send, setSend] = useState(false)
+  const [add, setAdd] = useState(false)
 
   useEffect(() => {
     const newVariants = []
@@ -79,7 +81,14 @@ export default function Cart ({ product, token }) {
   }
 
   const handleAddToCart = async () => {
-    if (result < 1) { setCheck(true) }
+    if (result < 1) {
+      setCheck(true)
+      setAdd(false)
+    }
+
+    if (result > 0) {
+      setSend(true)
+    }
 
     await axios.post('/cart', {
       cart: {
@@ -88,6 +97,12 @@ export default function Cart ({ product, token }) {
       },
       authenticity_token: token
     })
+
+    setTimeout(() => setSend(false), 1000)
+
+    if (result > 0) {
+      setTimeout(() => setAdd(true), 1100)
+    }
   }
 
   if (!variants) return null
@@ -163,13 +178,17 @@ export default function Cart ({ product, token }) {
           }
         </div>
 
-        <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)}>
-          В корзину
+        <button onClick={handleAddToCart} className={classNames(buttons.main, styles.cart)} disabled={send}>
+          {!send ? 'В корзину' : 'Добавляем...'}
         </button>
       </div>
 
       {check &&
         <div className={styles.check}>Необходимо выбрать размер, чтобы сделать заказ.</div>
+      }
+
+      {add &&
+        <div className={styles.success}>Товар успешно добавлен в корзину</div>
       }
     </div>
   )

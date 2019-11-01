@@ -137,7 +137,7 @@
 
   @media(--s) {
     grid-column: 3 / span 1;
-    margin-top: var(--yr);
+    margin: calc(var(--yr) * 2) 0 0;
   }
 
   & svg {

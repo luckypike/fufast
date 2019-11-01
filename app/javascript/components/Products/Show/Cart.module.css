@@ -82,11 +82,14 @@
   margin-bottom: calc(var(--yr) * var(--s2));
 }
 
-.check {
+.check, .success {
   margin-top: calc(var(--yr) * 2);
   color: red;
 }
 
+.success {
+  color: green;
+}
 
 .order {
   display: block;
