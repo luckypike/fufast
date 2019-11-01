@@ -187,7 +187,7 @@ export default function Cart ({ product, token }) {
         <div className={styles.check}>Необходимо выбрать размер, чтобы сделать заказ.</div>
       }
 
-      {add &&
+      {add && !send &&
         <div className={styles.success}>Товар успешно добавлен в корзину</div>
       }
     </div>
