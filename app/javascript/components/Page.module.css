@@ -2,6 +2,7 @@
   padding-top: 3rem;
 
   @media (--s) {
+    overflow: hidden;
     padding-top: 5rem;
   }
 }
