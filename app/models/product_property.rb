@@ -4,6 +4,7 @@ class ProductProperty < ApplicationRecord
   alias_attribute :id, :ID
   alias_attribute :title, :NAME
   alias_attribute :sort, :SORT
+  alias_attribute :code, :CODE
   alias_attribute :active, :ACTIVE
   alias_attribute :type, :PROPERTY_TYPE
   alias_attribute :iblock_id, :IBLOCK_ID

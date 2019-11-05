@@ -238,27 +238,25 @@ function User ({ onValuesChange, errors, init }) {
 
   return (
     <>
-      {values.email &&
-        <div className={form.el}>
-          <label>
-            <div className={form.label}>
-              Электронная почта
-            </div>
+      <div className={form.el}>
+        <label>
+          <div className={form.label}>
+            Электронная почта
+          </div>
 
-            <div className={form.input}>
-              <input
-                placeholder="Обязательно заполните..."
-                type="email"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-              />
-            </div>
-          </label>
+          <div className={form.input}>
+            <input
+              placeholder="Обязательно заполните..."
+              type="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
 
-          <Errors errors={errors['user.email']} />
-        </div>
-      }
+        <Errors errors={errors['user.email']} />
+      </div>
 
       <div className={form.el}>
         <label>

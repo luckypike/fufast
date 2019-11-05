@@ -7,10 +7,32 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-
     authorize @order
 
-    if @order.save
+    session[:cart].each do |product_id, cart|
+      product = Product.find_by(id: product_id)
+
+      cart.each do |variant|
+        next if variant['q'] < 1
+
+        item = OrderItem.new(product: product, user: @order.user.id, price: product.price, quantity: variant['q'], title: product.title)
+
+        prop_enum = ProductPropertyEnum.find(variant['size'])
+        prop = ProductProperty.find(variant['size_id'])
+        item.order_item_properties << OrderItemProperty.new(name: prop.title, value: prop_enum.value, code: prop.code)
+
+        if variant['height']
+          prop_enum = ProductPropertyEnum.find(variant['height'])
+          prop = ProductProperty.find(variant['height_id'])
+          item.order_item_properties << OrderItemProperty.new(name: prop.title, value: prop_enum.value, code: prop.code)
+        end
+
+        @order.items << item
+      end
+    end
+
+    if @order.save!
+      session.delete(:cart)
       sign_in(@order.user)
       head :ok, location: user_path(@order.user)
     else
